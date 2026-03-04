@@ -953,7 +953,7 @@
         <div class="sal-axis">
             <div class="sal-axis-item">
                 <strong>Stage (S)</strong>
-                <span>프로젝트의 시간축. 단계별 진행 (S0 &rarr; S1 &rarr; ... &rarr; Sn)</span>
+                <span>프로젝트의 시간축. 단계별 진행 (S1 &rarr; S2 &rarr; ... &rarr; Sn)</span>
             </div>
             <div class="sal-axis-item">
                 <strong>Area (A)</strong>
@@ -981,29 +981,29 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><code>S0PM1</code></td>
-                    <td>0 (사전컨설팅)</td>
+                    <td><code>S1PM1</code></td>
+                    <td>1 (사전컨설팅)</td>
                     <td>PM (프로젝트관리)</td>
                     <td>1</td>
                     <td>첫 번째 PM 작업</td>
                 </tr>
                 <tr>
-                    <td><code>S2DO1</code></td>
-                    <td>2 (분류/정리)</td>
+                    <td><code>S3DO1</code></td>
+                    <td>3 (분류/정리)</td>
                     <td>DO (일반문서)</td>
                     <td>1</td>
                     <td>일반문서 분류 첫 작업</td>
                 </tr>
                 <tr>
-                    <td><code>S3PH2</code></td>
-                    <td>3 (디지털화)</td>
+                    <td><code>S4PH2</code></td>
+                    <td>4 (디지털화)</td>
                     <td>PH (사진)</td>
                     <td>2</td>
                     <td>사진 디지털화 두 번째 작업</td>
                 </tr>
                 <tr>
-                    <td><code>S4DB1</code></td>
-                    <td>4 (DB 구축)</td>
+                    <td><code>S5DB1</code></td>
+                    <td>5 (DB 구축)</td>
                     <td>DB (데이터베이스)</td>
                     <td>1</td>
                     <td>DB 입력 첫 작업</td>
@@ -1022,12 +1022,12 @@
         <div class="feature-card">
             <div class="fc-num">2</div>
             <h4>자기설명적 ID</h4>
-            <p>ID 자체가 작업의 위치/성격/순서를 설명. S3PH2 = "디지털화 단계의 사진 영역 두 번째 작업"</p>
+            <p>ID 자체가 작업의 위치/성격/순서를 설명. S4PH2 = "디지털화 단계의 사진 영역 두 번째 작업"</p>
         </div>
         <div class="feature-card">
             <div class="fc-num">3</div>
             <h4>자동 의존성</h4>
-            <p>Stage 순서로 의존성이 자동 결정. S2 완료 &rarr; S3 시작. 수동 의존성 설정 불필요</p>
+            <p>Stage 순서로 의존성이 자동 결정. S3 완료 &rarr; S4 시작. 수동 의존성 설정 불필요</p>
         </div>
         <div class="feature-card">
             <div class="fc-num">4</div>
@@ -1129,13 +1129,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td><strong>S0</strong></td><td>사전컨설팅</td><td>현황조사, 범위확정, 견적</td><td>컨설팅 보고서</td></tr>
-                <tr><td><strong>S1</strong></td><td>기록물 수집</td><td>이관, 반출, 목록화</td><td>수집 목록</td></tr>
-                <tr><td><strong>S2</strong></td><td>분류/정리</td><td>분류체계 적용, 메타데이터 부여</td><td>분류 완료 목록</td></tr>
-                <tr><td><strong>S3</strong></td><td>디지털화</td><td>스캔, OCR, 품질검수</td><td>디지털 파일</td></tr>
-                <tr><td><strong>S4</strong></td><td>DB 구축</td><td>시스템 입력, 연계</td><td>DB 등록 완료</td></tr>
-                <tr><td><strong>S5</strong></td><td>보존/활용</td><td>보존처리, 콘텐츠 제작</td><td>보존 처리 기록물</td></tr>
-                <tr><td><strong>S6</strong></td><td>납품/검수</td><td>최종검수, 인수인계, 교육</td><td>납품 보고서</td></tr>
+                <tr><td><strong>S1</strong></td><td>사전컨설팅</td><td>현황조사, 범위확정, 견적</td><td>컨설팅 보고서</td></tr>
+                <tr><td><strong>S2</strong></td><td>기록물 수집</td><td>이관, 반출, 목록화</td><td>수집 목록</td></tr>
+                <tr><td><strong>S3</strong></td><td>분류/정리</td><td>분류체계 적용, 메타데이터 부여</td><td>분류 완료 목록</td></tr>
+                <tr><td><strong>S4</strong></td><td>디지털화</td><td>스캔, OCR, 품질검수</td><td>디지털 파일</td></tr>
+                <tr><td><strong>S5</strong></td><td>DB 구축</td><td>시스템 입력, 연계</td><td>DB 등록 완료</td></tr>
+                <tr><td><strong>S6</strong></td><td>보존/활용</td><td>보존처리, 콘텐츠 제작</td><td>보존 처리 기록물</td></tr>
+                <tr><td><strong>S7</strong></td><td>납품/검수</td><td>최종검수, 인수인계, 교육</td><td>납품 보고서</td></tr>
             </tbody>
         </table>
     </div>
@@ -1166,32 +1166,32 @@
     <h3>SAL ID 실제 예시</h3>
     <div class="sal-example-grid">
         <div class="sal-example-card">
-            <div class="sal-id">S0PM1</div>
+            <div class="sal-id">S1PM1</div>
             <div class="sal-path">사전컨설팅 / 프로젝트관리 / 첫 번째 작업</div>
             <div class="sal-desc">"프로젝트 킥오프 미팅"</div>
         </div>
         <div class="sal-example-card">
-            <div class="sal-id">S1DO1</div>
+            <div class="sal-id">S2DO1</div>
             <div class="sal-path">기록물 수집 / 일반문서 / 첫 번째 작업</div>
             <div class="sal-desc">"이관대상 목록 작성"</div>
         </div>
         <div class="sal-example-card">
-            <div class="sal-id">S2MD1</div>
+            <div class="sal-id">S3MD1</div>
             <div class="sal-path">분류/정리 / 메타데이터 / 첫 번째 작업</div>
             <div class="sal-desc">"메타데이터 자동추출"</div>
         </div>
         <div class="sal-example-card">
-            <div class="sal-id">S3PH2</div>
+            <div class="sal-id">S4PH2</div>
             <div class="sal-path">디지털화 / 사진 / 두 번째 작업</div>
             <div class="sal-desc">"사진 디지털 복원"</div>
         </div>
         <div class="sal-example-card">
-            <div class="sal-id">S4DB1</div>
+            <div class="sal-id">S5DB1</div>
             <div class="sal-path">DB 구축 / 데이터베이스 / 첫 번째 작업</div>
             <div class="sal-desc">"RMS 시스템 데이터 입력"</div>
         </div>
         <div class="sal-example-card">
-            <div class="sal-id">S6QC1</div>
+            <div class="sal-id">S7QC1</div>
             <div class="sal-path">납품/검수 / 품질검수 / 첫 번째 작업</div>
             <div class="sal-desc">"최종 품질검수"</div>
         </div>
@@ -1220,11 +1220,11 @@
         <span class="box-label">AFTER &mdash; SAL Grid 적용 후</span>
         <ol class="ba-list">
             <li><strong>구조화된 SAL Grid:</strong> 하나의 Grid로 전체 프로젝트 관리. 실시간 동기화</li>
-            <li><strong>SAL ID 즉시 확인:</strong> S2DO1 상태? &rarr; Viewer에서 즉시 확인. 물어볼 필요 없음</li>
+            <li><strong>SAL ID 즉시 확인:</strong> S3DO1 상태? &rarr; Viewer에서 즉시 확인. 물어볼 필요 없음</li>
             <li><strong>체계적 분류 코드:</strong> Area 코드(DO/PH/VD/OR)로 분류 기준 표준화. 신규 인력도 즉시 적용</li>
             <li><strong>자동 진행률 산출:</strong> Stage별 완료율 자동 계산. 대시보드에서 한눈에 파악</li>
             <li><strong>자기설명적 구조:</strong> SAL ID만 보면 업무 파악 완료. 인수인계 시간: 며칠 &rarr; 수분</li>
-            <li><strong>Stage Gate 차단:</strong> S2 미완료 &rarr; S3 진입 불가. 재작업 원천 차단</li>
+            <li><strong>Stage Gate 차단:</strong> S3 미완료 &rarr; S4 진입 불가. 재작업 원천 차단</li>
         </ol>
     </div>
 
@@ -1542,19 +1542,19 @@
                 <tr>
                     <td><strong>Alpha</strong></td>
                     <td>DO(문서) + OR(도면)</td>
-                    <td>S2DO1~S3DO1, S2OR1~S3OR1</td>
+                    <td>S3DO1~S4DO1, S3OR1~S4OR1</td>
                     <td>분대장 + 11명</td>
                 </tr>
                 <tr>
                     <td><strong>Bravo</strong></td>
                     <td>PH(사진) + VD(영상)</td>
-                    <td>S2PH1~S3PH2, S3VD1</td>
+                    <td>S3PH1~S4PH2, S4VD1</td>
                     <td>분대장 + 11명</td>
                 </tr>
                 <tr>
                     <td><strong>Charlie</strong></td>
                     <td>MD(메타) + QC(검수) + DB</td>
-                    <td>S2MD1, S3QC1, S4DB1~S4DB2</td>
+                    <td>S3MD1, S4QC1, S5DB1~S5DB2</td>
                     <td>분대장 + 11명</td>
                 </tr>
             </tbody>

@@ -756,13 +756,13 @@ body {
 // ─── Data Definitions ────────────────────────────────────────────
 
 const STAGES = [
-  { id: 0, code: 'S0', name: '사전컨설팅', desc: '현황조사, 범위확정', criteria: '현황조사 보고서 완료, 사업범위 확정 및 승인' },
-  { id: 1, code: 'S1', name: '기록물 수집', desc: '이관, 반출, 목록화', criteria: '모든 대상 기록물 수집 완료, 이관 목록 최종 확인' },
-  { id: 2, code: 'S2', name: '분류·정리', desc: '분류체계 적용, 메타데이터', criteria: '전체 기록물 분류 완료, 메타데이터 부여율 100%' },
-  { id: 3, code: 'S3', name: '디지털화', desc: '스캔, OCR, 품질검수', criteria: '전체 스캔 완료, OCR 정확도 95% 이상, 품질검수 통과' },
-  { id: 4, code: 'S4', name: 'DB 구축', desc: '시스템 입력, 연계', criteria: 'RMS 시스템 데이터 입력 완료, 메타데이터 연계 검증' },
-  { id: 5, code: 'S5', name: '보존·활용', desc: '보존처리, 콘텐츠 제작', criteria: '원본 보존처리 완료, 활용 콘텐츠 제작 및 승인' },
-  { id: 6, code: 'S6', name: '납품·검수', desc: '최종검수, 인수인계', criteria: '최종 품질검수 통과, 납품문서 제출, 인수인계 완료' }
+  { id: 1, code: 'S1', name: '사전컨설팅', desc: '현황조사, 범위확정', criteria: '현황조사 보고서 완료, 사업범위 확정 및 승인' },
+  { id: 2, code: 'S2', name: '기록물 수집', desc: '이관, 반출, 목록화', criteria: '모든 대상 기록물 수집 완료, 이관 목록 최종 확인' },
+  { id: 3, code: 'S3', name: '분류·정리', desc: '분류체계 적용, 메타데이터', criteria: '전체 기록물 분류 완료, 메타데이터 부여율 100%' },
+  { id: 4, code: 'S4', name: '디지털화', desc: '스캔, OCR, 품질검수', criteria: '전체 스캔 완료, OCR 정확도 95% 이상, 품질검수 통과' },
+  { id: 5, code: 'S5', name: 'DB 구축', desc: '시스템 입력, 연계', criteria: 'RMS 시스템 데이터 입력 완료, 메타데이터 연계 검증' },
+  { id: 6, code: 'S6', name: '보존·활용', desc: '보존처리, 콘텐츠 제작', criteria: '원본 보존처리 완료, 활용 콘텐츠 제작 및 승인' },
+  { id: 7, code: 'S7', name: '납품·검수', desc: '최종검수, 인수인계', criteria: '최종 품질검수 통과, 납품문서 제출, 인수인계 완료' }
 ];
 
 const AREAS = [
@@ -777,33 +777,33 @@ const AREAS = [
 ];
 
 const TASKS = [
-  { sal_id: 'S0PM1', task_name: '프로젝트 킥오프 미팅', stage: 0, area: 'PM', status: 'Completed', assignee: '김태호', progress: 100, dependencies: [] },
-  { sal_id: 'S0PM2', task_name: '현황조사 및 범위확정', stage: 0, area: 'PM', status: 'Completed', assignee: '김태호', progress: 100, dependencies: [] },
-  { sal_id: 'S0DO1', task_name: '사전조사 보고서 작성', stage: 0, area: 'DO', status: 'Completed', assignee: '이수연', progress: 100, dependencies: [] },
-  { sal_id: 'S1DO1', task_name: '이관대상 목록 작성', stage: 1, area: 'DO', status: 'Completed', assignee: '이수연', progress: 100, dependencies: [] },
-  { sal_id: 'S1DO2', task_name: '일반문서 수집·반출', stage: 1, area: 'DO', status: 'Completed', assignee: '박준혁', progress: 100, dependencies: [] },
-  { sal_id: 'S1PH1', task_name: '사진기록물 수집', stage: 1, area: 'PH', status: 'Completed', assignee: '정유진', progress: 100, dependencies: [] },
-  { sal_id: 'S1VD1', task_name: '영상기록물 수집', stage: 1, area: 'VD', status: 'Completed', assignee: '정유진', progress: 100, dependencies: [] },
-  { sal_id: 'S1OR1', task_name: '도면기록물 수집', stage: 1, area: 'OR', status: 'Completed', assignee: '박준혁', progress: 100, dependencies: [] },
-  { sal_id: 'S2DO1', task_name: '일반문서 분류체계 매핑', stage: 2, area: 'DO', status: 'Completed', assignee: '이수연', progress: 100, dependencies: ['S1DO1'] },
-  { sal_id: 'S2DO2', task_name: '일반문서 메타데이터 부여', stage: 2, area: 'DO', status: 'In Progress', assignee: '이수연', progress: 65, dependencies: ['S2DO1'] },
-  { sal_id: 'S2PH1', task_name: '사진 분류 및 정리', stage: 2, area: 'PH', status: 'In Progress', assignee: '정유진', progress: 50, dependencies: ['S1PH1'] },
-  { sal_id: 'S2MD1', task_name: '메타데이터 자동추출 스크립트 실행', stage: 2, area: 'MD', status: 'In Progress', assignee: '최민수', progress: 70, dependencies: ['S2DO1'] },
-  { sal_id: 'S2OR1', task_name: '도면 분류 및 정리', stage: 2, area: 'OR', status: 'In Progress', assignee: '박준혁', progress: 40, dependencies: ['S1OR1'] },
-  { sal_id: 'S3DO1', task_name: '일반문서 양면스캔', stage: 3, area: 'DO', status: 'Pending', assignee: '박준혁', progress: 0, dependencies: ['S2DO2'] },
-  { sal_id: 'S3PH1', task_name: '사진 고해상도 스캔', stage: 3, area: 'PH', status: 'Pending', assignee: '정유진', progress: 0, dependencies: ['S2PH1'] },
-  { sal_id: 'S3PH2', task_name: '사진 디지털 복원', stage: 3, area: 'PH', status: 'Pending', assignee: '정유진', progress: 0, dependencies: ['S3PH1'] },
-  { sal_id: 'S3OR1', task_name: '도면 대형스캔', stage: 3, area: 'OR', status: 'Pending', assignee: '박준혁', progress: 0, dependencies: ['S2OR1'] },
-  { sal_id: 'S3QC1', task_name: 'OCR 정확도 검증', stage: 3, area: 'QC', status: 'Pending', assignee: '최민수', progress: 0, dependencies: ['S3DO1'] },
-  { sal_id: 'S3VD1', task_name: '영상 디지털 변환', stage: 3, area: 'VD', status: 'In Progress', assignee: '정유진', progress: 30, dependencies: ['S1VD1'] },
-  { sal_id: 'S4DB1', task_name: 'RMS 시스템 데이터 입력', stage: 4, area: 'DB', status: 'Pending', assignee: '최민수', progress: 0, dependencies: ['S3DO1', 'S3QC1'] },
-  { sal_id: 'S4DB2', task_name: '메타데이터 시스템 연계', stage: 4, area: 'DB', status: 'Pending', assignee: '최민수', progress: 0, dependencies: ['S4DB1'] },
-  { sal_id: 'S4MD1', task_name: '최종 메타데이터 검증', stage: 4, area: 'MD', status: 'Pending', assignee: '이수연', progress: 0, dependencies: ['S4DB2'] },
-  { sal_id: 'S5DO1', task_name: '원본 기록물 보존처리', stage: 5, area: 'DO', status: 'Pending', assignee: '박준혁', progress: 0, dependencies: ['S4DB1'] },
-  { sal_id: 'S5PM1', task_name: '활용 콘텐츠 기획', stage: 5, area: 'PM', status: 'Pending', assignee: '김태호', progress: 0, dependencies: ['S4DB2'] },
-  { sal_id: 'S6QC1', task_name: '최종 품질검수', stage: 6, area: 'QC', status: 'Pending', assignee: '최민수', progress: 0, dependencies: ['S5DO1', 'S5PM1'] },
-  { sal_id: 'S6PM1', task_name: '납품 문서 작성', stage: 6, area: 'PM', status: 'Pending', assignee: '김태호', progress: 0, dependencies: ['S6QC1'] },
-  { sal_id: 'S6PM2', task_name: '인수인계 및 교육', stage: 6, area: 'PM', status: 'Pending', assignee: '김태호', progress: 0, dependencies: ['S6PM1'] }
+  { sal_id: 'S1PM1', task_name: '프로젝트 킥오프 미팅', stage: 1, area: 'PM', status: 'Completed', assignee: '김태호', progress: 100, dependencies: [] },
+  { sal_id: 'S1PM2', task_name: '현황조사 및 범위확정', stage: 1, area: 'PM', status: 'Completed', assignee: '김태호', progress: 100, dependencies: [] },
+  { sal_id: 'S1DO1', task_name: '사전조사 보고서 작성', stage: 1, area: 'DO', status: 'Completed', assignee: '이수연', progress: 100, dependencies: [] },
+  { sal_id: 'S2DO1', task_name: '이관대상 목록 작성', stage: 2, area: 'DO', status: 'Completed', assignee: '이수연', progress: 100, dependencies: [] },
+  { sal_id: 'S2DO2', task_name: '일반문서 수집·반출', stage: 2, area: 'DO', status: 'Completed', assignee: '박준혁', progress: 100, dependencies: [] },
+  { sal_id: 'S2PH1', task_name: '사진기록물 수집', stage: 2, area: 'PH', status: 'Completed', assignee: '정유진', progress: 100, dependencies: [] },
+  { sal_id: 'S2VD1', task_name: '영상기록물 수집', stage: 2, area: 'VD', status: 'Completed', assignee: '정유진', progress: 100, dependencies: [] },
+  { sal_id: 'S2OR1', task_name: '도면기록물 수집', stage: 2, area: 'OR', status: 'Completed', assignee: '박준혁', progress: 100, dependencies: [] },
+  { sal_id: 'S3DO1', task_name: '일반문서 분류체계 매핑', stage: 3, area: 'DO', status: 'Completed', assignee: '이수연', progress: 100, dependencies: ['S2DO1'] },
+  { sal_id: 'S3DO2', task_name: '일반문서 메타데이터 부여', stage: 3, area: 'DO', status: 'In Progress', assignee: '이수연', progress: 65, dependencies: ['S3DO1'] },
+  { sal_id: 'S3PH1', task_name: '사진 분류 및 정리', stage: 3, area: 'PH', status: 'In Progress', assignee: '정유진', progress: 50, dependencies: ['S2PH1'] },
+  { sal_id: 'S3MD1', task_name: '메타데이터 자동추출 스크립트 실행', stage: 3, area: 'MD', status: 'In Progress', assignee: '최민수', progress: 70, dependencies: ['S3DO1'] },
+  { sal_id: 'S3OR1', task_name: '도면 분류 및 정리', stage: 3, area: 'OR', status: 'In Progress', assignee: '박준혁', progress: 40, dependencies: ['S2OR1'] },
+  { sal_id: 'S4DO1', task_name: '일반문서 양면스캔', stage: 4, area: 'DO', status: 'Pending', assignee: '박준혁', progress: 0, dependencies: ['S3DO2'] },
+  { sal_id: 'S4PH1', task_name: '사진 고해상도 스캔', stage: 4, area: 'PH', status: 'Pending', assignee: '정유진', progress: 0, dependencies: ['S3PH1'] },
+  { sal_id: 'S4PH2', task_name: '사진 디지털 복원', stage: 4, area: 'PH', status: 'Pending', assignee: '정유진', progress: 0, dependencies: ['S4PH1'] },
+  { sal_id: 'S4OR1', task_name: '도면 대형스캔', stage: 4, area: 'OR', status: 'Pending', assignee: '박준혁', progress: 0, dependencies: ['S3OR1'] },
+  { sal_id: 'S4QC1', task_name: 'OCR 정확도 검증', stage: 4, area: 'QC', status: 'Pending', assignee: '최민수', progress: 0, dependencies: ['S4DO1'] },
+  { sal_id: 'S4VD1', task_name: '영상 디지털 변환', stage: 4, area: 'VD', status: 'In Progress', assignee: '정유진', progress: 30, dependencies: ['S2VD1'] },
+  { sal_id: 'S5DB1', task_name: 'RMS 시스템 데이터 입력', stage: 5, area: 'DB', status: 'Pending', assignee: '최민수', progress: 0, dependencies: ['S4DO1', 'S4QC1'] },
+  { sal_id: 'S5DB2', task_name: '메타데이터 시스템 연계', stage: 5, area: 'DB', status: 'Pending', assignee: '최민수', progress: 0, dependencies: ['S5DB1'] },
+  { sal_id: 'S5MD1', task_name: '최종 메타데이터 검증', stage: 5, area: 'MD', status: 'Pending', assignee: '이수연', progress: 0, dependencies: ['S5DB2'] },
+  { sal_id: 'S6DO1', task_name: '원본 기록물 보존처리', stage: 6, area: 'DO', status: 'Pending', assignee: '박준혁', progress: 0, dependencies: ['S5DB1'] },
+  { sal_id: 'S6PM1', task_name: '활용 콘텐츠 기획', stage: 6, area: 'PM', status: 'Pending', assignee: '김태호', progress: 0, dependencies: ['S5DB2'] },
+  { sal_id: 'S7QC1', task_name: '최종 품질검수', stage: 7, area: 'QC', status: 'Pending', assignee: '최민수', progress: 0, dependencies: ['S6DO1', 'S6PM1'] },
+  { sal_id: 'S7PM1', task_name: '납품 문서 작성', stage: 7, area: 'PM', status: 'Pending', assignee: '김태호', progress: 0, dependencies: ['S7QC1'] },
+  { sal_id: 'S7PM2', task_name: '인수인계 및 교육', stage: 7, area: 'PM', status: 'Pending', assignee: '김태호', progress: 0, dependencies: ['S7PM1'] }
 ];
 
 // ─── State ───────────────────────────────────────────────────────
@@ -827,7 +827,8 @@ const getStatusLabel = (status) => {
   return '대기';
 };
 
-const getStageName = (stageNum) => STAGES[stageNum]?.name || '';
+const getStageById = (stageId) => STAGES.find(s => s.id === stageId);
+const getStageName = (stageNum) => getStageById(stageNum)?.name || '';
 const getAreaName = (code) => AREAS.find(a => a.code === code)?.name || code;
 
 const getFilteredTasks = () => {
@@ -872,7 +873,7 @@ function renderStageGate() {
     panel.classList.remove('visible');
     return;
   }
-  const stage = STAGES[activeStage];
+  const stage = getStageById(activeStage);
   const stageTasks = TASKS.filter(t => t.stage === activeStage);
   const allCompleted = stageTasks.every(t => t.status === 'Completed');
   const completedCount = stageTasks.filter(t => t.status === 'Completed').length;
@@ -941,7 +942,7 @@ function renderTaskCard(task) {
       <div class="card-attrs">
         <div class="card-attr">
           <span class="card-attr-label">Stage</span>
-          <span class="card-attr-value">${STAGES[task.stage].code} ${getStageName(task.stage)}</span>
+          <span class="card-attr-value">${getStageById(task.stage).code} ${getStageName(task.stage)}</span>
         </div>
         <div class="card-attr">
           <span class="card-attr-label">Area</span>
@@ -1058,11 +1059,11 @@ function openModal(salId) {
         </div>
         <div class="modal-attr">
           <span class="modal-attr-label">Stage</span>
-          <span class="modal-attr-value">${STAGES[task.stage].code} ${getStageName(task.stage)}</span>
+          <span class="modal-attr-value">${getStageById(task.stage).code} ${getStageName(task.stage)}</span>
         </div>
         <div class="modal-attr">
           <span class="modal-attr-label">Stage 설명</span>
-          <span class="modal-attr-value">${STAGES[task.stage].desc}</span>
+          <span class="modal-attr-value">${getStageById(task.stage).desc}</span>
         </div>
         <div class="modal-attr">
           <span class="modal-attr-label">Area</span>
