@@ -1,0 +1,532 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 2400" width="1200" height="2400">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EFF6FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F0F4FA;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1E3A8A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E40AF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="partPurple" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563EB;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="partTeal" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#14B8A6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0D9488;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="partAmber" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D97706;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#1E3A8A" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrBlue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#2563EB"/>
+    </marker>
+    <marker id="arrTeal" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#0D9488"/>
+    </marker>
+    <marker id="arrRed" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#DC2626"/>
+    </marker>
+    <marker id="arrAmber" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#D97706"/>
+    </marker>
+    <marker id="arrGray" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#94A3B8"/>
+    </marker>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="1200" height="2400" fill="url(#bgGrad)"/>
+
+  <!-- ====== 상단 헤더 ====== -->
+  <rect x="0" y="0" width="1200" height="100" fill="url(#headerGrad)" rx="0"/>
+  <rect x="0" y="98" width="1200" height="2" fill="#3B82F6" opacity="0.6"/>
+
+  <!-- 청룡 아이콘 (용 비늘 모양 도형) -->
+  <g transform="translate(50, 30)">
+    <path d="M0,20 Q10,0 20,15 Q30,0 40,20 Q30,40 20,25 Q10,40 0,20Z" fill="#60A5FA" opacity="0.9"/>
+    <circle cx="14" cy="18" r="3" fill="#1E3A8A"/>
+    <circle cx="26" cy="18" r="3" fill="#1E3A8A"/>
+  </g>
+
+  <text x="600" y="42" font-family="'Malgun Gothic',sans-serif" font-size="30px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">SAL Grid Dev Suite — Architecture</text>
+  <text x="600" y="72" font-family="'Malgun Gothic',sans-serif" font-size="16px" fill="#93C5FD" text-anchor="middle" dominant-baseline="middle">Template 기반, 동적 Stage, 소급 도입 지원</text>
+
+  <!-- 버전 배지 -->
+  <rect x="1060" y="30" width="110" height="28" rx="14" fill="#3B82F6" opacity="0.9"/>
+  <text x="1115" y="44" font-family="'Malgun Gothic',sans-serif" font-size="13px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">V3.1 SPEC</text>
+
+  <!-- ====== 섹션 1: Template 시스템 ====== -->
+  <rect x="30" y="120" width="1140" height="310" rx="14" fill="white" stroke="#BFDBFE" stroke-width="1.5" filter="url(#shadow)"/>
+
+  <circle cx="58" cy="140" r="14" fill="#1E3A8A"/>
+  <text x="58" y="140" font-family="'Malgun Gothic',sans-serif" font-size="13px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">1</text>
+  <text x="84" y="140" font-family="'Malgun Gothic',sans-serif" font-size="20px" font-weight="bold" fill="#1E3A8A" dominant-baseline="middle">Template 시스템 (소스)</text>
+
+  <!-- Template 폴더 구조 -->
+  <rect x="50" y="160" width="440" height="250" rx="10" fill="#F8FAFC" stroke="#BFDBFE" stroke-width="1"/>
+  <rect x="50" y="160" width="440" height="34" rx="10" fill="#1E3A8A"/>
+  <rect x="50" y="180" width="440" height="14" fill="#1E3A8A"/>
+  <text x="270" y="180" font-family="'Malgun Gothic',sans-serif" font-size="14px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">SAL_Grid_Dev_Suite_Template/</text>
+
+  <text x="70" y="215" font-family="'Courier New',monospace" font-size="14px" fill="#1E3A8A" dominant-baseline="middle">SAL_Grid_Dev_Suite_Template/</text>
+  <text x="90" y="238" font-family="'Courier New',monospace" font-size="13px" fill="#2563EB" dominant-baseline="middle">├── .claude/</text>
+  <text x="120" y="257" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#64748B" dominant-baseline="middle">CLAUDE.md, rules/(7), methods/(2), agents/, skills/</text>
+  <text x="90" y="278" font-family="'Courier New',monospace" font-size="13px" fill="#2563EB" dominant-baseline="middle">├── Process/</text>
+  <text x="120" y="297" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#64748B" dominant-baseline="middle">P1/ P2/ S0/ S1/ S2/ ... SN/ (동적 Stage)</text>
+  <text x="90" y="318" font-family="'Courier New',monospace" font-size="13px" fill="#2563EB" dominant-baseline="middle">├── scripts/</text>
+  <text x="120" y="337" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#64748B" dominant-baseline="middle">sync-to-root.js, setup-hooks.js</text>
+  <text x="90" y="358" font-family="'Courier New',monospace" font-size="13px" fill="#2563EB" dominant-baseline="middle">├── Human_ClaudeCode_Bridge/</text>
+  <text x="90" y="380" font-family="'Courier New',monospace" font-size="13px" fill="#2563EB" dominant-baseline="middle">└── sal-grid/ method/ data/ viewer/</text>
+
+  <!-- PO 접근 박스 -->
+  <rect x="520" y="160" width="300" height="115" rx="10" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1.5"/>
+  <rect x="520" y="160" width="300" height="32" rx="10" fill="#059669"/>
+  <rect x="520" y="178" width="300" height="14" fill="#059669"/>
+  <text x="670" y="179" font-family="'Malgun Gothic',sans-serif" font-size="13px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">PO (원작자) 접근</text>
+  <text x="535" y="210" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#1E293B" dominant-baseline="middle">G드라이브 로컬 경로에서 cp -r 복사</text>
+  <text x="535" y="232" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#1E293B" dominant-baseline="middle">프로젝트 루트에 직접 배치</text>
+  <text x="535" y="254" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#059669" font-weight="bold" dominant-baseline="middle">→ 로컬 동기화 완전 지원</text>
+
+  <!-- Others 접근 박스 -->
+  <rect x="520" y="290" width="300" height="115" rx="10" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.5"/>
+  <rect x="520" y="290" width="300" height="32" rx="10" fill="#2563EB"/>
+  <rect x="520" y="308" width="300" height="14" fill="#2563EB"/>
+  <text x="670" y="309" font-family="'Malgun Gothic',sans-serif" font-size="13px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">Others (일반 사용자) 접근</text>
+  <text x="535" y="340" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#1E293B" dominant-baseline="middle">공유 링크 다운로드 → 압축 해제</text>
+  <text x="535" y="362" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#1E293B" dominant-baseline="middle">동일한 복사 로직 + 플레이스홀더 치환</text>
+  <text x="535" y="384" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#2563EB" font-weight="bold" dominant-baseline="middle">→ 동일한 결과물 보장</text>
+
+  <!-- 공통 결과 박스 -->
+  <rect x="860" y="160" width="290" height="250" rx="10" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="1005" y="188" font-family="'Malgun Gothic',sans-serif" font-size="14px" font-weight="bold" fill="#92400E" text-anchor="middle" dominant-baseline="middle">공통 결과</text>
+  <text x="880" y="218" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#1E293B" dominant-baseline="middle">.claude/ 인프라 구성</text>
+  <text x="880" y="242" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#1E293B" dominant-baseline="middle">Process/ 폴더 구성</text>
+  <text x="880" y="266" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#1E293B" dominant-baseline="middle">scripts/ 배치</text>
+  <text x="880" y="290" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#1E293B" dominant-baseline="middle">플레이스홀더 치환</text>
+  <text x="880" y="314" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#1E293B" dominant-baseline="middle">SKILL.md 활성화</text>
+  <rect x="880" y="340" width="250" height="28" rx="6" fill="#059669" opacity="0.15"/>
+  <text x="1005" y="354" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#059669" font-weight="bold" text-anchor="middle" dominant-baseline="middle">PART 1 진입 준비 완료</text>
+
+  <!-- 화살표들 -->
+  <line x1="822" y1="230" x2="855" y2="230" stroke="#059669" stroke-width="2" marker-end="url(#arrTeal)"/>
+  <line x1="822" y1="350" x2="855" y2="350" stroke="#2563EB" stroke-width="2" marker-end="url(#arrBlue)"/>
+
+  <!-- ====== 섹션 2: 9 PART 파이프라인 ====== -->
+  <rect x="30" y="450" width="1140" height="420" rx="14" fill="white" stroke="#BFDBFE" stroke-width="1.5" filter="url(#shadow)"/>
+
+  <circle cx="58" cy="470" r="14" fill="#1E3A8A"/>
+  <text x="58" y="470" font-family="'Malgun Gothic',sans-serif" font-size="13px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">2</text>
+  <text x="84" y="470" font-family="'Malgun Gothic',sans-serif" font-size="20px" font-weight="bold" fill="#1E3A8A" dominant-baseline="middle">실행 흐름 — 9 PART 파이프라인</text>
+
+  <!-- PART 1 -->
+  <rect x="50" y="495" width="200" height="95" rx="8" fill="url(#partPurple)" filter="url(#shadow)"/>
+  <text x="150" y="518" font-family="'Malgun Gothic',sans-serif" font-size="12px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle" opacity="0.8">PART 1</text>
+  <text x="150" y="538" font-family="'Malgun Gothic',sans-serif" font-size="15px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">Template 복사</text>
+  <text x="150" y="560" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#DBEAFE" text-anchor="middle" dominant-baseline="middle">통째 복사 + 플레이스홀더 치환</text>
+  <text x="150" y="578" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#DBEAFE" text-anchor="middle" dominant-baseline="middle">Git init + Hook 설치</text>
+
+  <line x1="252" y1="543" x2="272" y2="543" stroke="#2563EB" stroke-width="2.5" marker-end="url(#arrBlue)"/>
+
+  <!-- PART 2 -->
+  <rect x="275" y="495" width="200" height="95" rx="8" fill="url(#partPurple)" filter="url(#shadow)"/>
+  <text x="375" y="518" font-family="'Malgun Gothic',sans-serif" font-size="12px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle" opacity="0.8">PART 2</text>
+  <text x="375" y="538" font-family="'Malgun Gothic',sans-serif" font-size="15px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">P1+P2 기획</text>
+  <text x="375" y="560" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#DBEAFE" text-anchor="middle" dominant-baseline="middle">P1 사업계획 + P2 프로젝트 기획</text>
+  <text x="375" y="578" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#DBEAFE" text-anchor="middle" dominant-baseline="middle">P2 완성 필수</text>
+
+  <line x1="477" y1="543" x2="497" y2="543" stroke="#2563EB" stroke-width="2.5" marker-end="url(#arrBlue)"/>
+
+  <!-- PART 3 -->
+  <rect x="500" y="495" width="200" height="95" rx="8" fill="url(#partPurple)" filter="url(#shadow)"/>
+  <text x="600" y="518" font-family="'Malgun Gothic',sans-serif" font-size="12px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle" opacity="0.8">PART 3</text>
+  <text x="600" y="538" font-family="'Malgun Gothic',sans-serif" font-size="15px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">TASK_PLAN</text>
+  <text x="600" y="560" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#DBEAFE" text-anchor="middle" dominant-baseline="middle">P2 기반 N×11 매트릭스</text>
+  <text x="600" y="578" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#DBEAFE" text-anchor="middle" dominant-baseline="middle">SAL ID 부여 + PO 승인</text>
+
+  <line x1="702" y1="543" x2="722" y2="543" stroke="#2563EB" stroke-width="2.5" marker-end="url(#arrBlue)"/>
+
+  <!-- PART 4 -->
+  <rect x="725" y="495" width="200" height="95" rx="8" fill="url(#partPurple)" filter="url(#shadow)"/>
+  <text x="825" y="518" font-family="'Malgun Gothic',sans-serif" font-size="12px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle" opacity="0.8">PART 4</text>
+  <text x="825" y="538" font-family="'Malgun Gothic',sans-serif" font-size="15px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">Instruction 생성</text>
+  <text x="825" y="560" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#DBEAFE" text-anchor="middle" dominant-baseline="middle">Task + Verification 지시서</text>
+  <text x="825" y="578" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#DBEAFE" text-anchor="middle" dominant-baseline="middle">Template 참조 생성</text>
+
+  <line x1="927" y1="543" x2="947" y2="543" stroke="#2563EB" stroke-width="2.5" marker-end="url(#arrBlue)"/>
+
+  <!-- PART 5 -->
+  <rect x="950" y="495" width="200" height="95" rx="8" fill="url(#partPurple)" filter="url(#shadow)"/>
+  <text x="1050" y="518" font-family="'Malgun Gothic',sans-serif" font-size="12px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle" opacity="0.8">PART 5</text>
+  <text x="1050" y="538" font-family="'Malgun Gothic',sans-serif" font-size="15px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">SAL Grid 완성</text>
+  <text x="1050" y="560" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#DBEAFE" text-anchor="middle" dominant-baseline="middle">index.json + grid_records</text>
+  <text x="1050" y="578" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#DBEAFE" text-anchor="middle" dominant-baseline="middle">Viewer 설정 확인</text>
+
+  <!-- 꺾임 화살표 P5 → P6 (아래) -->
+  <path d="M 1050 592 L 1050 618 L 1050 628" stroke="#0D9488" stroke-width="2.5" fill="none" marker-end="url(#arrTeal)"/>
+
+  <!-- ★ Stage 단위 순환 루프 박스 -->
+  <rect x="48" y="625" width="1106" height="170" rx="10" fill="#F0FDFA" stroke="#14B8A6" stroke-width="2" stroke-dasharray="0"/>
+  <text x="600" y="645" font-family="'Malgun Gothic',sans-serif" font-size="13px" font-weight="bold" fill="#0D9488" text-anchor="middle" dominant-baseline="middle">★ Stage 단위 순환 루프 (각 Stage마다 PART 6→7→8 반복)</text>
+
+  <!-- PART 6 -->
+  <rect x="60" y="660" width="290" height="95" rx="8" fill="url(#partTeal)" filter="url(#shadow)"/>
+  <text x="205" y="683" font-family="'Malgun Gothic',sans-serif" font-size="12px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle" opacity="0.8">PART 6</text>
+  <text x="205" y="703" font-family="'Malgun Gothic',sans-serif" font-size="15px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">Stage별 Task 실행</text>
+  <text x="205" y="725" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#CCFBF1" text-anchor="middle" dominant-baseline="middle">배치 병렬 처리 + Task Agent 투입</text>
+  <text x="205" y="743" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#FEF3C7" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Triple Sync + Git 커밋 (Task 단위)</text>
+
+  <line x1="352" y1="708" x2="412" y2="708" stroke="#0D9488" stroke-width="2.5" marker-end="url(#arrTeal)"/>
+
+  <!-- PART 7 -->
+  <rect x="415" y="660" width="290" height="95" rx="8" fill="url(#partTeal)" filter="url(#shadow)"/>
+  <text x="560" y="683" font-family="'Malgun Gothic',sans-serif" font-size="12px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle" opacity="0.8">PART 7</text>
+  <text x="560" y="703" font-family="'Malgun Gothic',sans-serif" font-size="15px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">Task별 Verification</text>
+  <text x="560" y="725" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#CCFBF1" text-anchor="middle" dominant-baseline="middle">Verification Agent 독립 검증</text>
+  <text x="560" y="743" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#CCFBF1" text-anchor="middle" dominant-baseline="middle">Executed → Completed / Needs Fix</text>
+
+  <line x1="707" y1="708" x2="767" y2="708" stroke="#0D9488" stroke-width="2.5" marker-end="url(#arrTeal)"/>
+
+  <!-- PART 8 -->
+  <rect x="770" y="660" width="370" height="95" rx="8" fill="url(#partTeal)" filter="url(#shadow)"/>
+  <text x="955" y="683" font-family="'Malgun Gothic',sans-serif" font-size="12px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle" opacity="0.8">PART 8</text>
+  <text x="955" y="703" font-family="'Malgun Gothic',sans-serif" font-size="15px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">Stage Gate 검증 + PO 승인</text>
+  <text x="955" y="725" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#CCFBF1" text-anchor="middle" dominant-baseline="middle">5항목 체크리스트 + PO 수동 테스트</text>
+  <text x="955" y="743" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#CCFBF1" text-anchor="middle" dominant-baseline="middle">통과 → 다음 Stage / 거부 → 수정</text>
+
+  <!-- Needs Fix 루프 (P7 → P6) -->
+  <path d="M 560 757 L 560 775 L 205 775 L 205 757" stroke="#DC2626" stroke-width="2" fill="none" stroke-dasharray="6,3" marker-end="url(#arrRed)"/>
+  <text x="383" y="790" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#DC2626" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Needs Fix → PART 6 재진입</text>
+
+  <!-- Stage Gate 순환 표시 -->
+  <rect x="60" y="802" width="330" height="28" rx="6" fill="#059669" opacity="0.1" stroke="#059669" stroke-width="1"/>
+  <text x="225" y="816" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#059669" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Stage Gate 통과 → 다음 Stage의 PART 6으로 순환</text>
+
+  <!-- Task CRUD 표시 -->
+  <rect x="430" y="802" width="260" height="28" rx="6" fill="#D97706" opacity="0.1" stroke="#D97706" stroke-width="1"/>
+  <text x="560" y="816" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#D97706" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Task CRUD: 실행 중 추가/수정 가능</text>
+
+  <!-- PART 9 -->
+  <rect x="50" y="840" width="1100" height="22" rx="4" fill="url(#partAmber)" opacity="0.15"/>
+  <line x1="600" y1="832" x2="600" y2="840" stroke="#D97706" stroke-width="2" marker-end="url(#arrAmber)"/>
+
+  <rect x="350" y="840" width="500" height="22" rx="4" fill="url(#partAmber)" opacity="0.8"/>
+  <text x="600" y="853" font-family="'Malgun Gothic',sans-serif" font-size="13px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">PART 9  완료 + 배포 — 전체 Stage Gate 확인 → GitHub Pages/Vercel → 최종 보고</text>
+
+  <!-- ====== 섹션 3: SAL 3D 좌표계 ====== -->
+  <rect x="30" y="890" width="1140" height="300" rx="14" fill="white" stroke="#BFDBFE" stroke-width="1.5" filter="url(#shadow)"/>
+
+  <circle cx="58" cy="910" r="14" fill="#1E3A8A"/>
+  <text x="58" y="910" font-family="'Malgun Gothic',sans-serif" font-size="13px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">3</text>
+  <text x="84" y="910" font-family="'Malgun Gothic',sans-serif" font-size="20px" font-weight="bold" fill="#1E3A8A" dominant-baseline="middle">SAL 3D 좌표계 — Stage × Area × Level</text>
+
+  <!-- Stage 축 -->
+  <rect x="50" y="935" width="340" height="235" rx="10" fill="#F8FAFC" stroke="#93C5FD" stroke-width="1.5"/>
+  <rect x="50" y="935" width="340" height="32" rx="10" fill="#2563EB"/>
+  <rect x="50" y="955" width="340" height="12" fill="#2563EB"/>
+  <text x="220" y="954" font-family="'Malgun Gothic',sans-serif" font-size="14px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">Stage 축 (동적 확장)</text>
+
+  <rect x="70" y="980" width="60" height="32" rx="6" fill="#2563EB"/>
+  <text x="100" y="996" font-family="'Malgun Gothic',sans-serif" font-size="14px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">S0</text>
+  <line x1="132" y1="996" x2="148" y2="996" stroke="#2563EB" stroke-width="2" marker-end="url(#arrBlue)"/>
+  <rect x="150" y="980" width="60" height="32" rx="6" fill="#2563EB"/>
+  <text x="180" y="996" font-family="'Malgun Gothic',sans-serif" font-size="14px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">S1</text>
+  <line x1="212" y1="996" x2="228" y2="996" stroke="#2563EB" stroke-width="2" marker-end="url(#arrBlue)"/>
+  <rect x="230" y="980" width="60" height="32" rx="6" fill="#2563EB"/>
+  <text x="260" y="996" font-family="'Malgun Gothic',sans-serif" font-size="14px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">S2</text>
+  <text x="320" y="996" font-family="'Malgun Gothic',sans-serif" font-size="16px" fill="#2563EB" font-weight="bold" text-anchor="middle" dominant-baseline="middle">… SN</text>
+
+  <text x="220" y="1035" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#64748B" text-anchor="middle" dominant-baseline="middle">프로젝트 규모에 따라 동적 결정</text>
+  <text x="220" y="1055" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#64748B" text-anchor="middle" dominant-baseline="middle">소규모 S0~S2 / 대규모 S0~S6+</text>
+
+  <rect x="70" y="1080" width="300" height="74" rx="6" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="220" y="1100" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#2563EB" font-weight="bold" text-anchor="middle" dominant-baseline="middle">소급 도입 지원</text>
+  <text x="220" y="1120" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#64748B" text-anchor="middle" dominant-baseline="middle">기존 프로젝트 분석 후</text>
+  <text x="220" y="1138" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#64748B" text-anchor="middle" dominant-baseline="middle">현재 Stage 파악 → 이어서 적용</text>
+
+  <!-- Area 축 -->
+  <rect x="410" y="935" width="390" height="235" rx="10" fill="#F8FAFC" stroke="#86EFAC" stroke-width="1.5"/>
+  <rect x="410" y="935" width="390" height="32" rx="10" fill="#059669"/>
+  <rect x="410" y="955" width="390" height="12" fill="#059669"/>
+  <text x="605" y="954" font-family="'Malgun Gothic',sans-serif" font-size="14px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">Area 축 (11개 영역)</text>
+
+  <!-- Area 그리드 Row 1 -->
+  <rect x="425" y="978" width="86" height="28" rx="5" fill="#059669"/>
+  <text x="468" y="992" font-family="'Malgun Gothic',sans-serif" font-size="12px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">FE 프론트</text>
+  <rect x="517" y="978" width="86" height="28" rx="5" fill="#059669"/>
+  <text x="560" y="992" font-family="'Malgun Gothic',sans-serif" font-size="12px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">BA 백API</text>
+  <rect x="609" y="978" width="86" height="28" rx="5" fill="#059669"/>
+  <text x="652" y="992" font-family="'Malgun Gothic',sans-serif" font-size="12px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">DB 데이터</text>
+  <rect x="701" y="978" width="86" height="28" rx="5" fill="#059669"/>
+  <text x="744" y="992" font-family="'Malgun Gothic',sans-serif" font-size="12px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">SC 보안</text>
+
+  <!-- Area 그리드 Row 2 -->
+  <rect x="425" y="1012" width="86" height="28" rx="5" fill="#0D9488"/>
+  <text x="468" y="1026" font-family="'Malgun Gothic',sans-serif" font-size="12px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">BI 백인프라</text>
+  <rect x="517" y="1012" width="86" height="28" rx="5" fill="#0D9488"/>
+  <text x="560" y="1026" font-family="'Malgun Gothic',sans-serif" font-size="12px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">EX 외부연동</text>
+  <rect x="609" y="1012" width="86" height="28" rx="5" fill="#0D9488"/>
+  <text x="652" y="1026" font-family="'Malgun Gothic',sans-serif" font-size="12px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">TS 테스트</text>
+  <rect x="701" y="1012" width="86" height="28" rx="5" fill="#0D9488"/>
+  <text x="744" y="1026" font-family="'Malgun Gothic',sans-serif" font-size="12px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">DV DevOps</text>
+
+  <!-- Area 그리드 Row 3 -->
+  <rect x="425" y="1046" width="86" height="28" rx="5" fill="#2563EB"/>
+  <text x="468" y="1060" font-family="'Malgun Gothic',sans-serif" font-size="12px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">DS 디자인</text>
+  <rect x="517" y="1046" width="86" height="28" rx="5" fill="#2563EB"/>
+  <text x="560" y="1060" font-family="'Malgun Gothic',sans-serif" font-size="12px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">DC 문서화</text>
+  <rect x="609" y="1046" width="178" height="28" rx="5" fill="#2563EB"/>
+  <text x="698" y="1060" font-family="'Malgun Gothic',sans-serif" font-size="12px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">CS 콘텐츠</text>
+
+  <!-- Area 축 설명 -->
+  <text x="605" y="1100" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#64748B" text-anchor="middle" dominant-baseline="middle">2글자 코드 통일 (V3 규격)</text>
+  <text x="605" y="1120" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#64748B" text-anchor="middle" dominant-baseline="middle">각 Area는 전문 Agent가 담당</text>
+  <text x="605" y="1140" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#64748B" text-anchor="middle" dominant-baseline="middle">PART 3 매트릭스: N Stage × 11 Area</text>
+
+  <!-- Level + SAL ID 예시 -->
+  <rect x="820" y="935" width="330" height="235" rx="10" fill="#F8FAFC" stroke="#FCD34D" stroke-width="1.5"/>
+  <rect x="820" y="935" width="330" height="32" rx="10" fill="#D97706"/>
+  <rect x="820" y="955" width="330" height="12" fill="#D97706"/>
+  <text x="985" y="954" font-family="'Malgun Gothic',sans-serif" font-size="14px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">Level + SAL ID 예시</text>
+
+  <text x="985" y="990" font-family="'Malgun Gothic',sans-serif" font-size="14px" fill="#1E293B" text-anchor="middle" dominant-baseline="middle">SAL ID = Stage + Area + Level</text>
+
+  <!-- SAL ID 시각화 -->
+  <rect x="845" y="1010" width="80" height="40" rx="8" fill="#2563EB"/>
+  <text x="885" y="1025" font-family="'Malgun Gothic',sans-serif" font-size="18px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">S2</text>
+  <text x="885" y="1044" font-family="'Malgun Gothic',sans-serif" font-size="11px" fill="#DBEAFE" text-anchor="middle" dominant-baseline="middle">Stage 2</text>
+  <text x="942" y="1033" font-family="'Malgun Gothic',sans-serif" font-size="20px" fill="#2563EB" text-anchor="middle" dominant-baseline="middle">+</text>
+  <rect x="960" y="1010" width="80" height="40" rx="8" fill="#059669"/>
+  <text x="1000" y="1025" font-family="'Malgun Gothic',sans-serif" font-size="18px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">BA</text>
+  <text x="1000" y="1044" font-family="'Malgun Gothic',sans-serif" font-size="11px" fill="#CCFBF1" text-anchor="middle" dominant-baseline="middle">Backend</text>
+  <text x="1057" y="1033" font-family="'Malgun Gothic',sans-serif" font-size="20px" fill="#2563EB" text-anchor="middle" dominant-baseline="middle">+</text>
+  <rect x="1075" y="1010" width="55" height="40" rx="8" fill="#D97706"/>
+  <text x="1102" y="1025" font-family="'Malgun Gothic',sans-serif" font-size="18px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">3</text>
+  <text x="1102" y="1044" font-family="'Malgun Gothic',sans-serif" font-size="11px" fill="#FEF3C7" text-anchor="middle" dominant-baseline="middle">Level</text>
+
+  <!-- 등호 결과 -->
+  <rect x="845" y="1065" width="285" height="2" fill="#D97706" opacity="0.4"/>
+  <text x="985" y="1092" font-family="'Malgun Gothic',sans-serif" font-size="22px" font-weight="bold" fill="#92400E" text-anchor="middle" dominant-baseline="middle">S2BA3</text>
+  <text x="985" y="1118" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#64748B" text-anchor="middle" dominant-baseline="middle">= Stage2 / Backend APIs / Level 3</text>
+  <text x="985" y="1140" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#64748B" text-anchor="middle" dominant-baseline="middle">세 번째 백엔드 API 작업</text>
+
+  <!-- ====== 섹션 4: Task 생명주기 ====== -->
+  <rect x="30" y="1210" width="1140" height="230" rx="14" fill="white" stroke="#BFDBFE" stroke-width="1.5" filter="url(#shadow)"/>
+
+  <circle cx="58" cy="1230" r="14" fill="#1E3A8A"/>
+  <text x="58" y="1230" font-family="'Malgun Gothic',sans-serif" font-size="13px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">4</text>
+  <text x="84" y="1230" font-family="'Malgun Gothic',sans-serif" font-size="20px" font-weight="bold" fill="#1E3A8A" dominant-baseline="middle">Task 생명주기 — 상태 전이</text>
+
+  <!-- Pending -->
+  <rect x="50" y="1258" width="145" height="60" rx="8" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+  <text x="122" y="1282" font-family="'Malgun Gothic',sans-serif" font-size="15px" font-weight="bold" fill="#475569" text-anchor="middle" dominant-baseline="middle">Pending</text>
+  <text x="122" y="1302" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#94A3B8" text-anchor="middle" dominant-baseline="middle">대기 중</text>
+
+  <line x1="197" y1="1288" x2="222" y2="1288" stroke="#D97706" stroke-width="2.5" marker-end="url(#arrAmber)"/>
+
+  <!-- In Progress -->
+  <rect x="225" y="1258" width="145" height="60" rx="8" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+  <text x="297" y="1282" font-family="'Malgun Gothic',sans-serif" font-size="15px" font-weight="bold" fill="#92400E" text-anchor="middle" dominant-baseline="middle">In Progress</text>
+  <text x="297" y="1302" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#D97706" text-anchor="middle" dominant-baseline="middle">작업 진행 중</text>
+
+  <line x1="372" y1="1288" x2="397" y2="1288" stroke="#2563EB" stroke-width="2.5" marker-end="url(#arrBlue)"/>
+
+  <!-- Executed -->
+  <rect x="400" y="1258" width="145" height="60" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+  <text x="472" y="1282" font-family="'Malgun Gothic',sans-serif" font-size="15px" font-weight="bold" fill="#1E3A8A" text-anchor="middle" dominant-baseline="middle">Executed</text>
+  <text x="472" y="1302" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#2563EB" text-anchor="middle" dominant-baseline="middle">파일 완료, 검증 대기</text>
+
+  <line x1="547" y1="1288" x2="572" y2="1288" stroke="#2563EB" stroke-width="2.5" marker-end="url(#arrBlue)"/>
+
+  <!-- Verification -->
+  <rect x="575" y="1250" width="170" height="76" rx="8" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="660" y="1275" font-family="'Malgun Gothic',sans-serif" font-size="14px" font-weight="bold" fill="#1E3A8A" text-anchor="middle" dominant-baseline="middle">Verification</text>
+  <text x="660" y="1295" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#2563EB" text-anchor="middle" dominant-baseline="middle">Agent 독립 검증</text>
+  <text x="660" y="1313" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#DC2626" font-weight="bold" text-anchor="middle" dominant-baseline="middle">자기 검증 절대 금지</text>
+
+  <!-- 통과 화살표 -->
+  <line x1="747" y1="1278" x2="782" y2="1278" stroke="#059669" stroke-width="2.5" marker-end="url(#arrTeal)"/>
+  <text x="764" y="1268" font-family="'Malgun Gothic',sans-serif" font-size="11px" fill="#059669" text-anchor="middle" dominant-baseline="middle">통과</text>
+
+  <!-- Completed -->
+  <rect x="785" y="1258" width="145" height="60" rx="8" fill="#F0FDF4" stroke="#059669" stroke-width="2"/>
+  <text x="857" y="1282" font-family="'Malgun Gothic',sans-serif" font-size="15px" font-weight="bold" fill="#065F46" text-anchor="middle" dominant-baseline="middle">Completed</text>
+  <text x="857" y="1302" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#059669" text-anchor="middle" dominant-baseline="middle">검증 완료</text>
+
+  <!-- Needs Fix 루프 -->
+  <path d="M 660 1328 L 660 1365 L 297 1365 L 297 1320" stroke="#DC2626" stroke-width="2" fill="none" stroke-dasharray="6,3" marker-end="url(#arrRed)"/>
+  <rect x="405" y="1372" width="175" height="26" rx="6" fill="#FEE2E2" stroke="#DC2626" stroke-width="1"/>
+  <text x="492" y="1385" font-family="'Malgun Gothic',sans-serif" font-size="13px" font-weight="bold" fill="#DC2626" text-anchor="middle" dominant-baseline="middle">Needs Fix → 재수정</text>
+
+  <text x="492" y="1355" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#DC2626" text-anchor="middle" dominant-baseline="middle">검증 실패 시</text>
+
+  <!-- Blocked / Failed -->
+  <rect x="970" y="1258" width="180" height="110" rx="8" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1" stroke-dasharray="5,3"/>
+  <text x="1060" y="1278" font-family="'Malgun Gothic',sans-serif" font-size="13px" font-weight="bold" fill="#64748B" text-anchor="middle" dominant-baseline="middle">특수 상태</text>
+  <rect x="990" y="1294" width="72" height="24" rx="5" fill="#DC2626" opacity="0.8"/>
+  <text x="1026" y="1306" font-family="'Malgun Gothic',sans-serif" font-size="12px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">Blocked</text>
+  <text x="1072" y="1306" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#64748B" dominant-baseline="middle">의존성 차단</text>
+  <rect x="990" y="1325" width="72" height="24" rx="5" fill="#991B1B" opacity="0.8"/>
+  <text x="1026" y="1337" font-family="'Malgun Gothic',sans-serif" font-size="12px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">Failed</text>
+  <text x="1072" y="1337" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#64748B" dominant-baseline="middle">실패 처리</text>
+
+  <!-- ====== 섹션 5: 핵심 원칙 ====== -->
+  <rect x="30" y="1460" width="1140" height="380" rx="14" fill="white" stroke="#BFDBFE" stroke-width="1.5" filter="url(#shadow)"/>
+
+  <circle cx="58" cy="1480" r="14" fill="#1E3A8A"/>
+  <text x="58" y="1480" font-family="'Malgun Gothic',sans-serif" font-size="13px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">5</text>
+  <text x="84" y="1480" font-family="'Malgun Gothic',sans-serif" font-size="20px" font-weight="bold" fill="#1E3A8A" dominant-baseline="middle">핵심 원칙</text>
+
+  <!-- 원칙 1: Template 복사 -->
+  <rect x="50" y="1505" width="350" height="315" rx="10" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="50" y="1505" width="350" height="44" rx="10" fill="#059669"/>
+  <rect x="50" y="1535" width="350" height="14" fill="#059669"/>
+  <text x="225" y="1522" font-family="'Malgun Gothic',sans-serif" font-size="14px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">원칙 1</text>
+  <text x="225" y="1542" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#CCFBF1" text-anchor="middle" dominant-baseline="middle">Template 복사 → 프로젝트 맞춤 변경</text>
+
+  <text x="70" y="1578" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#059669" font-weight="bold" dominant-baseline="middle">핵심 패턴:</text>
+  <text x="70" y="1600" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#1E293B" dominant-baseline="middle">1. Template 원본은 절대 직접 수정 안 함</text>
+  <text x="70" y="1622" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#1E293B" dominant-baseline="middle">2. 복사 후 프로젝트 전용으로 커스터마이즈</text>
+  <text x="70" y="1644" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#1E293B" dominant-baseline="middle">3. .claude/, Process/, scripts/ 모두 동일 패턴</text>
+
+  <rect x="70" y="1665" width="310" height="2" fill="#059669" opacity="0.3"/>
+  <text x="70" y="1685" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#059669" font-weight="bold" dominant-baseline="middle">적용 범위:</text>
+  <text x="70" y="1707" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#64748B" dominant-baseline="middle">Stage 수 조정 (삭제/추가)</text>
+  <text x="70" y="1727" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#64748B" dominant-baseline="middle">플레이스홀더 치환 (프로젝트명 등)</text>
+  <text x="70" y="1747" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#64748B" dominant-baseline="middle">스크립트 경로/설정 + Hook 설치</text>
+  <text x="70" y="1767" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#64748B" dominant-baseline="middle">소급 도입: 현재 Stage 파악 후 적용</text>
+  <rect x="70" y="1785" width="310" height="24" rx="5" fill="#059669" opacity="0.1"/>
+  <text x="225" y="1797" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#059669" font-weight="bold" text-anchor="middle" dominant-baseline="middle">불변 원본 + 가변 프로젝트 사본</text>
+
+  <!-- 원칙 2: Task ≠ Verification -->
+  <rect x="425" y="1505" width="350" height="315" rx="10" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="425" y="1505" width="350" height="44" rx="10" fill="#DC2626"/>
+  <rect x="425" y="1535" width="350" height="14" fill="#DC2626"/>
+  <text x="600" y="1522" font-family="'Malgun Gothic',sans-serif" font-size="14px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">원칙 2</text>
+  <text x="600" y="1542" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#FECACA" text-anchor="middle" dominant-baseline="middle">Task Agent ≠ Verification Agent</text>
+
+  <text x="445" y="1578" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#DC2626" font-weight="bold" dominant-baseline="middle">자기 검증 절대 금지:</text>
+  <text x="445" y="1600" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#1E293B" dominant-baseline="middle">작업 수행 Agent가 자신의 작업을</text>
+  <text x="445" y="1622" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#1E293B" dominant-baseline="middle">절대 검증할 수 없음</text>
+  <text x="445" y="1644" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#1E293B" dominant-baseline="middle">반드시 별도 Verification Agent 투입</text>
+
+  <rect x="445" y="1665" width="310" height="2" fill="#DC2626" opacity="0.3"/>
+  <text x="445" y="1685" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#DC2626" font-weight="bold" dominant-baseline="middle">검증 흐름:</text>
+
+  <!-- 미니 플로우 -->
+  <rect x="445" y="1705" width="100" height="28" rx="6" fill="#2563EB"/>
+  <text x="495" y="1719" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="white" text-anchor="middle" dominant-baseline="middle">Task Agent</text>
+  <line x1="547" y1="1719" x2="565" y2="1719" stroke="#2563EB" stroke-width="2" marker-end="url(#arrBlue)"/>
+  <rect x="567" y="1705" width="80" height="28" rx="6" fill="#EFF6FF" stroke="#2563EB" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="607" y="1719" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#2563EB" text-anchor="middle" dominant-baseline="middle">Executed</text>
+  <line x1="649" y1="1719" x2="665" y2="1719" stroke="#059669" stroke-width="2" marker-end="url(#arrTeal)"/>
+  <rect x="667" y="1705" width="90" height="28" rx="6" fill="#059669"/>
+  <text x="712" y="1719" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="white" text-anchor="middle" dominant-baseline="middle">V-Agent</text>
+
+  <text x="445" y="1755" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#64748B" dominant-baseline="middle">V-Agent = 독립적, 비편향적 검증</text>
+  <text x="445" y="1775" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#64748B" dominant-baseline="middle">검증 기준: rules/ 파일 기반</text>
+  <text x="445" y="1795" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#64748B" dominant-baseline="middle">결과: Completed 또는 Needs Fix</text>
+
+  <!-- 원칙 3: 동적 Stage -->
+  <rect x="800" y="1505" width="350" height="315" rx="10" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="800" y="1505" width="350" height="44" rx="10" fill="#1E3A8A"/>
+  <rect x="800" y="1535" width="350" height="14" fill="#1E3A8A"/>
+  <text x="975" y="1522" font-family="'Malgun Gothic',sans-serif" font-size="14px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">원칙 3</text>
+  <text x="975" y="1542" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#93C5FD" text-anchor="middle" dominant-baseline="middle">동적 Stage (S0 ~ SN)</text>
+
+  <text x="820" y="1578" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#1E3A8A" font-weight="bold" dominant-baseline="middle">프로젝트 규모에 따라 탄력적 구성:</text>
+
+  <!-- 소규모 -->
+  <rect x="820" y="1598" width="310" height="50" rx="6" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1"/>
+  <text x="830" y="1614" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#64748B" dominant-baseline="middle">소규모</text>
+  <rect x="890" y="1608" width="55" height="18" rx="4" fill="#2563EB"/>
+  <text x="917" y="1617" font-family="'Malgun Gothic',sans-serif" font-size="11px" fill="white" text-anchor="middle" dominant-baseline="middle">S0</text>
+  <rect x="950" y="1608" width="55" height="18" rx="4" fill="#2563EB"/>
+  <text x="977" y="1617" font-family="'Malgun Gothic',sans-serif" font-size="11px" fill="white" text-anchor="middle" dominant-baseline="middle">S1</text>
+  <rect x="1010" y="1608" width="55" height="18" rx="4" fill="#2563EB"/>
+  <text x="1037" y="1617" font-family="'Malgun Gothic',sans-serif" font-size="11px" fill="white" text-anchor="middle" dominant-baseline="middle">S2</text>
+  <text x="830" y="1640" font-family="'Malgun Gothic',sans-serif" font-size="11px" fill="#94A3B8" dominant-baseline="middle">3개 Stage로 신속 완료</text>
+
+  <!-- 대규모 -->
+  <rect x="820" y="1658" width="310" height="50" rx="6" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1"/>
+  <text x="830" y="1674" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#64748B" dominant-baseline="middle">대규모</text>
+  <rect x="890" y="1668" width="35" height="18" rx="4" fill="#2563EB"/>
+  <text x="907" y="1677" font-family="'Malgun Gothic',sans-serif" font-size="10px" fill="white" text-anchor="middle" dominant-baseline="middle">S0</text>
+  <rect x="928" y="1668" width="35" height="18" rx="4" fill="#2563EB"/>
+  <text x="945" y="1677" font-family="'Malgun Gothic',sans-serif" font-size="10px" fill="white" text-anchor="middle" dominant-baseline="middle">S1</text>
+  <rect x="966" y="1668" width="35" height="18" rx="4" fill="#2563EB"/>
+  <text x="983" y="1677" font-family="'Malgun Gothic',sans-serif" font-size="10px" fill="white" text-anchor="middle" dominant-baseline="middle">S2</text>
+  <rect x="1004" y="1668" width="35" height="18" rx="4" fill="#2563EB"/>
+  <text x="1021" y="1677" font-family="'Malgun Gothic',sans-serif" font-size="10px" fill="white" text-anchor="middle" dominant-baseline="middle">S3</text>
+  <rect x="1042" y="1668" width="35" height="18" rx="4" fill="#2563EB"/>
+  <text x="1059" y="1677" font-family="'Malgun Gothic',sans-serif" font-size="10px" fill="white" text-anchor="middle" dominant-baseline="middle">S4</text>
+  <text x="1090" y="1677" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#2563EB" font-weight="bold" dominant-baseline="middle">…SN</text>
+  <text x="830" y="1700" font-family="'Malgun Gothic',sans-serif" font-size="11px" fill="#94A3B8" dominant-baseline="middle">N개 Stage로 체계적 진행</text>
+
+  <rect x="820" y="1718" width="310" height="2" fill="#1E3A8A" opacity="0.2"/>
+  <text x="820" y="1740" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#1E3A8A" font-weight="bold" dominant-baseline="middle">Stage 결정 기준:</text>
+  <text x="820" y="1762" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#64748B" dominant-baseline="middle">PART 3 매트릭스 분석 결과 기반</text>
+  <text x="820" y="1782" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#64748B" dominant-baseline="middle">Task 수, 복잡도, 팀 규모 고려</text>
+  <text x="820" y="1802" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#64748B" dominant-baseline="middle">소급 도입: 현 진행 상황에서 시작</text>
+
+  <!-- ====== 섹션 6: SAL Grid Viewer ====== -->
+  <rect x="30" y="1860" width="1140" height="140" rx="14" fill="white" stroke="#FCD34D" stroke-width="1.5" filter="url(#shadow)"/>
+
+  <circle cx="58" cy="1880" r="14" fill="#D97706"/>
+  <text x="58" y="1880" font-family="'Malgun Gothic',sans-serif" font-size="13px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">6</text>
+  <text x="84" y="1880" font-family="'Malgun Gothic',sans-serif" font-size="20px" font-weight="bold" fill="#92400E" dominant-baseline="middle">SAL Grid Viewer</text>
+
+  <!-- Viewer JSON -->
+  <rect x="50" y="1905" width="540" height="78" rx="10" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1.5"/>
+  <rect x="70" y="1915" width="28" height="28" rx="6" fill="#D97706"/>
+  <text x="84" y="1932" font-family="'Malgun Gothic',sans-serif" font-size="15px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">J</text>
+  <text x="170" y="1922" font-family="'Malgun Gothic',sans-serif" font-size="15px" font-weight="bold" fill="#92400E" dominant-baseline="middle">viewer_json.html</text>
+  <text x="70" y="1955" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#1E293B" dominant-baseline="middle">JSON 파일 기반 Grid 시각화 (유일한 Viewer 방식)</text>
+  <text x="70" y="1975" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#64748B" dominant-baseline="middle">index.json + grid_records/*.json → 진행률 대시보드</text>
+
+  <!-- 데이터 소스 -->
+  <rect x="620" y="1905" width="530" height="78" rx="10" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1" stroke-dasharray="5,3"/>
+  <text x="640" y="1925" font-family="'Malgun Gothic',sans-serif" font-size="14px" font-weight="bold" fill="#1E3A8A" dominant-baseline="middle">데이터 소스</text>
+  <text x="640" y="1950" font-family="'Courier New',monospace" font-size="13px" fill="#059669" dominant-baseline="middle">sal-grid/method/json/data/index.json</text>
+  <text x="640" y="1972" font-family="'Courier New',monospace" font-size="13px" fill="#059669" dominant-baseline="middle">sal-grid/method/json/data/grid_records/*.json</text>
+
+  <!-- ====== 3방향 동기화 (Triple Sync) ====== -->
+  <rect x="30" y="2020" width="1140" height="170" rx="14" fill="white" stroke="#93C5FD" stroke-width="1.5" filter="url(#shadow)"/>
+
+  <circle cx="58" cy="2040" r="14" fill="#1E3A8A"/>
+  <text x="58" y="2040" font-family="'Malgun Gothic',sans-serif" font-size="13px" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">★</text>
+  <text x="84" y="2040" font-family="'Malgun Gothic',sans-serif" font-size="20px" font-weight="bold" fill="#1E3A8A" dominant-baseline="middle">3방향 동기화 (Triple Sync)</text>
+
+  <!-- Sync 1: JSON -->
+  <rect x="50" y="2065" width="350" height="105" rx="10" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1.5"/>
+  <text x="225" y="2088" font-family="'Malgun Gothic',sans-serif" font-size="14px" font-weight="bold" fill="#92400E" text-anchor="middle" dominant-baseline="middle">① JSON → Viewer</text>
+  <text x="70" y="2110" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#1E293B" dominant-baseline="middle">Task 실행/검증/수정 시</text>
+  <text x="70" y="2130" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#1E293B" dominant-baseline="middle">grid_records/*.json 즉시 업데이트</text>
+  <text x="70" y="2150" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#D97706" font-weight="bold" dominant-baseline="middle">→ viewer_json.html 실시간 반영</text>
+
+  <!-- Sync 2: Stage 폴더 -->
+  <rect x="425" y="2065" width="350" height="105" rx="10" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1.5"/>
+  <text x="600" y="2088" font-family="'Malgun Gothic',sans-serif" font-size="14px" font-weight="bold" fill="#065F46" text-anchor="middle" dominant-baseline="middle">② 소스 → Stage 폴더</text>
+  <text x="445" y="2110" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#1E293B" dominant-baseline="middle">코드 생성 시</text>
+  <text x="445" y="2130" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#1E293B" dominant-baseline="middle">Process/S{N}_{Name}/{Area}/ 에 저장</text>
+  <text x="445" y="2150" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#059669" font-weight="bold" dominant-baseline="middle">→ 프로세스 원본 관리</text>
+
+  <!-- Sync 3: Root -->
+  <rect x="800" y="2065" width="350" height="105" rx="10" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.5"/>
+  <text x="975" y="2088" font-family="'Malgun Gothic',sans-serif" font-size="14px" font-weight="bold" fill="#1E3A8A" text-anchor="middle" dominant-baseline="middle">③ 소스 → Root (배포용)</text>
+  <text x="820" y="2110" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#1E293B" dominant-baseline="middle">Pre-commit Hook 실행 시</text>
+  <text x="820" y="2130" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#1E293B" dominant-baseline="middle">sync-to-root.js → Root 자동 복사</text>
+  <text x="820" y="2150" font-family="'Malgun Gothic',sans-serif" font-size="12px" fill="#2563EB" font-weight="bold" dominant-baseline="middle">→ Vercel/GitHub Pages 배포용</text>
+
+  <!-- ====== 하단 서명 ====== -->
+  <rect x="0" y="2310" width="1200" height="90" fill="#1E3A8A" opacity="0.08"/>
+  <line x1="0" y1="2310" x2="1200" y2="2310" stroke="#1E3A8A" stroke-width="1.5" opacity="0.3"/>
+  <text x="600" y="2332" font-family="'Malgun Gothic',sans-serif" font-size="13px" fill="#64748B" text-anchor="middle" dominant-baseline="middle">SAL Grid Dev Suite V3.1 Architecture · Blue Dragon 청룡 — 2026</text>
+  <text x="600" y="2355" font-family="'Malgun Gothic',sans-serif" font-size="11px" fill="#94A3B8" text-anchor="middle" dominant-baseline="middle">특허 출원번호 10-2026-0009425</text>
+  <text x="600" y="2375" font-family="'Malgun Gothic',sans-serif" font-size="11px" fill="#94A3B8" text-anchor="middle" dominant-baseline="middle">3차원 좌표 정보가 인코딩된 식별자 기반으로 구축하는 프로젝트 그리드를 활용한 멀티태스크 오케스트레이션 시스템 및 방법</text>
+</svg>
