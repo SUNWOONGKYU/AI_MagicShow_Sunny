@@ -1,4 +1,202 @@
 <!DOCTYPE html>
+<html lang="ko">
+<head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=20260310/">
-<script>location.href='20260310/'</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Magic Show - Sunny 2026.03.10</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;background:#000;font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif}
+body{display:flex;flex-direction:column;height:100vh;overflow:hidden}
+
+/* 슬라이드 영역 */
+#slide-wrap{flex:1;min-height:0;position:relative;display:flex;align-items:center;justify-content:center;background:#111}
+#slide-img{max-width:100%;max-height:100%;object-fit:contain;display:block;user-select:none}
+
+/* 화살표 */
+.arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.45);
+  border:none;color:#FF8C00;font-size:38px;cursor:pointer;padding:18px 10px;
+  z-index:10;border-radius:6px;transition:background 0.2s;line-height:1}
+.arrow:hover{background:rgba(255,140,0,0.35)}
+#arr-l{left:0}
+#arr-r{right:0}
+
+/* 링크 패널 (슬라이드 바로 아래) */
+#link-panel{
+  background:linear-gradient(135deg,#001a3a,#002d5c);
+  border-top:3px solid #FF8C00;
+  padding:14px 24px;
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  flex-shrink:0;
+}
+#link-panel.show{display:flex}
+
+#link-panel .lp-head{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:#FF8C00;
+  font-size:15px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+#link-panel .lp-head .arrow-down{
+  font-size:20px;
+  animation:bounce 1s infinite;
+}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+
+#link-panel .lp-btns{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+}
+#link-panel a{
+  color:#fff;
+  background:rgba(52,152,219,0.25);
+  border:2px solid #3498DB;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:700;
+  padding:9px 22px;
+  border-radius:28px;
+  white-space:nowrap;
+  transition:all 0.2s;
+}
+#link-panel a:hover{background:#3498DB;transform:scale(1.05);box-shadow:0 0 16px rgba(52,152,219,0.7)}
+
+/* 하단 네비 */
+#nav{background:#001020;border-top:1px solid #1a2a3a;padding:10px 20px;
+  display:flex;align-items:center;justify-content:center;gap:20px;flex-shrink:0}
+.nav-btn{background:none;border:2px solid #FF8C00;color:#FF8C00;
+  padding:6px 24px;border-radius:20px;cursor:pointer;font-size:15px;
+  font-weight:700;transition:all 0.2s;font-family:inherit}
+.nav-btn:hover{background:#FF8C00;color:#001020}
+.nav-btn:disabled{border-color:#333;color:#333;cursor:default}
+#counter{color:#ccc;font-size:15px;min-width:70px;text-align:center;font-weight:700}
+#today{color:#FF8C00;font-size:13px;font-weight:700;letter-spacing:1px}
+#progress{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,#FF8C00,#FFD700);transition:width 0.3s;z-index:100}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<div id="slide-wrap">
+  <button class="arrow" id="arr-l" onclick="go(-1)">&#10094;</button>
+  <img id="slide-img" src="slides/slide1.png" alt="Slide 1">
+  <button class="arrow" id="arr-r" onclick="go(1)">&#10095;</button>
+</div>
+
+<!-- 링크 패널: 슬라이드 바로 아래, 링크 있을 때만 표시 -->
+<div id="link-panel">
+  <div class="lp-head">
+    <span class="arrow-down">👇</span>
+    <span>이 슬라이드의 링크 — 클릭하면 바로 열립니다</span>
+    <span class="arrow-down">👇</span>
+  </div>
+  <div class="lp-btns" id="lp-btns"></div>
+</div>
+
+<div id="nav">
+  <button class="nav-btn" id="btn-p" onclick="go(-1)">◀ 이전</button>
+  <span id="counter">1 / 52</span>
+  <button class="nav-btn" id="btn-n" onclick="go(1)">다음 ▶</button>
+  <span id="today"></span>
+</div>
+
+<script>
+var TOTAL = 46;
+var cur = 1;
+
+var links = {
+  5: [
+    { text: '📖 책 판매 사이트', url: 'https://sales-system-psi.vercel.app/' },
+    { text: '🌐 SUNNY ECOSYSTEM Service Hub', url: 'https://sunwoongkyu.github.io/SUNNY_ECOSYSTEM/service-hub.html' }
+  ],
+  // slide 6: 특허출원번호통지서 5건 (링크 없음)
+  7: [
+    { text: '🔗 SSAL Works', url: 'https://ssalworks.ai.kr/' },
+    { text: '🔗 Politician Finder', url: 'https://www.politicianfinder.ai.kr/' },
+    { text: '🔗 ValueLink', url: 'https://sunwoongkyu.github.io/ValueLink/Valuation_Company/valuation-platform/frontend/' },
+    { text: '🔗 MyChatbot World', url: 'https://mychatbot.world/' },
+    { text: '🔗 AX-On Platform', url: 'https://ax-on-platform.vercel.app/' },
+    { text: '🔗 FX Pooling Platform', url: 'https://prototype-six-coral.vercel.app/' }
+  ],
+  29: [
+    { text: '🔗 MyChatbot World', url: 'https://mychatbot.world/' },
+    { text: '📊 CPC 시스템 구조도', url: 'https://sunwoongkyu.github.io/AI_MagicShow_Sunny/cpc_flow_diagram.svg' }
+  ],
+  30: [
+    { text: '📊 SAL Grid Dev Suite 스킬 관계도', url: 'https://sunwoongkyu.github.io/AI_MagicShow_Sunny/skills_overview.svg' }
+  ],
+  33: [
+    { text: '🔗 YouTube 영상 제작 프로세스', url: 'https://sunwoongkyu.github.io/youtube-generate/' }
+  ],
+  36: [
+    { text: '📊 소대편제 구조도', url: 'platoon_formation_v3.svg' },
+    { text: '📋 소대편제 특허출원 슬라이드', url: 'patent/Platoon_Formation_Patent/platoon-formation-patent-slideshow.html' }
+  ],
+  37: [
+    { text: '📊 SAL Grid 개발방법론 아키텍처', url: 'sal-grid-dev-architecture.svg' },
+    { text: '📋 SAL Grid 특허출원 슬라이드', url: 'patent/Patent_SALGrid/sal-grid-patent-slideshow.html' },
+    { text: '🔗 SAL Grid Viewer Database', url: 'https://www.ssalworks.ai.kr/S0_Project-SAL-Grid_%EC%83%9D%EC%84%B1/viewer/viewer_database.html' }
+  ]
+};
+
+var img = document.getElementById('slide-img');
+var counter = document.getElementById('counter');
+var progress = document.getElementById('progress');
+var btnP = document.getElementById('btn-p');
+var btnN = document.getElementById('btn-n');
+var linkPanel = document.getElementById('link-panel');
+var lpBtns = document.getElementById('lp-btns');
+
+function updateSlide() {
+  img.src = 'slides/slide' + cur + '.png';
+  counter.textContent = cur + ' / ' + TOTAL;
+  progress.style.width = (cur / TOTAL * 100) + '%';
+  btnP.disabled = (cur === 1);
+  btnN.disabled = (cur === TOTAL);
+
+  var sl = links[cur];
+  if (sl && sl.length > 0) {
+    lpBtns.innerHTML = sl.map(function(l) {
+      return '<a href="' + l.url + '" target="_blank" rel="noopener noreferrer">' + l.text + '</a>';
+    }).join('');
+    linkPanel.classList.add('show');
+  } else {
+    lpBtns.innerHTML = '';
+    linkPanel.classList.remove('show');
+  }
+}
+
+function go(dir) {
+  var next = cur + dir;
+  if (next < 1 || next > TOTAL) return;
+  cur = next;
+  updateSlide();
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowRight' || e.key === ' ') go(1);
+  if (e.key === 'ArrowLeft') go(-1);
+  if (e.key === 'Home') { cur = 1; updateSlide(); }
+  if (e.key === 'End') { cur = TOTAL; updateSlide(); }
+});
+
+var tx = 0;
+document.addEventListener('touchstart', function(e){ tx = e.touches[0].clientX; },{passive:true});
+document.addEventListener('touchend', function(e){
+  var dx = e.changedTouches[0].clientX - tx;
+  if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
+});
+
+updateSlide();
+var d=new Date(); document.getElementById('today').textContent=d.getFullYear()+'.'+(d.getMonth()+1).toString().padStart(2,'0')+'.'+d.getDate().toString().padStart(2,'0');
+</script>
+</body>
+</html>
