@@ -78,6 +78,7 @@ body{display:flex;flex-direction:column;height:100vh;overflow:hidden}
 .nav-btn:hover{background:#FF8C00;color:#001020}
 .nav-btn:disabled{border-color:#333;color:#333;cursor:default}
 #counter{color:#ccc;font-size:15px;min-width:70px;text-align:center;font-weight:700}
+#today{color:#FF8C00;font-size:13px;font-weight:700;letter-spacing:1px}
 #progress{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,#FF8C00,#FFD700);transition:width 0.3s;z-index:100}
 </style>
 </head>
@@ -104,6 +105,7 @@ body{display:flex;flex-direction:column;height:100vh;overflow:hidden}
   <button class="nav-btn" id="btn-p" onclick="go(-1)">◀ 이전</button>
   <span id="counter">1 / 52</span>
   <button class="nav-btn" id="btn-n" onclick="go(1)">다음 ▶</button>
+  <span id="today"></span>
 </div>
 
 <script>
@@ -194,6 +196,7 @@ document.addEventListener('touchend', function(e){
 });
 
 updateSlide();
+var d=new Date(); document.getElementById('today').textContent=d.getFullYear()+'.'+(d.getMonth()+1).toString().padStart(2,'0')+'.'+d.getDate().toString().padStart(2,'0');
 </script>
 </body>
 </html>
