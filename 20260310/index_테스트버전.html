@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Magic Show - Sunny 2026</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;background:#0a1628;font-family:'Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif;color:#fff}
+body{display:flex;flex-direction:column;height:100vh;overflow:hidden}
+
+/* ===== 슬라이드 영역 ===== */
+#slide-wrap{flex:1;min-height:0;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.slide{display:none;width:100%;height:100%;padding:40px 60px;overflow-y:auto}
+.slide.active{display:flex;flex-direction:column;justify-content:center;align-items:center}
+
+/* ===== 공통 슬라이드 스타일 ===== */
+.slide-header{font-size:clamp(1.4rem,3.5vw,2.2rem);font-weight:900;color:#FF8C00;margin-bottom:8px;line-height:1.3}
+.slide-header .icon{margin-right:10px}
+.slide-sub{font-size:clamp(0.8rem,1.5vw,1rem);color:#ccc;margin-bottom:24px;letter-spacing:0.5px}
+.slide-divider{width:min(80%,700px);height:3px;background:linear-gradient(90deg,transparent,#FF8C00,transparent);margin:12px 0 20px}
+.slide-divider-sm{width:min(60%,500px);height:2px;background:linear-gradient(90deg,transparent,#FF8C00,transparent);margin:10px 0 16px}
+
+/* 카드 */
+.card-row{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin:16px 0;width:100%;max-width:1100px}
+.card{background:rgba(30,60,114,0.5);border:1px solid rgba(52,152,219,0.3);border-radius:12px;padding:24px;flex:1;min-width:220px;max-width:320px}
+.card-title{font-size:1.1rem;font-weight:800;color:#FF8C00;margin-bottom:8px}
+.card-text{font-size:0.9rem;color:#ccc;line-height:1.6}
+.card-link{display:block;margin-top:12px;font-size:0.8rem;color:#3498DB;text-decoration:none}
+.card-link:hover{text-decoration:underline}
+
+/* 바 아이템 */
+.bar-list{width:100%;max-width:900px;display:flex;flex-direction:column;gap:10px;margin:12px 0}
+.bar-item{background:rgba(20,50,100,0.6);border-left:4px solid #1a5276;padding:14px 24px;border-radius:0 8px 8px 0;font-size:clamp(0.85rem,1.5vw,1.05rem);line-height:1.5}
+.bar-item.accent{background:rgba(52,152,219,0.2);border-left-color:#3498DB}
+.bar-item.highlight{background:rgba(52,152,219,0.3);border-left-color:#3498DB;color:#7ec8e3}
+.bar-item.warn{border-left-color:#e74c3c;color:#FF6B6B}
+
+/* 넘버 리스트 */
+.num-list{width:100%;max-width:900px;display:flex;flex-direction:column;gap:16px;margin:16px 0}
+.num-item{display:flex;align-items:center;gap:16px;font-size:clamp(0.9rem,1.5vw,1.1rem)}
+.num-circle{width:40px;height:40px;border-radius:50%;background:#FF8C00;color:#0a1628;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.1rem;flex-shrink:0}
+
+/* 2열 카드 */
+.two-col{display:flex;gap:20px;width:100%;max-width:1000px;margin:16px 0}
+.two-col .col{flex:1;border-radius:12px;padding:24px;min-width:0}
+.col-left{background:rgba(80,30,30,0.5);border:1px solid rgba(200,80,80,0.3)}
+.col-right{background:rgba(20,60,30,0.5);border:1px solid rgba(80,200,100,0.3)}
+.col-blue{background:rgba(20,50,100,0.5);border:1px solid rgba(52,152,219,0.3)}
+.col-title{font-size:1.1rem;font-weight:800;margin-bottom:12px;line-height:1.3}
+
+/* 섹션 커버 */
+.section-cover{text-align:center}
+.section-cover .part-label{font-size:1rem;color:#ccc;font-style:italic;margin-bottom:16px}
+.section-cover .part-icon{font-size:4rem;margin-bottom:16px}
+.section-cover .part-title{font-size:clamp(2rem,5vw,3.5rem);font-weight:900;color:#FF8C00;margin-bottom:12px}
+.section-cover .part-sub{font-size:1.1rem;color:#ccc}
+
+/* 큰 텍스트 중앙 */
+.center-text{text-align:center;max-width:900px}
+.big-text{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;line-height:1.5;margin:8px 0}
+.huge-text{font-size:clamp(2rem,4.5vw,3.5rem);font-weight:900;color:#FF8C00;margin:12px 0}
+.medium-text{font-size:clamp(1rem,2vw,1.4rem);line-height:1.6;margin:8px 0}
+.accent-text{color:#FF8C00}
+.cyan-text{color:#2ECC71}
+.teal-text{color:#1ABC9C}
+.coral-text{color:#FF6B6B}
+.muted{color:#999}
+
+/* 표 */
+.data-table{border-collapse:collapse;margin:12px 0;font-size:0.8rem;width:100%;max-width:900px}
+.data-table th{background:rgba(255,140,0,0.2);color:#FF8C00;padding:8px 12px;border:1px solid rgba(255,140,0,0.3);text-align:left;font-size:0.75rem}
+.data-table td{padding:8px 12px;border:1px solid rgba(255,255,255,0.1);font-size:0.75rem}
+.data-table tr:nth-child(even){background:rgba(255,255,255,0.03)}
+
+/* 4열 컬러 카드 */
+.four-cards{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin:16px 0;width:100%;max-width:1100px}
+.four-cards .fcard{flex:1;min-width:200px;max-width:260px;border-radius:12px;padding:24px;text-align:center}
+.fcard .fcard-top{height:6px;border-radius:3px 3px 0 0;margin:-24px -24px 16px;border-radius:12px 12px 0 0}
+
+/* 12대 그리드 */
+.grid-12{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;width:100%;max-width:1000px;margin:12px 0}
+.grid-12 .g12-item{display:flex;align-items:center;gap:10px;background:rgba(20,50,100,0.5);border-radius:8px;padding:12px 16px;font-size:0.85rem}
+.g12-item .g12-num{width:30px;height:30px;border-radius:50%;background:#FF8C00;color:#0a1628;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:0.85rem;flex-shrink:0}
+
+/* 3열 측정지표 */
+.metric-cards{display:flex;gap:20px;justify-content:center;margin:20px 0;width:100%;max-width:900px}
+.metric-card{flex:1;background:rgba(20,50,100,0.5);border-radius:12px;padding:28px;text-align:left}
+.metric-icon{font-size:2rem;margin-bottom:8px}
+.metric-title{font-size:1.3rem;font-weight:800;color:#FF8C00;margin-bottom:8px}
+.metric-desc{font-size:0.95rem;color:#ccc}
+
+/* 등급 체계 */
+.tier-list{display:flex;flex-direction:column;gap:6px;width:100%;max-width:500px;margin:16px 0}
+.tier-item{display:flex;align-items:center;border-radius:6px;padding:10px 16px;font-weight:700}
+
+/* 타임라인 */
+.timeline{display:flex;flex-direction:column;gap:24px;margin:16px 0}
+.tl-item{display:flex;align-items:flex-start;gap:16px}
+.tl-dot{width:16px;height:16px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.tl-date{font-size:1.1rem;font-weight:800;min-width:100px}
+.tl-content{flex:1}
+.tl-title{font-size:1.1rem;font-weight:800}
+.tl-desc{font-size:0.9rem;color:#ccc;margin-top:4px}
+
+/* 프로필 */
+.profile-section{display:flex;gap:40px;align-items:center;width:100%;max-width:1000px;flex-wrap:wrap;justify-content:center}
+.profile-left{text-align:center;min-width:240px}
+.profile-avatar{width:160px;height:160px;border-radius:50%;background:linear-gradient(135deg,#2c3e50,#34495e);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:3rem;border:3px solid rgba(255,140,0,0.3)}
+.profile-name{font-size:1.6rem;font-weight:900;margin-bottom:8px}
+.profile-tags{font-size:0.9rem;color:#ccc;line-height:1.8}
+
+/* 화살표 */
+.arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.45);
+  border:none;color:#FF8C00;font-size:38px;cursor:pointer;padding:18px 10px;
+  z-index:10;border-radius:6px;transition:background 0.2s;line-height:1}
+.arrow:hover{background:rgba(255,140,0,0.35)}
+#arr-l{left:0}
+#arr-r{right:0}
+
+/* 링크 패널 */
+#link-panel{
+  background:linear-gradient(135deg,#001a3a,#002d5c);
+  border-top:3px solid #FF8C00;padding:14px 24px;
+  display:none;flex-direction:column;align-items:center;gap:10px;flex-shrink:0;
+}
+#link-panel.show{display:flex}
+#link-panel .lp-head{display:flex;align-items:center;gap:8px;color:#FF8C00;font-size:15px;font-weight:900;letter-spacing:1px}
+#link-panel .lp-head .arrow-down{font-size:20px;animation:bounce 1s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+#link-panel .lp-btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+#link-panel a{color:#fff;background:rgba(52,152,219,0.25);border:2px solid #3498DB;text-decoration:none;font-size:15px;font-weight:700;padding:9px 22px;border-radius:28px;white-space:nowrap;transition:all 0.2s}
+#link-panel a:hover{background:#3498DB;transform:scale(1.05);box-shadow:0 0 16px rgba(52,152,219,0.7)}
+
+/* 하단 네비 */
+#nav{background:#001020;border-top:1px solid #1a2a3a;padding:10px 20px;
+  display:flex;align-items:center;justify-content:center;gap:20px;flex-shrink:0}
+.nav-btn{background:none;border:2px solid #FF8C00;color:#FF8C00;
+  padding:6px 24px;border-radius:20px;cursor:pointer;font-size:15px;
+  font-weight:700;transition:all 0.2s;font-family:inherit}
+.nav-btn:hover{background:#FF8C00;color:#001020}
+.nav-btn:disabled{border-color:#333;color:#333;cursor:default}
+#counter{color:#ccc;font-size:15px;min-width:70px;text-align:center;font-weight:700}
+#progress{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,#FF8C00,#FFD700);transition:width 0.3s;z-index:100}
+
+/* 반응형 */
+@media(max-width:768px){
+  .slide{padding:24px 20px}
+  .two-col,.card-row,.four-cards,.metric-cards{flex-direction:column;align-items:center}
+  .card,.fcard,.metric-card{max-width:100%}
+  .two-col .col{min-width:100%}
+  .grid-12{grid-template-columns:1fr}
+  .profile-section{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<div id="slide-wrap">
+  <button class="arrow" id="arr-l" onclick="go(-1)">&#10094;</button>
+
+  <!-- ======================== SLIDE 1: 표지 ======================== -->
+  <div class="slide" id="s1">
+    <div class="section-cover">
+      <div style="font-size:5rem;margin-bottom:12px">🎩✨</div>
+      <div class="part-title">AI Magic Show</div>
+      <div style="font-size:1.2rem;color:#ccc;margin:16px 0">시니어를 위한 AI 활용 특강</div>
+      <div class="slide-divider" style="margin:20px auto"></div>
+      <div style="font-size:1.1rem;color:#FF8C00;font-weight:700">AI Master "Sunny" 선웅규</div>
+      <div style="font-size:0.9rem;color:#999;margin-top:8px">2026. 02. 20</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 2: 목차 ======================== -->
+  <div class="slide" id="s2">
+    <div class="slide-header">📋 목차</div>
+    <div class="slide-divider"></div>
+    <div class="bar-list">
+      <div class="bar-item" style="border-left-color:#FF8C00"><strong style="color:#FF8C00">Part 1</strong>&nbsp; AI Master "Sunny"</div>
+      <div class="bar-item" style="border-left-color:#e67e22"><strong style="color:#e67e22">Part 2</strong>&nbsp; Sunny의 AI 철학</div>
+      <div class="bar-item" style="border-left-color:#f39c12"><strong style="color:#f39c12">Part 3</strong>&nbsp; Magic Show A — AI Magic 시연 10가지</div>
+      <div class="bar-item" style="border-left-color:#27ae60"><strong style="color:#27ae60">Part 4</strong>&nbsp; Magic Show B — Sunny Core Skill Package 시연 10가지</div>
+      <div class="bar-item" style="border-left-color:#3498db"><strong style="color:#3498db">Part 5</strong>&nbsp; 실용 Tips 10가지</div>
+      <div class="bar-item" style="border-left-color:#9b59b6"><strong style="color:#9b59b6">Part 6</strong>&nbsp; Q &amp; A</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 3: Part 1 커버 ======================== -->
+  <div class="slide" id="s3">
+    <div class="section-cover">
+      <div class="part-label">Part 1</div>
+      <div style="font-size:4rem;margin-bottom:12px">🎓</div>
+      <div class="part-title">AI Master "Sunny"</div>
+      <div class="part-sub">자기소개 &amp; AI 여정</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 4: AI Master Sunny 프로필 ======================== -->
+  <div class="slide" id="s4">
+    <div class="slide-header">🎓 AI Master "Sunny"</div>
+    <div class="slide-divider"></div>
+    <div class="profile-section">
+      <div class="profile-left">
+        <div class="profile-avatar">👨‍💼</div>
+        <div class="profile-name">Sunny (선웅규)</div>
+        <div class="profile-tags">
+          📊 공인회계사 (CPA) 20년+<br>
+          🚀 스타트업 액셀러레이터 10년+<br>
+          🤖 AI Master 9개월+
+        </div>
+      </div>
+      <div style="flex:1;min-width:300px">
+        <div style="font-size:1.3rem;font-weight:800;color:#FF8C00;margin-bottom:20px">AI와의 여정</div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot" style="background:#3498db"></div>
+            <div class="tl-date" style="color:#3498db">2025.05</div>
+            <div class="tl-content">
+              <div class="tl-title">AI를 만나다</div>
+              <div class="tl-desc">- Claude Code와의 첫 만남</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot" style="background:#2ecc71"></div>
+            <div class="tl-date" style="color:#2ecc71">3,500시간</div>
+            <div class="tl-content">
+              <div class="tl-title">9개월 × 하루 12시간+</div>
+              <div class="tl-desc">- AI 활용능력 키우기 집중</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot" style="background:#f1c40f"></div>
+            <div class="tl-date" style="color:#f1c40f">2026.02~</div>
+            <div class="tl-content">
+              <div class="tl-title">AI Master로서 활동</div>
+              <div class="tl-desc">– 서비스 수익 창출<br>– 시니어 대상 코칭</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 5: 3500시간의 성과 ======================== -->
+  <div class="slide" id="s5">
+    <div class="slide-header">📈 3,500시간의 성과</div>
+    <div class="slide-divider"></div>
+    <div class="card-row">
+      <div class="card">
+        <div class="card-title">📖 Claude &amp; Claude Code 책 집필</div>
+        <div class="card-text">2025.09 PDF 제작 → 판매 사이트 구축</div>
+      </div>
+      <div class="card">
+        <div class="card-title">💡 50개+ 사업 기획</div>
+        <div class="card-text">SUNNY ECOSYSTEM Service Hub</div>
+      </div>
+      <div class="card">
+        <div class="card-title">📋 특허출원 3건</div>
+        <div class="card-text">AI 기반 프로젝트 관리 방법론 등</div>
+      </div>
+    </div>
+    <div class="card-row">
+      <div class="card">
+        <div class="card-title">🧾 AI 활용 회계감사 수행</div>
+        <div class="card-text">CPA 전문성 × AI 활용</div>
+      </div>
+      <div class="card">
+        <div class="card-title">📝 AI 법률문서 작성 및 자문</div>
+        <div class="card-text">법률 분야 AI 활용</div>
+      </div>
+      <div class="card">
+        <div class="card-title">👨‍🏫 현재 3명 코칭 중</div>
+        <div class="card-text">시니어 AI 활용 교육</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 6: 풀스택 웹사이트 4개 ======================== -->
+  <div class="slide" id="s6">
+    <div class="slide-header">🚀 풀스택 웹사이트 4개 제작</div>
+    <div class="slide-divider"></div>
+    <div class="four-cards">
+      <div class="fcard" style="background:rgba(30,60,114,0.5);border:1px solid rgba(52,152,219,0.3)">
+        <div class="fcard-top" style="background:#FF8C00"></div>
+        <div style="font-size:1.3rem;font-weight:900;margin-bottom:12px">SSAL Works</div>
+        <div style="font-size:0.9rem;color:#ccc;line-height:1.6">AI 를 활용한/<br>SAL Grid 기반<br>웹사이트 개발 플랫폼</div>
+      </div>
+      <div class="fcard" style="background:rgba(30,60,114,0.5);border:1px solid rgba(52,152,219,0.3)">
+        <div class="fcard-top" style="background:#e056c1"></div>
+        <div style="font-size:1.3rem;font-weight:900;margin-bottom:12px">Politician Finder</div>
+        <div style="font-size:0.9rem;color:#ccc;line-height:1.6">AI 기반의 정치인<br>평가/커뮤니티<br>플랫폼</div>
+      </div>
+      <div class="fcard" style="background:rgba(30,60,114,0.5);border:1px solid rgba(52,152,219,0.3)">
+        <div class="fcard-top" style="background:#2ecc71"></div>
+        <div style="font-size:1.3rem;font-weight:900;margin-bottom:12px">ValueLine</div>
+        <div style="font-size:0.9rem;color:#ccc;line-height:1.6">AI를 활용한<br>기업가치<br>평가/연결 플랫폼</div>
+      </div>
+      <div class="fcard" style="background:rgba(30,60,114,0.5);border:1px solid rgba(52,152,219,0.3)">
+        <div class="fcard-top" style="background:#9b59b6"></div>
+        <div style="font-size:1.3rem;font-weight:900;margin-bottom:12px">MyChatbot World</div>
+        <div style="font-size:0.9rem;color:#ccc;line-height:1.6">AI 챗봇<br>라이프사이클<br>플랫폼</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 7: Part 2 커버 ======================== -->
+  <div class="slide" id="s7">
+    <div class="section-cover">
+      <div class="part-label">Part 2</div>
+      <div style="font-size:4rem;margin-bottom:12px">🧭</div>
+      <div class="part-title">Sunny의 AI 철학</div>
+      <div class="part-sub">Sunny의 AI 철학 10선</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 8: 철학 1 ======================== -->
+  <div class="slide" id="s8">
+    <div class="slide-sub" style="letter-spacing:2px">철학 1 | 본질</div>
+    <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:40px;text-align:center;max-width:900px">
+      <div class="huge-text" style="line-height:1.5">나는 AI를<br>믿지도 않고 안믿지도 않는다</div>
+      <div class="slide-divider-sm" style="margin:20px auto"></div>
+      <div class="big-text" style="color:#fff">AI는 그저 <strong>AI</strong>다!!</div>
+      <div class="slide-divider-sm" style="margin:20px auto"></div>
+      <div class="medium-text" style="color:#ccc">산은 산이고 물은 물인 것처럼...</div>
+    </div>
+    <div style="margin-top:20px;text-align:right;max-width:900px;width:100%;font-size:0.85rem;color:#888">— 청원유신 선사(당나라) · 법정 스님(한국)</div>
+  </div>
+
+  <!-- ======================== SLIDE 9: 철학 2 ======================== -->
+  <div class="slide" id="s9">
+    <div class="slide-sub" style="letter-spacing:2px">철학 2 | 본질</div>
+    <div class="center-text">
+      <div class="huge-text"><strong>AI</strong>는 모방<span style="color:#999">(模倣)</span>의 도사</div>
+      <div class="big-text" style="color:#ccc;margin:16px 0">AI가 제일 잘하는 건 베끼기</div>
+      <div class="slide-divider-sm" style="margin:20px auto"></div>
+      <div class="big-text" style="color:#ccc">이 모방의 도사를 잘 부리는 사람은</div>
+      <div class="huge-text" style="color:#1ABC9C">창조의 도사</div>
+      <div class="big-text" style="color:#FF8C00;margin-top:16px">사람이 해야 할 일은 창조하기</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 10: 철학 3 ======================== -->
+  <div class="slide" id="s10">
+    <div class="slide-sub" style="letter-spacing:2px">철학 3 | 본질</div>
+    <div class="two-col">
+      <div class="col col-left">
+        <div class="col-title" style="color:#FF6B6B;font-size:1.3rem">AI ≠ 프로그램</div>
+        <div style="margin-top:16px;line-height:2;font-size:0.95rem">
+          프로그램: 정확하지만 대화 불가 → 답답함<br><br>
+          <span style="color:#FF8C00">AI는 확률적이라 부정확</span><br>
+          &nbsp;&nbsp;→ 하지만 대화 가능!<br>
+          &nbsp;&nbsp;→ QnA 및 반복적 실행을 통해 개선 가능!<br><br>
+          AI는 확률적으로 일하는 존재이고<br>
+          따라서 틀려도 용서를 받는 특별한 존재
+        </div>
+      </div>
+      <div class="col col-right">
+        <div class="col-title" style="color:#2ECC71;font-size:1.3rem">사람이 길러야 할 능력</div>
+        <div style="margin-top:16px;line-height:2;font-size:0.95rem">
+          ① AI를 잘 부리는 능력<br><br>
+          ② AI 결과를 잘 확인하는 능력<br>
+          &nbsp;&nbsp;→ AI 스스로 먼저 검증<br>
+          &nbsp;&nbsp;→ 사람이 추가 확인<br><br>
+          <span style="color:#f1c40f">정확한 것처럼 보여도 검증하고 확인</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 11: 철학 4 ======================== -->
+  <div class="slide" id="s11">
+    <div class="slide-sub" style="letter-spacing:2px">철학 4 | 본질</div>
+    <div style="background:rgba(20,50,100,0.4);border-radius:16px;padding:40px;max-width:900px;width:100%">
+      <div style="font-size:clamp(1.5rem,3vw,2rem);font-weight:900;color:#FF8C00;margin-bottom:24px">AI는 사람의 능력을 증폭시킨다</div>
+      <div class="card-row" style="margin:20px 0">
+        <div class="card" style="text-align:center"><div style="color:#ccc;margin-bottom:8px">CPA + AI</div><div style="color:#FF8C00;font-weight:800;font-size:1.1rem">→ 슈퍼 CPA</div></div>
+        <div class="card" style="text-align:center"><div style="color:#ccc;margin-bottom:8px">마케터 + AI</div><div style="color:#FF8C00;font-weight:800;font-size:1.1rem">→ 슈퍼 마케터</div></div>
+        <div class="card" style="text-align:center"><div style="color:#ccc;margin-bottom:8px">기획자 + AI</div><div style="color:#FF8C00;font-weight:800;font-size:1.1rem">→ 슈퍼 기획자</div></div>
+      </div>
+    </div>
+    <div style="margin-top:24px;font-size:clamp(1.1rem,2vw,1.5rem);font-weight:800;color:#FF8C00;text-align:center">전문성 × AI = 10배, 100배의 결과</div>
+  </div>
+
+  <!-- ======================== SLIDE 12: 철학 5 ======================== -->
+  <div class="slide" id="s12">
+    <div class="slide-sub" style="letter-spacing:2px">철학 5 | 태도</div>
+    <div style="background:rgba(30,30,40,0.6);border-radius:16px;padding:32px;max-width:800px;text-align:center">
+      <div class="medium-text" style="color:#ccc">자동차 사용자 입장에서</div>
+      <div class="big-text" style="color:#FF8C00">능숙한 드라이버가 되면 된다.</div>
+      <div class="big-text" style="margin:16px 0"><strong>AI</strong>도 마찬가지다.</div>
+      <div class="big-text" style="color:#FF8C00">능숙한 AI 사용자가 되면 된다</div>
+      <div class="slide-divider-sm" style="margin:24px auto"></div>
+      <div class="two-col" style="margin-top:16px">
+        <div class="col" style="background:rgba(80,60,30,0.4);border:1px solid rgba(200,150,50,0.3);text-align:center">
+          <div style="font-size:2rem;margin-bottom:8px">🏎️</div>
+          <div style="color:#f1c40f;font-weight:700">운전 실력이 중요</div>
+          <div style="color:#ccc;font-size:0.85rem;margin-top:4px">자동차는 그냥 타면서 익힌다</div>
+        </div>
+        <div class="col" style="background:rgba(30,60,80,0.4);border:1px solid rgba(52,152,219,0.3);text-align:center">
+          <div style="font-size:2rem;margin-bottom:8px">🧠</div>
+          <div style="color:#3498db;font-weight:700">AI 활용 능력이 중요</div>
+          <div style="color:#ccc;font-size:0.85rem;margin-top:4px">AI는 그냥 쓰면서 익힌다</div>
+        </div>
+      </div>
+      <div style="margin-top:20px;font-size:clamp(1.2rem,2.5vw,1.8rem);font-weight:900;color:#FF8C00">AI는 學보다 <span style="font-size:1.4em;color:#FF8C00">習</span>이다</div>
+      <div style="color:#1ABC9C;font-size:1rem;margin-top:4px">百學不如一習</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 13: 철학 6 ======================== -->
+  <div class="slide" id="s13">
+    <div class="slide-sub" style="letter-spacing:2px">철학 6 | 태도</div>
+    <div class="two-col" style="max-width:1000px">
+      <div class="col" style="background:rgba(60,40,20,0.5);border:1px solid rgba(200,120,50,0.3);text-align:center">
+        <div style="font-size:3rem;margin-bottom:12px">🏗️</div>
+        <div style="font-size:1.1rem;font-weight:800;color:#FF8C00;margin-bottom:12px">포크레인이 나왔는데<br>여전히 삽질하는 방법을<br>이야기합니까?</div>
+        <div style="font-size:0.9rem;color:#ccc;line-height:1.6;margin-top:12px">과거 개발 방법은 버리세요.<br><span style="color:#FF8C00">AI 시대에 맞는 방법론을 사용하세요.</span></div>
+      </div>
+      <div class="col col-blue">
+        <div style="color:#1ABC9C;font-size:1.2rem;font-weight:800;margin-bottom:16px">코딩이 아니라<br>프롬프팅을 하고 있다</div>
+        <div style="line-height:2;font-size:0.95rem">
+          포크레인이 나왔는데 여전히 삽질?<br>
+          트랙터가 나왔는데 여전히 낫질?<br><br>
+          AI가 코딩하는 시대에<br>
+          프롬프팅을 통한 개발을 한다<br><br>
+          기획서, 지침서, 템플릿,<br>
+          디자인 및 방법론 등을 준비하자
+        </div>
+        <div style="color:#e74c3c;font-weight:700;margin-top:16px;font-size:0.95rem">⚠ 개발관리방법론 없이 바이브코딩은 미친 짓!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 14: 철학 7 ======================== -->
+  <div class="slide" id="s14">
+    <div class="slide-sub" style="letter-spacing:2px">철학 7 | 태도</div>
+    <div class="center-text">
+      <div class="big-text" style="color:#ccc">이제는</div>
+      <div class="big-text" style="font-size:clamp(1.8rem,3.5vw,2.5rem)">모든 일을 <strong>AI</strong>와 함께 하는 것을</div>
+      <div class="huge-text">기본이자 표준으로</div>
+      <div class="big-text" style="color:#ccc">삼을 수밖에 없다</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 15: 철학 8 ======================== -->
+  <div class="slide" id="s15">
+    <div class="slide-sub" style="letter-spacing:2px">철학 8 | 태도</div>
+    <div class="center-text">
+      <div class="big-text" style="color:#FF6B6B;font-size:clamp(1.8rem,3.5vw,2.5rem)"><strong>AI</strong>와 씨름에서의<br><span style="color:#FF6B6B">좌절</span>은</div>
+      <div style="height:24px"></div>
+      <div class="big-text" style="color:#1ABC9C;font-size:clamp(1.8rem,3.5vw,2.5rem)">새로운 시작의<br><span style="color:#1ABC9C">출발점</span></div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 16: 철학 9 ======================== -->
+  <div class="slide" id="s16">
+    <div class="slide-sub" style="letter-spacing:2px">철학 9 | 원칙</div>
+    <div style="background:rgba(20,50,100,0.4);border-radius:16px;padding:40px;max-width:900px;width:100%">
+      <div class="medium-text" style="color:#ccc;margin-bottom:8px">AI로 웹사이트 등 개발만 하지 말고</div>
+      <div style="font-size:clamp(1.3rem,3vw,2rem);font-weight:900;color:#FF8C00;margin-bottom:24px">틈틈이 콘텐츠도 만들어서 안정된 수익을 창출하자!</div>
+      <div class="slide-divider-sm"></div>
+      <div class="card-row" style="margin-top:20px">
+        <div class="card" style="text-align:center;border-top:3px solid #e74c3c">
+          <div style="color:#e74c3c;font-size:1.2rem;font-weight:800;margin-bottom:8px">유튜브</div>
+          <div style="color:#ccc">롱폼/숏폼 콘텐츠 제작</div>
+        </div>
+        <div class="card" style="text-align:center;border-top:3px solid #3498db">
+          <div style="color:#3498db;font-size:1.2rem;font-weight:800;margin-bottom:8px">블로그</div>
+          <div style="color:#ccc">지식 공유</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 17: 철학 10 ======================== -->
+  <div class="slide" id="s17">
+    <div class="slide-sub" style="letter-spacing:2px">철학 10 | 원칙</div>
+    <div class="center-text">
+      <div class="big-text" style="color:#fff">Claude Code를<br>다룰 줄 아는 사람과<br>그렇지 않은 사람 간의 능력은</div>
+      <div style="height:16px"></div>
+      <div class="huge-text" style="font-size:clamp(2.5rem,5vw,4rem)">10배 이상</div>
+      <div class="big-text" style="color:#ccc">차이가 난다고 해도 과언이 아니다</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 18: Part 3 커버 ======================== -->
+  <div class="slide" id="s18">
+    <div class="section-cover">
+      <div class="part-label">Part 3</div>
+      <div style="font-size:4rem;margin-bottom:12px">✨🪄</div>
+      <div class="part-title">Magic Show A</div>
+      <div class="part-sub">AI Magic 시연 10가지</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 19: 매직 1 ======================== -->
+  <div class="slide" id="s19">
+    <div class="slide-header">💬 매직 1: 스무고개 문답 브레인스토밍</div>
+    <div class="slide-divider"></div>
+    <div class="bar-list">
+      <div class="bar-item"><strong>AI와 스무고개 질문-답변으로 아이디어를 구체화하기</strong></div>
+      <div class="bar-item accent">막연한 아이디어 → 구체적인 사업계획으로 발전</div>
+      <div class="bar-item">AI가 묻고, 내가 답하고 → 생각이 정리되고 계획이 만들어진다</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 20: 매직 2 ======================== -->
+  <div class="slide" id="s20">
+    <div class="slide-header">🔢 매직 2: 5단계로 나누어서 작업</div>
+    <div class="slide-divider"></div>
+    <div class="bar-list">
+      <div class="bar-item"><strong>작업을 5단계로 나누어서 AI에게 시키기</strong></div>
+      <div class="bar-item accent">각 단계 완료 → 확인/테스트 → 승인 → 다음 단계 진행</div>
+      <div class="bar-item">"한번에 다 해줘"는 실패의 지름길</div>
+      <div class="bar-item highlight">단계별 체크포인트가 품질을 보장한다</div>
+    </div>
+    <div style="margin-top:16px;max-width:900px;width:100%">
+      <table class="data-table">
+        <tr><th>단계</th><th>대상</th><th>상태</th></tr>
+        <tr><td>✅ 0단계</td><td>V30_비용최적화_배분변경.md</td><td style="color:#2ecc71">완료</td></tr>
+        <tr><td>✅ 1단계</td><td>V30_전체_프로세스_가이드.md</td><td style="color:#2ecc71">완료</td></tr>
+        <tr><td>□ 2단계</td><td>instructions_v30/*.md 카테고리 지침</td><td>대기</td></tr>
+        <tr><td>□ 3단계</td><td>collect_v30.py 스크립트</td><td>대기</td></tr>
+        <tr><td>□ 4단계</td><td>테스트 및 검증</td><td>대기</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 21: 매직 3 ======================== -->
+  <div class="slide" id="s21">
+    <div class="slide-header">🐛 매직 3: 5회 반복 디버깅</div>
+    <div class="slide-divider"></div>
+    <div class="bar-list">
+      <div class="bar-item"><strong>AI가 형식적으로 수정을 반복할 때 스스로 5회 반복 디버깅을 하도록 지시하기</strong></div>
+      <div class="bar-item highlight">핵심 프롬프트: "신중하게 심각하게 근본 원인을 찾아봐"</div>
+      <div class="bar-item">"될 때까지 5번 반복해서 검토 → 수정 → 검토 → 수정"</div>
+      <div class="bar-item highlight">"다 하고 나서 나한테 보고해"</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 22: 매직 4 ======================== -->
+  <div class="slide" id="s22">
+    <div class="slide-header">🤖 매직 4: 5분만에 나의 챗봇 만들기</div>
+    <div class="slide-divider"></div>
+    <div class="bar-list">
+      <div class="bar-item"><strong>MyChatbot World 플랫폼에서 5분 만에 나만의 AI 챗봇 생성하기</strong></div>
+      <div class="bar-item accent">아바타 및 도우미 페르소나 설정 → 감성 부여 → 기본지식 입력 → 완성</div>
+      <div class="bar-item">누구나 5분 내에 만들 수 있는 간편함</div>
+      <div class="bar-item highlight">고객 상담, 홍보, 교육 등 다양한 활용</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 23: 매직 5 ======================== -->
+  <div class="slide" id="s23">
+    <div class="slide-header">🔍 매직 5: 정치인 평가 프로세스 진행</div>
+    <div class="slide-divider"></div>
+    <div class="bar-list">
+      <div class="bar-item"><strong>AI를 활용한 정치인 평가 프로세스 진행하기</strong></div>
+      <div class="bar-item accent">V40까지 진화 — 1,000시간 투입, 토큰비용 1천만원+</div>
+      <div class="bar-item">찐 R&amp;D를 통해 AI 점수 기반 평가 방법론 확립</div>
+      <div class="bar-item highlight">CPA 경력 + AI = 대한민국 최고 수준의 AI 평가 능력</div>
+      <div class="bar-item">60여개 커뮤니티 기반 플랫폼에 확장 가능</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 24: 매직 6 ======================== -->
+  <div class="slide" id="s24">
+    <div class="slide-header">💻 매직 6: 유용한 /커맨드(Commands) 활용</div>
+    <div class="slide-divider"></div>
+    <div class="bar-list">
+      <div class="bar-item"><strong>/resume</strong> 끊어진 세션을 이어서 작업 가능</div>
+      <div class="bar-item highlight"><strong>/status</strong> 현재 사용모델 확인, 토큰 잔여량 확인</div>
+      <div class="bar-item">자기만의 커맨드를 만들어서 활용하기</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 25: 매직 7 ======================== -->
+  <div class="slide" id="s25">
+    <div class="slide-header">🔄 매직 7: Claude Code 듀얼 모드 실행</div>
+    <div class="slide-divider"></div>
+    <div class="bar-list">
+      <div class="bar-item"><strong>하나의 작업에 A, B 두 개의 Claude Code를 동시 투입하는 쌍두마차 방식의 작업 시키기</strong></div>
+      <div class="bar-item accent">크로스 체킹 — 서로의 결과를 검증</div>
+      <div class="bar-item">서로 다른 관점에서 문제 해결 → 종합</div>
+      <div class="bar-item highlight">업무 분담 병렬 진행으로 속도 2배</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 26: 매직 8 ======================== -->
+  <div class="slide" id="s26">
+    <div class="slide-header">🐙 매직 8: Claude Code로 다른 AI 용병 부리기</div>
+    <div class="slide-divider"></div>
+    <div class="bar-list">
+      <div class="bar-item"><strong>ChatGPT(Codex), Gemini, Grok의 CLI에게 작업 시키기, Perplexity에게 묻기</strong></div>
+      <div class="bar-item accent">CLI 방식(실행 기반 협업) vs API 방식(텍스트 왕복)</div>
+      <div class="bar-item">CLI = 실행 → 로그 → 검증 → 재실행 루프</div>
+      <div class="bar-item highlight">각 AI 강점 활용: Codex=리팩터링/이미지 만들기, Gemini=대용량 처리/이미지 만들기, Grok=리서치</div>
+      <div class="bar-item">Claude가 오케스트레이터, 나머지 AI가 전문 도구 역할</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 27: 매직 9 ======================== -->
+  <div class="slide" id="s27">
+    <div class="slide-header">📡 매직 9: 원격 접속을 통한 Claude Code 작업시키기</div>
+    <div class="slide-divider"></div>
+    <div class="bar-list">
+      <div class="bar-item"><strong>Chrome 원격 데스크톱 기능으로 어디에서든 내 컴퓨터의 Claude Code에게 작업시키기</strong></div>
+      <div class="bar-item accent">카페, 이동 중, 집 밖에서도 장소와 시간의 제약을 벗어나서 작업 연속성 유지</div>
+    </div>
+    <div style="margin-top:20px;background:rgba(20,40,80,0.5);border:2px solid rgba(52,152,219,0.3);border-radius:12px;padding:32px;text-align:center;max-width:600px">
+      <div style="font-size:3rem;margin-bottom:12px">🖥️ → 📱</div>
+      <div style="color:#3498db;font-weight:700">Chrome 원격 데스크톱</div>
+      <div style="color:#ccc;font-size:0.9rem;margin-top:8px">어디서든 Claude Code 접속</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 28: 매직 10 ======================== -->
+  <div class="slide" id="s28">
+    <div class="slide-header">📱 매직 10: 챗봇으로 Claude Code 지휘</div>
+    <div class="slide-divider"></div>
+    <div class="bar-list">
+      <div class="bar-item"><strong>핸드폰에 설치된 챗봇을 통해 무전기 사용방식으로 여러 Claude Code를 지휘/통제하기</strong></div>
+      <div class="bar-item accent">핸드폰의 챗봇을 통해서 지시 → Claude Code가 실행 → 결과 보고</div>
+      <div class="bar-item highlight">이동 중에도 개발 작업을 멈추지 않는다</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 29: Part 4 커버 ======================== -->
+  <div class="slide" id="s29">
+    <div class="section-cover">
+      <div class="part-label">Part 4</div>
+      <div style="font-size:4rem;margin-bottom:12px">📦</div>
+      <div class="part-title">Magic Show B</div>
+      <div class="part-sub">Sunny Core Skill Package 시연 10가지</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 30: 스킬 1 ======================== -->
+  <div class="slide" id="s30">
+    <div class="slide-header">👥 스킬 1: 서브에이전트 투입</div>
+    <div class="slide-divider"></div>
+    <div class="bar-list">
+      <div class="bar-item highlight"><strong>전문 서브에이전트를 불러와서 특화 작업을 맡기기</strong></div>
+    </div>
+    <div class="num-list">
+      <div class="num-item"><div class="num-circle">1</div>서브에이전트 목록에서 적합한 에이전트 선택</div>
+      <div class="num-item"><div class="num-circle">2</div>작업 지시서와 함께 서브에이전트에 투입</div>
+      <div class="num-item"><div class="num-circle">3</div>서브에이전트가 전문 분야 작업 수행</div>
+      <div class="num-item"><div class="num-circle">4</div>결과 수신 후 Main Claude Code가 통합·검증</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 31: 스킬 2 ======================== -->
+  <div class="slide" id="s31">
+    <div class="slide-header">⚙️ 스킬 2: 스킬 투입</div>
+    <div class="slide-divider"></div>
+    <div class="bar-list">
+      <div class="bar-item highlight"><strong>미리 만들어둔 스킬을 찾아와서 현재 작업에 투입하기</strong></div>
+    </div>
+    <div class="num-list">
+      <div class="num-item"><div class="num-circle">1</div>스킬 라이브러리에서 필요한 스킬 검색</div>
+      <div class="num-item"><div class="num-circle">2</div>스킬을 현재 프로젝트에 투입</div>
+      <div class="num-item"><div class="num-circle">3</div>스킬이 정해진 절차대로 작업 수행</div>
+      <div class="num-item"><div class="num-circle">4</div>결과 확인 및 다음 스킬 투입</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 32: 스킬 3 ======================== -->
+  <div class="slide" id="s32">
+    <div class="slide-header">📄 스킬 3: PPT 등 문서 만들기</div>
+    <div class="slide-divider"></div>
+    <div class="bar-list">
+      <div class="bar-item highlight"><strong>전문적인 PPT, 보고서, 기획서 등 문서를 AI가 자동 생성하기</strong></div>
+    </div>
+    <div class="num-list">
+      <div class="num-item"><div class="num-circle">1</div>문서 유형과 목적 지시</div>
+      <div class="num-item"><div class="num-circle">2</div>AI가 구조·내용·디자인까지 자동 생성</div>
+      <div class="num-item"><div class="num-circle">3</div>검토 및 수정 지시</div>
+      <div class="num-item"><div class="num-circle">4</div>최종 문서 파일 출력</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 33: 스킬 4 ======================== -->
+  <div class="slide" id="s33">
+    <div class="slide-header">📕 스킬 4: PDF 만들기</div>
+    <div class="slide-divider"></div>
+    <div class="bar-list">
+      <div class="bar-item highlight"><strong>보고서, 인보이스, 가이드 등 다양한 PDF 문서를 AI가 자동 생성하기</strong></div>
+    </div>
+    <div class="num-list">
+      <div class="num-item"><div class="num-circle">1</div>PDF 내용과 레이아웃 지시</div>
+      <div class="num-item"><div class="num-circle">2</div>AI가 PDF 생성 코드 작성·실행</div>
+      <div class="num-item"><div class="num-circle">3</div>결과 PDF 확인·수정</div>
+      <div class="num-item"><div class="num-circle">4</div>최종 PDF 파일 다운로드</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 34: 스킬 5 ======================== -->
+  <div class="slide" id="s34">
+    <div class="slide-header">🖼️ 스킬 5: 이미지 만들기</div>
+    <div class="slide-divider"></div>
+    <div class="bar-list">
+      <div class="bar-item highlight"><strong>인포그래픽, 다이어그램, 일러스트 등 이미지를 AI가 자동 생성하기</strong></div>
+    </div>
+    <div class="num-list">
+      <div class="num-item"><div class="num-circle">1</div>이미지 목적과 스타일 지시</div>
+      <div class="num-item"><div class="num-circle">2</div>AI가 이미지 생성 프롬프트 작성</div>
+      <div class="num-item"><div class="num-circle">3</div>이미지 생성 AI로 제작</div>
+      <div class="num-item"><div class="num-circle">4</div>결과 이미지 확인·수정·적용</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 35: 스킬 6 ======================== -->
+  <div class="slide" id="s35">
+    <div class="slide-header">🔍 스킬 6: Review &amp; Evaluate</div>
+    <div class="slide-divider"></div>
+    <div class="bar-list">
+      <div class="bar-item highlight"><strong>작업 결과물을 AI가 자동으로 검토하고 평가하기</strong></div>
+    </div>
+    <div class="num-list">
+      <div class="num-item"><div class="num-circle">1</div>검토 대상과 평가 기준 설정</div>
+      <div class="num-item"><div class="num-circle">2</div>AI가 체계적으로 검토 수행</div>
+      <div class="num-item"><div class="num-circle">3</div>점수·피드백·개선점 리포트 생성</div>
+      <div class="num-item"><div class="num-circle">4</div>개선 사항 반영 후 재검토</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 36: 스킬 7 ======================== -->
+  <div class="slide" id="s36">
+    <div class="slide-header">📰 스킬 7: 뉴스 스크랩 → 저장 → 이메일</div>
+    <div class="slide-divider"></div>
+    <div class="bar-list">
+      <div class="bar-item highlight"><strong>뉴스 수집부터 정리, 저장, 이메일 발송까지 자동화 프로세스</strong></div>
+    </div>
+    <div class="num-list">
+      <div class="num-item"><div class="num-circle">1</div>뉴스 키워드·소스 설정</div>
+      <div class="num-item"><div class="num-circle">2</div>AI가 뉴스 수집·요약</div>
+      <div class="num-item"><div class="num-circle">3</div>정해진 형식으로 저장</div>
+      <div class="num-item"><div class="num-circle">4</div>이메일로 자동 발송</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 37: 스킬 8 ======================== -->
+  <div class="slide" id="s37">
+    <div class="slide-header">▶️ 스킬 8: 유튜브 제작 프로세스</div>
+    <div class="slide-divider"></div>
+    <div class="bar-list">
+      <div class="bar-item highlight"><strong>기획부터 대본, 영상 제작, 업로드까지 AI 활용한 유튜브 제작하기</strong></div>
+    </div>
+    <div class="num-list">
+      <div class="num-item"><div class="num-circle">1</div>주제 선정·기획안 작성</div>
+      <div class="num-item"><div class="num-circle">2</div>AI로 대본·스크립트 생성</div>
+      <div class="num-item"><div class="num-circle">3</div>음성·영상·자막 제작</div>
+      <div class="num-item"><div class="num-circle">4</div>편집·썸네일·업로드</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 38: 스킬 9 ======================== -->
+  <div class="slide" id="s38">
+    <div class="slide-header">🏛️ 스킬 9: 소대편제 30+ 에이전트 작업팀 구성</div>
+    <div class="slide-divider"></div>
+    <div class="bar-list">
+      <div class="bar-item highlight"><strong>30개 이상의 AI 에이전트를 군대의 소대식 편제로 조직하여 대규모 작업 수행</strong></div>
+    </div>
+    <div class="num-list">
+      <div class="num-item"><div class="num-circle">1</div>작업 범위 분석·팀 편성</div>
+      <div class="num-item"><div class="num-circle">2</div>소대장(메인 AI)이 분대별 임무 할당</div>
+      <div class="num-item"><div class="num-circle">3</div>각 분대(서브에이전트)가 병렬 작업</div>
+      <div class="num-item"><div class="num-circle">4</div>소대장이 결과 통합·품질 검증</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 39: 스킬 10 ======================== -->
+  <div class="slide" id="s39">
+    <div class="slide-header">🔀 스킬 10: SAL Grid 개발방법론 적용</div>
+    <div class="slide-divider"></div>
+    <div class="bar-list">
+      <div class="bar-item highlight"><strong>SAL Grid 방법론을 적용하여 프로젝트 설계, 실행 및 관리하기</strong></div>
+    </div>
+    <div class="num-list">
+      <div class="num-item"><div class="num-circle">1</div>SAL Grid 방법론 프레임워크 설정</div>
+      <div class="num-item"><div class="num-circle">2</div>3차원 그리드로 프로젝트 구조화</div>
+      <div class="num-item"><div class="num-circle">3</div>AI 에이전트별 역할·범위 정의</div>
+      <div class="num-item"><div class="num-circle">4</div>체계적 진행·검증·완료</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 40: Part 5 커버 ======================== -->
+  <div class="slide" id="s40">
+    <div class="section-cover">
+      <div class="part-label">Part 5</div>
+      <div style="font-size:4rem;margin-bottom:12px">💡</div>
+      <div class="part-title">실용 Tips</div>
+      <div class="part-sub">실용적인 팁 10가지</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 41: Tip 1 ======================== -->
+  <div class="slide" id="s41">
+    <div class="slide-header">📋 Tip 1: AI 작업시킬 때 먼저 하는 것들</div>
+    <div class="slide-divider"></div>
+    <div style="background:rgba(20,50,100,0.4);border-radius:16px;padding:32px;max-width:900px;width:100%">
+      <div style="font-size:1.2rem;font-weight:800;color:#FF8C00;margin-bottom:20px">AI에게 바로 실행시키지 마라! 먼저 생각하게 하라.</div>
+      <div class="bar-list">
+        <div class="bar-item highlight">① "검토 해봐" — 현재 상태를 먼저 파악시키기</div>
+        <div class="bar-item highlight">② "계획 세워봐" — 실행 전에 로드맵을 만들게 하기</div>
+        <div class="bar-item highlight">③ "방안을 제시해봐" — 여러 대안을 먼저 보기</div>
+      </div>
+      <div style="margin-top:16px;color:#1ABC9C;font-size:0.95rem">→ 실행은 마지막! 검토 → 계획 → 방안 → 그다음 실행</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 42: Tip 2 ======================== -->
+  <div class="slide" id="s42">
+    <div class="slide-header">🖥️ Tip 2: Claude 앱/데스크탑 vs Claude Code</div>
+    <div class="slide-divider"></div>
+    <div class="two-col" style="max-width:1000px">
+      <div class="col" style="background:rgba(30,50,30,0.5);border:1px solid rgba(80,160,80,0.3)">
+        <div class="col-title" style="color:#1ABC9C">Claude 앱/데스크탑 = 컨설턴트</div>
+        <div style="margin-top:12px;line-height:2;font-size:0.9rem">
+          상담자<br><br>
+          • 전체 구조를 보고 "왜?" 되물음<br>
+          • "잠깐, 그거 왜 MCP로 감싸요?"<br>
+          &nbsp;&nbsp;라고 물음<br>
+          • 실행 도구가 없으니<br>
+          &nbsp;&nbsp;대신 생각을 더 하게 됨
+        </div>
+      </div>
+      <div class="col col-blue">
+        <div class="col-title" style="color:#FF8C00">Claude Code = 현장 기술자</div>
+        <div style="margin-top:12px;line-height:2;font-size:0.9rem">
+          실행자<br><br>
+          • 코드 쓰고 파일 만들고 명령 실행<br>
+          • "MCP 연결하라고? 알겠습니다!"<br>
+          &nbsp;&nbsp;하고 바로 코드 짬<br>
+          • 실행 도구(터미널)가 있으니<br>
+          &nbsp;&nbsp;바로 행동하려 함
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:16px;text-align:center;color:#f1c40f;font-size:0.95rem">💡 Claude 앱/데스크탑에서 전략·설계 → Claude Code에서 실행</div>
+  </div>
+
+  <!-- ======================== SLIDE 43: Tip 3 ======================== -->
+  <div class="slide" id="s43">
+    <div class="slide-header">&lt;/&gt; Tip 3: Vanilla vs React 비교</div>
+    <div class="slide-divider"></div>
+    <div class="two-col" style="max-width:1000px">
+      <div class="col" style="background:rgba(30,50,80,0.4);border:1px solid rgba(52,152,219,0.3)">
+        <div class="col-title" style="color:#FF8C00">Vanilla</div>
+        <div style="font-size:0.85rem;color:#ccc;margin-bottom:12px">순수 HTML/CSS/JS · 프레임워크 없음</div>
+        <div style="font-size:0.85rem;line-height:1.8">
+          📁 api/ · pages/ · assets/ · scripts/<br>
+          📄 index.html · 404.html<br><br>
+          <span style="color:#2ecc71">파일 만들면 바로 실행</span><br>
+          빌드 과정 불필요 · 학습 곡선 보통<br>
+          UI 재사용이 번거움
+        </div>
+      </div>
+      <div class="col" style="background:rgba(30,50,80,0.4);border:1px solid rgba(100,50,200,0.3)">
+        <div class="col-title" style="color:#9b59b6">React/Next.js</div>
+        <div style="font-size:0.85rem;color:#ccc;margin-bottom:12px">컴포넌트 기반 개발 · 라이브러리 필요</div>
+        <div style="font-size:0.85rem;line-height:1.8">
+          📁 app/ · components/ · public/ · lib/<br><br>
+          <span style="color:#9b59b6">UI 컴포넌트 재사용 쉬움</span><br>
+          대규모 웹사이트에 유리<br>
+          학습이 필요함 · 빌드 과정 필수
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 44: Tip 4 ======================== -->
+  <div class="slide" id="s44">
+    <div class="slide-header">🗄️ Tip 4: Orders/Reports JSON 시스템</div>
+    <div class="slide-divider"></div>
+    <div class="two-col" style="max-width:1000px">
+      <div class="col col-blue" style="text-align:center">
+        <div style="font-size:1.1rem;font-weight:800;margin-bottom:16px">AI와 협업하는 새로운 방법</div>
+        <div style="font-size:0.9rem;color:#ccc;margin-bottom:12px">Orders / Reports JSON System</div>
+        <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
+          <div style="background:rgba(52,152,219,0.3);padding:12px 16px;border-radius:8px;font-size:0.85rem">👤 사람 → 📋 Order Sheet</div>
+          <div style="background:rgba(46,204,113,0.3);padding:12px 16px;border-radius:8px;font-size:0.85rem">📋 → 🤖 Claude Code</div>
+          <div style="background:rgba(155,89,182,0.3);padding:12px 16px;border-radius:8px;font-size:0.85rem">🤖 → 📊 Report</div>
+          <div style="background:rgba(241,196,15,0.3);padding:12px 16px;border-radius:8px;font-size:0.85rem">📊 → 👤 결과 확인</div>
+        </div>
+      </div>
+      <div class="col" style="background:rgba(20,50,80,0.4);border:1px solid rgba(52,152,219,0.3)">
+        <div style="color:#FF8C00;font-size:1.1rem;font-weight:800;margin-bottom:12px">AI의 외부 메모리</div>
+        <div style="line-height:2;font-size:0.9rem">
+          📋 <strong>Order Sheet</strong><br>
+          &nbsp;&nbsp;→ JSON으로 구조화된 작업 요청서<br><br>
+          📊 <strong>Report</strong><br>
+          &nbsp;&nbsp;→ AI가 결과를 JSON으로 저장<br><br>
+          ✅ 세션 끊어져도 연속 작업 가능<br>
+          ✅ 체계적 작업 관리<br>
+          ✅ 자동화 연동 용이<br><br>
+          <span style="color:#f1c40f">"어디까지 했더라...?" 문제 해결!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 45: Tip 5 ======================== -->
+  <div class="slide" id="s45">
+    <div class="slide-header">👥 Tip 5: AI의 Multi-Role 작업방식</div>
+    <div class="slide-divider"></div>
+    <div class="two-col" style="max-width:1000px">
+      <div class="col col-blue" style="padding:16px">
+        <div style="text-align:center;font-weight:800;margin-bottom:12px">5단계 멀티롤 프로세스</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="background:rgba(231,76,60,0.3);padding:10px;border-radius:6px;text-align:center;font-size:0.85rem"><strong>1단계: 기획자 역할</strong><br><span style="font-size:0.8rem;color:#ccc">전체 구조 설계 · 목표 설정</span></div>
+          <div style="text-align:center;font-size:1.2rem">↓</div>
+          <div style="background:rgba(52,152,219,0.3);padding:10px;border-radius:6px;text-align:center;font-size:0.85rem"><strong>2단계: 작성자 역할</strong><br><span style="font-size:0.8rem;color:#ccc">콘텐츠 작성 · 세부 구현</span></div>
+          <div style="text-align:center;font-size:1.2rem">↓</div>
+          <div style="background:rgba(46,204,113,0.3);padding:10px;border-radius:6px;text-align:center;font-size:0.85rem"><strong>3단계: 검토자 역할</strong><br><span style="font-size:0.8rem;color:#ccc">정확성 검증 · 일관성 확인</span></div>
+          <div style="text-align:center;font-size:1.2rem">↓</div>
+          <div style="background:rgba(155,89,182,0.3);padding:10px;border-radius:6px;text-align:center;font-size:0.85rem"><strong>4단계: 비판자 역할</strong><br><span style="font-size:0.8rem;color:#ccc">약점 파악 · 개선점 제시</span></div>
+          <div style="text-align:center;font-size:1.2rem">↓</div>
+          <div style="background:rgba(241,196,15,0.3);padding:10px;border-radius:6px;text-align:center;font-size:0.85rem"><strong>5단계: 최종 수정자 역할</strong><br><span style="font-size:0.8rem;color:#ccc">피드백 종합 · 최종 완성</span></div>
+        </div>
+      </div>
+      <div class="col" style="background:rgba(20,50,80,0.4);border:1px solid rgba(52,152,219,0.3)">
+        <div style="color:#FF8C00;font-size:1.2rem;font-weight:800;margin-bottom:16px">5단계 멀티롤 프로세스</div>
+        <div class="bar-list" style="gap:8px">
+          <div class="bar-item" style="background:rgba(139,69,19,0.3);border-left-color:#e74c3c">1단계: 기획자 역할</div>
+          <div class="bar-item" style="background:rgba(20,50,100,0.4);border-left-color:#3498db">2단계: 작성자 역할</div>
+          <div class="bar-item" style="background:rgba(20,80,50,0.4);border-left-color:#2ecc71">3단계: 검토자 역할</div>
+          <div class="bar-item" style="background:rgba(60,40,60,0.4);border-left-color:#9b59b6">4단계: 비판자 역할</div>
+          <div class="bar-item" style="background:rgba(80,70,20,0.4);border-left-color:#f1c40f">5단계: 최종 수정자 역할</div>
+        </div>
+        <div style="margin-top:16px;color:#FF8C00;font-size:0.9rem">품질과 일관성이 최우선인 작업에서 진가 발휘</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 46: Tip 6 ======================== -->
+  <div class="slide" id="s46">
+    <div class="slide-header">🛡️ Tip 6: AI(Claude Code) 12대 준수사항</div>
+    <div class="slide-divider"></div>
+    <div class="grid-12">
+      <div class="g12-item"><div class="g12-num">1</div>AI-First: 5가지 이상 스스로 시도 후 인간에게 요청</div>
+      <div class="g12-item"><div class="g12-num">7</div>문서 생성 사전 승인: 승인 후 생성</div>
+      <div class="g12-item"><div class="g12-num">2</div>거짓 보고 절대 금지: 정확성 > 속도</div>
+      <div class="g12-item"><div class="g12-num">8</div>폴더 생성 사전 승인: 구조 무단 변경 금지</div>
+      <div class="g12-item"><div class="g12-num">3</div>시간 추정 절대 금지: 진행 상황만 보고</div>
+      <div class="g12-item"><div class="g12-num">9</div>도구 적극 활용: Skills, Subagents, Commands</div>
+      <div class="g12-item"><div class="g12-num">4</div>대안 제시: 최소 3개 이상 + 추천 의견</div>
+      <div class="g12-item"><div class="g12-num">10</div>불확실하면 즉시 질문: 추측 금지</div>
+      <div class="g12-item"><div class="g12-num">5</div>필수 검증: 완료 후 반드시 검증 도구 실행</div>
+      <div class="g12-item"><div class="g12-num">11</div>계획 수립 후 실행: 복잡한 작업은 계획 먼저</div>
+      <div class="g12-item"><div class="g12-num">6</div>작업 로그 기록: work_logs에 기록</div>
+      <div class="g12-item"><div class="g12-num">12</div>과잉 금지: 요청받은 것만 정확하게</div>
+    </div>
+    <div style="margin-top:12px;text-align:center;font-size:1rem;font-weight:700">→ CLAUDE.md에 반영</div>
+  </div>
+
+  <!-- ======================== SLIDE 47: Tip 7 ======================== -->
+  <div class="slide" id="s47">
+    <div class="slide-header">🏆 Tip 7: AI 활용능력의 측정지표</div>
+    <div class="slide-divider"></div>
+    <div class="metric-cards">
+      <div class="metric-card" style="border-top:4px solid #2ecc71">
+        <div class="metric-icon">✅</div>
+        <div class="metric-title" style="color:#2ecc71">효과성</div>
+        <div class="metric-desc">품질 좋은 서비스를 만드는 능력</div>
+      </div>
+      <div class="metric-card" style="border-top:4px solid #e67e22">
+        <div class="metric-icon">⚡</div>
+        <div class="metric-title" style="color:#e67e22">효율성</div>
+        <div class="metric-desc">빠르고 낮은 비용으로 만드는 능력</div>
+      </div>
+      <div class="metric-card" style="border-top:4px solid #f1c40f">
+        <div class="metric-icon">💰</div>
+        <div class="metric-title" style="color:#f1c40f">수익성</div>
+        <div class="metric-desc">가치 있는 서비스를 출시하여 돈을 버는 능력</div>
+      </div>
+    </div>
+    <div class="slide-divider-sm" style="margin:20px auto"></div>
+    <div style="text-align:center;color:#FF6B6B;font-size:1rem">"그저 뭐 만든다" = "좋은 취미생활 하시네요" 😅</div>
+  </div>
+
+  <!-- ======================== SLIDE 48: Tip 8 ======================== -->
+  <div class="slide" id="s48">
+    <div class="slide-header" style="font-size:clamp(1.1rem,2.5vw,1.6rem)">💲 Tip 8: API 사용료 최적화 방안 적용으로 비용 81% 절감</div>
+    <div class="slide-divider"></div>
+    <div style="max-width:900px;width:100%;overflow-x:auto">
+      <table class="data-table">
+        <tr><th>AI</th><th>현재 모델</th><th>변경 모델</th><th>현재 비용</th><th>변경 비용</th></tr>
+        <tr><td>Claude</td><td>claude-3-5-haiku</td><td>claude-3-haiku</td><td>$1.97</td><td>$0.61</td></tr>
+        <tr><td>ChatGPT</td><td>gpt-4o-mini</td><td>(유지)</td><td>$0.31</td><td>$0.31</td></tr>
+        <tr><td>Grok</td><td>grok-2</td><td>grok-4-fast</td><td>$4.92</td><td>$0.28</td></tr>
+        <tr><td>Gemini</td><td>gemini-1.5-flash</td><td>(유지)</td><td>$0.16</td><td>$0.16</td></tr>
+      </table>
+      <div style="margin-top:16px">
+        <table class="data-table">
+          <tr><th>구성</th><th>비용</th><th>원화</th></tr>
+          <tr><td>현재</td><td>$7.35</td><td>10,655원</td></tr>
+          <tr><td style="color:#2ecc71;font-weight:700">최적화 후</td><td style="color:#2ecc71;font-weight:700">$1.36</td><td style="color:#2ecc71;font-weight:700">1,972원</td></tr>
+        </table>
+        <div style="margin-top:12px;font-size:1rem;font-weight:700;color:#FF8C00">정치인 1명당 약 2,000원! (81% 절감)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 49: Tip 9 ======================== -->
+  <div class="slide" id="s49">
+    <div class="slide-header">🌐 Tip 9: 웹검색 시킬 때 크레딧 폭탄 주의!</div>
+    <div class="slide-divider"></div>
+    <div style="max-width:900px;width:100%;overflow-x:auto">
+      <table class="data-table">
+        <tr><th>AI</th><th>만든 회사</th><th>검색 엔진</th><th>웹검색 비용</th><th>비고</th></tr>
+        <tr><td>Gemini</td><td>Google</td><td>Google Search 자체 보유</td><td style="color:#2ecc71;font-weight:700">무료</td><td>Google Search Grounding</td></tr>
+        <tr><td>Perplexity</td><td>Perplexity AI</td><td>자체 검색 엔진</td><td>API 요금에 포함</td><td>Sonar API</td></tr>
+        <tr><td>Grok</td><td>xAI (머스크)</td><td>X/Twitter 접근</td><td style="color:#2ecc71;font-weight:700">무료</td><td>실시간 트윗 데이터</td></tr>
+        <tr><td>Claude</td><td>Anthropic</td><td style="color:#e74c3c">❌ 없음</td><td style="color:#e74c3c;font-weight:700">검색당 $0.01</td><td>web_search 도구 별도 과금</td></tr>
+        <tr><td>ChatGPT</td><td>OpenAI</td><td style="color:#e74c3c">❌ 없음</td><td>검색당 별도 과금</td><td>Bing 연동 시 추가 비용</td></tr>
+      </table>
+      <div style="margin-top:16px;font-size:0.9rem;line-height:1.8">
+        <strong style="color:#FF8C00">데이터 수집 시 권장 AI 배분:</strong><br>
+        공식 데이터 → <strong style="color:#2ecc71">Gemini</strong> (Google Search 무료)<br>
+        뉴스/언론 → <strong style="color:#3498db">Perplexity</strong> (뉴스 검색 특화, 비용 포함)<br>
+        SNS/실시간 → <strong style="color:#e67e22">Grok</strong> (X/Twitter 실시간 접근)<br>
+        평가/분석 → <strong>Claude, ChatGPT</strong> (웹검색 없이 분석만 → 토큰 비용만 발생)
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 50: Tip 10 ======================== -->
+  <div class="slide" id="s50">
+    <div class="slide-header">👑 Tip 10: AI 활용능력 마스터 등급 체계</div>
+    <div class="slide-divider"></div>
+    <div class="two-col" style="max-width:1000px">
+      <div class="col col-blue" style="padding:16px">
+        <div style="text-align:center;font-weight:800;margin-bottom:12px;color:#FF8C00">AI 활용능력 마스터 등급 체계 (Sunny 구상)</div>
+        <div style="font-size:0.8rem;text-align:center;color:#ccc;margin-bottom:12px">5-10단: 창출수입 평가</div>
+        <div class="tier-list">
+          <div class="tier-item" style="background:rgba(255,215,0,0.2);border:1px solid gold"><span style="color:gold;min-width:40px">10단</span><span style="margin-left:12px;font-size:0.85rem">월 10억원 이상</span></div>
+          <div class="tier-item" style="background:rgba(255,200,0,0.15);border:1px solid #e6b800"><span style="color:#e6b800;min-width:40px">9단</span><span style="margin-left:12px;font-size:0.85rem">월 3억원 이상</span></div>
+          <div class="tier-item" style="background:rgba(255,180,0,0.1);border:1px solid #cc9900"><span style="color:#cc9900;min-width:40px">8단</span><span style="margin-left:12px;font-size:0.85rem">월 1억원 이상</span></div>
+          <div class="tier-item" style="background:rgba(200,150,0,0.1);border:1px solid #b38600"><span style="color:#b38600;min-width:40px">7단</span><span style="margin-left:12px;font-size:0.85rem">월 3,000만원 이상</span></div>
+          <div class="tier-item" style="background:rgba(150,120,0,0.1);border:1px solid #997300"><span style="color:#997300;min-width:40px">6단</span><span style="margin-left:12px;font-size:0.85rem">월 1,000만원 이상</span></div>
+          <div class="tier-item" style="background:rgba(100,80,0,0.1);border:1px solid #806000"><span style="color:#806000;min-width:40px">5단</span><span style="margin-left:12px;font-size:0.85rem">월 500만원 이상</span></div>
+        </div>
+        <div style="font-size:0.75rem;color:#ccc;text-align:center;margin:8px 0">3-4단: 활용경험 평가 (포트폴리오 심사)</div>
+        <div class="tier-list">
+          <div class="tier-item" style="background:rgba(52,152,219,0.15);border:1px solid #3498db"><span style="color:#3498db;min-width:40px">4단</span><span style="margin-left:12px;font-size:0.85rem">AI 활용 사례 30개 이상</span></div>
+          <div class="tier-item" style="background:rgba(52,152,219,0.1);border:1px solid #2980b9"><span style="color:#2980b9;min-width:40px">3단</span><span style="margin-left:12px;font-size:0.85rem">AI 활용 사례 30개 미만</span></div>
+        </div>
+        <div style="font-size:0.75rem;color:#ccc;text-align:center;margin:8px 0">1-2단: 지식수준 평가 (100문항 온라인)</div>
+        <div class="tier-list">
+          <div class="tier-item" style="background:rgba(46,204,113,0.15);border:1px solid #2ecc71"><span style="color:#2ecc71;min-width:40px">2단</span><span style="margin-left:12px;font-size:0.85rem">50점 이상</span></div>
+          <div class="tier-item" style="background:rgba(46,204,113,0.1);border:1px solid #27ae60"><span style="color:#27ae60;min-width:40px">1단</span><span style="margin-left:12px;font-size:0.85rem">40-49점</span></div>
+        </div>
+      </div>
+      <div class="col" style="background:rgba(20,50,80,0.4);border:1px solid rgba(52,152,219,0.3)">
+        <div style="color:#FF8C00;font-size:1.2rem;font-weight:800;margin-bottom:16px;text-align:center">Sunny 구상</div>
+        <div style="line-height:2;font-size:0.95rem">
+          1~2단: 지식수준<br>
+          3~4단: 활용경험<br>
+          5~10단: 창출 수입 규모
+        </div>
+        <div style="margin-top:24px;font-size:1.3rem;font-weight:900;color:#FF8C00">우리 모두 2년 이내에</div>
+        <div style="font-size:1.3rem;font-weight:900;color:#FF8C00">9단(월 3억원) 이상이 됩시다!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 51: Part 6 Q&A ======================== -->
+  <div class="slide" id="s51">
+    <div class="section-cover">
+      <div class="part-label">Part 6</div>
+      <div style="font-size:5rem;color:#FF8C00;margin-bottom:12px">❓</div>
+      <div class="part-title">Q &amp; A</div>
+    </div>
+  </div>
+
+  <!-- ======================== SLIDE 52: 감사합니다 ======================== -->
+  <div class="slide" id="s52">
+    <div class="center-text">
+      <div style="font-size:clamp(2rem,4vw,3rem);font-weight:800;color:#fff;margin-bottom:20px">감사합니다</div>
+      <div class="slide-divider" style="margin:20px auto"></div>
+      <div class="huge-text" style="margin:20px 0">AI는 學보다 習이다</div>
+      <div style="font-size:clamp(1.2rem,2.5vw,1.8rem);color:#1ABC9C;margin-bottom:20px">百學不如一習</div>
+      <div class="slide-divider" style="margin:20px auto"></div>
+      <div style="font-size:1rem;color:#999;margin-top:16px">AI Magic Show | 2026. 02. 20 | Sunny</div>
+    </div>
+  </div>
+
+  <button class="arrow" id="arr-r" onclick="go(1)">&#10095;</button>
+</div>
+
+<!-- 링크 패널 -->
+<div id="link-panel">
+  <div class="lp-head">
+    <span class="arrow-down">👇</span>
+    <span>이 슬라이드의 링크 — 클릭하면 바로 열립니다</span>
+    <span class="arrow-down">👇</span>
+  </div>
+  <div class="lp-btns" id="lp-btns"></div>
+</div>
+
+<div id="nav">
+  <button class="nav-btn" id="btn-p" onclick="go(-1)">◀ 이전</button>
+  <span id="counter">1 / 52</span>
+  <button class="nav-btn" id="btn-n" onclick="go(1)">다음 ▶</button>
+</div>
+
+<script>
+var TOTAL = 52;
+var cur = 1;
+
+var links = {
+  5: [
+    { text: '📖 책 판매 사이트', url: 'https://sales-system-psi.vercel.app/' },
+    { text: '🌐 SUNNY ECOSYSTEM Service Hub', url: 'https://sunwoongkyu.github.io/SUNNY_ECOSYSTEM/service-hub.html' }
+  ],
+  6: [
+    { text: '🔗 SSAL Works', url: 'https://ssalworks.ai.kr/' },
+    { text: '🔗 Politician Finder', url: 'https://www.politicianfinder.ai.kr/' },
+    { text: '🔗 ValueLine', url: 'https://sunwoongkyu.github.io/ValueLink/Valuation_Company/valuation-platform/frontend/' },
+    { text: '🔗 MyChatbot World', url: 'https://mychatbot.world/' }
+  ],
+  22: [
+    { text: '🔗 MyChatbot World', url: 'https://mychatbot.world/' }
+  ],
+  23: [
+    { text: '📊 V40 정치인 평가 프로세스 다이어그램', url: 'https://sunwoongkyu.github.io/AI_MagicShow/v40_process_diagram.html' }
+  ],
+  28: [
+    { text: '📊 CPC 시스템 구조도', url: 'https://sunwoongkyu.github.io/AI_MagicShow/cpc_flow_diagram.svg' }
+  ],
+  29: [
+    { text: '📊 SAL Grid Dev Suite 스킬 관계도', url: 'https://sunwoongkyu.github.io/AI_MagicShow/skills_overview.svg' }
+  ],
+  37: [
+    { text: '🔗 YouTube 영상 제작 프로세스', url: 'https://sunwoongkyu.github.io/youtube-generate/' }
+  ],
+  38: [
+    { text: '📊 소대편제 구조도', url: 'https://sunwoongkyu.github.io/AI_MagicShow/platoon_formation_v3.svg' }
+  ],
+  39: [
+    { text: '🔗 SAL Grid Viewer Database', url: 'https://www.ssalworks.ai.kr/S0_Project-SAL-Grid_%EC%83%9D%EC%84%B1/viewer/viewer_database.html' }
+  ]
+};
+
+var counter = document.getElementById('counter');
+var progress = document.getElementById('progress');
+var btnP = document.getElementById('btn-p');
+var btnN = document.getElementById('btn-n');
+var linkPanel = document.getElementById('link-panel');
+var lpBtns = document.getElementById('lp-btns');
+
+function updateSlide() {
+  for (var i = 1; i <= TOTAL; i++) {
+    var el = document.getElementById('s' + i);
+    if (el) el.classList.toggle('active', i === cur);
+  }
+  counter.textContent = cur + ' / ' + TOTAL;
+  progress.style.width = (cur / TOTAL * 100) + '%';
+  btnP.disabled = (cur === 1);
+  btnN.disabled = (cur === TOTAL);
+
+  var sl = links[cur];
+  if (sl && sl.length > 0) {
+    lpBtns.innerHTML = sl.map(function(l) {
+      return '<a href="' + l.url + '" target="_blank" rel="noopener noreferrer">' + l.text + '</a>';
+    }).join('');
+    linkPanel.classList.add('show');
+  } else {
+    lpBtns.innerHTML = '';
+    linkPanel.classList.remove('show');
+  }
+}
+
+function go(dir) {
+  var next = cur + dir;
+  if (next < 1 || next > TOTAL) return;
+  cur = next;
+  updateSlide();
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(1); }
+  if (e.key === 'ArrowLeft') go(-1);
+  if (e.key === 'Home') { cur = 1; updateSlide(); }
+  if (e.key === 'End') { cur = TOTAL; updateSlide(); }
+});
+
+var tx = 0;
+document.addEventListener('touchstart', function(e){ tx = e.touches[0].clientX; },{passive:true});
+document.addEventListener('touchend', function(e){
+  var dx = e.changedTouches[0].clientX - tx;
+  if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
+});
+
+updateSlide();
+</script>
+</body>
+</html>
