@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KAIT 프로세스 개선 제안</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; overflow: hidden; font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; }
+
+    :root {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent2: #a78bfa;
+      --code-bg: #1e293b;
+    }
+    :root.light {
+      --bg: #ffffff;
+      --surface: #f1f5f9;
+      --text: #1e293b;
+      --muted: #64748b;
+      --accent: #0284c7;
+      --accent2: #7c3aed;
+      --code-bg: #e2e8f0;
+    }
+
+    body { background: var(--bg); color: var(--text); }
+
+    .progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2)); z-index: 100; transition: width 0.3s ease; }
+
+    .slides { position: relative; width: 100%; height: 100vh; }
+    .slide {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 56px 48px 80px;
+      opacity: 0; transform: translateX(60px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      pointer-events: none;
+    }
+    .slide.active { opacity: 1; transform: translateX(0); pointer-events: auto; }
+    .slide.prev { opacity: 0; transform: translateX(-60px); }
+    .slide-inner { max-width: 1100px; width: 100%; }
+
+    /* Typography */
+    .slide h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 800; margin-bottom: 28px; line-height: 1.3; }
+    .slide h2 .accent { color: var(--accent); }
+    .slide h3 { font-size: 1.15rem; color: var(--accent); margin-bottom: 12px; font-weight: 700; margin-top: 20px; }
+    .slide p { font-size: 1.05rem; line-height: 1.8; color: var(--muted); margin-bottom: 12px; }
+    .slide ul, .slide ol { font-size: 1.05rem; line-height: 1.9; padding-left: 22px; color: var(--text); }
+    .slide li { margin-bottom: 6px; }
+    .slide li::marker { color: var(--accent); }
+    .slide strong { color: var(--accent); font-weight: 700; }
+    .slide table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.97rem; }
+    .slide th { background: var(--surface); padding: 10px 14px; text-align: left; font-weight: 700; border-bottom: 2px solid var(--accent); color: var(--accent); }
+    .slide td { padding: 9px 14px; border-bottom: 1px solid rgba(148,163,184,0.15); line-height: 1.6; }
+    .slide tr:hover td { background: rgba(56,189,248,0.05); }
+
+    /* Title Slide */
+    .slide.title-slide { text-align: center; background: radial-gradient(ellipse at 60% 40%, rgba(56,189,248,0.08) 0%, transparent 70%); }
+    .slide.title-slide .logo { font-size: 0.9rem; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 20px; }
+    .slide.title-slide h1 { font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 900; line-height: 1.2; margin-bottom: 20px; }
+    .slide.title-slide h1 span { color: var(--accent); }
+    .slide.title-slide .subtitle { font-size: 1.2rem; color: var(--muted); margin-bottom: 32px; }
+    .slide.title-slide .meta { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
+    .slide.title-slide .meta span { font-size: 0.95rem; color: var(--muted); background: var(--surface); padding: 6px 16px; border-radius: 20px; }
+
+    /* Cards */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin: 16px 0; }
+    .card { background: var(--surface); border-radius: 12px; padding: 18px 20px; border: 1px solid rgba(148,163,184,0.1); }
+    .card .label { font-size: 0.82rem; color: var(--muted); margin-bottom: 6px; }
+    .card .value { font-size: 1.7rem; font-weight: 800; color: var(--accent); }
+    .card .desc { font-size: 0.82rem; color: var(--muted); margin-top: 4px; }
+
+    /* Two column */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+
+    /* Highlight */
+    .highlight { background: linear-gradient(135deg, rgba(56,189,248,0.08), rgba(167,139,250,0.08)); border-left: 4px solid var(--accent); padding: 14px 18px; border-radius: 0 10px 10px 0; margin: 14px 0; font-size: 1.05rem; }
+
+    /* Phase badge */
+    .phase-badge { display: inline-block; font-size: 0.8rem; font-weight: 700; padding: 3px 12px; border-radius: 12px; margin-right: 8px; vertical-align: middle; }
+    .badge-short { background: rgba(56,189,248,0.15); color: var(--accent); border: 1px solid var(--accent); }
+    .badge-mid { background: rgba(167,139,250,0.15); color: var(--accent2); border: 1px solid var(--accent2); }
+    .badge-long { background: rgba(251,146,60,0.15); color: #fb923c; border: 1px solid #fb923c; }
+
+    /* ROI row */
+    .roi-row { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+    .roi-tag { font-size: 0.8rem; padding: 2px 10px; border-radius: 10px; background: var(--surface); color: var(--muted); }
+
+    /* End slide */
+    .slide.end-slide { text-align: center; background: radial-gradient(ellipse at 40% 60%, rgba(167,139,250,0.08) 0%, transparent 70%); }
+    .slide.end-slide h2 { font-size: clamp(2rem, 5vw, 3.2rem); }
+    .slide.end-slide .contact { margin-top: 24px; color: var(--muted); font-size: 1rem; }
+
+    /* Arrows */
+    .arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.4); border: none; color: var(--accent); font-size: 36px; cursor: pointer; padding: 16px 10px; z-index: 10; border-radius: 6px; transition: background 0.2s; line-height: 1; }
+    .arrow:hover { background: rgba(56,189,248,0.3); }
+    .arrow-l { left: 0; }
+    .arrow-r { right: 0; }
+
+    /* Nav bar */
+    .nav-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--surface); border-top: 1px solid rgba(148,163,184,0.12); padding: 9px 20px; display: flex; align-items: center; justify-content: center; gap: 20px; z-index: 100; }
+    .nav-btn { background: none; border: 2px solid var(--accent); color: var(--accent); padding: 5px 22px; border-radius: 20px; cursor: pointer; font-size: 14px; font-weight: 700; transition: all 0.2s; font-family: inherit; }
+    .nav-btn:hover { background: var(--accent); color: var(--bg); }
+    .nav-btn:disabled { border-color: rgba(148,163,184,0.2); color: rgba(148,163,184,0.3); cursor: default; background: none; }
+    .counter { color: var(--muted); font-size: 14px; min-width: 60px; text-align: center; font-weight: 700; }
+
+    /* Top buttons */
+    .top-btns { position: fixed; top: 10px; right: 12px; z-index: 100; display: flex; gap: 6px; }
+    .top-btns button { background: var(--surface); border: 1px solid rgba(148,163,184,0.2); color: var(--text); border-radius: 7px; padding: 5px 11px; cursor: pointer; font-size: 12px; }
+
+    @media print {
+      .nav-bar, .progress, .top-btns, .arrow { display: none !important; }
+      .slides { position: static; height: auto; }
+      .slide { position: static; opacity: 1 !important; transform: none !important; pointer-events: auto !important; page-break-after: always; height: 100vh; }
+    }
+    @media (max-width: 640px) {
+      .slide { padding: 40px 16px 68px; }
+      .arrow { font-size: 26px; padding: 12px 8px; }
+      .card-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+<div class="top-btns">
+  <button id="fsToggle" title="전체화면 F">⤢</button>
+  <button id="themeToggle">Light</button>
+</div>
+
+<div class="slides" id="slides">
+  <button class="arrow arrow-l" id="arrow-l" onclick="prev()">❮</button>
+  <button class="arrow arrow-r" id="arrow-r" onclick="next()">❯</button>
+
+  <!-- ── Slide 1: 타이틀 ── -->
+  <div class="slide title-slide active">
+    <div class="slide-inner">
+      <div class="logo">Korea Archives Information Technology</div>
+      <h1>한국문헌정보기술<span>(KAIT)</span><br>업무 분석 및<br>AI 프로세스 개선 제안</h1>
+      <div class="subtitle">26년 기록관리 전문기업의 디지털 전환 전략</div>
+      <div class="meta">
+        <span>📅 2026. 03. 10</span>
+        <span>🏢 437개 고객사 · 2,526개 프로젝트</span>
+        <span>📎 www.kait.co.kr</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Slide 2: 회사 개요 ── -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2>회사 <span class="accent">개요</span></h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="label">설립</div>
+          <div class="value">1999</div>
+          <div class="desc">26년 업력</div>
+        </div>
+        <div class="card">
+          <div class="label">누적 고객사</div>
+          <div class="value">437</div>
+          <div class="desc">공공·민간·해외</div>
+        </div>
+        <div class="card">
+          <div class="label">수행 프로젝트</div>
+          <div class="value">2,526</div>
+          <div class="desc">컨설팅·구축·수집</div>
+        </div>
+        <div class="card">
+          <div class="label">핵심 솔루션</div>
+          <div class="value">5종</div>
+          <div class="desc">감어인 시리즈</div>
+        </div>
+      </div>
+      <div class="highlight">
+        <strong>경영 철학</strong> — "기록관리의 시작부터 끝까지 전 영역을 사업 대상으로 하는 국내 유일 기록관리 전문기업"
+      </div>
+      <ul style="margin-top:12px">
+        <li>주요 고객: SK · GS그룹 · 현대자동차 · 국가기록원 · 서울기록원 · 국립중앙박물관</li>
+        <li>솔루션 브랜드: <strong>감어인(鑒於人)</strong> — 사람을 비추는 기록</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ── Slide 3: 사업 영역 ── -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2>사업 영역 및 <span class="accent">핵심 프로세스</span></h2>
+      <div class="highlight" style="text-align:center; font-size:1rem; letter-spacing:0.03em;">
+        현황파악·체계수립 &nbsp;→&nbsp; 기록수집·정리 &nbsp;→&nbsp; 시스템 등록·관리 &nbsp;→&nbsp; 전시·편찬·콘텐츠 개발
+      </div>
+      <div class="two-col" style="margin-top:20px">
+        <div>
+          <h3>📋 컨설팅 6대 영역</h3>
+          <ul>
+            <li>기록관리 체계 수립</li>
+            <li>기록 수집 정책</li>
+            <li>분류체계 개발</li>
+            <li>기록 정리 &amp; 보존</li>
+            <li>시스템 구축</li>
+            <li>기업 아카이브 관리</li>
+          </ul>
+        </div>
+        <div>
+          <h3>💻 감어인 솔루션 5종</h3>
+          <ul>
+            <li><strong>감어인R</strong> — 현용기록관리</li>
+            <li><strong>감어인M</strong> — 아카이브(수집기록)</li>
+            <li><strong>감어인P</strong> — 사진관리</li>
+            <li><strong>감어인O</strong> — 구술기록관리</li>
+            <li><strong>감어인I</strong> — 보유목록관리</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Slide 4: 감어인 솔루션 ── -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2>감어인 <span class="accent">솔루션 현황</span></h2>
+      <table>
+        <thead>
+          <tr><th>솔루션</th><th>대상</th><th>주요 특징</th><th>도입 기관</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>감어인R</strong></td><td>현용기록</td><td>이관비용 0원, 다중분류 지원</td><td>청와대·국회·한국은행</td></tr>
+          <tr><td><strong>감어인M</strong></td><td>아카이브</td><td>2001년 국내 최초, ISAD(G) 준수</td><td>LG·SK·신한금융</td></tr>
+          <tr><td><strong>감어인P</strong></td><td>사진기록</td><td>사진 전문 관리</td><td>박물관·기록원</td></tr>
+          <tr><td><strong>감어인O</strong></td><td>구술기록</td><td>구술채록 산출물 관리</td><td>연구기관·대학</td></tr>
+          <tr><td><strong>감어인I</strong></td><td>비전자목록</td><td>보유목록 통합관리</td><td>공공기관·지자체</td></tr>
+        </tbody>
+      </table>
+      <div class="highlight" style="margin-top:16px">
+        <strong>현황 과제</strong> — 5종이 개별 설치형으로 운영 중. 시스템 간 사일로 발생, 업데이트 비용 중복 발생
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Slide 5: 현재 한계 + 변화 동인 ── -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2>현재 <span class="accent">한계</span>와 변화 동인</h2>
+      <div class="two-col">
+        <div>
+          <h3>⚠️ 프로세스 한계</h3>
+          <ul>
+            <li>수작업 분류·메타데이터 입력 <strong>품질 편차</strong></li>
+            <li>설치형 5종 솔루션 → <strong>유지보수 高</strong></li>
+            <li>컨설팅 경험이 개인에 체화 → <strong>지식 이전 어려움</strong></li>
+            <li>콘텐츠 개별 구축 → <strong>납기 길고 재활용 낮음</strong></li>
+            <li>용품 단품 공급 → <strong>부가가치 낮음</strong></li>
+          </ul>
+        </div>
+        <div>
+          <h3>🚀 변화 동인 (Why Now?)</h3>
+          <ul>
+            <li>LLM·OCR·STT <strong>실무 적용 수준 도달</strong></li>
+            <li>정부 Cloud First 정책 → <strong>설치형 수요 감소</strong></li>
+            <li>공공기록물법 개정 논의</li>
+            <li>기업 ESG 아카이브 의무화 논의</li>
+            <li>대형 구축 예산 압박 → <strong>구독형 수요 증가</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Slide 6: 단기 제안 ── -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="phase-badge badge-short">단기 6개월</span>AI 자동화 <span class="accent">3대 제안</span></h2>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:8px">
+        <div class="card">
+          <div class="label">제안 1</div>
+          <div style="font-size:1rem; font-weight:700; color:var(--text); margin:6px 0">AI 메타데이터<br>자동 추출</div>
+          <div class="desc">OCR + LLM으로 분류코드 자동 추천<br>Review-in-the-Loop 방식</div>
+          <div class="roi-row"><span class="roi-tag">난이도 ★★☆</span><span class="roi-tag">ROI 高</span></div>
+        </div>
+        <div class="card">
+          <div class="label">제안 2</div>
+          <div style="font-size:1rem; font-weight:700; color:var(--text); margin:6px 0">구술기록<br>AI 자동 전사</div>
+          <div class="desc">STT로 인터뷰 자동 전사·요약<br>감어인O 내재화</div>
+          <div class="roi-row"><span class="roi-tag">난이도 ★☆☆</span><span class="roi-tag">ROI 高</span></div>
+        </div>
+        <div class="card">
+          <div class="label">제안 3</div>
+          <div style="font-size:1rem; font-weight:700; color:var(--text); margin:6px 0">컨설팅<br>지식베이스</div>
+          <div class="desc">RAG 기반 AI 어시스턴트<br>26년 경험 형식지화</div>
+          <div class="roi-row"><span class="roi-tag">난이도 ★★☆</span><span class="roi-tag">ROI 高</span></div>
+        </div>
+      </div>
+      <div class="highlight" style="margin-top:16px; font-size:0.97rem">
+        <strong>핵심 효과</strong> — 정리 업무 3~5배 속도 향상 · 전사 비용 70% 절감 · 컨설팅 품질 균일화
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Slide 7: 단기 제안 상세 ── -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="phase-badge badge-short">단기</span>AI 자동화 <span class="accent">상세 방안</span></h2>
+      <div class="two-col">
+        <div>
+          <h3>🤖 제안 1 — AI 메타데이터 추출</h3>
+          <ul>
+            <li>OCR + LLM: 생산일자·기관·주제어 자동 추출</li>
+            <li>감어인 분류체계를 학습 데이터로 활용</li>
+            <li>담당자는 <strong>검토·승인</strong>만 수행</li>
+            <li>추진: 외부 AI API + 감어인 플러그인</li>
+          </ul>
+          <h3 style="margin-top:18px">🎙️ 제안 2 — 구술 AI 전사</h3>
+          <ul>
+            <li>Whisper 등 STT로 인터뷰 자동 전사</li>
+            <li>LLM 요약 + 키워드 태깅</li>
+            <li>추진: 클로바 노트 등 API 즉시 연동</li>
+          </ul>
+        </div>
+        <div>
+          <h3>📚 제안 3 — 지식베이스 플랫폼</h3>
+          <ul>
+            <li>2,526건 프로젝트 산출물 DB화</li>
+            <li>RAG 검색: "○○기관 분류체계 사례" 즉시 조회</li>
+            <li>방법론 단계별 체크리스트 표준화</li>
+            <li>추진: 자체 내부 구축 (저비용 시작)</li>
+          </ul>
+          <div class="highlight" style="margin-top:18px; font-size:0.92rem">
+            <strong>26년 암묵지 → 조직 자산화</strong><br>
+            신규 컨설턴트 온보딩 속도 향상, 인재 의존 리스크 해소
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Slide 8: 중기 제안 ── -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="phase-badge badge-mid">중기 1~2년</span>플랫폼화 <span class="accent">2대 제안</span></h2>
+      <div class="two-col">
+        <div>
+          <div class="card" style="margin-bottom:14px">
+            <div class="label" style="color:var(--accent2)">제안 4</div>
+            <div style="font-size:1.05rem; font-weight:700; color:var(--text); margin:6px 0">감어인 클라우드 SaaS 전환</div>
+            <ul style="font-size:0.92rem; color:var(--muted); padding-left:18px; margin-top:6px">
+              <li>5종 → 멀티 테넌트 단일 플랫폼</li>
+              <li>소규모 기관: 월정액 구독 SaaS</li>
+              <li>공공기관: CSAP 인증 선결</li>
+              <li>추진: AWS/NCP 파트너 공동개발</li>
+            </ul>
+            <div class="roi-row"><span class="roi-tag">난이도 ★★★</span><span class="roi-tag">투자 高</span><span class="roi-tag">MRR 구조</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="label" style="color:var(--accent2)">제안 5</div>
+            <div style="font-size:1.05rem; font-weight:700; color:var(--text); margin:6px 0">디지털 아카이브 포털 표준화</div>
+            <ul style="font-size:0.92rem; color:var(--muted); padding-left:18px; margin-top:6px">
+              <li>타임라인·지도·인물DB·전시관 모듈화</li>
+              <li>고객사: 템플릿 선택 후 콘텐츠만 입력</li>
+              <li>감어인M API 자동 연동 (이중입력 제거)</li>
+              <li>추진: 자체 개발 후 화이트라벨링 제공</li>
+            </ul>
+            <div class="roi-row"><span class="roi-tag">난이도 ★★☆</span><span class="roi-tag">납기 50% 단축</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="highlight" style="margin-top:14px; font-size:0.97rem">
+        <strong>핵심 전환</strong> — 프로젝트 단위 수익 → <strong>반복 구독 매출(MRR)</strong> 구조로 사업 안정성 확보
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Slide 9: 장기 + 로드맵 ── -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="phase-badge badge-long">장기 3년~</span>스마트 서고 &amp; <span class="accent">전체 로드맵</span></h2>
+      <div class="two-col">
+        <div>
+          <h3>📡 제안 6 — 스마트 서고 IoT</h3>
+          <ul>
+            <li>온·습도 센서 + IoT 모니터링 패키지</li>
+            <li>감어인 시스템 연동 → 이상 환경 자동 알림</li>
+            <li>보존 상태 누적 → 예방적 처리 추천</li>
+            <li>추진: IoT 파트너사와 번들 상품 구성</li>
+          </ul>
+          <div class="highlight" style="margin-top:12px; font-size:0.92rem">
+            용품 단품 공급 → <strong>서비스화(Servitization)</strong><br>고객 락인 강화, 신규 수익원 개척
+          </div>
+        </div>
+        <div>
+          <h3>🗺️ 전체 로드맵</h3>
+          <table style="font-size:0.88rem">
+            <thead><tr><th>시점</th><th>제안</th><th>ROI</th></tr></thead>
+            <tbody>
+              <tr><td><span class="phase-badge badge-short">단기</span></td><td>AI 메타데이터·구술 전사·지식베이스</td><td>高</td></tr>
+              <tr><td><span class="phase-badge badge-mid">중기</span></td><td>SaaS 전환·포털 표준화</td><td>高</td></tr>
+              <tr><td><span class="phase-badge badge-long">장기</span></td><td>IoT 스마트 서고·생태계 허브</td><td>中</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Slide 10: 핵심 요약 ── -->
+  <div class="slide end-slide">
+    <div class="slide-inner" style="text-align:center">
+      <h2>핵심 <span class="accent">요약</span></h2>
+      <p style="font-size:1.05rem; margin-bottom:28px">KAIT는 26년 도메인 전문성을 보유하지만<br><strong>수작업 중심 · 설치형 · 프로젝트 단위 수익</strong> 구조에 머물러 있습니다.</p>
+      <div class="card-grid" style="grid-template-columns: repeat(3, 1fr); text-align:left">
+        <div class="card">
+          <div class="label">전환축 1</div>
+          <div style="font-size:1.1rem; font-weight:800; color:var(--accent); margin:6px 0">AI 자동화</div>
+          <div class="desc">반복 수작업(분류·전사)을 AI로 대체 → 원가 절감 직결</div>
+        </div>
+        <div class="card">
+          <div class="label">전환축 2</div>
+          <div style="font-size:1.1rem; font-weight:800; color:var(--accent2); margin:6px 0">SaaS 전환</div>
+          <div class="desc">설치형 → 클라우드 구독형으로 반복 매출(MRR) 구조화</div>
+        </div>
+        <div class="card">
+          <div class="label">전환축 3</div>
+          <div style="font-size:1.1rem; font-weight:800; color:#fb923c; margin:6px 0">지식 플랫폼화</div>
+          <div class="desc">26년 경험을 조직 자산으로 형식지화 → 경쟁 진입장벽</div>
+        </div>
+      </div>
+      <div class="highlight" style="margin-top:24px; font-size:1rem; text-align:left">
+        이 세 축을 중심으로 전환하면 <strong>매출 구조 개선</strong>과 <strong>경쟁력 강화</strong>를 동시에 달성할 수 있습니다.
+      </div>
+      <div class="contact" style="margin-top:20px; font-size:0.9rem">
+        분석 기준: 공개 웹사이트(www.kait.co.kr) · 작성일: 2026-03-10
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<nav class="nav-bar">
+  <button class="nav-btn" id="btn-p" onclick="prev()">◀ 이전</button>
+  <span class="counter" id="counter">1 / 10</span>
+  <button class="nav-btn" id="btn-n" onclick="next()">다음 ▶</button>
+</nav>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const btnP = document.getElementById('btn-p');
+const btnN = document.getElementById('btn-n');
+const arrowL = document.getElementById('arrow-l');
+const arrowR = document.getElementById('arrow-r');
+const counter = document.getElementById('counter');
+const progress = document.getElementById('progress');
+let cur = 0;
+
+function updateSlide(n) {
+  if (n < 0 || n >= slides.length) return;
+  slides.forEach(s => s.classList.remove('active', 'prev'));
+  if (n > cur) slides[cur].classList.add('prev');
+  cur = n;
+  slides[cur].classList.add('active');
+  counter.textContent = (cur + 1) + ' / ' + slides.length;
+  progress.style.width = ((cur + 1) / slides.length * 100) + '%';
+  btnP.disabled = (cur === 0);
+  btnN.disabled = (cur === slides.length - 1);
+  arrowL.style.display = (cur === 0) ? 'none' : '';
+  arrowR.style.display = (cur === slides.length - 1) ? 'none' : '';
+}
+function next() { updateSlide(cur + 1); }
+function prev() { updateSlide(cur - 1); }
+function toggleFS() { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); }
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+  if (e.key === 'ArrowLeft') prev();
+  if (e.key === 'f' || e.key === 'F') toggleFS();
+  if (e.key === 'Home') updateSlide(0);
+  if (e.key === 'End') updateSlide(slides.length - 1);
+});
+let tx = 0;
+document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; });
+document.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); } });
+document.getElementById('themeToggle').addEventListener('click', () => {
+  document.documentElement.classList.toggle('light');
+  document.getElementById('themeToggle').textContent = document.documentElement.classList.contains('light') ? 'Dark' : 'Light';
+});
+document.getElementById('fsToggle').addEventListener('click', toggleFS);
+updateSlide(0);
+</script>
+</body>
+</html>
