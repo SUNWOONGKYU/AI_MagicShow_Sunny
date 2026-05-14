@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>SUNNY AI MAGIC 50 · #34 /model 명령으로 작업에 맞는 모델 선택하기</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#000814;color:#fff;line-height:1.7}
+.hero{background:radial-gradient(circle at 30% 30%,#002d5c 0%,#000814 70%);padding:50px 24px 40px;text-align:center;border-bottom:3px solid #FF8C00}
+.hero .tag{color:#FF8C00;font-size:13px;font-weight:900;letter-spacing:5px;margin-bottom:12px}
+.hero h1{font-size:clamp(22px,4vw,40px);font-weight:900;line-height:1.25;margin-bottom:8px;color:#fff;text-shadow:0 4px 24px rgba(255,140,0,0.35)}
+.hero .subtitle{font-size:clamp(13px,1.6vw,17px);color:#FF8C00;font-weight:600;letter-spacing:0.3px;margin-bottom:14px;opacity:0.92}
+.hero .meta{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.hero .badge{background:rgba(255,140,0,0.15);color:#FF8C00;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:900;letter-spacing:1px;border:1px solid rgba(255,140,0,0.4)}
+.hero .badge.type-a{background:rgba(231,76,60,0.15);color:#e74c3c;border-color:rgba(231,76,60,0.4)}
+.hero .badge.type-b{background:rgba(52,152,219,0.15);color:#3498DB;border-color:rgba(52,152,219,0.4)}
+.hero .badge.type-c{background:rgba(63,185,80,0.15);color:#3fb950;border-color:rgba(63,185,80,0.4)}
+.back{position:absolute;top:20px;left:20px;color:#FF8C00;text-decoration:none;font-size:13px;font-weight:700;padding:7px 14px;border:2px solid #FF8C00;border-radius:18px}
+.back:hover{background:#FF8C00;color:#001020}
+.content{max-width:900px;margin:0 auto;padding:40px 24px 60px}
+.content h1{display:none}
+.content h2{font-size:clamp(20px,2.8vw,28px);font-weight:900;color:#FF8C00;margin:32px 0 16px;letter-spacing:0.5px;border-left:5px solid #FF8C00;padding-left:14px}
+.content h2:first-child{margin-top:0}
+.content h3{font-size:18px;font-weight:900;color:#fff;margin:24px 0 12px}
+.content h4{font-size:16px;font-weight:700;color:#FF8C00;margin:18px 0 10px}
+.content p{font-size:15px;color:#dde;margin-bottom:14px}
+.content ul,.content ol{margin:0 0 16px 24px;color:#dde}
+.content li{font-size:15px;margin-bottom:6px;line-height:1.7}
+.content strong{color:#fff;font-weight:900}
+.content em{color:#FF8C00;font-style:normal;font-weight:600}
+.content code{background:rgba(255,140,0,0.12);color:#FF8C00;padding:2px 6px;border-radius:4px;font-size:13px;font-family:'D2Coding','Consolas',monospace}
+.content pre{background:rgba(0,0,0,0.4);border:1px solid rgba(255,140,0,0.25);border-radius:8px;padding:16px;overflow-x:auto;margin:16px 0}
+.content pre code{background:none;color:#bcd;padding:0;font-size:13px}
+.content blockquote{border-left:4px solid #FF8C00;background:rgba(255,140,0,0.05);padding:14px 20px;margin:16px 0;border-radius:0 8px 8px 0;color:#bcd}
+.content table{width:100%;border-collapse:collapse;margin:18px 0;background:rgba(255,255,255,0.03);border-radius:8px;overflow:hidden;font-size:14px}
+.content th,.content td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08)}
+.content th{background:rgba(255,140,0,0.15);color:#FF8C00;font-weight:900}
+.content td{color:#dde}
+.content tr:last-child td{border-bottom:none}
+.content hr{border:none;border-top:1px solid rgba(255,140,0,0.2);margin:30px 0}
+.content a{color:#FF8C00;text-decoration:none;border-bottom:1px dashed rgba(255,140,0,0.4)}
+.content a:hover{border-bottom-style:solid}
+.footer{background:#001020;border-top:1px solid #1a2a3a;padding:24px;text-align:center;color:#7a8c9c;font-size:13px}
+.footer a{color:#FF8C00;text-decoration:none;margin:0 10px}
+</style>
+</head>
+<body>
+<a href="../index.html" class="back">← 슬라이드쇼로</a>
+<section class="hero">
+  <div class="tag">SUNNY AI MAGIC 50 · #34</div>
+  <h1>/model 명령으로 작업에 맞는 모델 선택하기</h1>
+  <div class="subtitle">깊은 사고는 Opus, 균형은 Sonnet, 속도·비용은 Haiku — 작업별로 갈아끼우기</div>
+  <div class="meta">
+    <span class="badge">G5 · 환경</span>
+    <span class="badge type-c">C타입</span>
+    
+  </div>
+</section>
+
+<section class="content">
+<h2>한 줄 정의</h2>
+<p>작업 성격에 따라 Opus·Sonnet·Haiku를 의식적으로 갈아끼우는 운용 — <strong>모델은 무료가 아니라 자원</strong>이라는 인식.</p>
+<h2>왜 이 노하우가 중요한가</h2>
+<p>기본값 하나로 30개 인스턴스를 다 굴리면 비용도 낭비, 속도도 낭비다. 단순 요약을 Opus에 시키는 것은 트랙터로 모종 옮기는 격이고, 특허 차별점 도출(#27)을 Haiku에 시키는 것은 삽으로 댐 쌓는 격이다.</p>
+<p>본인 운용에서 모델 배정은 <strong>역할 = 모델</strong>의 1:1 매핑에 가깝다. 소대장(주력 사고)·분대장(중간 조율)·분대원(반복 실행)이 #14 편제로 정해지면, 그에 맞춰 #4가 모델을 박는다. 이 매핑이 없으면 #23(API 비용 최적화)는 슬로건일 뿐이다.</p>
+<h2>핵심 개념</h2>
+<p><code>/model</code> 명령은 대화 중 즉시 모델을 바꾼다. 헤드리스는 <code>--model</code> 플래그.</p>
+<pre><code class="language-bash">/model opus           # 대화 중 전환
+claude --model sonnet
+claude -p &quot;...&quot; --model haiku
+</code></pre>
+<p>본인 매핑 표:
+| 작업 | 모델 | 이유 |
+|------|------|------|
+| SAL Grid 설계, 특허 차별점 도출, 풀스택 설계 | <strong>Opus</strong> | 깊은 추론 필요 |
+| 일반 코딩, 리팩토링, 문서 작성, 토론 진행 | <strong>Sonnet</strong> | 균형 |
+| 요약, 변환, 분류, 파일 일괄 처리 | <strong>Haiku</strong> | 속도·비용 |
+| 30개 운용 중 분대원 다수 | <strong>Sonnet/Haiku 혼합</strong> | 비용 통제 |
+| 소대장 1개 | <strong>Opus</strong> | 의사결정 품질 |</p>
+<p>가격 차이는 입력 토큰 기준으로 Opus가 Haiku의 약 15~20배다. 30개 중 1개만 Opus로 두고 나머지를 Sonnet/Haiku로 배분하면 같은 throughput에서 비용이 큰 폭으로 떨어진다.</p>
+<h2>실전 사용법</h2>
+<p><strong>1단계</strong> — 작업 시작 전 자문: "이 작업은 깊이 사고가 필요한가, 빠른 변환이 필요한가?" 답이 모델을 정한다.</p>
+<p><strong>2단계</strong> — 30개 인스턴스 시작 시 모델 의식적 분배. 본인 표준은 Opus 1, Sonnet 6~8, Haiku 나머지.</p>
+<p><strong>3단계</strong> — 같은 세션 안에서도 단계별 전환. 기획 단계 Opus → 실행 단계 Sonnet → 정리·요약 단계 Haiku.</p>
+<p><strong>4단계</strong> — 헤드리스(#12) 크론에 <code>--model</code> 명시. 자동화는 단순 변환이 많아 Haiku가 기본값으로 적합하다. 단순 변환이 아닌 자동화는 Sonnet.</p>
+<p><strong>5단계</strong> — <code>.claude/settings.json</code> 프로젝트별 기본 모델 설정. SAL Grid 같은 깊이 작업 폴더는 Opus 기본, 단순 문서 폴더는 Haiku 기본. worktree(#41)별로도 다르게 둘 수 있다.</p>
+<p><strong>6단계</strong> — 본인 측정 패턴. 같은 작업(예: 슬라이드 50장 마크업 정리)을 Opus·Sonnet·Haiku로 한 번씩 굴려보고 결과물 차이와 비용을 표로 정리해둔다. 누적 운용의 상당 부분이 이 측정으로 모인다. 본인 패턴은 SAL Grid 설계는 Opus가 압도적, 일반 리팩토링은 Sonnet이 가성비 1위, 50개 파일 일괄 요약은 Haiku가 Sonnet 대비 6~8배 빠르고 결과 차이 미미.</p>
+<p><strong>주의</strong> — 모델을 바꿨다고 모든 게 해결되지 않는다. Opus도 틀린다. <strong>#17 AI 오류 인정 + #49 자율 검증</strong>이 필수. 모델 선택은 비용·속도 레버일 뿐, 검증 책임은 항상 사용자(또는 Verification Agent)에게 남는다.</p>
+<h2>관련 항목</h2>
+<ul>
+<li><strong>#23 API 비용 최적화</strong> — 모델 선택은 비용 최적화의 1번 레버. 짝</li>
+<li><strong>#31 5컴퓨터 30개 운용</strong> — 30개에 모델을 어떻게 분배할지 결정</li>
+<li><strong>#14 군대 소대 편제</strong> — 역할 = 모델 매핑</li>
+<li><strong>#12 헤드리스 모드 자동화</strong> — <code>--model</code> 플래그로 명시</li>
+<li><strong>#47 Claude 앱 vs Code</strong> — 도구 선택과 모델 선택의 짝</li>
+</ul>
+</section>
+
+<div class="footer">
+  <a href="../index.html">← SUNNY AI MAGIC 50</a>
+  <div style="margin-top:10px;color:#5a6c7c;font-size:12px;letter-spacing:0.3px">© 2026 SUN WOONGKYU · SUNNY AI MAGIC 50 · CC BY-NC-ND 4.0 · 특허 별도 보유</div>
+</div>
+</body>
+</html>

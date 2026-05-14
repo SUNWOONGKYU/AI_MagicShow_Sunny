@@ -1,0 +1,102 @@
+{
+  "gemini-2.5-flash-image": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_42\\_variants\\gemini-2_5-flash-image_v2.png",
+      "ok": true,
+      "score": 98,
+      "reason": "프롬프트의 모든 세부 요청사항, 특히 화면 내 텍스트와 전반적인 스타일이 완벽하게 구현되었으며, 단 두 개의 사소한 영문 오타 외에는 흠잡을 데 없는 완성도와 정보 전달력을 보여줍니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_42\\_variants\\gemini-2_5-flash-image_v1.png",
+      "ok": true,
+      "score": 98,
+      "reason": "요청된 스타일, 구도, 조명, 화면의 추상적 표현이 완벽하게 구현되었으며, 헤드리스 자동화 개념이 명확한 텍스트와 아이콘으로 정확히 전달되었으나, 'INFRASTRUCTURE'에 오타가 있어 텍스트 가독성에서 약간 감점되었습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_42\\_variants\\gemini-2_5-flash-image_v3.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 요구사항(주제, 캐릭터, 스타일, 조명, 화면 텍스트, 화면비)을 완벽하게 구현했으며, 시각적 완성도와 정보 전달력이 뛰어납니다."
+    }
+  ],
+  "dall-e-3": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_42\\_variants\\dall-e-3_v3.png",
+      "ok": true,
+      "score": 98,
+      "reason": "헤드리스 모드 자동화 개념, 모던 미니멀 스타일, 따뜻한 조명, 16:9 비율, 추상 텍스트 등 대부분의 프롬프트 의도를 매우 높은 완성도로 구현했으나, 한국인 작업자 묘사는 일반적인 인물로 표현되었습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_42\\_variants\\dall-e-3_v1.png",
+      "ok": true,
+      "score": 33,
+      "reason": "핵심 지시 사항인 '화면 속 텍스트는 추상 기호로만 표현, 한글 텍스트 없음'을 따르지 않고, 내용을 알 수 없는 영어-유사 텍스트가 들어가 있어 프롬프트 의도와 정보 전달력이 크게 떨어집니다. 시각적 완성도는 높으나 텍스트 처리에서 큰 오류가 있습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_42\\_variants\\dall-e-3_v2.png",
+      "ok": true,
+      "score": 50,
+      "reason": "프롬프트의 모던 미니멀 일러스트 스타일, 따뜻한 조명, 구도 등 대부분의 시각적 요구사항은 잘 구현되었으나, '화면 속 텍스트는 추상 기호로만 표현, 한글 텍스트 없음'이라는 핵심적인 제약을 완전히 위반하여 주요 제목에 한국어와 영어가 혼재된 텍스트가 명확하게 표현되었습니다."
+    }
+  ],
+  "gpt-image-1": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_42\\_variants\\gpt-image-1_v3.png",
+      "ok": true,
+      "score": 98,
+      "reason": "프롬프트의 핵심 의도(헤드리스 모드 자동화, 클로드 코드, 한국인, 모던 미니멀 스타일)를 완벽하게 구현했으며, 텍스트 가독성, 시각적 완성도, 정보 명확성 모두 최상이다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_42\\_variants\\gpt-image-1_v1.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 요구사항(개념, 인물, 스타일, 조명, 화면 비율, 화면 텍스트, 한글 텍스트 없음)을 완벽하게 구현했습니다. 텍스트 가독성 및 시각적 완성도, 정보 전달력도 매우 뛰어납니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_42\\_variants\\gpt-image-1_v2.png",
+      "ok": true,
+      "score": 96,
+      "reason": "프롬프트의 모든 시각적 스타일, 구성, 한국인 설정, 추상 기호 텍스트 요구사항을 완벽하게 충족하며, 복잡한 '헤드리스 자동화' 개념을 시각적으로 훌륭하게 표현했습니다."
+    }
+  ],
+  "gemini-3-pro-image-preview": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_42\\_variants\\gemini-3-pro-image_v3.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 요소를 완벽하게 구현했으며, 'claude -p'는 명확히 보이면서 나머지 텍스트는 추상 기호로 표현되어 의도에 완벽하게 부합합니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_42\\_variants\\gemini-3-pro-image_v2.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 요구사항(헤드리스 모드 자동화, CI/CD, 셸 스크립트, 크론 파이프라인 개념, 모던 미니멀 일러스트, 따뜻한 조명, 16:9 비율, 추상 기호 텍스트)을 완벽하게 시각적으로 구현했습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_42\\_variants\\gemini-3-pro-image_v1.png",
+      "ok": true,
+      "score": 98,
+      "reason": "프롬프트의 모든 요구사항(자동화, CI 파이프라인, 한국인 작업, 모던 미니멀 스타일, 따뜻한 조명, 16:9, 추상 기호 텍스트)이 매우 정확하고 시각적으로 훌륭하게 구현되었습니다."
+    }
+  ],
+  "gemini-3.1-flash-image-preview": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_42\\_variants\\gemini-3_1-flash-image_v2.png",
+      "ok": true,
+      "score": 97,
+      "reason": "이미지는 모던 미니멀 일러스트 스타일, 따뜻한 조명, 16:9 비율, 화면 속 추상 기호 텍스트 등 프롬프트의 모든 시각적 요구사항을 완벽하게 구현했습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_42\\_variants\\gemini-3_1-flash-image_v3.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 시각적, 스타일적, 내용적 요구사항(한국인, 컴퓨터 작업, 모던 미니멀 일러스트, 따뜻한 조명, 16:9 화면비, 추상 기호 텍스트, 한글 텍스트 없음)을 완벽하게 충족했습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_42\\_variants\\gemini-3_1-flash-image_v1.png",
+      "ok": true,
+      "score": 98,
+      "reason": "프롬프트의 모든 요구사항(주제, 스타일, 조명, 구도, 텍스트 추상화)이 높은 완성도로 반영되었으며, 특히 헤드리스 자동화 인프라에 대한 시각적 암시가 훌륭합니다."
+    }
+  ]
+}

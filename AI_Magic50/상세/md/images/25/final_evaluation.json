@@ -1,0 +1,97 @@
+{
+  "ranking": [
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_25\\labeled\\gemini-3_1-flash-image.png",
+      "score": 99,
+      "grade": "GOLD",
+      "intent": 29,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "5단계 워크플로우를 명확한 아이콘과 깔끔한 레이아웃으로 시각적으로 완벽하게 구현했으며, 프롬프트의 모든 요구사항을 충족시켰습니다.",
+      "weakness": "프롬프트의 요구사항에 비추어 볼 때 주요한 약점은 없습니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_25\\labeled\\gemini-3-pro-image.png",
+      "score": 98,
+      "grade": "GOLD",
+      "intent": 30,
+      "text": 20,
+      "visual": 18,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "다단계 워크플로우를 추상 기호와 순차적인 시각적 흐름으로 완벽하게 구현했으며, 프롬프트의 모든 세부 요청사항을 충실히 반영했습니다.",
+      "weakness": "일부 패널에서 책상 램프의 유무 등 배경 요소에 사소한 시각적 불일치가 있습니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_25\\labeled\\gpt-image-1.png",
+      "score": 63,
+      "grade": "BRONZE",
+      "intent": 5,
+      "text": 20,
+      "visual": 20,
+      "clarity": 3,
+      "layout": 15,
+      "strength": "모던 미니멀 일러스트 스타일, 따뜻한 조명, 16:9 비율 및 화면 내 추상 기호 사용 등 시각적 요구사항을 훌륭하게 준수했습니다.",
+      "weakness": "요청한 '5단계 순차 워크플로우'를 명확하게 시각화하지 못했으며 (4개의 막대만 표시), 각 단계별 결과 확인 과정이 전혀 표현되지 않아 인포그래픽으로서의 핵심 정보 전달력이 매우 낮습니다."
+    },
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_25\\labeled\\gemini-2_5-flash-image.png",
+      "score": 55,
+      "grade": "BRONZE",
+      "intent": 15,
+      "text": 20,
+      "visual": 20,
+      "clarity": 0,
+      "layout": 0,
+      "strength": "따뜻한 조명의 모던 미니멀 일러스트 스타일과 시각적 완성도가 매우 높습니다. 요청된 인물, 배경, 화면 속 추상 기호 등은 잘 구현되었습니다.",
+      "weakness": "핵심 요청 사항인 '5단계 순차 워크플로우'라는 강의 메인 메시지를 시각적으로 전혀 표현하지 못했습니다. 단계별 진행이나 작업 분할 등의 정보가 없어 정보 전달력과 레이아웃 정렬에서 매우 낮은 점수를 받았습니다."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_25\\labeled\\dall-e-3.png",
+      "score": 43,
+      "grade": "CUT",
+      "intent": 5,
+      "text": 5,
+      "visual": 18,
+      "clarity": 3,
+      "layout": 12,
+      "strength": "The image boasts a high-quality modern minimal illustration style with warm, inviting lighting, creating a visually appealing aesthetic.",
+      "weakness": "It critically fails to depict the requested '5-step sequential workflow' due to an incorrect number of steps (8 instead of 5) and chaotic, non-sequential numbering (1, 6, 3, 3, 5, 7, 8, 9)."
+    }
+  ],
+  "top_picks": [
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_25\\labeled\\gemini-3_1-flash-image.png",
+      "score": 99,
+      "grade": "GOLD",
+      "intent": 29,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "5단계 워크플로우를 명확한 아이콘과 깔끔한 레이아웃으로 시각적으로 완벽하게 구현했으며, 프롬프트의 모든 요구사항을 충족시켰습니다.",
+      "weakness": "프롬프트의 요구사항에 비추어 볼 때 주요한 약점은 없습니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_25\\labeled\\gemini-3-pro-image.png",
+      "score": 98,
+      "grade": "GOLD",
+      "intent": 30,
+      "text": 20,
+      "visual": 18,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "다단계 워크플로우를 추상 기호와 순차적인 시각적 흐름으로 완벽하게 구현했으며, 프롬프트의 모든 세부 요청사항을 충실히 반영했습니다.",
+      "weakness": "일부 패널에서 책상 램프의 유무 등 배경 요소에 사소한 시각적 불일치가 있습니다."
+    }
+  ]
+}

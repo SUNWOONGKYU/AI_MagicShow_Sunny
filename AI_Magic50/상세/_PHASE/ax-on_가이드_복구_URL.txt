@@ -1,0 +1,24 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  AX-On 가이드 페이지 복구 완료 (2026-05-06)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+원인: .vercelignore에 guides/ 한 줄이 있어서 Vercel 배포에서 통째로 제외됨
+조치: .vercelignore에서 guides/ 제거 → 커밋 364d812 → push → 자동 재배포
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  복구된 URL (모두 200 OK)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Claude Code Master Guide (SAL Grid Edition):
+https://ax-on.net/guides/claude-code-guide.html
+
+풀스택 가이드:
+https://ax-on.net/guides/fullstack-guide.html
+
+SAL Grid 특허:
+https://ax-on.net/guides/sal-grid-patent.html
+
+소대편제 특허:
+https://ax-on.net/guides/platoon-formation-patent.html
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

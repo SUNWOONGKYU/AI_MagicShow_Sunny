@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>SUNNY AI MAGIC 50 · #38 나에게 필요한 Skill, Agent 등의 도구를 쉽게 찾아서 활용하기</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#000814;color:#fff;line-height:1.7}
+.hero{background:radial-gradient(circle at 30% 30%,#002d5c 0%,#000814 70%);padding:50px 24px 40px;text-align:center;border-bottom:3px solid #FF8C00}
+.hero .tag{color:#FF8C00;font-size:13px;font-weight:900;letter-spacing:5px;margin-bottom:12px}
+.hero h1{font-size:clamp(22px,4vw,40px);font-weight:900;line-height:1.25;margin-bottom:8px;color:#fff;text-shadow:0 4px 24px rgba(255,140,0,0.35)}
+.hero .subtitle{font-size:clamp(13px,1.6vw,17px);color:#FF8C00;font-weight:600;letter-spacing:0.3px;margin-bottom:14px;opacity:0.92}
+.hero .meta{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.hero .badge{background:rgba(255,140,0,0.15);color:#FF8C00;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:900;letter-spacing:1px;border:1px solid rgba(255,140,0,0.4)}
+.hero .badge.type-a{background:rgba(231,76,60,0.15);color:#e74c3c;border-color:rgba(231,76,60,0.4)}
+.hero .badge.type-b{background:rgba(52,152,219,0.15);color:#3498DB;border-color:rgba(52,152,219,0.4)}
+.hero .badge.type-c{background:rgba(63,185,80,0.15);color:#3fb950;border-color:rgba(63,185,80,0.4)}
+.back{position:absolute;top:20px;left:20px;color:#FF8C00;text-decoration:none;font-size:13px;font-weight:700;padding:7px 14px;border:2px solid #FF8C00;border-radius:18px}
+.back:hover{background:#FF8C00;color:#001020}
+.content{max-width:900px;margin:0 auto;padding:40px 24px 60px}
+.content h1{display:none}
+.content h2{font-size:clamp(20px,2.8vw,28px);font-weight:900;color:#FF8C00;margin:32px 0 16px;letter-spacing:0.5px;border-left:5px solid #FF8C00;padding-left:14px}
+.content h2:first-child{margin-top:0}
+.content h3{font-size:18px;font-weight:900;color:#fff;margin:24px 0 12px}
+.content h4{font-size:16px;font-weight:700;color:#FF8C00;margin:18px 0 10px}
+.content p{font-size:15px;color:#dde;margin-bottom:14px}
+.content ul,.content ol{margin:0 0 16px 24px;color:#dde}
+.content li{font-size:15px;margin-bottom:6px;line-height:1.7}
+.content strong{color:#fff;font-weight:900}
+.content em{color:#FF8C00;font-style:normal;font-weight:600}
+.content code{background:rgba(255,140,0,0.12);color:#FF8C00;padding:2px 6px;border-radius:4px;font-size:13px;font-family:'D2Coding','Consolas',monospace}
+.content pre{background:rgba(0,0,0,0.4);border:1px solid rgba(255,140,0,0.25);border-radius:8px;padding:16px;overflow-x:auto;margin:16px 0}
+.content pre code{background:none;color:#bcd;padding:0;font-size:13px}
+.content blockquote{border-left:4px solid #FF8C00;background:rgba(255,140,0,0.05);padding:14px 20px;margin:16px 0;border-radius:0 8px 8px 0;color:#bcd}
+.content table{width:100%;border-collapse:collapse;margin:18px 0;background:rgba(255,255,255,0.03);border-radius:8px;overflow:hidden;font-size:14px}
+.content th,.content td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08)}
+.content th{background:rgba(255,140,0,0.15);color:#FF8C00;font-weight:900}
+.content td{color:#dde}
+.content tr:last-child td{border-bottom:none}
+.content hr{border:none;border-top:1px solid rgba(255,140,0,0.2);margin:30px 0}
+.content a{color:#FF8C00;text-decoration:none;border-bottom:1px dashed rgba(255,140,0,0.4)}
+.content a:hover{border-bottom-style:solid}
+.footer{background:#001020;border-top:1px solid #1a2a3a;padding:24px;text-align:center;color:#7a8c9c;font-size:13px}
+.footer a{color:#FF8C00;text-decoration:none;margin:0 10px}
+</style>
+</head>
+<body>
+<a href="../index.html" class="back">← 슬라이드쇼로</a>
+<section class="hero">
+  <div class="tag">SUNNY AI MAGIC 50 · #38</div>
+  <h1>나에게 필요한 Skill, Agent 등의 도구를 쉽게 찾아서 활용하기</h1>
+  <div class="subtitle">외부 오픈 생태계에서 찾아 검증한 뒤 자기 자산으로 만들기</div>
+  <div class="meta">
+    <span class="badge">G5 · 환경</span>
+    <span class="badge type-a">A타입</span>
+    
+  </div>
+</section>
+
+<section class="content">
+<h2>한 줄 정의</h2>
+<p>외부 오픈 생태계(skills.sh · revfactory/skills · GitHub 공개 저장소)에서 필요한 스킬과 서브에이전트를 <strong>검색 → 검증 → 자기 자산화</strong>하는 3단계 발굴 운용. 본인 글로벌 환경 <code>~/.claude/skills/</code> 41개 스킬 가운데 절반 이상이 이 발굴 루프를 통해 들어왔거나, 외부 자산을 본인 운용 패턴에 맞춰 재단·증설한 결과다.</p>
+<h2>왜 이 노하우가 중요한가</h2>
+<p>Claude Code를 30개 동시 운용하다 보면 가장 빨리 한계에 부딪히는 곳은 모델 성능이 아니라 <strong>본인이 직접 쓴 도구의 양</strong>이다. 모든 작업을 자기 손으로 스킬화하려 들면 4,000시간이 와도 부족하다. 본인이 4,000시간 누적 끝에 내린 결론은 단순하다 — <em>"잘 만들어진 외부 스킬은 발굴해서 검증한 뒤 자기 자산으로 흡수하고, 시간은 본인만이 만들 수 있는 스킬에 쓴다."</em> 이게 안 되면 1인 운용은 한 명분 인건비를 쓰는 1인 운용에 머무르고, 30개 인스턴스의 잠재력을 절대 끌어내지 못한다.</p>
+<p>또 하나, 외부 스킬 발굴은 <strong>자기 사고의 사각지대를 메우는 가장 빠른 길</strong>이다. 본인이 떠올리지 못한 패턴을 누군가 이미 코드로 구현해놨을 때, 그 SKILL.md를 한 번 읽는 것만으로 사고의 새 차원이 열린다. 본인 글로벌 스킬에 들어와 있는 <code>frontend-design</code>, <code>simplify</code>, <code>loop</code>, <code>schedule</code>, <code>claude-api</code>, <code>update-config</code>, <code>keybindings-help</code>, <code>add-pc</code> 같은 스킬들은 모두 외부 오픈 생태계에서 발굴해 본인 환경에 흡수한 것이다. 본인이 처음부터 만들 생각조차 못 했던 패턴이 있고, 발굴 한 번이 사고의 영토를 그만큼 넓혀준다.</p>
+<p>세 번째 이유 — <strong>검증 없이 도입하는 것은 더 위험하다</strong>. 외부 스킬은 본인 글로벌 CLAUDE.md의 보안 가드(<code>G:\내 드라이브\</code> 경로 보호, .env 차단, 한국어 출력 규칙 등) · Hooks · MBO·SAL Grid 자동 감지 등 본인 환경 전체와 충돌할 수 있다. 검증 없이 글로벌 설치하면 30개 인스턴스 전체가 동시에 오염된다. 그래서 발굴은 <em>"찾기"</em> 가 아니라 <em>"찾기 + 시험 + 합본"</em> 의 운용 사이클이다. 슬로건처럼 <em>"AI 시대엔 도구 발굴이 곧 실력"</em> 이라 말하는 사람은 많지만, 본인 운용 기준으론 정확히는 — <strong>"발굴 자체가 아니라 검증 후 자기 자산화까지 가는 흐름이 실력"</strong> 이다.</p>
+<h2>핵심 개념</h2>
+<h3>발굴 3단계 루프 (본인 운용 패턴)</h3>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>행위</th>
+<th>실패 시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① 검색 (Find)</td>
+<td>키워드로 후보 5~10개 추출</td>
+<td>후보 없음 → 직접 작성 검토</td>
+</tr>
+<tr>
+<td>② 검증 (Verify)</td>
+<td>SKILL.md Read · 실 트라이얼 (1회 이상) · KPI 체크</td>
+<td>실패 → 폐기 또는 fork</td>
+</tr>
+<tr>
+<td>③ 자산화 (Assetize)</td>
+<td><code>~/.claude/skills/</code>에 흡수 + CLAUDE.md 헌법 등재</td>
+<td>미흡수 → 다음 작업에 재발굴 비용 발생</td>
+</tr>
+</tbody>
+</table>
+<p>검증 없는 1단계 종료는 금지. <em>"오 이 스킬 좋네"</em> 로 끝나면 다음 세션에서 똑같은 검색을 반복하게 된다.</p>
+<h3>오픈 생태계 3대 출처</h3>
+<ol>
+<li><strong>skills.sh</strong> — 공식 레지스트리(<code>https://skills.sh/</code>). 카테고리(웹 개발 · 테스트 · DevOps · 문서화 · 코드 품질 · 디자인 · 생산성)별 검색.</li>
+<li><strong>revfactory/skills</strong> — <code>https://github.com/revfactory/skills</code>. 검증된 저장소로 본인 발굴 1차 후보지. 슬라이드·종합정리에서도 <em>"17번 멀티 CLI · 28번 발굴 시 사례"</em> 로 인용.</li>
+<li><strong>GitHub 일반 검색</strong> — <code>claude-code skill</code> · <code>agent skill</code> 키워드로 비공식 저장소 추적. 본인이 활용 중인 <code>frontend-design</code>, <code>simplify</code> 등이 이 경로로 들어왔다.</li>
+</ol>
+<h3>본인이 만드는 발굴 인프라 — Tool Atlas</h3>
+<p>세 출처(skills.sh · revfactory/skills · GitHub)를 4,000시간 굴려본 결과, 세 곳 모두 "읽기 위주의 카탈로그"라는 한계가 보였다. SKILL.md를 열어 읽고, 좋으면 설치 명령은 또 다른 곳에서 찾고, 검증은 본인이 알아서 한다. <em>"잘 만들어진 외부 자산을 본인 운용에 즉시 흡수"</em> 라는 본 챕터 결론을 한 단계 빠르게 만들 인프라가 필요하다는 결론이 나왔고, 그 답이 본인이 직접 만들고 있는 <strong>Tool Atlas</strong> (Next.js 14 + Supabase, CC BY-SA 4.0, alpha 단계)다.</p>
+<p>Tool Atlas의 차별점은 세 가지.</p>
+<ol>
+<li><strong>형식 무관 통합</strong> — Skill에 한정하지 않고 Skill·Agent·MCP·Prompt·Workflow·CLI까지 한 카탈로그에서 검색·평가·연결. skills.sh가 Skill 전용이라면, Tool Atlas는 AI 도구 전체의 메타 카탈로그.</li>
+<li><strong>실행 가능한 형태</strong> — "읽기만 하는 위키"가 아니라 각 항목이 설치·실행 가능한 코드·프롬프트를 함께 가지고 있다. 발견에서 실행까지 한 화면.</li>
+<li><strong>시맨틱 검색 + 4 은하 분류</strong> — pgvector + OpenAI 임베딩으로 의미 검색, 정치(PL)·경제(EC)·사회(SO)·문화(CL) 4 은하 분류 + Three.js 3D 우주 뷰로 시각화. 키워드를 정확히 모를 때 도메인부터 좁히고 들어가는 흐름.</li>
+</ol>
+<p>본인 입장에서 Tool Atlas는 <em>"외부 발굴 사용자에서 발굴 인프라 제공자로 한 발 넘어간 자리"</em> 다. 본 챕터 결론(<em>발굴 → 검증 → 자산화</em>)의 다음 단계 — <em>"본인 자산화 흐름 자체를 생태계에 환원하는 단계"</em>.</p>
+<h3>find-skills-기본 스킬 (본인 글로벌)</h3>
+<p>본인이 운용 중인 발굴 전용 스킬은 <code>~/.claude/skills/find-skills-기본/SKILL.md</code>에 박혀 있다. 검색·결과 표시·설치·관리 5단계가 명세되어 있고 핵심 명령어는 다음과 같다.</p>
+<pre><code class="language-bash"># 검색
+npx skills find &quot;react performance&quot;
+
+# 글로벌 설치 (모든 프로젝트에서 사용)
+npx skills add owner/repo@skill-name -g -y
+
+# 프로젝트 로컬 설치
+npx skills add owner/repo@skill-name -y
+
+# 업데이트 점검·일괄 적용·제거
+npx skills check
+npx skills update
+npx skills remove owner/repo@skill-name
+</code></pre>
+<p>이 스킬을 만든 이유는 단순하다 — <em>"필요할 때마다 검색 명령을 다시 떠올리지 않기 위해"</em>. 키워드 카테고리 표(<code>react</code>, <code>pr review</code>, <code>tailwind css</code>, <code>testing jest</code>, <code>mcp integration</code>, <code>data scientist</code> 등)를 SKILL.md 안에 박아둔 것도 같은 이유. <strong>자주 쓰는 검색은 스킬 안에 박아 둔다</strong> 는 것 자체가 본인 운용 헌법이다.</p>
+<h3>검증 KPI (도입 가부 판정)</h3>
+<p>발굴된 스킬을 자산화할지 결정할 때 본인은 5개 지표를 본다.</p>
+<table>
+<thead>
+<tr>
+<th>지표</th>
+<th>합격선</th>
+<th>측정 방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SKILL.md 명료성</td>
+<td>사용 시점·실행 절차·예시 모두 존재</td>
+<td>Read 1회로 5분 내 이해</td>
+</tr>
+<tr>
+<td>본인 운용과의 충돌</td>
+<td>0건 (한국어 출력 · 보안 가드 위반 없음)</td>
+<td>CLAUDE.md 헌법 대조</td>
+</tr>
+<tr>
+<td>트라이얼 통과</td>
+<td>1회 이상 실제 작업 적용</td>
+<td>사용자 여정 KPI 통과</td>
+</tr>
+<tr>
+<td>의존성 추가 부담</td>
+<td>npm/pip 추가 없음 또는 1개 이하</td>
+<td>설치 로그 점검</td>
+</tr>
+<tr>
+<td>자기 검증 가능성</td>
+<td>결과물에 객관 검증 가능</td>
+<td>Verification Agent 별도 투입 가능 여부</td>
+</tr>
+</tbody>
+</table>
+<p>5개 중 4개 미만이면 자산화 보류. 이 가운데 <em>"본인 운용과의 충돌 0건"</em> 은 <strong>타협 불가</strong> — 글로벌 헌법(<code>~/.claude/CLAUDE.md</code>)에 박힌 한국어 출력 규칙·보안 가드·SAL Grid 자동 감지·MBO 자동 발동을 깨는 스킬은 아무리 기능이 좋아도 글로벌에 들이지 않고 프로젝트 로컬에만 둔다.</p>
+<h3>본인 글로벌 41개 스킬 분류</h3>
+<p>자산화의 산물은 <code>~/.claude/skills/</code> 41개로 누적되어 있다. 카테고리별 분포는 본인 운용의 거울이다.</p>
+<table>
+<thead>
+<tr>
+<th>분류</th>
+<th>대표 스킬</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>본인 발명·자가 코어</td>
+<td><code>청룡-sal-grid-dev</code> · <code>백호-platoon-formation</code> · <code>주작-sal-da</code> · <code>현무-buzzlab-simulation</code> · <code>mbo-코어5</code> · <code>review-evaluate-코어1</code> · <code>pro-persona-debate-코어6</code> · <code>5times-debug-loop-코어3</code></td>
+<td>외부 발굴 不可, 본인이 누적 운용으로 만든 자산</td>
+</tr>
+<tr>
+<td>외부 발굴 → 자산화</td>
+<td><code>frontend-design</code> · <code>simplify</code> · <code>loop</code> · <code>schedule</code> · <code>claude-api</code> · <code>update-config</code> · <code>keybindings-help</code> · <code>add-pc</code></td>
+<td>revfactory/skills 외부 출처를 검증 후 글로벌 등재</td>
+</tr>
+<tr>
+<td>도메인 도구 (자체+외부 혼합)</td>
+<td><code>youtube-기본</code> · <code>video-frames-기본</code> · <code>ai-image-기본</code> · <code>image-기본</code> · <code>architecture-svg</code> · <code>create-image-기본</code> · <code>doc-generator-기본</code> · <code>db-schema-기본</code> · <code>ui-ux-builder-기본</code> · <code>api-builder-기본</code> · <code>api-test-기본</code> · <code>e2e-test-기본</code> · <code>cicd-setup-기본</code> · <code>performance-check-기본</code> · <code>security-audit-기본</code> · <code>troubleshoot-기본</code> · <code>n8n-workflow-test</code></td>
+<td>외부 자산을 본인 톤·KPI로 재단해 흡수</td>
+</tr>
+<tr>
+<td>발굴 메타 스킬</td>
+<td><code>find-skills-기본</code> · <code>deploy-skill-기본</code> · <code>deploy-subagent-기본</code></td>
+<td>발굴·편성 자체를 자산화</td>
+</tr>
+<tr>
+<td>인프라·배포</td>
+<td><code>vercel-private-url-배포</code> · <code>cpc-setup</code> · <code>cpc-engage</code> · <code>cpc-add-project</code></td>
+<td>본인 대규모 동시 운용 인프라</td>
+</tr>
+<tr>
+<td>도메인 비즈</td>
+<td><code>buzzlab-politician-winning-strategy</code> · <code>campaign-route-strategy</code> · <code>weekly-opinion-report</code></td>
+<td>정치 분석 도메인 자산</td>
+</tr>
+</tbody>
+</table>
+<p>발굴 → 자산화 카테고리 8개가 결정적이다. 누적 운용 가운데 가장 큰 ROI는 <em>"내가 못 만들 스킬을 잘 발굴해 본인 운용에 흡수한 부분"</em> 이고, 이 카테고리가 그 증거다.</p>
+<h2>실전 사용법</h2>
+<h3>1단계 — 요구사항 좌표화</h3>
+<p>발굴 전에 <em>"무엇을 찾는가"</em> 를 한 줄로 좌표화한다. 도메인(예: 프론트엔드 디자인) · 구체 작업(예: shadcn/ui 컴포넌트 생성) · 본인 운용 제약(예: 한국어 주석 자동 출력) 3축. 이 단계를 건너뛰면 검색 결과 5~10개가 들어와도 결정 불가에 빠진다.</p>
+<h3>2단계 — <code>npx skills find</code> 실행</h3>
+<p><code>find-skills-기본</code> 스킬의 키워드 표를 그대로 활용. 예 — <code>npx skills find "frontend design"</code> · <code>npx skills find "pr review"</code> · <code>npx skills find "mcp integration"</code>. 결과로 스킬 이름·설명·설치 명령어·skills.sh 링크 4종이 나온다.</p>
+<h3>3단계 — SKILL.md Read로 1차 필터</h3>
+<p>후보 5~10개 가운데 SKILL.md를 Read로 직접 본다. 5분 내 이해 안 되면 탈락. 이 1차 필터가 80%를 걸러낸다.</p>
+<h3>4단계 — 트라이얼 (반드시 프로젝트 로컬)</h3>
+<pre><code class="language-bash">npx skills add owner/repo@skill-name -y   # 글로벌 -g 빼고 로컬에만
+</code></pre>
+<p>로컬 설치 후 본인 실작업에 1회 이상 적용. 산출물을 <code>review-evaluate-코어1</code>로 5기준 검증, UI가 있으면 Playwright 클릭 테스트. <strong>자기 검증 금지</strong> — 스킬을 발굴한 본인이 자기 검증하면 안 된다. Verification Agent를 별도 투입해 <em>"이 스킬의 결과물이 본인 KPI를 충족하는가"</em> 를 객관 평가한다. 이때 <em>"curl 200 ≠ 동작함"</em> 원칙은 외부 스킬에도 그대로 적용된다.</p>
+<h3>5단계 — 글로벌 자산화 (-g)</h3>
+<p>검증 통과한 스킬만 <code>-g</code> 플래그로 글로벌 등재.</p>
+<pre><code class="language-bash">npx skills add owner/repo@skill-name -g -y
+</code></pre>
+<p>이후 <code>~/.claude/CLAUDE.md</code> 헌법에 등재 사실을 1줄 적어둔다. 글로벌 헌법에 안 적으면 컴팩션 후 본인 자신도 잊는다. <em>"파일이 진실이다, 기억은 신뢰하지 마라"</em> 는 본인 운용 4번 규칙(미완료 Phase 건너뜀 금지)이 여기에도 그대로 적용된다.</p>
+<h3>6단계 — 정기 점검 (<code>npx skills check</code> · <code>update</code>)</h3>
+<pre><code class="language-bash">npx skills check    # 업데이트 가능 항목 표시
+npx skills update   # 일괄 적용
+</code></pre>
+<p>월 1회 정기 실행. 스킬 업데이트가 본인 운용 패턴을 깰 수 있으므로, <strong>update 직후 1~2일은 회귀 모니터링</strong>. 회귀 발생 시 <code>npx skills remove</code>로 즉시 롤백하고 fork 검토.</p>
+<h3>7단계 — 발굴 자체를 SAL Grid Task로 등록</h3>
+<p>대규모 작업 시작 시 <em>"필요 스킬 발굴"</em> 을 SAL Grid의 별도 Task(예: <code>S0E1</code> Engineering 영역 Level 1)로 박는다. 이러면 발굴 비용이 프로젝트 진행률 % 에 반영되고, <em>"발굴 빠뜨려서 작업 지연"</em> 사고가 사라진다. SAL Grid Recorder가 발굴·검증·자산화 시각까지 grid_records JSON에 박아준다.</p>
+<h2>본인 운용 패턴</h2>
+<p>본인 41개 글로벌 스킬은 <em>"발굴해서 끝"</em> 이 아니라 <em>"발굴 → 검증 → 본인 운용 톤으로 재단 → 자산화 → 정기 점검"</em> 의 5단 흐름이 한 번 이상 적용된 결과다. 외부에서 들여온 <code>frontend-design</code> 같은 스킬도 본인 글로벌 CLAUDE.md의 한국어 출력 규칙·보안 가드와 한 번 충돌 점검을 거친 뒤 등재됐다. 발굴은 시작이고, 자산화는 운용 끝까지 따라간다.</p>
+<p>또 하나 — 발굴은 본인이 <em>"필요해진 시점"</em> 이 아니라 <em>"필요할 가능성이 보이는 시점"</em> 에 한다. 30개 동시 운용에서 그날 그날 필요한 스킬을 그날 발굴하면 이미 늦다. 본인은 매주 1회 <code>npx skills check</code>와 함께 <em>"이번 주 작업 시계열에서 사용할 가능성 30% 이상의 스킬"</em> 을 미리 발굴한다. 이 선제 발굴 루틴이 5번 30개 운용 · 9번 소대 편제 · 17번 멀티 CLI를 끊김 없이 돌리는 숨은 골격이다.</p>
+<blockquote>
+<p>Vault 사례: <code>333-knowledge-share/wiki/2026_05_03_21.00_import_SKILL_v3_pre_refactor.md</code> 같은 SKILL_v1 / v2 / v2_260306 / v3_pre_refactor 다중 스냅샷이 한 폴더에 누적돼 있다는 사실 자체가 <em>발굴 → 검증 → 본인 톤으로 재단 → 자산화 → 정기 점검</em>의 5단 흐름을 본인이 실제로 돌렸다는 흔적이다. 동일 스킬이 여러 버전으로 박혀 있고 <em>pre_refactor</em> 라벨이 붙은 것은 — 외부에서 들여온 원본을 본인 운용 톤(소대 편제 / Subagent 트리거 / Hooks 가드)에 맞춰 재단했다는 의미. 28번 본 항목의 <em>"발굴은 시작이고, 자산화는 운용 끝까지 따라간다"</em> 명제가 그 누적 스냅샷 자체로 증명된다.</p>
+</blockquote>
+<h2>관련 항목</h2>
+<ul>
+<li><strong>#22 오케스트레이터·멀티 CLI</strong> — 발굴된 스킬을 다중 CLI(Codex/Gemini/Grok)와 결합해 운용</li>
+<li><strong>#25 지능형 챗봇 만들기</strong> — 발굴 능력이 챗봇 자산화의 전제</li>
+<li><strong>#24 SVG → 스킬 자산화</strong> — 본인이 만드는 자산화 흐름의 짝</li>
+<li><strong>#32 CLAUDE.md 활용</strong> — 자산화 후 헌법 등재 단계</li>
+<li><strong>#39 Subagent vs Agent Teams</strong> — 발굴된 에이전트의 편성 단계</li>
+<li><strong>#14 군대 소대 편제 + 백호 스킬</strong> — 발굴 후 편성 단계</li>
+<li><strong>#28 4종 품질관리</strong> — 발굴 검증 단계의 5기준 평가</li>
+<li><strong>#2 SAL Grid 개발방법론</strong> — 발굴 자체를 Task로 박는 골격</li>
+<li><strong>find-skills-기본 (본인 글로벌)</strong> — 본 노하우의 코드화된 형태</li>
+<li><strong>deploy-skill-기본 / deploy-subagent-기본 (본인 글로벌)</strong> — 발굴 결과를 편성·장착하는 메타 스킬</li>
+<li><strong>revfactory/skills</strong> — 본인 1차 발굴 출처 저장소</li>
+<li><strong>Tool Atlas (본인 발굴 인프라, alpha)</strong> — 본 챕터 결론의 다음 단계 자리. 참고자료 sources 참조.</li>
+</ul>
+</section>
+
+<div class="footer">
+  <a href="../index.html">← SUNNY AI MAGIC 50</a>
+  <div style="margin-top:10px;color:#5a6c7c;font-size:12px;letter-spacing:0.3px">© 2026 SUN WOONGKYU · SUNNY AI MAGIC 50 · CC BY-NC-ND 4.0 · 특허 별도 보유</div>
+</div>
+</body>
+</html>

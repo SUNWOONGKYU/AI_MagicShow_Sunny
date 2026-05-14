@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>#50 AX 사내 AI 에이전트 하우스 — KD엔지니어링 9개 시범 사례</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#000814;color:#fff;line-height:1.6}
+.hero{background:radial-gradient(circle at 30% 30%,#002d5c 0%,#000814 70%);padding:60px 24px 50px;text-align:center;border-bottom:3px solid #FF8C00}
+.hero .tag{color:#FF8C00;font-size:14px;font-weight:900;letter-spacing:6px;margin-bottom:14px}
+.hero h1{font-size:clamp(24px,4.5vw,42px);font-weight:900;line-height:1.2;margin-bottom:14px;color:#fff;text-shadow:0 4px 24px rgba(255,140,0,0.4)}
+.hero .sub{font-size:clamp(14px,1.8vw,18px);color:#bcd;max-width:880px;margin:0 auto;font-weight:500}
+.hero .case-badge{display:inline-block;background:#16a085;color:#fff;padding:6px 18px;border-radius:20px;font-size:13px;font-weight:900;letter-spacing:1px;margin-top:18px}
+.back{position:absolute;top:24px;left:24px;color:#FF8C00;text-decoration:none;font-size:14px;font-weight:700;padding:8px 16px;border:2px solid #FF8C00;border-radius:20px}
+.back:hover{background:#FF8C00;color:#001020}
+.section{max-width:1100px;margin:0 auto;padding:50px 24px}
+.section h2{font-size:clamp(22px,3vw,32px);font-weight:900;color:#FF8C00;margin-bottom:24px;letter-spacing:1px;border-left:5px solid #FF8C00;padding-left:14px}
+.section p{font-size:15px;color:#dde;margin-bottom:14px}
+.section .lead{font-size:16px;color:#fff;background:rgba(255,140,0,0.08);border:1.5px solid rgba(255,140,0,0.35);border-radius:10px;padding:20px 24px;margin-bottom:24px}
+.culture{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+@media(max-width:760px){.culture{grid-template-columns:1fr}}
+.cul{background:rgba(255,140,0,0.06);border:1.5px solid rgba(255,140,0,0.35);border-radius:10px;padding:18px;text-align:center}
+.cul h3{color:#FF8C00;font-size:16px;font-weight:900;margin-bottom:6px}
+.cul p{font-size:13px;color:#bcd;line-height:1.55}
+.axis-section{margin-top:30px}
+.axis-section h3{color:#3498DB;font-size:18px;font-weight:900;margin-bottom:14px;padding-left:10px;border-left:4px solid #3498DB}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:880px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.cards{grid-template-columns:1fr}}
+.card{background:rgba(52,152,219,0.08);border:1.5px solid rgba(52,152,219,0.4);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.card .code{color:#3498DB;font-size:11px;font-weight:900;letter-spacing:0.5px}
+.card h4{font-size:14px;font-weight:900;color:#fff}
+.card .desc{font-size:12px;color:#bcd;line-height:1.55}
+.card .oss{font-size:11px;color:#9b59b6;margin-top:auto;padding-top:6px;border-top:1px dashed rgba(155,89,182,0.3)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+@media(max-width:760px){.steps{grid-template-columns:repeat(2,1fr)}}
+.step{background:rgba(155,89,182,0.08);border:1.5px solid rgba(155,89,182,0.35);border-radius:10px;padding:16px;text-align:center}
+.step .num{display:inline-block;background:#9b59b6;color:#fff;width:34px;height:34px;border-radius:50%;text-align:center;line-height:34px;font-weight:900;margin-bottom:8px}
+.step h4{font-size:14px;font-weight:900;color:#fff;margin-bottom:6px}
+.step p{font-size:12px;color:#bcd;line-height:1.5}
+table{width:100%;border-collapse:collapse;margin-top:18px;background:rgba(255,255,255,0.03);border-radius:8px;overflow:hidden}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08);font-size:14px}
+th{background:rgba(255,140,0,0.15);color:#FF8C00;font-weight:900}
+td{color:#dde}
+tr:last-child td{border-bottom:none}
+.footer{background:#001020;border-top:1px solid #1a2a3a;padding:30px 24px;text-align:center;color:#7a8c9c;font-size:13px}
+.footer a{color:#FF8C00;text-decoration:none;margin:0 10px}
+</style>
+</head>
+<body>
+<a href="../index.html" class="back">← 슬라이드쇼로</a>
+<section class="hero">
+  <div class="tag">SUNNY AI MAGIC · #50</div>
+  <h1>AX를 위한 기능적 방법 — 사내 AI 에이전트 하우스 구축</h1>
+  <div class="sub">AX(AI Transformation)는 외부 SaaS 도입이 아니라, <strong>각 업무 단위마다 사내 전용 AI 에이전트를 한 칸씩 짓고</strong>, 그것들을 한 지붕(통합 인덱스 페이지) 아래 모은 <strong>사내 AI 에이전트 하우스</strong>로 결실을 맺는다.</div>
+  <div class="case-badge">🏠 KD엔지니어링 AX 컨설팅 실전 사례 (9칸 시범 하우스)</div>
+</section>
+
+<section class="section">
+  <h2>📌 핵심 정의</h2>
+  <div class="lead">
+    AX 컨설팅 현장에서 가장 흔한 실패는 두 가지다. <strong>"ChatGPT 회사 계정 깔아드리면 끝"</strong>(도구만 깔고 흐름에 안 박힘) 과 <strong>"거대 통합 플랫폼 한 방"</strong>(1~2년 짜리 거대 프로젝트 좌초). 본 방법은 정반대 — <strong>업무 단위로 잘게 쪼개서 각각을 하루~며칠 만에 굴러가는 작은 에이전트로 만들고, 한 인덱스 페이지에 입주시킨다.</strong>
+  </div>
+  <p><strong>작은 방 한 칸이 굴러가야 다음 방을 짓는 동기가 생긴다.</strong> 하우스는 한 번에 짓는 게 아니라 한 칸씩 입주시키며 짓는다. 이게 #43(學보다 習)의 조직 버전이다.</p>
+</section>
+
+<section class="section">
+  <h2>🏗 KD엔지니어링 9칸 시범 하우스 — 3축 × 3개</h2>
+
+  <div class="axis-section">
+    <h3>① 관리축 (Management) — 백오피스·인사·법무</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="code">관리-01</div>
+        <h4>계약서 AI 검토</h4>
+        <div class="desc">계약서를 자동 파싱하여 핵심 조항 추출 + 지체상금율·하자담보기간 등 위험 조항 탐지. 검토 누락 위험 차단.</div>
+        <div class="oss">Docling ★37k / LangChain ★73k</div>
+      </div>
+      <div class="card">
+        <div class="code">관리-02</div>
+        <h4>최적 인력 배치</h4>
+        <div class="desc">기술자 등급·전공·가용성을 PuLP 선형최적화로 최적 배치. 책임기술자 중복 + 과부하 + 자격 미매칭 방지.</div>
+        <div class="oss">PuLP / pandas ★45k</div>
+      </div>
+      <div class="card">
+        <div class="code">관리-03</div>
+        <h4>회의록 자동 작성</h4>
+        <div class="desc">회의 텍스트(또는 음성 전사)에서 논의사항·결정사항·담당자별 액션아이템을 자동 구조화. 표준화 + 지연 감지.</div>
+        <div class="oss">Jinja2 / Whisper ★75k</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="axis-section">
+    <h3>② 엔지축 (Engineering) — 설계·시공·검사</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="code">엔지-01</div>
+        <h4>설계안 자동 생성</h4>
+        <div class="desc">설계 조건(구조형식/하중/지반) 입력 → RAG로 유사 설계 사례 검색 → LLM이 설계 초안 생성. 기술사 검토 전제.</div>
+        <div class="oss">LangChain ★73k / RAGFlow ★78k / CrewAI ★23k</div>
+      </div>
+      <div class="card">
+        <div class="code">엔지-02</div>
+        <h4>CAD 도면 자동 검토</h4>
+        <div class="desc">DWG/DXF/PDF 도면을 자동 분석하여 누락 항목·기준 미달·오류 탐지. 납품 직전 야근 방지.</div>
+        <div class="oss">ezdxf / OpenCV ★80k / Vision LLM</div>
+      </div>
+      <div class="card">
+        <div class="code">엔지-03</div>
+        <h4>드론 균열 자동 감지</h4>
+        <div class="desc">드론 사진을 YOLOv8 모델이 자동 분석하여 균열·박리·손상 위치 탐지. 95%+ mAP 정확도. 수백 장 수작업 검토 해소.</div>
+        <div class="oss">Ultralytics YOLOv8 ★35k / Roboflow</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="axis-section">
+    <h3>③ 입찰축 (Bidding) — 영업·제안·수주</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="code">입찰-01</div>
+        <h4>나라장터 자동 스캔</h4>
+        <div class="desc">나라장터 OpenAPI로 입찰공고를 실시간 수집, KD 업무 키워드로 0~99점 자동 채점, D-Day 카운트다운 관리.</div>
+        <div class="oss">data.go.kr OpenAPI / Airflow ★37k</div>
+      </div>
+      <div class="card">
+        <div class="code">입찰-02</div>
+        <h4>제안서 초안 보조</h4>
+        <div class="desc">프로젝트 정보 입력 → 표지·목차·수행계획·투입인력·BIM/드론 특수사항까지 포함한 전문 제안서 HTML 자동 생성.</div>
+        <div class="oss">Jinja2 / CrewAI ★23k</div>
+      </div>
+      <div class="card">
+        <div class="code">입찰-03</div>
+        <h4>유사 실적 분석</h4>
+        <div class="desc">과거 수행 프로젝트 DB를 TF-IDF 인덱싱하여 새 입찰 키워드로 유사 실적 TOP5 자동 추출. 자격 요건 확인 시간 단축.</div>
+        <div class="oss">TF-IDF / RAGFlow ★78k / LlamaIndex ★39k</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>🏛 표준 구조 — 모든 방이 동일한 4요소</h2>
+  <table>
+    <thead><tr><th>구성요소</th><th>역할</th></tr></thead>
+    <tbody>
+      <tr><td><strong>README.md</strong></td><td>개요·해결 문제·기반 오픈소스·구현 방법·구현 현황</td></tr>
+      <tr><td><strong>실행 스크립트</strong> (<code>*_gen.py</code>)</td><td>LangChain·Docling·RAGFlow·CrewAI 등 오픈소스 조합</td></tr>
+      <tr><td><strong>최신 산출물</strong> (<code>*_latest.html</code>)</td><td>실제 돌아간 결과물 (인덱스 페이지에서 직접 열림)</td></tr>
+      <tr><td><strong>인덱스 카드</strong></td><td>한 줄 설명 + 진입 링크 — <code>KD_AI_Tools_index.html</code></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section">
+  <h2>🔁 기능적 방법 4단계</h2>
+  <div class="steps">
+    <div class="step"><div class="num">1</div><h4>업무 흐름 분해</h4><p>회사 실제 업무를 10~20개 단위로 잘게 쪼갠다</p></div>
+    <div class="step"><div class="num">2</div><h4>1개 시범 에이전트</h4><p>가성비 1순위를 골라 1~3일 안에 굴러가는 상태로</p></div>
+    <div class="step"><div class="num">3</div><h4>인덱스 게시</h4><p>단일 HTML에 카드 1장 추가 ({회사}_AI_Tools_index.html)</p></div>
+    <div class="step"><div class="num">4</div><h4>2~10번째 입주</h4><p>같은 패턴 반복, 9칸~20칸까지 확장</p></div>
+  </div>
+  <p style="margin-top:18px"><strong>핵심 원칙</strong>: 작아도 좋으니 굴러가야 한다. 미구현 거대 설계서보다 어설퍼도 돌아가는 작은 스크립트 한 개가 백 배 낫다.</p>
+</section>
+
+<section class="section">
+  <h2>🌱 AX Culture 3요소 — 하우스를 살아 움직이게 하는 엔진</h2>
+  <p>기술만으로는 안 된다. 다음 3요소가 같이 도입되어야 하우스가 살아 움직인다.</p>
+  <div class="culture">
+    <div class="cul"><h3>나눔 (Sharing)</h3><p>AI로 얻은 지식·노하우·프롬프트를 전사적으로 공유. 한 사람의 발견이 열 사람의 역량으로.</p></div>
+    <div class="cul"><h3>선의의 경쟁</h3><p>누가 더 효과적인 프롬프트를 설계했는가, 누가 더 창의적 활용 사례를 만들었는가. 서로 끌어올리는 경쟁.</p></div>
+    <div class="cul"><h3>격려·보상</h3><p>우수 사례 발굴자를 인정·보상. 나눔과 경쟁의 선순환 엔진 작동.</p></div>
+  </div>
+  <p style="margin-top:18px;text-align:center;font-weight:900;color:#FF8C00;font-size:18px">"AX is Culture. Not Technology." — AX의 승패는 기술이 아니라 문화에서 갈린다.</p>
+</section>
+
+<section class="section">
+  <h2>📂 관련 항목</h2>
+  <table>
+    <tbody>
+      <tr><td><strong>#26</strong> review-evaluate</td><td>각 에이전트 산출물의 자동 검수·개선 루프</td></tr>
+      <tr><td><strong>#03·13</strong> SAL Grid</td><td>20~30칸 규모로 커지면 SAL 좌표계로 의존성·진척 관리</td></tr>
+      <tr><td><strong>#39</strong> HTML + Vercel 배포</td><td>인덱스 페이지·산출물 즉시 외부 공유 인프라</td></tr>
+      <tr><td><strong>#42</strong> AI는 포크레인·트랙터</td><td>도구 패러다임 전환 위에 하우스 비유가 얹힘</td></tr>
+      <tr><td><strong>#18</strong> 스킬 만들기</td><td>자주 쓰는 에이전트 패턴은 스킬화하여 사내 표준 구성요소로</td></tr>
+      <tr><td><strong>#43</strong> 學보다 習</td><td>개인 學/習 → 조직 學/習의 인프라가 곧 하우스</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="footer">
+  <a href="../index.html">← Sunny AI Magic 50</a><span>·</span><a href="https://www.ax-on.net/">AX 전문가 풀</a>
+</div>
+</body>
+</html>

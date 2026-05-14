@@ -1,0 +1,102 @@
+{
+  "gemini-2.5-flash-image": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_07\\_variants\\gemini-2_5-flash-image_v2.png",
+      "ok": true,
+      "score": 60,
+      "reason": "이미지는 모던 미니멀 스타일과 따뜻한 조명, 전반적인 개념을 잘 구현했으나, '한글 텍스트 없음' 및 '추상 기호로만 표현'이라는 명시적 지시를 따르지 않아 점수가 크게 감점되었습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_07\\_variants\\gemini-2_5-flash-image_v1.png",
+      "ok": true,
+      "score": 98,
+      "reason": "프롬프트 의도(AI 활용 특허 출원, 따뜻한 미니멀 일러스트, 한국인)를 완벽하게 구현했으며, 추상 기호와 지정된 텍스트 모두 명확하게 표현되었습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_07\\_variants\\gemini-2_5-flash-image_v3.png",
+      "ok": true,
+      "score": 58,
+      "reason": "AI를 활용한 아이디어-특허 출원 과정을 시각적으로 잘 표현했고, 모던 미니멀 스타일과 따뜻한 조명이 돋보이나, '한글 텍스트 없음'이라는 명시적 지시를 위반하여 프롬프트 내용이 이미지 하단에 그대로 출력된 점이 치명적인 결함임."
+    }
+  ],
+  "dall-e-3": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_07\\_variants\\dall-e-3_v2.png",
+      "ok": true,
+      "score": 42,
+      "reason": "전반적인 구도, 스타일, 색감은 좋으나, 핵심 요구사항인 텍스트 (화면 내 추상 기호, 한글 외 텍스트 없음)가 구현되지 않고 의미를 알 수 없는 영어-유사 문자들로 가득하여 프롬프트 의도 및 정보 명확성이 크게 저해됨."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_07\\_variants\\dall-e-3_v3.png",
+      "ok": true,
+      "score": 49,
+      "reason": "이미지는 모던 미니멀 일러스트 스타일과 따뜻한 조명, 16:9 구도 등 시각적 요구사항은 훌륭하게 만족했으나, 가장 중요한 텍스트 관련 제약조건(추상 기호로만 표현, 한글 텍스트 없음)을 지키지 못하고 의미 없는 영어 단어들이 들어가 정보 전달력이 크게 떨어져 감점폭이 컸습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_07\\_variants\\dall-e-3_v1.png",
+      "ok": true,
+      "score": 55,
+      "reason": "모던 미니멀 스타일과 따뜻한 조명, 아이디어-특허 출원 과정의 구도는 잘 구현되었으나, 텍스트가 추상 기호 대신 의미 없는 영문으로 표현되어 프롬프트 핵심 요구사항을 크게 위반했습니다."
+    }
+  ],
+  "gpt-image-1": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_07\\_variants\\gpt-image-1_v1.png",
+      "ok": true,
+      "score": 75,
+      "reason": "사업 아이디어에서 AI 활용 특허 출원까지의 핵심 의도는 잘 표현되었고 시각적 완성도도 높지만, 16:9 화면 비율 미준수와 'PATENT APPIJEATION'의 오타가 감점 요인입니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_07\\_variants\\gpt-image-1_v2.png",
+      "ok": true,
+      "score": 87,
+      "reason": "핵심 의도와 시각적 스타일은 잘 구현되었으나, 화면 속 텍스트가 추상 기호로만 표현되지 않은 점이 아쉽습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_07\\_variants\\gpt-image-1_v3.png",
+      "ok": true,
+      "score": 85,
+      "reason": "모던 미니멀 스타일, 따뜻한 조명, 추상 기호 화면 등 대부분의 시각적 요구사항은 잘 구현되었으나, '한국인' 묘사가 없고 'AI 엔진'과 '특허출원'의 직접적인 시각적 연결은 다소 약합니다."
+    }
+  ],
+  "gemini-3.1-flash-image-preview": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_07\\_variants\\gemini-3_1-flash-image_v3.png",
+      "ok": true,
+      "score": 96,
+      "reason": "요청된 한국인 남성, 모던 미니멀 일러스트, 따뜻한 조명, 16:9 비율, 추상 기호로만 표현된 화면 텍스트 등 모든 시각적 지시 사항을 완벽하게 구현했습니다. 시각적 완성도와 정보 명확성 또한 매우 높습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_07\\_variants\\gemini-3_1-flash-image_v2.png",
+      "ok": true,
+      "score": 93,
+      "reason": "프롬프트의 모든 시각적 요구사항(한국인, 컴퓨터 작업, 모던 미니멀, 따뜻한 조명, 16:9, 추상 기호 화면, 한글 텍스트 없음)을 완벽하게 충족하며, 'AI 활용 특허 출원'의 의도를 현대적인 작업 환경과 복잡한 디지털 작업으로 잘 암시하고 있습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_07\\_variants\\gemini-3_1-flash-image_v1.png",
+      "ok": true,
+      "score": 98,
+      "reason": "프롬프트의 모든 시각적 및 개념적 요구사항(모던 미니멀 스타일, 따뜻한 조명, 추상 기호, AI 연상 시각화 등)이 매우 높은 완성도로 구현되었습니다."
+    }
+  ],
+  "gemini-3-pro-image-preview": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_07\\_variants\\gemini-3-pro-image_v3.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 시각적 요구사항(한국인, 컴퓨터 작업, 모던 미니멀 일러스트, 따뜻한 조명, 16:9, 추상 기호 화면, 한글 텍스트 없음)을 완벽하게 구현하며 시각적 완성도와 정보 전달력도 매우 뛰어납니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_07\\_variants\\gemini-3-pro-image_v1.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 시각적 요구사항(모던 미니멀 스타일, 따뜻한 조명, 추상 기호로만 된 화면 텍스트, 한국인 캐릭터)이 완벽하게 구현되었으며, 시각적 완성도와 정보 전달력 또한 매우 높습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_07\\_variants\\gemini-3-pro-image_v2.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 요구사항(구도, 스타일, 조명, 비율, 화면 내 추상 기호, 한글 텍스트 부재)이 완벽하게 구현되었으며, 정보 전달력이 뛰어납니다."
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "ranking": [
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_26\\labeled\\gemini-3_1-flash-image.png",
+      "score": 100,
+      "grade": "GOLD",
+      "intent": 30,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "프롬프트의 모든 요청 사항(개념적 요소, 시각적 스타일, 텍스트 정확도, 레이아웃)을 완벽하게 구현하여 정보 전달력과 시각적 완성도가 탁월합니다.",
+      "weakness": "특별히 지적할 만한 약점이 없습니다. 프로덕션에서 즉시 사용 가능할 정도로 완성도가 높습니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_26\\labeled\\gemini-3-pro-image.png",
+      "score": 99,
+      "grade": "GOLD",
+      "intent": 29,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "복잡한 기술 개념(단일 인스턴스 세로 확장, 멀티롤 AI)을 명확한 아이코노그래피와 정확한 텍스트로 시각적으로 완벽하게 구현했습니다.",
+      "weakness": "정보 전달의 시각적 완성도가 매우 높지만, '다관점 검토를 단일 컨텍스트에 압축'하는 과정 자체가 시각적으로 더욱 강조될 수 있는 여지는 미미하게 존재합니다."
+    },
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_26\\labeled\\gemini-2_5-flash-image.png",
+      "score": 96,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 20,
+      "clarity": 13,
+      "layout": 15,
+      "strength": "요청된 모던 미니멀 일러스트 스타일과 따뜻한 조명을 완벽하게 구현했으며, 화면 내 추상 기호 표현으로 복잡한 멀티롤 AI 처리 개념을 효과적으로 시각화했습니다.",
+      "weakness": "프롬프트의 '다중 인스턴스(가로 확장)와 짝을 이루는 단일 인스턴스 세로 확장' 개념이 시각적으로 명확하게 구분되지 않고 추상적으로 표현되어 직관적인 이해가 어려울 수 있습니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_26\\labeled\\gpt-image-1.png",
+      "score": 95,
+      "grade": "GOLD",
+      "intent": 27,
+      "text": 20,
+      "visual": 19,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "모던 미니멀 스타일에 맞춰 추상적인 '다관점 검토' 개념을 화면 속 상징적 요소들로 명확하게 시각화했습니다.",
+      "weakness": "프롬프트에 언급된 '세로 확장' 또는 '가로 확장'과 같은 스케일링 개념은 직접적으로 표현되지 않았습니다."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_26\\labeled\\dall-e-3.png",
+      "score": 57,
+      "grade": "BRONZE",
+      "intent": 20,
+      "text": 0,
+      "visual": 18,
+      "clarity": 6,
+      "layout": 13,
+      "strength": "요청된 모던 미니멀 일러스트 스타일, 따뜻한 조명, 16:9 화면비 등 시각적 요소는 매우 훌륭하게 구현되었으며, 전반적인 구성과 균형감이 좋습니다.",
+      "weakness": "프롬프트의 핵심 제약 사항인 '화면 속 텍스트는 추상 기호로만 표현, 한글 텍스트 없음'을 명확히 위반하여, 실제 한글 텍스트('다중 인스턴스', '세로 확장' 등)와 의미 없는 영어 텍스트가 다수 포함되어 있습니다."
+    }
+  ],
+  "top_picks": [
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_26\\labeled\\gemini-3_1-flash-image.png",
+      "score": 100,
+      "grade": "GOLD",
+      "intent": 30,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "프롬프트의 모든 요청 사항(개념적 요소, 시각적 스타일, 텍스트 정확도, 레이아웃)을 완벽하게 구현하여 정보 전달력과 시각적 완성도가 탁월합니다.",
+      "weakness": "특별히 지적할 만한 약점이 없습니다. 프로덕션에서 즉시 사용 가능할 정도로 완성도가 높습니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_26\\labeled\\gemini-3-pro-image.png",
+      "score": 99,
+      "grade": "GOLD",
+      "intent": 29,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "복잡한 기술 개념(단일 인스턴스 세로 확장, 멀티롤 AI)을 명확한 아이코노그래피와 정확한 텍스트로 시각적으로 완벽하게 구현했습니다.",
+      "weakness": "정보 전달의 시각적 완성도가 매우 높지만, '다관점 검토를 단일 컨텍스트에 압축'하는 과정 자체가 시각적으로 더욱 강조될 수 있는 여지는 미미하게 존재합니다."
+    },
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_26\\labeled\\gemini-2_5-flash-image.png",
+      "score": 96,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 20,
+      "clarity": 13,
+      "layout": 15,
+      "strength": "요청된 모던 미니멀 일러스트 스타일과 따뜻한 조명을 완벽하게 구현했으며, 화면 내 추상 기호 표현으로 복잡한 멀티롤 AI 처리 개념을 효과적으로 시각화했습니다.",
+      "weakness": "프롬프트의 '다중 인스턴스(가로 확장)와 짝을 이루는 단일 인스턴스 세로 확장' 개념이 시각적으로 명확하게 구분되지 않고 추상적으로 표현되어 직관적인 이해가 어려울 수 있습니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_26\\labeled\\gpt-image-1.png",
+      "score": 95,
+      "grade": "GOLD",
+      "intent": 27,
+      "text": 20,
+      "visual": 19,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "모던 미니멀 스타일에 맞춰 추상적인 '다관점 검토' 개념을 화면 속 상징적 요소들로 명확하게 시각화했습니다.",
+      "weakness": "프롬프트에 언급된 '세로 확장' 또는 '가로 확장'과 같은 스케일링 개념은 직접적으로 표현되지 않았습니다."
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "ranking": [
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_23\\labeled\\gemini-3-pro-image.png",
+      "score": 100,
+      "grade": "GOLD",
+      "intent": 30,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "복잡한 추상적 개념(AI 운영 헌법)을 현대 미니멀 일러스트 스타일로 매우 명확하고 효과적으로 시각화했습니다.",
+      "weakness": "요청된 모든 요소를 완벽하게 구현하여 핵심적인 약점을 찾기 어렵습니다."
+    },
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_23\\labeled\\gemini-2_5-flash-image.png",
+      "score": 90,
+      "grade": "GOLD",
+      "intent": 27,
+      "text": 15,
+      "visual": 20,
+      "clarity": 13,
+      "layout": 15,
+      "strength": "중앙 집중식 AI 운영 원칙을 헌법처럼 시각화하라는 추상적인 프롬프트를 높은 미학적 품질과 깔끔한 레이아웃으로 매우 효과적으로 구현했습니다.",
+      "weakness": "요청된 파일 경로('~/.claude/CLAUDE.md')와 파일명('CLAUDE.md')이 '~CLAUDE.md/' 및 'C.md'로 미세하게 다르게 표현되어 텍스트 정확도에서 감점 요인이 있습니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_23\\labeled\\gpt-image-1.png",
+      "score": 87,
+      "grade": "GOLD",
+      "intent": 18,
+      "text": 20,
+      "visual": 19,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "모던 미니멀 스타일에 대한 높은 이해도와 안정적인 구도, 그리고 '헌법'이라는 추상적 개념을 'CLAUDE.md' 파일명과 조합하여 시각적으로 매우 효과적으로 전달했습니다.",
+      "weakness": "화면 속 텍스트를 '추상 기호로만 표현'하라는 명확한 지시를 따르지 않고, 구체적인 영문 텍스트를 사용했습니다."
+    },
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_23\\labeled\\gemini-3_1-flash-image.png",
+      "score": 70,
+      "grade": "SILVER",
+      "intent": 20,
+      "text": 0,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "추상적인 '헌법 수준의 AI 운영 골격' 개념을 중앙 문서와 다수의 에이전트 연결로 매우 명확하고 직관적으로 시각화함.",
+      "weakness": "'CLAUDE.md' 파일명 오타, '화면 속 텍스트는 추상 기호로만 표현' 및 '한글 텍스트 없음'이라는 명시적 지시를 어기고 실제 텍스트와 한글을 포함하여 텍스트 제어에 완전히 실패함."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_23\\labeled\\dall-e-3.png",
+      "score": 61,
+      "grade": "BRONZE",
+      "intent": 18,
+      "text": 4,
+      "visual": 19,
+      "clarity": 6,
+      "layout": 14,
+      "strength": "현대적이고 미니멀한 일러스트 스타일과 따뜻한 조명, 균형 잡힌 구도가 매우 훌륭하여 시각적으로 높은 완성도를 보입니다.",
+      "weakness": "명시적으로 요청한 '한글 텍스트 없음' 지시를 위반하여 그림 내부에 환각 한글이 포함되었으며, 프롬프트의 핵심 추상 개념인 '헌법 수준 운영 골격'과 그 목적을 시각적으로 명확하게 전달하지 못합니다."
+    }
+  ],
+  "top_picks": [
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_23\\labeled\\gemini-3-pro-image.png",
+      "score": 100,
+      "grade": "GOLD",
+      "intent": 30,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "복잡한 추상적 개념(AI 운영 헌법)을 현대 미니멀 일러스트 스타일로 매우 명확하고 효과적으로 시각화했습니다.",
+      "weakness": "요청된 모든 요소를 완벽하게 구현하여 핵심적인 약점을 찾기 어렵습니다."
+    },
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_23\\labeled\\gemini-2_5-flash-image.png",
+      "score": 90,
+      "grade": "GOLD",
+      "intent": 27,
+      "text": 15,
+      "visual": 20,
+      "clarity": 13,
+      "layout": 15,
+      "strength": "중앙 집중식 AI 운영 원칙을 헌법처럼 시각화하라는 추상적인 프롬프트를 높은 미학적 품질과 깔끔한 레이아웃으로 매우 효과적으로 구현했습니다.",
+      "weakness": "요청된 파일 경로('~/.claude/CLAUDE.md')와 파일명('CLAUDE.md')이 '~CLAUDE.md/' 및 'C.md'로 미세하게 다르게 표현되어 텍스트 정확도에서 감점 요인이 있습니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_23\\labeled\\gpt-image-1.png",
+      "score": 87,
+      "grade": "GOLD",
+      "intent": 18,
+      "text": 20,
+      "visual": 19,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "모던 미니멀 스타일에 대한 높은 이해도와 안정적인 구도, 그리고 '헌법'이라는 추상적 개념을 'CLAUDE.md' 파일명과 조합하여 시각적으로 매우 효과적으로 전달했습니다.",
+      "weakness": "화면 속 텍스트를 '추상 기호로만 표현'하라는 명확한 지시를 따르지 않고, 구체적인 영문 텍스트를 사용했습니다."
+    }
+  ]
+}

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>SUNNY AI MAGIC 50 · #20 MCP 서버 활용하기</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#000814;color:#fff;line-height:1.7}
+.hero{background:radial-gradient(circle at 30% 30%,#002d5c 0%,#000814 70%);padding:50px 24px 40px;text-align:center;border-bottom:3px solid #FF8C00}
+.hero .tag{color:#FF8C00;font-size:13px;font-weight:900;letter-spacing:5px;margin-bottom:12px}
+.hero h1{font-size:clamp(22px,4vw,40px);font-weight:900;line-height:1.25;margin-bottom:8px;color:#fff;text-shadow:0 4px 24px rgba(255,140,0,0.35)}
+.hero .subtitle{font-size:clamp(13px,1.6vw,17px);color:#FF8C00;font-weight:600;letter-spacing:0.3px;margin-bottom:14px;opacity:0.92}
+.hero .meta{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.hero .badge{background:rgba(255,140,0,0.15);color:#FF8C00;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:900;letter-spacing:1px;border:1px solid rgba(255,140,0,0.4)}
+.hero .badge.type-a{background:rgba(231,76,60,0.15);color:#e74c3c;border-color:rgba(231,76,60,0.4)}
+.hero .badge.type-b{background:rgba(52,152,219,0.15);color:#3498DB;border-color:rgba(52,152,219,0.4)}
+.hero .badge.type-c{background:rgba(63,185,80,0.15);color:#3fb950;border-color:rgba(63,185,80,0.4)}
+.back{position:absolute;top:20px;left:20px;color:#FF8C00;text-decoration:none;font-size:13px;font-weight:700;padding:7px 14px;border:2px solid #FF8C00;border-radius:18px}
+.back:hover{background:#FF8C00;color:#001020}
+.content{max-width:900px;margin:0 auto;padding:40px 24px 60px}
+.content h1{display:none}
+.content h2{font-size:clamp(20px,2.8vw,28px);font-weight:900;color:#FF8C00;margin:32px 0 16px;letter-spacing:0.5px;border-left:5px solid #FF8C00;padding-left:14px}
+.content h2:first-child{margin-top:0}
+.content h3{font-size:18px;font-weight:900;color:#fff;margin:24px 0 12px}
+.content h4{font-size:16px;font-weight:700;color:#FF8C00;margin:18px 0 10px}
+.content p{font-size:15px;color:#dde;margin-bottom:14px}
+.content ul,.content ol{margin:0 0 16px 24px;color:#dde}
+.content li{font-size:15px;margin-bottom:6px;line-height:1.7}
+.content strong{color:#fff;font-weight:900}
+.content em{color:#FF8C00;font-style:normal;font-weight:600}
+.content code{background:rgba(255,140,0,0.12);color:#FF8C00;padding:2px 6px;border-radius:4px;font-size:13px;font-family:'D2Coding','Consolas',monospace}
+.content pre{background:rgba(0,0,0,0.4);border:1px solid rgba(255,140,0,0.25);border-radius:8px;padding:16px;overflow-x:auto;margin:16px 0}
+.content pre code{background:none;color:#bcd;padding:0;font-size:13px}
+.content blockquote{border-left:4px solid #FF8C00;background:rgba(255,140,0,0.05);padding:14px 20px;margin:16px 0;border-radius:0 8px 8px 0;color:#bcd}
+.content table{width:100%;border-collapse:collapse;margin:18px 0;background:rgba(255,255,255,0.03);border-radius:8px;overflow:hidden;font-size:14px}
+.content th,.content td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08)}
+.content th{background:rgba(255,140,0,0.15);color:#FF8C00;font-weight:900}
+.content td{color:#dde}
+.content tr:last-child td{border-bottom:none}
+.content hr{border:none;border-top:1px solid rgba(255,140,0,0.2);margin:30px 0}
+.content a{color:#FF8C00;text-decoration:none;border-bottom:1px dashed rgba(255,140,0,0.4)}
+.content a:hover{border-bottom-style:solid}
+.footer{background:#001020;border-top:1px solid #1a2a3a;padding:24px;text-align:center;color:#7a8c9c;font-size:13px}
+.footer a{color:#FF8C00;text-decoration:none;margin:0 10px}
+</style>
+</head>
+<body>
+<a href="../index.html" class="back">← 슬라이드쇼로</a>
+<section class="hero">
+  <div class="tag">SUNNY AI MAGIC 50 · #20</div>
+  <h1>MCP 서버 활용하기</h1>
+  <div class="subtitle">외부 시스템(Notion·Slack·DB·OS·디자인툴 등)과 데이터 레벨로 직접 통신하는 프로토콜</div>
+  <div class="meta">
+    <span class="badge">G3 · 실행 방법</span>
+    <span class="badge type-b">B타입</span>
+    
+  </div>
+</section>
+
+<section class="content">
+<h2>한 줄 정의</h2>
+<p><strong>MCP(Model Context Protocol) 서버를 Claude Code에 붙여서 외부 시스템(Notion·Slack·DB·파일시스템·OS·디자인툴)과 데이터·시스템 레벨에서 직접 통신</strong>시키는 운용 방식. CLI 협업(#22 — Claude Code↔Codex/Gemini/Grok)이 <em>명령어 레벨</em>이라면 MCP는 <em>데이터 레벨</em>. 둘이 짝이다.</p>
+<h2>왜 이 노하우가 중요한가</h2>
+<p>Claude Code는 강력하지만 <strong>그 자체로는 "터미널 안에 갇힌 텍스트 에이전트"</strong> 다. 파일 시스템과 셸은 직접 다루지만 그 외 — Notion 페이지에 무엇이 있는지, Slack 채널에 누가 무슨 말을 했는지, Postgres에 어떤 행이 있는지, Windows 알림창이 떠 있는지, Figma 시안이 어떤 모양인지 — 는 <em>모른다</em>. 매번 사용자가 복사해 붙여 넣어줘야 한다. 4,000시간을 굴리다 보면 이 "복붙 인계" 가 전체 작업 시간의 20~30%를 잡아먹는 게 보인다.</p>
+<p>MCP는 이 가운데 단계를 <em>프로토콜로 자동화</em>한다. Anthropic이 2024년 11월 공개한 오픈 프로토콜로, <strong>"AI는 클라이언트(Host) — 외부 시스템은 서버 — 사이의 통신 규약 하나로 통일"</strong> 한다는 단순한 발상이다. 한 번 서버를 띄워두면 Claude Code는 그 서버가 노출한 <em>Tools / Resources / Prompts</em> 를 자기 도구처럼 호출한다. 사용자 개입 없이.</p>
+<p>본인이 #22 멀티 CLI를 <em>수평적 협업</em>이라 부른다면 MCP는 <em>수직적 통합</em>이다. 같은 작업을 여러 AI에 분산하는 게 #22, 같은 AI를 여러 시스템에 연결하는 게 MCP. 30개 동시 운용에서 둘 다 빠지면 효율이 절반 이하로 떨어진다. 본인이 1인-AI로 ax-on.net·CPC·V50·SAL Grid를 동시에 굴릴 수 있는 기반의 절반은 MCP다.</p>
+<p>또 하나 중요한 건 <strong>MCP가 "내가 만들 수도 있다"</strong> 는 점이다. 기성 서버만 갖다 붙이는 게 아니라 본인 도메인(예: SAL Grid 진행률 조회·CPC 에이전트 통신)을 위해 <em>전용 서버</em>를 직접 짜서 붙일 수 있다. 본인은 이미 cpc-channel을 자작 MCP 서버로 운용 중이다.</p>
+<h2>핵심 개념</h2>
+<h3>CLI 협업 vs MCP 협업 (가장 중요한 구분)</h3>
+<table>
+<thead>
+<tr>
+<th>축</th>
+<th>CLI 협업 (#22)</th>
+<th>MCP 협업 (#44)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>통신 단위</td>
+<td>셸 명령어·표준 출력</td>
+<td>JSON-RPC 메시지</td>
+</tr>
+<tr>
+<td>상대방</td>
+<td>다른 CLI(Gemini/Codex/Grok)</td>
+<td>외부 시스템(Notion/Slack/DB/OS)</td>
+</tr>
+<tr>
+<td>관계</td>
+<td>수평·동급 협업</td>
+<td>수직·서비스 통합</td>
+</tr>
+<tr>
+<td>비용</td>
+<td>다른 CLI의 토큰 비용</td>
+<td>서버 호출 비용(보통 무료·셀프호스팅)</td>
+</tr>
+<tr>
+<td>적합 작업</td>
+<td>코드 생성·검증·교차 의견</td>
+<td>데이터 조회·자동화·연동</td>
+</tr>
+</tbody>
+</table>
+<p>→ 두 축이 직교한다. 한쪽으로 부족한 작업은 다른 쪽으로 채운다. 본인은 이 구분을 <em>오래 헷갈려서 손해 본 부분</em> 이라 본다 — Slack 자동화를 다른 CLI로 풀려고 한참 헤매다 MCP 한 줄로 끝난 적이 여러 번 있다.</p>
+<h3>MCP의 3종 노출 자원</h3>
+<table>
+<thead>
+<tr>
+<th>자원</th>
+<th>무엇인가</th>
+<th>예</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tools</strong></td>
+<td>AI가 호출할 수 있는 함수</td>
+<td><code>notion_search(query)</code>, <code>slack_post(channel, msg)</code></td>
+</tr>
+<tr>
+<td><strong>Resources</strong></td>
+<td>AI가 읽을 수 있는 파일·URI</td>
+<td><code>notion://page/&lt;id&gt;</code>, <code>db://query/&lt;sql&gt;</code></td>
+</tr>
+<tr>
+<td><strong>Prompts</strong></td>
+<td>미리 등록된 프롬프트 템플릿</td>
+<td><code>/review-pr</code>, <code>/triage-issue</code></td>
+</tr>
+</tbody>
+</table>
+<p>가장 많이 쓰는 건 Tools. Resources는 RAG 형태의 컨텍스트 주입에 좋고, Prompts는 #21 Slash Commands의 <em>공유 가능한</em> 형태다.</p>
+<h3>본인 settings.json 등록 현황 (3개 서버 — 발췌. 그대로 복사 시 최상위 <code>{ ... }</code> 로 감싸야 유효 JSON)</h3>
+<pre><code class="language-json">&quot;mcpServers&quot;: {
+  &quot;windows-mcp&quot;: {
+    &quot;command&quot;: &quot;uvx&quot;,
+    &quot;args&quot;: [&quot;windows-mcp&quot;]
+  },
+  &quot;stitch&quot;: {
+    &quot;command&quot;: &quot;npx&quot;,
+    &quot;args&quot;: [&quot;-y&quot;, &quot;@_davideast/stitch-mcp&quot;, &quot;proxy&quot;]
+  },
+  &quot;cpc-channel&quot;: {
+    &quot;command&quot;: &quot;bun&quot;,
+    &quot;args&quot;: [&quot;run&quot;,
+      &quot;C:\\claude-project\\cpc-agent-server\\cpc-channel\\dist\\cpc-channel.js&quot;]
+  }
+}
+</code></pre>
+<p>세 서버 모두 <code>mcpServers</code> 단일 키 아래에 등록한다. 성격은 셋이 모두 다르다 — 운영체제 / 디자인 / 자작 프로토콜.</p>
+<table>
+<thead>
+<tr>
+<th>서버</th>
+<th>실행기</th>
+<th>역할</th>
+<th>등급</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>windows-mcp</strong></td>
+<td><code>uvx</code>(Python pkg runner)</td>
+<td>Windows OS 자동화(파일·창·알림·키보드)</td>
+<td>기성 공개 서버</td>
+</tr>
+<tr>
+<td><strong>stitch</strong></td>
+<td><code>npx -y @_davideast/stitch-mcp</code></td>
+<td>디자인 시스템·UI 시안 생성 프록시</td>
+<td>기성 공개 서버</td>
+</tr>
+<tr>
+<td><strong>cpc-channel</strong></td>
+<td><code>bun run dist/cpc-channel.js</code></td>
+<td>CPC(Claude Platoons Control) 에이전트 간 통신 채널</td>
+<td><strong>본인 전용 자작 서버</strong></td>
+</tr>
+</tbody>
+</table>
+<p>cpc-channel은 본인 누적 운용 중 <em>"다수 인스턴스가 서로 메시지를 주고받아야 하는데 표준 도구가 없다"</em> 는 한계를 뚫기 위해 직접 작성한 MCP 서버다. CPC 소대장-분대원 사이의 명령·보고·승인 메시지를 주고받는다. 기성 서버로 안 풀리면 직접 만든다 — 이게 본인이 <code>#44</code>을 강조하는 이유다.</p>
+<h3>등록 우선순위 — 기성 → 검증 → 자작</h3>
+<ol>
+<li><strong>기성 공개 서버 먼저</strong> — Anthropic·커뮤니티가 만든 것 중 본인 작업 흐름에 맞는 것</li>
+<li><strong>검증 후 글로벌 등록</strong> — 1~2시간 굴려보고 안정성·토큰 소모·보안 점검</li>
+<li><strong>빈 자리만 자작</strong> — 기성에 없거나 본인 도메인 특화(SAL Grid·CPC·BuzzLab) 만 자작</li>
+</ol>
+<p>이 순서를 어기면 <em>NIH(Not Invented Here) 함정</em> — 다 만들고 보니 이미 더 잘 만든 게 있더라 — 에 빠진다. 본인도 cpc-channel 만들기 전에 Slack MCP·discord-mcp 다 굴려보고 <em>그 어느 것도 인스턴스 간 1:1 메시지에 안 맞아서</em> 자작 결정한 것.</p>
+<h3>보안 — MCP의 가장 큰 함정</h3>
+<p>MCP 서버는 보통 <em>로컬에서 띄우지만</em> 그 도구가 호출되면 외부 API·파일시스템·DB로 나간다. <strong>AI가 잘못된 인자로 호출 시 데이터 유출·삭제·과금 폭탄 모두 가능</strong>. 검증 원칙을 그대로 적용하면 — <em>"MCP 도구가 Tool 200 OK라 해서 작동했다고 단정 금지"</em>. 호출 결과를 사용자가 한 번 더 확인할 수 있는 채널(로그 파일·Slack 알림)을 의무화한다.</p>
+<p>본인 운용 규칙:
+- 쓰기·삭제 도구는 #26 Hooks의 PreToolUse로 한 번 더 게이트
+- DB 도구는 read-only DSN 별도 발급
+- 결제·메일 발송 류 MCP는 <em>명시 승인 모드</em>에서만 활성화
+- 자작 서버는 <strong>테스트 모드 환경변수</strong>(<code>CPC_MCP_DRYRUN=1</code>)를 기본값으로</p>
+<h2>실전 사용법</h2>
+<h3>1단계 — 기성 서버 후보 발굴</h3>
+<p><code>#11 외부 스킬·에이전트 발굴</code>과 동일 절차. 후보 출처:
+- Anthropic 공식 — <code>modelcontextprotocol.io/servers</code>
+- 커뮤니티 — <code>github.com/modelcontextprotocol/servers</code>, <code>mcp.so</code> 인덱스
+- 본인 사용 도구 SDK가 MCP 서버 자체 제공하는지 (Notion·Linear·GitHub 등)</p>
+<p>발굴 시 체크 4가지: ① 활발 유지보수 ② 인증 방식(API 키·OAuth) ③ 노출 도구 수(너무 많으면 컨텍스트 오염) ④ 토큰 단위 비용.</p>
+<h3>2단계 — 등록 (settings.json 또는 .claude.json)</h3>
+<p>본인 환경은 글로벌(<code>~/.claude.json</code>) 등록 + 프로젝트별 추가 패턴이다. 디자인 작업 비중이 큰 프로젝트는 stitch-mcp만 별도 활성화하는 식으로, 프로젝트 성격에 맞춰 일부만 켠다.</p>
+<pre><code class="language-json">&quot;mcpServers&quot;: {
+  &quot;&lt;별칭&gt;&quot;: {
+    &quot;command&quot;: &quot;&lt;실행기&gt;&quot;,
+    &quot;args&quot;: [...],
+    &quot;env&quot;: { &quot;API_KEY&quot;: &quot;...&quot; }
+  }
+}
+</code></pre>
+<p><code>env</code> 직접 노출은 위험. 본인은 OS 환경변수로 빼고 settings에는 <code>${ENV_VAR}</code> 참조하는 패턴 유지.</p>
+<h3>3단계 — Claude Code 재시작 후 등록 확인</h3>
+<pre><code>/mcp
+</code></pre>
+<p>Claude Code 안에서 위 명령으로 활성 서버·노출 도구·연결 상태 확인. 도구 명은 보통 <code>&lt;서버명&gt;__&lt;함수명&gt;</code> 형식 — 본인 cpc-channel은 <code>cpc-channel__send_message</code>, <code>cpc-channel__list_squads</code> 같은 식.</p>
+<h3>4단계 — 첫 호출은 "탐색용 1건"</h3>
+<p>기성 서버 첫 사용 시 <em>부담 없는 read 도구 1번</em> 부터. 예) Notion MCP 등록했으면 첫 호출은 <code>search_pages("test")</code>. 이걸로 인증·응답 형태·에러 메시지 패턴까지 파악된 뒤에 쓰기 도구로 진입.</p>
+<h3>5단계 — 자작 서버 (필요 시)</h3>
+<p>기성 서버로 안 풀리는 본인 도메인 작업이 보이면 자작. 본인 cpc-channel 구조:</p>
+<pre><code>입력 → JSON-RPC 핸들러(@modelcontextprotocol/sdk)
+     → 도구 라우터(send/recv/list)
+     → Supabase 저장 + Vercel WebHook 알림
+     → 응답
+</code></pre>
+<p>언어는 TypeScript(bun 실행) + <code>@modelcontextprotocol/sdk</code>. 첫 서버는 <em>3개 도구·2개 리소스</em> 정도가 적정 규모. 너무 많으면 Claude Code 컨텍스트가 도구 명세로만 5,000토큰 잡아먹는다.</p>
+<h3>6단계 — 통합 운용</h3>
+<table>
+<thead>
+<tr>
+<th>작업</th>
+<th>사용 패턴</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>슬라이드 작업</td>
+<td>stitch로 시안 생성 → Pillow(#24)로 마감</td>
+</tr>
+<tr>
+<td>Windows 자동화</td>
+<td>windows-mcp로 창·키보드 → 결과 스크린샷 #49으로 자율 검증</td>
+</tr>
+<tr>
+<td>CPC 30개 운용</td>
+<td>cpc-channel로 소대장↔분대원 메시지 → MBO(#8) Stage Gate</td>
+</tr>
+</tbody>
+</table>
+<p>→ MCP 서버 한 개씩은 약하다. <strong>#24·#22·#39·#49과 결합될 때</strong> 본인 운용의 진가가 나온다.</p>
+<h2>본인 운용 패턴</h2>
+<p>기성 3개(windows-mcp·stitch·notion 류) + 자작 1개(cpc-channel) 가 <em>현재 안정 구성</em>. 욕심내서 10개씩 붙이면 컨텍스트 오염으로 일반 코딩 작업이 느려진다 — <em>MCP 도구 명세도 토큰</em> 이라는 사실을 잊지 말 것.</p>
+<p>자작 서버 첫 도전이라면 — 1) <code>npm create @modelcontextprotocol/server</code> 템플릿 시작 2) read 도구 1개부터 3) Claude Code에 붙여 손맛 확인 4) 그 다음 도구 추가. 한 번에 풀스택 짜지 말고 점진 확장.</p>
+<p>자기 검증 금지 원칙은 MCP에도 적용 — 본인이 만든 자작 서버를 본인 Claude Code 인스턴스가 검증하면 안 된다. 별도 인스턴스(Verification Agent)가 호출 결과를 검증하도록.</p>
+<h2>관련 항목</h2>
+<ul>
+<li><strong>#22 오케스트레이터 + 멀티 CLI</strong> — 수평 협업, MCP의 짝</li>
+<li><strong>#39 Subagent vs Agent Teams</strong> — 30개 인스턴스 통신 시 cpc-channel과 결합</li>
+<li><strong>#26 Hooks</strong> — MCP 쓰기 도구 PreToolUse 가드</li>
+<li><strong>#21 Slash Commands</strong> — MCP의 Prompts 자원과 보완 관계</li>
+<li><strong>#11 외부 스킬·에이전트 발굴</strong> — 기성 서버 발굴 공통 절차</li>
+<li><strong>#24 SVG·스킬 자산화</strong> — stitch MCP 결과의 후처리 자산화</li>
+<li><strong>#49 스크린샷 자율 검증</strong> — windows-mcp 결과의 사용자 여정 검증</li>
+</ul>
+</section>
+
+<div class="footer">
+  <a href="../index.html">← SUNNY AI MAGIC 50</a>
+  <div style="margin-top:10px;color:#5a6c7c;font-size:12px;letter-spacing:0.3px">© 2026 SUN WOONGKYU · SUNNY AI MAGIC 50 · CC BY-NC-ND 4.0 · 특허 별도 보유</div>
+</div>
+</body>
+</html>

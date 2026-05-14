@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>SUNNY AI MAGIC 50 · #31 크롬 원격 데스크탑 활용해서 작업 시키기</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#000814;color:#fff;line-height:1.7}
+.hero{background:radial-gradient(circle at 30% 30%,#002d5c 0%,#000814 70%);padding:50px 24px 40px;text-align:center;border-bottom:3px solid #FF8C00}
+.hero .tag{color:#FF8C00;font-size:13px;font-weight:900;letter-spacing:5px;margin-bottom:12px}
+.hero h1{font-size:clamp(22px,4vw,40px);font-weight:900;line-height:1.25;margin-bottom:8px;color:#fff;text-shadow:0 4px 24px rgba(255,140,0,0.35)}
+.hero .subtitle{font-size:clamp(13px,1.6vw,17px);color:#FF8C00;font-weight:600;letter-spacing:0.3px;margin-bottom:14px;opacity:0.92}
+.hero .meta{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.hero .badge{background:rgba(255,140,0,0.15);color:#FF8C00;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:900;letter-spacing:1px;border:1px solid rgba(255,140,0,0.4)}
+.hero .badge.type-a{background:rgba(231,76,60,0.15);color:#e74c3c;border-color:rgba(231,76,60,0.4)}
+.hero .badge.type-b{background:rgba(52,152,219,0.15);color:#3498DB;border-color:rgba(52,152,219,0.4)}
+.hero .badge.type-c{background:rgba(63,185,80,0.15);color:#3fb950;border-color:rgba(63,185,80,0.4)}
+.back{position:absolute;top:20px;left:20px;color:#FF8C00;text-decoration:none;font-size:13px;font-weight:700;padding:7px 14px;border:2px solid #FF8C00;border-radius:18px}
+.back:hover{background:#FF8C00;color:#001020}
+.content{max-width:900px;margin:0 auto;padding:40px 24px 60px}
+.content h1{display:none}
+.content h2{font-size:clamp(20px,2.8vw,28px);font-weight:900;color:#FF8C00;margin:32px 0 16px;letter-spacing:0.5px;border-left:5px solid #FF8C00;padding-left:14px}
+.content h2:first-child{margin-top:0}
+.content h3{font-size:18px;font-weight:900;color:#fff;margin:24px 0 12px}
+.content h4{font-size:16px;font-weight:700;color:#FF8C00;margin:18px 0 10px}
+.content p{font-size:15px;color:#dde;margin-bottom:14px}
+.content ul,.content ol{margin:0 0 16px 24px;color:#dde}
+.content li{font-size:15px;margin-bottom:6px;line-height:1.7}
+.content strong{color:#fff;font-weight:900}
+.content em{color:#FF8C00;font-style:normal;font-weight:600}
+.content code{background:rgba(255,140,0,0.12);color:#FF8C00;padding:2px 6px;border-radius:4px;font-size:13px;font-family:'D2Coding','Consolas',monospace}
+.content pre{background:rgba(0,0,0,0.4);border:1px solid rgba(255,140,0,0.25);border-radius:8px;padding:16px;overflow-x:auto;margin:16px 0}
+.content pre code{background:none;color:#bcd;padding:0;font-size:13px}
+.content blockquote{border-left:4px solid #FF8C00;background:rgba(255,140,0,0.05);padding:14px 20px;margin:16px 0;border-radius:0 8px 8px 0;color:#bcd}
+.content table{width:100%;border-collapse:collapse;margin:18px 0;background:rgba(255,255,255,0.03);border-radius:8px;overflow:hidden;font-size:14px}
+.content th,.content td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08)}
+.content th{background:rgba(255,140,0,0.15);color:#FF8C00;font-weight:900}
+.content td{color:#dde}
+.content tr:last-child td{border-bottom:none}
+.content hr{border:none;border-top:1px solid rgba(255,140,0,0.2);margin:30px 0}
+.content a{color:#FF8C00;text-decoration:none;border-bottom:1px dashed rgba(255,140,0,0.4)}
+.content a:hover{border-bottom-style:solid}
+.footer{background:#001020;border-top:1px solid #1a2a3a;padding:24px;text-align:center;color:#7a8c9c;font-size:13px}
+.footer a{color:#FF8C00;text-decoration:none;margin:0 10px}
+</style>
+</head>
+<body>
+<a href="../index.html" class="back">← 슬라이드쇼로</a>
+<section class="hero">
+  <div class="tag">SUNNY AI MAGIC 50 · #31</div>
+  <h1>크롬 원격 데스크탑 활용해서 작업 시키기</h1>
+  <div class="subtitle">5개 컴퓨터에 6개씩 총 30개 Claude Code 동시 운용</div>
+  <div class="meta">
+    <span class="badge">G5 · 환경</span>
+    <span class="badge type-c">C타입</span>
+    
+  </div>
+</section>
+
+<section class="content">
+<h2>한 줄 정의</h2>
+<p>물리 PC 5대 각각에 Claude Code 6개씩 띄워 <strong>5 × 6 = 30개</strong>를 동시에 굴리고, 외출 중에는 크롬 원격 데스크탑으로 휴대폰에서 그 30개에 접속하는 본인의 가로축 양적 확장 운용 표준.</p>
+<h2>왜 이 노하우가 중요한가</h2>
+<p>단일 PC 한 인스턴스로는 Rate Limit·컨텍스트·Compact가 곧바로 발목을 잡는다. 가로축으로 펼치면 <em>"한 인스턴스가 죽어도 29개가 살아있다"</em> 는 회복 탄력성이 생긴다. 더 결정적인 건 <strong>모바일에서도 30개 전부에 접근</strong>된다는 점. 외출 중·이동 중에도 휴대폰으로 크롬 원격 데스크탑(RDP)을 띄워 30개의 진행을 보고, 가장 막힌 한 인스턴스만 원격으로 한두 메시지 던져 풀어준다. 누적 운용 결과, <strong>하루 24시간 중 AI가 일하지 않는 시간이 사실상 0</strong>에 가까워진다. <em>"#10 트랙터 운전"</em> 의 가장 극단적 형태이며, 본 시리즈 전체의 운용 무대다.</p>
+<h2>핵심 개념</h2>
+<pre><code>PC1 ─ inst1, inst2, inst3, inst4, inst5, inst6
+PC2 ─ inst7, ..., inst12
+PC3 ─ inst13, ..., inst18
+PC4 ─ inst19, ..., inst24
+PC5 ─ inst25, ..., inst30
+              ↑
+   크롬 원격 데스크탑 (모바일 접속)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>축</th>
+<th>분담</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PC1·PC2</td>
+<td>사고·기획 (Opus 위주, Plan Mode)</td>
+</tr>
+<tr>
+<td>PC3·PC4</td>
+<td>실행 (Sonnet, <code>--dangerously-skip-permissions</code>)</td>
+</tr>
+<tr>
+<td>PC5</td>
+<td>검증·헤드리스 (Haiku, <code>claude -p</code> 자동화)</td>
+</tr>
+<tr>
+<td>모바일</td>
+<td>모니터링·짧은 개입</td>
+</tr>
+</tbody>
+</table>
+<p>핵심 인프라: <strong>#40 HUD</strong>(30개 상태 한 화면), <strong>#13 dangerously-skip-permissions</strong> + <strong>#26 Hooks</strong>(가드레일), <strong>#12 헤드리스 모드</strong>(자동 루프), <strong>#41 Git Worktree</strong>(병렬 브랜치). 모바일 결과 전달은 글로벌 헌법대로 <strong>클라우드 동기화 폴더</strong>(Google 드라이브/OneDrive 등)에 <code>.txt</code>로 저장 — 폰에서 동기화 앱으로 즉시 확인.</p>
+<h2>실전 사용법</h2>
+<p><strong>1단계</strong> — 5대 PC를 Tailscale + SSH 네트워크로 묶는다(<code>add-pc</code> 스킬). RDP는 보조 채널.</p>
+<p><strong>2단계</strong> — 각 PC에 Claude Code 6개를 폴더 분리로 띄운다. 같은 저장소면 <strong>#41 Git Worktree</strong>, 다른 저장소면 그냥 별 폴더.</p>
+<p><strong>3단계</strong> — <code>~/.claude/settings.json</code>에 statusLine·hooks·MCP 동일 세팅 동기화(<strong>#20 G드라이브 백업</strong> 활용).</p>
+<p><strong>4단계</strong> — 30개 운용 표준: 사고 6 + 실행 12 + 검증 6 + 자동화 헤드리스 6. Dual Mode(<strong>#5</strong>)를 PC 단위로 펼친 형태.</p>
+<p><strong>5단계</strong> — 모바일 운용은 <em>"읽고 짧게 개입"</em> 만. 긴 사고는 PC 앞에서. 휴대폰으로 던지는 메시지는 <em>"막힌 곳 한 줄 진단"</em> 수준으로 유지.</p>
+<p><strong>KPI</strong>: 30개 평균 가동률 ≥ 70%, Rate Limit 충돌로 30개 전부 멈추는 사건 ≤ 월 1회, 모바일 개입으로 풀린 막힘 ≥ 일 3건.</p>
+<p><strong>비용 통제</strong> — <strong>#23 API 비용 최적화</strong>, <strong>#37 피크타임 회피</strong>, <strong>#4 /model</strong>로 모델 배분.</p>
+<blockquote>
+<p>Vault 사례: <code>claude-platoons-control/wiki/2026_05_03_21.07_import_CPC_ARCHITECTURE_OVERVIEW.md</code> 는 본인이 5개 프로젝트 × 3소대 + trader-bot 도합 16개 소대를 CPC(Supabase + Vercel)로 등록·라우팅한 실전 기록이다. 30개 인스턴스를 5컴퓨터로 늘리는 물리적 확장이 단발 PC에서는 동시에 풀리지 않는다 — <em>명령 라우팅·상태(IDLE/RUNNING/PAUSED/DONE) 일원화·오프라인 버퍼링</em> 같은 중앙 인프라 한 겹이 같이 깔려야 30개가 무너지지 않는다. 본 항목의 <em>"30개 = 5컴퓨터 인프라 + 인지 부하 분산 + 인계 자동화"</em> 등식의 첫 항이 그 노트에서 구현체로 굳었다.</p>
+</blockquote>
+<h2>관련 항목</h2>
+<ul>
+<li><strong>#14 군대 소대 편제</strong> — 30개의 조직론</li>
+<li><strong>#41 Git Worktree</strong> — 단일 PC 안의 세로 확장</li>
+<li><strong>#12 헤드리스 모드</strong> — PC5의 자동화 채널</li>
+<li><strong>#40 Statusline HUD</strong> — 30개 가시성 인프라</li>
+<li><strong>#13 --dangerously-skip-permissions</strong> — 30개 무중단의 전제</li>
+</ul>
+</section>
+
+<div class="footer">
+  <a href="../index.html">← SUNNY AI MAGIC 50</a>
+  <div style="margin-top:10px;color:#5a6c7c;font-size:12px;letter-spacing:0.3px">© 2026 SUN WOONGKYU · SUNNY AI MAGIC 50 · CC BY-NC-ND 4.0 · 특허 별도 보유</div>
+</div>
+</body>
+</html>

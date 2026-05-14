@@ -1,0 +1,345 @@
+[
+  {
+    "id": 2,
+    "title": "스무고개 문답을 통한 브레인스토밍하기",
+    "group_id": 1,
+    "group_name": "구상 및 계획",
+    "order_in_group": 1
+  },
+  {
+    "id": 13,
+    "title": "3개 이상의 분야별 전문가 페르소나 AI가 참여해서 토론하여 방안 제시하게 하기",
+    "group_id": 1,
+    "group_name": "구상 및 계획",
+    "order_in_group": 2
+  },
+  {
+    "id": 14,
+    "title": "SAL(Stage, Area, Level) 3차원 좌표를 활용해서 대규모 작업 계획 세우기 or 분해하기",
+    "group_id": 1,
+    "group_name": "구상 및 계획",
+    "order_in_group": 3
+  },
+  {
+    "id": 34,
+    "title": "Plan Mode 활용해서 실행하기 전에 계획부터 세우기",
+    "group_id": 1,
+    "group_name": "구상 및 계획",
+    "order_in_group": 4
+  },
+  {
+    "id": 1,
+    "title": "Dual Mode 실행하기",
+    "group_id": 2,
+    "group_name": "실행 프로세스",
+    "order_in_group": 1
+  },
+  {
+    "id": 25,
+    "title": "5단계로 나누어 순차적으로 작업시키기",
+    "group_id": 2,
+    "group_name": "실행 프로세스",
+    "order_in_group": 2
+  },
+  {
+    "id": 3,
+    "title": "아젠다별로 AI에게 하나씩 설명듣고 승인하기",
+    "group_id": 2,
+    "group_name": "실행 프로세스",
+    "order_in_group": 3
+  },
+  {
+    "id": 12,
+    "title": "3개 이상 대안 제시하고 권고안 표시하게 하기",
+    "group_id": 2,
+    "group_name": "실행 프로세스",
+    "order_in_group": 4
+  },
+  {
+    "id": 26,
+    "title": "1개의 AI에게 Multi Role로 작업시키기",
+    "group_id": 2,
+    "group_name": "실행 프로세스",
+    "order_in_group": 5
+  },
+  {
+    "id": 42,
+    "title": "claude -p 헤드리스 모드 자동화",
+    "group_id": 2,
+    "group_name": "실행 프로세스",
+    "order_in_group": 6
+  },
+  {
+    "id": 38,
+    "title": "Hooks 활용하기",
+    "group_id": 2,
+    "group_name": "실행 프로세스",
+    "order_in_group": 7
+  },
+  {
+    "id": 10,
+    "title": "MBO 방식으로 작업시키기",
+    "group_id": 2,
+    "group_name": "실행 프로세스",
+    "order_in_group": 8
+  },
+  {
+    "id": 35,
+    "title": "SAL Grid 개발방법론(특허출원된)을 사용해서 한번에 끊김없이 개발업무 진행하기",
+    "group_id": 2,
+    "group_name": "실행 프로세스",
+    "order_in_group": 9
+  },
+  {
+    "id": 9,
+    "title": "군대의 소대 편제방식을 활용한 대규모의 AI 투입하기",
+    "group_id": 3,
+    "group_name": "실행 방법",
+    "order_in_group": 1
+  },
+  {
+    "id": 17,
+    "title": "Claude Code 오케스트레이터 + 멀티 CLI (Codex/Gemini/Grok/Perplexity)",
+    "group_id": 3,
+    "group_name": "실행 방법",
+    "order_in_group": 2
+  },
+  {
+    "id": 27,
+    "title": "일반 Subagent와 Agent Teams 차이를 이해하고 작업시키기",
+    "group_id": 3,
+    "group_name": "실행 방법",
+    "order_in_group": 3
+  },
+  {
+    "id": 30,
+    "title": "컨텍스트 관리 — 모니터링·수동 Compact·자동 저장의 3종 세트",
+    "group_id": 3,
+    "group_name": "실행 방법",
+    "order_in_group": 4
+  },
+  {
+    "id": 45,
+    "title": "/resume으로 과거 세션 재개하기",
+    "group_id": 3,
+    "group_name": "실행 방법",
+    "order_in_group": 5
+  },
+  {
+    "id": 39,
+    "title": "Slash Commands 활용하기",
+    "group_id": 3,
+    "group_name": "실행 방법",
+    "order_in_group": 6
+  },
+  {
+    "id": 40,
+    "title": "MCP 서버 활용하기",
+    "group_id": 3,
+    "group_name": "실행 방법",
+    "order_in_group": 7
+  },
+  {
+    "id": 18,
+    "title": "대량 검색 시 토큰비를 줄이려면 네이버·구글 검색 활용하기",
+    "group_id": 3,
+    "group_name": "실행 방법",
+    "order_in_group": 8
+  },
+  {
+    "id": 15,
+    "title": "SVG 시각화 → 스킬 자산화",
+    "group_id": 4,
+    "group_name": "결과물 및 품질관리",
+    "order_in_group": 1
+  },
+  {
+    "id": 47,
+    "title": "멀티 모델 이미지 제작 프로세스",
+    "group_id": 4,
+    "group_name": "결과물 및 품질관리",
+    "order_in_group": 2
+  },
+  {
+    "id": 22,
+    "title": "나를 위한 지능형 챗봇 만들어서 키우기",
+    "group_id": 4,
+    "group_name": "결과물 및 품질관리",
+    "order_in_group": 3
+  },
+  {
+    "id": 24,
+    "title": "미니 풀스택 5시간 이내 제작 — 트랙터 운전의 증명",
+    "group_id": 4,
+    "group_name": "결과물 및 품질관리",
+    "order_in_group": 4
+  },
+  {
+    "id": 11,
+    "title": "유튜브 영상 한방에 제작하기 → 유튜브에 1일 1영상 올리기",
+    "group_id": 4,
+    "group_name": "결과물 및 품질관리",
+    "order_in_group": 5
+  },
+  {
+    "id": 7,
+    "title": "사업 아이디어가 떠오르면 그것으로 특허출원서 작성하기",
+    "group_id": 4,
+    "group_name": "결과물 및 품질관리",
+    "order_in_group": 6
+  },
+  {
+    "id": 6,
+    "title": "작업결과물에 대해서 수시로 4종의 품질관리 스킬을 실행하여 완성도 높이기",
+    "group_id": 4,
+    "group_name": "결과물 및 품질관리",
+    "order_in_group": 7
+  },
+  {
+    "id": 46,
+    "title": "스크린샷 자율 검증 — Playwright 기반 자율 루프",
+    "group_id": 4,
+    "group_name": "결과물 및 품질관리",
+    "order_in_group": 8
+  },
+  {
+    "id": 21,
+    "title": "AI는 틀릴 수 있음을 인정받는 지구상에서 거의 유일한 존재임을 인정하기",
+    "group_id": 4,
+    "group_name": "결과물 및 품질관리",
+    "order_in_group": 9
+  },
+  {
+    "id": 5,
+    "title": "크롬 원격 데스크탑으로 5컴퓨터 30개 Claude Code 동시 운용",
+    "group_id": 5,
+    "group_name": "환경",
+    "order_in_group": 1
+  },
+  {
+    "id": 33,
+    "title": "Claude 앱과 Code의 차이 — 사고는 앱, 실행은 Code",
+    "group_id": 5,
+    "group_name": "환경",
+    "order_in_group": 2
+  },
+  {
+    "id": 23,
+    "title": "CLAUDE.md 활용 — 헌법으로 끌어올린 운영 골격",
+    "group_id": 5,
+    "group_name": "환경",
+    "order_in_group": 3
+  },
+  {
+    "id": 44,
+    "title": "/model 명령으로 작업에 맞는 모델 선택하기",
+    "group_id": 5,
+    "group_name": "환경",
+    "order_in_group": 4
+  },
+  {
+    "id": 43,
+    "title": "--dangerously-skip-permissions와 Hooks 가드레일 결합",
+    "group_id": 5,
+    "group_name": "환경",
+    "order_in_group": 5
+  },
+  {
+    "id": 48,
+    "title": "Claude Code Statusline HUD 설치해서 사용하기",
+    "group_id": 5,
+    "group_name": "환경",
+    "order_in_group": 6
+  },
+  {
+    "id": 41,
+    "title": "Git Worktree로 병렬 브랜치 작업하기",
+    "group_id": 5,
+    "group_name": "환경",
+    "order_in_group": 7
+  },
+  {
+    "id": 28,
+    "title": "나에게 필요한 Skill, Agent 등의 도구를 쉽게 찾아서 활용하기",
+    "group_id": 5,
+    "group_name": "환경",
+    "order_in_group": 8
+  },
+  {
+    "id": 16,
+    "title": "HTML + Vercel 신속 배포로 결과물 즉시 공유",
+    "group_id": 5,
+    "group_name": "환경",
+    "order_in_group": 9
+  },
+  {
+    "id": 36,
+    "title": "개발은 C드라이브에서, 백업은 G드라이브에 동기화",
+    "group_id": 5,
+    "group_name": "환경",
+    "order_in_group": 10
+  },
+  {
+    "id": 37,
+    "title": "피크타임 사용시간(저녁 11시~새벽 3시) 피하기",
+    "group_id": 5,
+    "group_name": "환경",
+    "order_in_group": 11
+  },
+  {
+    "id": 19,
+    "title": "공사용 삽질/추수용 낫질 개선방안을 연구하지 말고 포크레인/트랙터 운전 연습하기",
+    "group_id": 6,
+    "group_name": "기타",
+    "order_in_group": 1
+  },
+  {
+    "id": 49,
+    "title": "AI는 공부 대상이 아니라 익힘의 대상이다 — 學보다 習 (본인 학습 철학)",
+    "group_id": 6,
+    "group_name": "기타",
+    "order_in_group": 2
+  },
+  {
+    "id": 20,
+    "title": "문서화는 나중에 하고 일단 만들어보고 테스트해보기",
+    "group_id": 6,
+    "group_name": "기타",
+    "order_in_group": 3
+  },
+  {
+    "id": 31,
+    "title": "Data → Information → Decision의 Loop 이해하고 활용하기",
+    "group_id": 6,
+    "group_name": "기타",
+    "order_in_group": 4
+  },
+  {
+    "id": 8,
+    "title": "엔비디아 NeMoTron 100만 한국인 합성 데이터셋 활용하기",
+    "group_id": 6,
+    "group_name": "기타",
+    "order_in_group": 5
+  },
+  {
+    "id": 32,
+    "title": "API 비용 최적화 방안 미리 설계해서 사용하기",
+    "group_id": 6,
+    "group_name": "기타",
+    "order_in_group": 6
+  },
+  {
+    "id": 4,
+    "title": "WiKi_LLM과 Obsidian을 활용한 지식베이스 관리하기",
+    "group_id": 6,
+    "group_name": "기타",
+    "order_in_group": 7
+  },
+  {
+    "id": 29,
+    "title": "HWP/HWPX + 한국 공공 양식 자산화",
+    "group_id": 6,
+    "group_name": "기타",
+    "order_in_group": 8
+  }
+]

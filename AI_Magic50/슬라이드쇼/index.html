@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>SUNNY AI MAGIC 50 — 4,000+시간 AI 활용 실전 경험</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;background:#000;font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif}
+body{display:flex;flex-direction:column;height:100vh;overflow:hidden;color:#fff}
+
+#slide-wrap{flex:1;min-height:0;position:relative;display:flex;align-items:center;justify-content:center;background:#111;overflow:hidden}
+
+/* 본문 항목 슬라이드 */
+.slide-item{width:100%;height:100%;display:none;flex-direction:column;align-items:center;justify-content:flex-start;position:relative;padding:24px 60px 18px}
+.slide-item.active{display:flex}
+.slide-item .item-head{text-align:center;max-width:98%;margin-bottom:14px}
+.slide-item .item-group{display:inline-block;background:#FF8C00;color:#001020;padding:4px 14px;border-radius:18px;font-size:12px;font-weight:900;letter-spacing:1px;margin-bottom:8px}
+.slide-item .item-patent{display:inline-block;background:#3498DB;color:#fff;padding:4px 12px;border-radius:18px;font-size:11px;font-weight:900;letter-spacing:0.5px;margin-bottom:8px;margin-left:8px}
+.slide-item .item-title{font-size:36px;font-weight:900;color:#fff;line-height:1.25;text-shadow:0 2px 12px rgba(255,140,0,0.3)}
+.slide-item .item-title .acc{color:#FF8C00;margin-right:12px}
+.slide-item .item-sub{margin-top:14px;font-size:18px;font-weight:600;color:#FF8C00;line-height:1.4;opacity:0.95;white-space:nowrap}
+.slide-item .item-img{max-width:70%;max-height:42%;object-fit:contain;border-radius:12px;box-shadow:0 16px 50px rgba(0,0,0,0.6);margin-top:10px}
+.slide-item .item-num{position:absolute;top:18px;right:30px;font-size:50px;font-weight:900;color:rgba(255,140,0,0.22);font-family:'Arial Black',sans-serif}
+.slide-item .item-copy{position:absolute;bottom:8px;left:0;right:0;text-align:center;color:#7a8c9c;font-size:12px;letter-spacing:0.3px;opacity:0.85;z-index:5;background:rgba(0,8,20,0.6);padding:4px 0}
+
+/* 표지 슬라이드 */
+.slide-cover{width:100%;height:100%;display:none;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 40%,#002d5c 0%,#000814 70%);position:relative}
+.slide-cover.active{display:flex}
+.slide-cover .cover-tag{color:#FF8C00;font-size:18px;font-weight:900;letter-spacing:8px;margin-bottom:18px}
+.slide-cover .cover-title{font-weight:900;color:#fff;text-align:center;line-height:1.15;letter-spacing:-2px;text-shadow:0 4px 28px rgba(255,140,0,0.4)}
+.slide-cover .cover-title{display:flex;flex-direction:column;align-items:center;justify-content:center}
+.slide-cover .cover-title .line-brand{font-size:96px;display:block;letter-spacing:2px;line-height:1.0;text-align:center;white-space:nowrap;font-weight:900}
+.slide-cover .cover-title .line-sub{font-size:48px;display:block;margin-top:36px;font-weight:800;color:#FF8C00;letter-spacing:1px;text-align:center;white-space:nowrap}
+.slide-cover .cover-title .line-tag{font-size:22px;display:block;margin-top:22px;font-weight:600;color:#FF8C00;opacity:0.8;letter-spacing:2px;text-align:center;white-space:nowrap}
+.slide-cover .cover-title .accent{color:#FF8C00}
+.slide-cover .cover-copy{position:absolute;bottom:24px;left:0;right:0;text-align:center;color:#7a8c9c;font-size:13px;letter-spacing:0.5px;opacity:0.85}
+.slide-copyright{width:100%;height:100%;display:none;flex-direction:column;background:#001020;color:#dde;padding:36px 48px;overflow-y:auto;position:relative}
+.slide-copyright.active{display:flex}
+.slide-copyright .cr-title{font-size:28px;font-weight:900;color:#FF8C00;text-align:center;margin-bottom:20px;letter-spacing:0.5px;border-bottom:2px solid rgba(255,140,0,0.3);padding-bottom:14px}
+.slide-copyright .cr-grid{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.slide-copyright .cr-row{display:flex;gap:14px;font-size:14px;line-height:1.6}
+.slide-copyright .cr-label{flex:0 0 90px;color:#FF8C00;font-weight:900;letter-spacing:0.5px}
+.slide-copyright .cr-value{color:#dde;flex:1}
+.slide-copyright .cr-box{background:rgba(255,140,0,0.06);border:1px solid rgba(255,140,0,0.25);border-radius:10px;padding:16px 20px;margin-bottom:16px}
+.slide-copyright .cr-box-title{color:#FF8C00;font-weight:900;font-size:15px;margin-bottom:10px;letter-spacing:0.3px}
+.slide-copyright .cr-list{display:flex;flex-direction:column;gap:5px}
+.slide-copyright .cr-li{font-size:14px;color:#dde}
+.slide-copyright .cr-li.ok{color:#3fb950}
+.slide-copyright .cr-li.no{color:#ff7b72}
+.slide-copyright .cr-patents{display:flex;flex-direction:column;gap:4px}
+.slide-copyright .cr-pat-head{color:#FF8C00;font-weight:900;font-size:13px;letter-spacing:1px;margin-bottom:4px;text-transform:uppercase}
+.slide-copyright .cr-pat{font-size:13px;color:#dde;line-height:1.5;padding-left:6px}
+.slide-copyright .cr-pat b{color:#fff;font-family:'D2Coding','Consolas',monospace;font-weight:900;margin-right:8px}
+.slide-copyright .cr-pat .cr-pat-ch{color:#7a8c9c;font-size:12px;margin-left:6px}
+.slide-copyright .cr-note{font-size:12px;color:#ffa657;margin-top:10px;font-style:italic}
+@media (max-width:768px){
+  .slide-copyright{padding:24px 18px}
+  .slide-copyright .cr-title{font-size:20px}
+  .slide-copyright .cr-row{flex-direction:column;gap:2px}
+  .slide-copyright .cr-label{flex:0 0 auto}
+  .slide-copyright .cr-pat{font-size:12px}
+}
+
+/* 목차 슬라이드 */
+.slide-toc{width:100%;height:100%;display:none;flex-direction:column;align-items:center;padding:30px 50px;background:linear-gradient(135deg,#001a3a 0%,#000814 100%);overflow-y:auto}
+.slide-toc.active{display:flex}
+.slide-toc h2{color:#FF8C00;font-size:32px;font-weight:900;margin-bottom:18px;letter-spacing:2px}
+.toc-groups{width:100%;max-width:1500px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px 18px}
+.toc-group{background:rgba(255,140,0,0.06);border:1.5px solid rgba(255,140,0,0.3);border-radius:10px;padding:12px 14px}
+.toc-group h3{color:#FF8C00;font-size:15px;font-weight:900;margin-bottom:8px;border-bottom:1px solid rgba(255,140,0,0.3);padding-bottom:5px;display:flex;justify-content:space-between}
+.toc-group h3 .count{font-size:12px;opacity:0.8}
+.toc-item{display:block;color:#dde;font-size:13px;padding:4px 7px;border-radius:5px;cursor:pointer;line-height:1.3;text-decoration:none;transition:all 0.15s}
+.toc-item:hover{background:rgba(255,140,0,0.2);color:#FF8C00;transform:translateX(2px)}
+.toc-item .num{color:#FF8C00;font-weight:900;display:inline-block;width:30px}
+
+/* 감사 + 명함 슬라이드 */
+.slide-thanks{width:100%;height:100%;display:none;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 30%,#002d5c 0%,#000814 70%);position:relative;padding:30px;gap:32px}
+.slide-thanks.active{display:flex}
+.slide-thanks .thanks-title{font-size:88px;font-weight:900;color:#fff;letter-spacing:8px;text-shadow:0 4px 28px rgba(255,140,0,0.45);margin-bottom:8px}
+.slide-thanks .thanks-sub{font-size:22px;color:#FF8C00;letter-spacing:3px;font-weight:800;margin-bottom:18px}
+.namecard{background:#f9f8f4;color:#111;width:min(820px,92vw);border-radius:14px;box-shadow:0 18px 60px rgba(0,0,0,0.55),0 0 0 1px rgba(255,140,0,0.25);padding:28px 36px;display:flex;flex-direction:column;gap:16px;position:relative;overflow:hidden}
+.namecard .nc-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,0,0,0.08);padding-bottom:12px}
+.namecard .nc-sunmyung{font-family:'Helvetica Neue',Arial,sans-serif;font-size:16px;font-weight:300;color:#1a1a1a;letter-spacing:1px}
+.namecard .nc-axon{font-family:'Helvetica Neue',Arial,sans-serif;font-size:18px;font-weight:700;color:#1a1a1a;letter-spacing:0.5px}
+.namecard .nc-axon span{color:#e8920d}
+.namecard .nc-mid{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.namecard .nc-left{display:flex;flex-direction:column;gap:6px}
+.namecard .nc-title-label{font-size:13px;color:#888;letter-spacing:0.3px}
+.namecard .nc-name{font-size:38px;font-weight:800;color:#111;letter-spacing:12px;line-height:1.15}
+.namecard .nc-right{display:flex;flex-direction:column;align-items:flex-end;text-align:right;font-family:'Helvetica Neue',Arial,sans-serif}
+.namecard .nc-company{font-size:15px;font-weight:700;color:#111;margin-bottom:10px}
+.namecard .nc-item{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+.namecard .nc-l{font-size:11px;color:#aaa;min-width:48px;text-align:right}
+.namecard .nc-v{font-size:13px;color:#222}
+.namecard .nc-addr{font-size:11px;color:#666;margin-top:6px;line-height:1.6;text-align:right}
+.namecard .nc-bottom{display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(0,0,0,0.08);padding-top:12px}
+.namecard .nc-tags{display:inline-flex;align-items:center;gap:8px;background:#2e2e2e;border-radius:4px;padding:6px 14px}
+.namecard .nc-tags span{font-size:11px;color:#ccc;letter-spacing:1px}
+.namecard .nc-tags .sep{color:#666}
+.namecard .nc-catch{font-size:12px;color:#666;letter-spacing:0.5px;font-family:'Helvetica Neue',Arial,sans-serif}
+.namecard .nc-catch b{color:#e8920d;font-weight:700}
+@media(max-width:760px){
+  .slide-thanks .thanks-title{font-size:52px;letter-spacing:4px}
+  .slide-thanks .thanks-sub{font-size:14px;letter-spacing:2px}
+  .namecard{padding:18px 18px}
+  .namecard .nc-mid{flex-direction:column;align-items:flex-start;gap:14px}
+  .namecard .nc-right{align-items:flex-start;text-align:left}
+  .namecard .nc-item{justify-content:flex-start}
+  .namecard .nc-l{min-width:54px;text-align:left}
+  .namecard .nc-addr{text-align:left}
+  .namecard .nc-name{font-size:28px;letter-spacing:8px}
+  .namecard .nc-bottom{flex-direction:column;gap:10px;align-items:flex-start}
+}
+
+/* 화살표 */
+.arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.45);
+  border:none;color:#FF8C00;font-size:38px;cursor:pointer;padding:18px 10px;
+  z-index:10;border-radius:6px;transition:background 0.2s;line-height:1}
+.arrow:hover{background:rgba(255,140,0,0.35)}
+#arr-l{left:0}
+#arr-r{right:0}
+
+/* 링크 패널 */
+#link-panel{background:linear-gradient(135deg,#001a3a,#002d5c);border-top:3px solid #FF8C00;padding:12px 24px;display:none;flex-direction:column;align-items:center;gap:8px;flex-shrink:0}
+#link-panel.show{display:flex}
+#link-panel .lp-head{display:flex;align-items:center;gap:8px;color:#FF8C00;font-size:14px;font-weight:900;letter-spacing:1px}
+#link-panel .lp-head .arrow-down{font-size:18px;animation:bounce 1s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+#link-panel .lp-btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+#link-panel a{color:#fff;background:rgba(52,152,219,0.25);border:2px solid #3498DB;text-decoration:none;font-size:14px;font-weight:700;padding:7px 18px;border-radius:24px;white-space:nowrap;transition:all 0.2s}
+#link-panel a:hover{background:#3498DB;transform:scale(1.05);box-shadow:0 0 14px rgba(52,152,219,0.7)}
+
+/* 하단 네비 */
+#nav{background:#001020;border-top:1px solid #1a2a3a;padding:10px 20px;display:flex;align-items:center;justify-content:center;gap:20px;flex-shrink:0}
+.nav-btn{background:none;border:2px solid #FF8C00;color:#FF8C00;padding:6px 24px;border-radius:20px;cursor:pointer;font-size:14px;font-weight:700;transition:all 0.2s;font-family:inherit}
+.nav-btn:hover{background:#FF8C00;color:#001020}
+.nav-btn:disabled{border-color:#333;color:#333;cursor:default}
+#counter{color:#ccc;font-size:14px;min-width:90px;text-align:center;font-weight:700}
+#today{color:#FF8C00;font-size:12px;font-weight:700;letter-spacing:1px}
+#progress{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,#FF8C00,#FFD700);transition:width 0.3s;z-index:100}
+
+@media(max-width:900px){
+  .slide-cover .cover-title .line-brand{font-size:54px;letter-spacing:1px}
+  .slide-cover .cover-title .line-sub{font-size:20px;margin-top:24px}
+  .slide-cover .cover-title .line-tag{font-size:13px;margin-top:14px;letter-spacing:1px}
+  .slide-item .item-title{font-size:22px;line-height:1.3}
+  .slide-item .item-sub{font-size:11px;margin-top:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .toc-groups{grid-template-columns:1fr}
+  .slide-item{padding:20px 30px}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<div id="slide-wrap">
+  <button class="arrow" id="arr-l" onclick="go(-1)">&#10094;</button>
+  <div id="slide-host"></div>
+  <button class="arrow" id="arr-r" onclick="go(1)">&#10095;</button>
+</div>
+
+<div id="link-panel">
+  <div class="lp-head">
+    <span class="arrow-down">👇</span>
+    <span>이 챕터의 설명·참고자료 보기</span>
+    <span class="arrow-down">👇</span>
+  </div>
+  <div class="lp-btns" id="lp-btns"></div>
+</div>
+
+<div id="nav">
+  <button class="nav-btn" onclick="jump(1)">🏠 표지</button>
+  <button class="nav-btn" onclick="jump(2)">📋 목차</button>
+  <button class="nav-btn" id="btn-p" onclick="go(-1)">◀ 이전</button>
+  <span id="counter">1 / 53</span>
+  <button class="nav-btn" id="btn-n" onclick="go(1)">다음 ▶</button>
+  <span id="today"></span>
+</div>
+
+<script>
+// 50개 항목 메타데이터 — title은 각 챕터 md의 주제목과 일치 (2026-05-13 정합 완료)
+// short = 키워드 간판 (목차·헤더용 짧은 라벨)
+// title = 챕터 md 주제목과 동일 (book/{N}.html의 H1과 일치)
+// patent = true → "특허 출원" 표시 (원본 7개 항목)
+var ITEMS = [
+  /* G1 구상 및 계획 (4) */
+  {id:1,  gid:1, gname:"구상 및 계획", short:"스무고개 브레인스토밍", title:"스무고개 브레인스토밍", sub:"스무고개 + 소크라테스 산파술의 결합"},
+  {id:2,  gid:1, gname:"구상 및 계획", short:"전문가 페르소나 토론", title:"전문가 페르소나 토론", sub:"분야별 전문가 페르소나 + Devil's Advocate 토론", patent:true},
+  {id:3,  gid:1, gname:"구상 및 계획", short:"SAL 3차원 좌표", title:"SAL(Stage, Area, Level) 3차원 좌표", sub:"대규모 작업 계획 세우기 or 분해하기", patent:true},
+  {id:4,  gid:1, gname:"구상 및 계획", short:"학습·검토·계획 먼저", title:"실행 전 학습·검토·계획", sub:"바로 실행하지 말고 미리 충분하게 준비시키기"},
+
+  /* G2 실행 프로세스 (9) */
+  {id:5,  gid:2, gname:"실행 프로세스", short:"Dual Mode 실행", title:"Dual Mode 실행", sub:"쌍두마차 — 크로스체킹·관점종합·병렬분담·연속성"},
+  {id:6,  gid:2, gname:"실행 프로세스", short:"5단계 순차 작업", title:"5단계 순차 작업", sub:"한 번에 하지 말고 쪼개서 실행·검증을 반복"},
+  {id:7,  gid:2, gname:"실행 프로세스", short:"아젠다별 설명·승인", title:"아젠다별 하나씩 설명·승인", sub:"한 번에 여러 개 묶어 답하지 말고 하나씩 듣고 결정"},
+  {id:8,  gid:2, gname:"실행 프로세스", short:"3대안 + 권고안", title:"3개 이상 대안 + 권고안", sub:"AI에게 항상 3개 이상 대안과 권고안 제시 강제"},
+  {id:9,  gid:2, gname:"실행 프로세스", short:"1개 AI Multi Role", title:"1개의 AI에게 Multi Role로 작업시키기", sub:"하나의 AI가 다양한 전문가 역할로 순차적으로 전환"},
+  {id:10, gid:2, gname:"실행 프로세스", short:"claude -p 헤드리스", title:"claude -p 헤드리스 모드 자동화", sub:"대화형 UI 없이 명령줄에서 한 번에 호출"},
+  {id:11, gid:2, gname:"실행 프로세스", short:"Hooks 활용", title:"Hooks 활용하기", sub:"사용자 명령 없이 자동 발동되는 강제 실행 레이어"},
+  {id:12, gid:2, gname:"실행 프로세스", short:"MBO 방식", title:"MBO 방식으로 작업시키기", sub:"작업 전 목표·KPI를 사용자 승인받고 결과로 책임지기"},
+  {id:13, gid:2, gname:"실행 프로세스", short:"SAL Grid 개발방법론", title:"SAL Grid 개발방법론(특허출원된)을 사용해서 한번에 끊김없이 개발업무 진행하기", sub:"3차원 좌표(Stage·Area·Level)로 멀티태스크 오케스트레이션", patent:true},
+
+  /* G3 실행 방법 (8) */
+  {id:14, gid:3, gname:"실행 방법", short:"군대 소대 편제 방식", title:"군대의 소대 편제방식을 활용한 대규모의 AI 투입하기", sub:"소대장·분대장·분대원·용병·스킬로 구성된 조직 투입", patent:true},
+  {id:15, gid:3, gname:"실행 방법", short:"멀티 CLI 오케스트레이터", title:"Claude Code 오케스트레이터 + 멀티 CLI", sub:"Codex CLI·Gemini CLI·Grok CLI와 실행형 협업 (실행·로그·검증·재실행)"},
+  {id:16, gid:3, gname:"실행 방법", short:"Subagent vs Agent Teams", title:"일반 Subagent와 Agent Teams 차이를 이해하고 작업시키기", sub:"메인에게만 보고하고 끝나는 하위 작업자 vs 팀메이트끼리 직접 통신하는 조직 단위 협업"},
+  {id:17, gid:3, gname:"실행 방법", short:"Auto Compact 끄고 수동", title:"컨텍스트 관리 — 모니터링·수동 Compact·자동 저장의 3종 세트", sub:"HUD 모니터링 + 수동 Compact + 직전 자동 저장 3종 세트로 정보 손실 0"},
+  {id:18, gid:3, gname:"실행 방법", short:"Slash Commands", title:"Slash Commands 활용하기", sub:"MD 파일 한 장이 곧 /명령어가 되는 사용자 행동 압축 도구"},
+  {id:19, gid:3, gname:"실행 방법", short:"/resume 세션 재개", title:"/resume으로 과거 세션 재개하기", sub:"갑작스런 종료·미저장 복구 전용, 컨텍스트가 금방 차므로 평상시 금지"},
+  {id:20, gid:3, gname:"실행 방법", short:"MCP 서버 활용", title:"MCP 서버 활용하기", sub:"외부 시스템(Notion·Slack·DB·OS·디자인툴 등)과 데이터 레벨로 직접 통신하는 프로토콜"},
+  {id:21, gid:3, gname:"실행 방법", short:"네이버·구글 검색", title:"대량 검색 시 토큰비를 줄이려면 네이버·구글 검색 활용하기", sub:"Claude·ChatGPT는 검색 엔진이 없고 외부 서비스를 빌려 쓰니 네이버·구글을 통해 검색"},
+
+  /* G4 결과물 및 품질관리 (9) */
+  {id:22, gid:4, gname:"결과물 및 품질관리", short:"SVG 아키텍처 → 스킬화", title:"SVG 시각화 → 스킬 자산화", sub:"반복되는 프로세스를 SVG 관계도/흐름도로 정리해 스킬로 만들어서 한 줄 호출로 재현"},
+  {id:23, gid:4, gname:"결과물 및 품질관리", short:"멀티 모델 이미지 제작", title:"멀티 모델 이미지 제작 프로세스", sub:"같은 프롬프트로 5개 모델 동시 생성, 비교·채점은 AI가 하고 사람은 마지막 1장만"},
+  {id:24, gid:4, gname:"결과물 및 품질관리", short:"지능형 챗봇 키우기", title:"나를 위한 지능형 챗봇 만들어서 키우기", sub:"아바타형(전문지식·특기 전수) vs 도우미형(업무·일상)으로 분류, 본인 자료로 학습해 분신으로 키움", patent:true},
+  {id:25, gid:4, gname:"결과물 및 품질관리", short:"미니 풀스택 5시간 연습", title:"미니 풀스택 5시간 이내 제작", sub:"DB → API → UI/UX → E2E → Vercel 배포까지 5시간 안에 끝내기"},
+  {id:26, gid:4, gname:"결과물 및 품질관리", short:"유튜브 1일 1영상", title:"유튜브 영상 한방에 제작하기 → 유튜브에 1일 1영상 올리기", sub:"진입점 하나로 기획·제작·업로드까지 무인 자동화하는 1일 1영상 파이프라인"},
+  {id:27, gid:4, gname:"결과물 및 품질관리", short:"특허출원서 작성", title:"사업 아이디어가 떠오르면 특허출원서로 정리하며 AI 사용법 단련하기", sub:"특허출원서 작성 = AI 대화·사용법 단련장 + 아이디어 체계화 도구 (특허는 부산물)"},
+  {id:28, gid:4, gname:"결과물 및 품질관리", short:"4종 품질관리", title:"작업결과물에 대해서 수시로 4종의 품질관리 스킬을 실행하여 완성도 높이기", sub:"AI 결과물 품질 보장의 4종 도구 — 가벼운 평가부터 시작해 무거운 쪽으로 escalate", patent:true},
+  {id:29, gid:4, gname:"결과물 및 품질관리", short:"스크린샷 자율 검증", title:"스크린샷 자율 검증 — Playwright 기반 자율 루프", sub:"Playwright 자동 스크린샷 + 클릭 검증 + 자율 수정 루프"},
+  {id:30, gid:4, gname:"결과물 및 품질관리", short:"AI 오류 인정 + 창발", title:"AI가 틀릴 수 있음을 인정하기", sub:"인정에서 출발해 검증으로 오류를 잡고, 그 사이로 솟는 통찰을 놓치지 않기"},
+
+  /* G5 환경 (11) */
+  {id:31, gid:5, gname:"환경", short:"5컴퓨터 30개 동시 운용", title:"크롬 원격 데스크탑 활용해서 작업 시키기", sub:"5개 컴퓨터에 6개씩 총 30개 Claude Code 동시 운용"},
+  {id:32, gid:5, gname:"환경", short:"Claude 앱 vs Code", title:"Claude 앱과 Code의 차이 — 사고는 앱, 실행은 Code", sub:"브레인스토밍·멋진 문구는 앱, 실행·자동화·파일 접근은 Code"},
+  {id:33, gid:5, gname:"환경", short:"CLAUDE.md 활용", title:"CLAUDE.md 잘 활용하기", sub:"Claude Code가 켤 때마다 먼저 읽는 사용자 운영 매뉴얼"},
+  {id:34, gid:5, gname:"환경", short:"/model 명령", title:"/model 명령으로 작업에 맞는 모델 선택하기", sub:"깊은 사고는 Opus, 균형은 Sonnet, 속도·비용은 Haiku — 작업별로 갈아끼우기"},
+  {id:35, gid:5, gname:"환경", short:"--dangerously-skip-permissions", title:"--dangerously-skip-permissions와 Hooks 가드레일 결합", sub:"승인 자동 yes + Hooks PreToolUse 가드, 속도와 안전을 동시에 잡기"},
+  {id:36, gid:5, gname:"환경", short:"Statusline HUD", title:"Claude Code Statusline HUD 설치해서 사용하기", sub:"컨텍스트 사용량 / 5시간·7일 Rate Limit / 실행 중 명령 / Hook 발동 / 에이전트 투입현황 동시 표시"},
+  {id:37, gid:5, gname:"환경", short:"Git Worktree 병렬", title:"Git 브랜치·Worktree로 여럿이 같은 저장소 동시 작업하기", sub:"여러 사람·AI가 한 저장소를 동시에 사용해도 서로의 작업을 덮어쓰지 않는 협업체계"},
+  {id:38, gid:5, gname:"환경", short:"필요한 Skill·Agent 찾기", title:"나에게 필요한 Skill, Agent 등의 도구를 쉽게 찾아서 활용하기", sub:"외부 오픈 생태계에서 찾아 검증한 뒤 자기 자산으로 만들기"},
+  {id:39, gid:5, gname:"환경", short:"HTML + Vercel 신속 배포", title:"HTML + Vercel 신속 배포로 결과물 즉시 공유", sub:"GitHub Pages가 공개 인덱싱이면, Vercel은 URL 아는 사람만 보는 비공개 채널"},
+  {id:40, gid:5, gname:"환경", short:"C드라이브 개발 / G드라이브 백업", title:"개발은 C드라이브에서, 백업은 G드라이브에 동기화", sub:"속도와 효율은 C드라이브 SSD, 안전과 범용성은 G드라이브 동기화"},
+  {id:41, gid:5, gname:"환경", short:"피크타임 회피", title:"피크타임 사용시간(저녁 11시~새벽 3시) 피하기", sub:"큰 작업은 가급적 지양 — Pro/Max 한도는 풀렸지만 글로벌 트래픽은 별개"},
+
+  /* G6 기타 (9) */
+  {id:42, gid:6, gname:"기타", short:"포크레인·트랙터 운전", title:"공사용 삽질/추수용 낫질 개선방안을 연구하지 말고 포크레인/트랙터 운전 연습하기", sub:"도구 점진 개선이 아니라 운전자로의 역할 전환하여 운전의 누적형 기능 익히기"},
+  {id:43, gid:6, gname:"기타", short:"學보다 習", title:"AI는 공부 대상이 아니라 익힘의 대상이다 — 學보다 習 (본인 학습 철학)", sub:"학(學)은 도구를 알게 하고 습(習)은 도구를 자기 것으로 만든다 — 학 10% / 습 90% 비율 권장"},
+  {id:44, gid:6, gname:"기타", short:"문서화는 나중에", title:"문서화는 나중에 하고 일단 만들어보고 테스트해보기", sub:"프로토타입 만드는 비용이 문서 만드는 비용보다 낮은 시대"},
+  {id:45, gid:6, gname:"기타", short:"DID Loop", title:"Data → Information → Decision의 Loop 이해하고 활용하기", sub:"모든 데이터·정보를 결정·실행으로 귀결시킨다", patent:true},
+  {id:46, gid:6, gname:"기타", short:"NeMoTron 100만 한국인", title:"엔비디아 NeMoTron 100만 한국인 합성 데이터셋 활용하기", sub:"한국어 챗봇 데이터 부족을 즉시 해결하는 무료 100만 합성 페르소나 — 저작권·개인정보 리스크 0"},
+  {id:47, gid:6, gname:"기타", short:"API 비용 최적화", title:"API 비용 최적화 방안 미리 설계해서 사용하기", sub:"비용 통제는 시작 전에 끝낸다"},
+  {id:48, gid:6, gname:"기타", short:"WiKi_LLM + Obsidian", title:"WiKi_LLM과 Obsidian을 활용한 지식베이스 관리하기", sub:"장기 기억 인프라 — AI가 자기 위키에 쓰고 다음 작업 전에 그 위키를 먼저 읽는다"},
+  {id:49, gid:6, gname:"기타", short:"HWP/HWPX 파일 처리", title:"HWP/HWPX 파일 처리", sub:"두 포맷 한 도구로 — 읽기·변환·표준 양식 4종 자산화"},
+  {id:50, gid:6, gname:"기타", short:"사내 AI 에이전트 하우스", title:"AX를 위한 기능적 방법 — 사내 AI 에이전트 하우스 구축", sub:"한 칸씩 입주시키며 짓는 사내 AI 에이전트 하우스"}
+];
+
+var TOTAL = ITEMS.length + 4; // 표지 1 + 목차 1 + 50항목 + 저작권 1 + 감사·명함 1 = 54
+var cur = 1;
+
+// 각 항목별 추가 링크 (있으면 하단 패널에 표시)
+// 키는 새 번호(표시 순서 1~50) 기준
+// 50개 모두 📖 책 본문(MD→HTML 변환)을 기본 링크로 연결. 특허·스킬 항목은 별도 시각 자료 추가 연결.
+var EXTRA_LINKS = {};
+// 50개 전체 — 책 본문 페이지 (MD 변환 HTML)
+for (var i = 1; i <= 50; i++) {
+  var pad = ('0' + i).slice(-2);
+  EXTRA_LINKS[i] = [{text:'📖 #' + pad + ' 설명', url:'book/' + pad + '.html'}];
+}
+// 특허 출원 항목 (📜) — 7개 시각 자료 추가
+EXTRA_LINKS[2].push({text:'📜 #02 전문가 페르소나 토론(BuzzLab) — 특허 소개', url:'patent/02_BuzzLab_특허.html'});
+EXTRA_LINKS[2].push({text:'🎬 #02 BuzzLab 소개 영상 (YouTube)', url:'https://youtu.be/YcrRi-7uVY8'});
+EXTRA_LINKS[3].push({text:'📜 #03 SAL 3차원 좌표 — 특허 소개', url:'patent/03_13_SAL_Grid_특허.html'});
+EXTRA_LINKS[13].push({text:'📜 #13 SAL Grid 개발방법론 — 특허 소개', url:'patent/03_13_SAL_Grid_특허.html'});
+EXTRA_LINKS[14].push({text:'📜 #14 군대 소대 편제 — 특허 소개', url:'patent/14_소대편제_특허.html'});
+EXTRA_LINKS[24].push({text:'📜 #24 지능형 챗봇(MyChatbot) — 특허 소개', url:'patent/24_MyChatbot_특허.html'});
+EXTRA_LINKS[28].push({text:'📜 #28 4종 품질관리(SDA Recommendation) — 특허 소개', url:'patent/28_SDA_Recommendation.html'});
+EXTRA_LINKS[28].push({text:'🛠 #28 4종 품질관리 스킬 통합 — 아키텍처 + 설명', url:'patent/28_QC_skills.html'});
+EXTRA_LINKS[45].push({text:'📜 #45 DID Loop — 특허 소개', url:'patent/45_DID_특허.html'});
+// 스킬 소개자료 (🛠) — 아키텍처 그림 포함
+EXTRA_LINKS[12].push({text:'🛠 #12 MBO 스킬 — 아키텍처 + 설명', url:'patent/12_MBO.html'});
+EXTRA_LINKS[23].push({text:'🛠 #23 이미지 마스터 디스패처 — 아키텍처 + 설명', url:'patent/23_Image.html'});
+EXTRA_LINKS[26].push({text:'🛠 #26 YouTube 영상 제작 스킬 — 아키텍처 + 설명', url:'patent/26_YouTube.html'});
+EXTRA_LINKS[39].push({text:'🛠 #39 Vercel 신속 배포 스킬 — 아키텍처 + 설명', url:'patent/39_Vercel.html'});
+// NeMoTron 데이터셋 관련 외부 자료
+EXTRA_LINKS[46].push({text:'🎬 #46 NeMoTron 100만 한국인 데이터셋 — 소개 영상 (YouTube)', url:'https://youtu.be/4tD_8frrNn8'});
+// 사례 소개자료
+EXTRA_LINKS[50].push({text:'🏠 #50 사내 AI 에이전트 하우스 — KD엔지니어링 9칸 시범 사례', url:'patent/50_AX_AI_Agent_House.html'});
+
+var host = document.getElementById('slide-host');
+var counter = document.getElementById('counter');
+var progress = document.getElementById('progress');
+var btnP = document.getElementById('btn-p');
+var btnN = document.getElementById('btn-n');
+var linkPanel = document.getElementById('link-panel');
+var lpBtns = document.getElementById('lp-btns');
+
+var IMG_BASE = 'covers/';
+
+function renderCover() {
+  return '<div class="slide-cover active">' +
+    '<div class="cover-title"><span class="line-brand">SUNNY AI MAGIC <span class="accent">50</span></span><span class="line-sub">4,000+시간 AI 활용 실전 경험</span><span class="line-tag">— Claude Code 중심 —</span></div>' +
+    '</div>';
+}
+
+function renderCopyright() {
+  return '<div class="slide-copyright active">' +
+    '<h2 class="cr-title">저작권 및 라이선스 안내</h2>' +
+    '<div class="cr-grid">' +
+      '<div class="cr-row"><span class="cr-label">저작권자</span><span class="cr-value">선웅규 (Sunny)</span></div>' +
+      '<div class="cr-row"><span class="cr-label">저작물</span><span class="cr-value">SUNNY AI MAGIC 50 — 4,000+시간 AI 활용 실전 경험</span></div>' +
+      '<div class="cr-row"><span class="cr-label">저작권</span><span class="cr-value">© 2026 SUN WOONGKYU. All Rights Reserved.</span></div>' +
+    '</div>' +
+    '<div class="cr-box">' +
+      '<div class="cr-box-title">라이선스 — Creative Commons BY-NC-ND 4.0</div>' +
+      '<div class="cr-list">' +
+        '<div class="cr-li ok">✓ 비영리 목적의 공유·열람 자유</div>' +
+        '<div class="cr-li ok">✓ 출처 명시 필수 (선웅규 · SUNNY AI MAGIC 50)</div>' +
+        '<div class="cr-li no">✗ 상업적 이용 금지</div>' +
+        '<div class="cr-li no">✗ 변형·2차 저작 금지</div>' +
+      '</div>' +
+    '</div>' +
+    '<div class="cr-box">' +
+      '<div class="cr-box-title">특허 — 본 저작물의 방법론 보호 현황</div>' +
+      '<div class="cr-patents">' +
+        '<div class="cr-pat-head">출원 완료 4건</div>' +
+        '<div class="cr-pat"><b>10-2026-0009425</b> SAL Grid · SAL 3차원 좌표 <span class="cr-pat-ch">(#03, #13)</span></div>' +
+        '<div class="cr-pat"><b>10-2026-0038658</b> 멀티 페르소나 지능형 챗봇 · 2026-03-04 <span class="cr-pat-ch">(#24)</span></div>' +
+        '<div class="cr-pat"><b>10-2026-0041235</b> 군 소대 편제 다중 AI 운용 · 2026-03-07 <span class="cr-pat-ch">(#14)</span></div>' +
+        '<div class="cr-pat"><b>10-2026-0073485</b> BuzzLab BPI · 다중 LLM 토론 군중지능 예측 · 2026-04-23 <span class="cr-pat-ch">(#02)</span></div>' +
+        '<div class="cr-pat-head" style="margin-top:14px">출원 준비 중 2건</div>' +
+        '<div class="cr-pat"><b>준비</b> DID Loop — Data → Information → Decision <span class="cr-pat-ch">(#45)</span></div>' +
+        '<div class="cr-pat"><b>준비</b> 4종 품질관리 — SDA Recommendation V8 <span class="cr-pat-ch">(#28)</span></div>' +
+      '</div>' +
+      '<div class="cr-note">※ 특허 청구항이 포함된 방법론의 상업적 활용은 별도 라이선스 협의 필요</div>' +
+    '</div>' +
+    '<div class="cr-grid">' +
+      '<div class="cr-row"><span class="cr-label">인용 양식</span><span class="cr-value">선웅규(2026). SUNNY AI MAGIC 50: 4,000+시간 AI 활용 실전 경험.<br>https://sunny-ai-magic-50.vercel.app/</span></div>' +
+      '<div class="cr-row"><span class="cr-label">연락</span><span class="cr-value">wksun999@hanmail.net  ·  www.ax-on.net</span></div>' +
+    '</div>' +
+    '</div>';
+}
+
+function renderTOC() {
+  var groups = {};
+  ITEMS.forEach(function(it, idx) {
+    if (!groups[it.gid]) groups[it.gid] = {name: it.gname, items: []};
+    groups[it.gid].items.push({idx: idx + 3, item: it}); // 표지(1)+목차(2)+본문은 3부터
+  });
+
+  var html = '<h2>📋 목차</h2><div class="toc-groups">';
+  Object.keys(groups).sort().forEach(function(g) {
+    var grp = groups[g];
+    html += '<div class="toc-group"><h3>G' + g + ' ' + grp.name + '<span class="count">' + grp.items.length + '개</span></h3>';
+    grp.items.forEach(function(x) {
+      html += '<a class="toc-item" onclick="jump(' + x.idx + ')"><span class="num">#' + ('0'+x.item.id).slice(-2) + '</span>' + (x.item.title || x.item.short) + '</a>';
+    });
+    html += '</div>';
+  });
+  html += '</div>';
+  return '<div class="slide-toc active">' + html + '</div>';
+}
+
+function renderItem(itemIdx) {
+  var it = ITEMS[itemIdx];
+  var pad = ('0' + it.id).slice(-2);
+  var imgHtml;
+  if (it.placeholder) {
+    imgHtml = '<div class="item-img" style="width:60%;height:50%;display:flex;align-items:center;justify-content:center;border:3px dashed #FF8C00;background:rgba(255,140,0,0.05);color:#FF8C00;font-size:26px;font-weight:900;letter-spacing:2px">Coming Soon</div>';
+  } else {
+    imgHtml = '<img class="item-img" src="' + IMG_BASE + pad + '.png" alt="#' + pad + '" onerror="this.style.opacity=0.2">';
+  }
+  var patentBadge = it.patent ? '<span class="item-patent">📜 특허 출원</span>' : '';
+  return '<div class="slide-item active">' +
+    '<div class="item-num">#' + pad + '</div>' +
+    '<div class="item-head">' +
+      '<span class="item-group">G' + it.gid + ' · ' + it.gname + '</span>' + patentBadge +
+      '<div class="item-title"><span class="acc">#' + pad + '</span>' + it.title + '</div>' +
+      (it.sub ? '<div class="item-sub">' + it.sub + '</div>' : '') +
+    '</div>' +
+    imgHtml +
+    '<div class="item-copy">© 2026 SUN WOONGKYU · SUNNY AI MAGIC 50 · CC BY-NC-ND 4.0 · 특허 별도 보유</div>' +
+    '</div>';
+}
+
+function renderThanks() {
+  return '<div class="slide-thanks active">' +
+    '<div class="thanks-title">감사합니다</div>' +
+    '<div class="thanks-sub">SUNNY AI MAGIC 50 · 4,000+시간 AI 활용 실전 경험</div>' +
+    '<div class="namecard">' +
+      '<div class="nc-top">' +
+        '<span class="nc-sunmyung">sunmyung</span>' +
+        '<span class="nc-axon">AX-<span>On</span></span>' +
+      '</div>' +
+      '<div class="nc-mid">' +
+        '<div class="nc-left">' +
+          '<div class="nc-title-label">소장 &nbsp;|&nbsp; 공인회계사</div>' +
+          '<div class="nc-name">선 웅 규</div>' +
+        '</div>' +
+        '<div class="nc-right">' +
+          '<div class="nc-company">선명AX Lab</div>' +
+          '<div class="nc-item"><span class="nc-l">Mobile</span><span class="nc-v">010.5067.8306</span></div>' +
+          '<div class="nc-item"><span class="nc-l">Tel</span><span class="nc-v">02.559.0990</span></div>' +
+          '<div class="nc-item"><span class="nc-l">E-mail</span><span class="nc-v">wksun999@hanmail.net</span></div>' +
+          '<div class="nc-item"><span class="nc-l">Web</span><span class="nc-v">www.ax-on.net</span></div>' +
+          '<div class="nc-addr">서울시 강남구 테헤란로70길 16, 7층<br>(대치동, 동산빌딩) (06193)</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="nc-bottom">' +
+        '<div class="nc-tags">' +
+          '<span>AX</span><span class="sep">|</span>' +
+          '<span>AI아카데미</span><span class="sep">|</span>' +
+          '<span>스타트업</span>' +
+        '</div>' +
+        '<div class="nc-catch"><b>Action First,</b> Documentation Later.</div>' +
+      '</div>' +
+    '</div>' +
+    '</div>';
+}
+
+function updateSlide() {
+  var html;
+  if (cur === 1) html = renderCover();
+  else if (cur === 2) html = renderTOC();
+  else if (cur === TOTAL - 1) html = renderCopyright();
+  else if (cur === TOTAL) html = renderThanks();
+  else html = renderItem(cur - 3);
+
+  host.innerHTML = html;
+  counter.textContent = cur + ' / ' + TOTAL;
+  progress.style.width = (cur / TOTAL * 100) + '%';
+  btnP.disabled = (cur === 1);
+  btnN.disabled = (cur === TOTAL);
+
+  // 표지: 메인 타이틀 가로 길이를 부제목에 맞춤 (브랜드를 줄여서 맞춤)
+  if (cur === 1) {
+    requestAnimationFrame(function() {
+      var brand = host.querySelector('.line-brand');
+      var sub = host.querySelector('.line-sub');
+      if (brand && sub) {
+        var brandW = brand.getBoundingClientRect().width;
+        var subW = sub.getBoundingClientRect().width;
+        if (subW > 0 && brandW > 0) {
+          var curSize = parseFloat(getComputedStyle(brand).fontSize);
+          brand.style.fontSize = (curSize * subW / brandW) + 'px';
+        }
+      }
+    });
+  }
+
+  // 링크 패널: 본문 항목 슬라이드에만 적용 (EXTRA_LINKS에 있으면)
+  var extraLinks = null;
+  if (cur >= 3 && cur < TOTAL - 1) {
+    var it = ITEMS[cur - 3];
+    var customLinks = EXTRA_LINKS[it.id];
+    if (customLinks) extraLinks = customLinks;
+  }
+
+  if (extraLinks && extraLinks.length > 0) {
+    lpBtns.innerHTML = extraLinks.map(function(l) {
+      return '<a href="' + l.url + '" target="_blank" rel="noopener noreferrer">' + l.text + '</a>';
+    }).join('');
+    linkPanel.classList.add('show');
+  } else {
+    lpBtns.innerHTML = '';
+    linkPanel.classList.remove('show');
+  }
+}
+
+function go(dir) {
+  var next = cur + dir;
+  if (next < 1 || next > TOTAL) return;
+  cur = next;
+  updateSlide();
+}
+
+function jump(n) {
+  if (n < 1 || n > TOTAL) return;
+  cur = n;
+  updateSlide();
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowRight' || e.key === ' ') go(1);
+  if (e.key === 'ArrowLeft') go(-1);
+  if (e.key === 'Home') { cur = 1; updateSlide(); }
+  if (e.key === 'End') { cur = TOTAL; updateSlide(); }
+});
+
+var tx = 0;
+document.addEventListener('touchstart', function(e){ tx = e.touches[0].clientX; },{passive:true});
+document.addEventListener('touchend', function(e){
+  var dx = e.changedTouches[0].clientX - tx;
+  if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
+});
+
+updateSlide();
+var d=new Date();
+document.getElementById('today').textContent = d.getFullYear()+'.'+(d.getMonth()+1).toString().padStart(2,'0')+'.'+d.getDate().toString().padStart(2,'0');
+</script>
+</body>
+</html>

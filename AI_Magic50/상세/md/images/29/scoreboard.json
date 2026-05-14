@@ -1,0 +1,102 @@
+{
+  "gemini-2.5-flash-image": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_29\\_variants\\gemini-2_5-flash-image_v3.png",
+      "ok": true,
+      "score": 65,
+      "reason": "전반적으로 모던 미니멀 스타일과 따뜻한 조명, 구도 등 시각적 완성도는 높으나, '화면 속 텍스트는 추상 기호로만 표현'하라는 명시적 지시를 따르지 않고 영문 텍스트를 생성했으며, 이마저도 오타가 많아 가독성과 정보 명확성을 크게 저해함."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_29\\_variants\\gemini-2_5-flash-image_v2.png",
+      "ok": true,
+      "score": 88,
+      "reason": "모던 미니멀 스타일과 따뜻한 조명, 컴퓨터 작업 장면 등 프롬프트의 시각적 요소는 완벽하게 구현되었고 텍스트 가독성도 좋으나, 흐름도에 요청된 '공문' 항목이 누락되어 있고 HWP/HWPX 처리 과정이 명확히 시각화되지 않은 점이 아쉽습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_29\\_variants\\gemini-2_5-flash-image_v1.png",
+      "ok": true,
+      "score": 64,
+      "reason": "스타일과 구도는 훌륭하며 핵심 개념을 잘 표현했으나, '한글 텍스트 없음' 지시를 어기고 생성된 한글 라벨에 오탈자가 많아 가독성 및 프롬프트 준수도가 낮음."
+    }
+  ],
+  "gpt-image-1": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_29\\_variants\\gpt-image-1_v3.png",
+      "ok": true,
+      "score": 93,
+      "reason": "요구한 모던 미니멀 스타일에 따뜻한 조명, 16:9 비율이 잘 구현되었으며, HWP/HWPX 및 한국 공공 양식 자산화라는 핵심 주제가 메인 제목과 화면 내 상세 정보로 명확하게 전달됩니다. 텍스트 가독성이 매우 높습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_29\\_variants\\gpt-image-1_v2.png",
+      "ok": true,
+      "score": 98,
+      "reason": "프롬프트의 모든 요구사항(구도, 스타일, 조명, 화면 비율)을 완벽하게 구현했으며, HWP/HWPX 문서 처리라는 핵심 개념을 시각적으로 명확하게 전달합니다. 'HMPV'가 'HWPX'의 오타인지 추상화인지 불분명한 점을 제외하면 뛰어난 결과물입니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_29\\_variants\\gpt-image-1_v1.png",
+      "ok": true,
+      "score": 68,
+      "reason": "전반적으로 모던 미니멀 일러스트 스타일과 따뜻한 조명, 구도는 잘 구현되었으나, 화면 내 텍스트를 추상 기호로 표현하라는 지시를 따르지 않고 'HWP', 'HMPX' 등 구체적인 텍스트를 사용한 점과 'HMPX'가 'HWPX'의 오타인 점이 주요 감점 요인입니다."
+    }
+  ],
+  "dall-e-3": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_29\\_variants\\dall-e-3_v3.png",
+      "ok": true,
+      "score": 59,
+      "reason": "모던 미니멀 스타일, 따뜻한 조명, 구도 등 전반적인 시각적 구현은 훌륭하나, '추상 기호로만 표현' 및 '한글 텍스트 없음'이라는 핵심 지시를 명확히 위반하여 감점."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_29\\_variants\\dall-e-3_v2.png",
+      "ok": true,
+      "score": 42,
+      "reason": "이미지는 모던 미니멀 스타일, 따뜻한 조명, 16:9 구도를 훌륭하게 구현했으나, 화면 내 텍스트가 추상 기호가 아닌 왜곡된 한글 및 영어 단어로 표현되어 '한글 텍스트 없음' 및 '추상 기호로만 표현'이라는 핵심 지시를 명백히 위반했습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_29\\_variants\\dall-e-3_v1.png",
+      "ok": true,
+      "score": 65,
+      "reason": "따뜻한 조명과 미니멀한 스타일로 복잡한 문서 워크플로우를 효과적으로 표현했으나, '추상 기호로만 표현하고 한글 텍스트 없음'이라는 지침과 달리 일부 가독성 없는 한글 및 영어 텍스트가 포함되어 점수가 하락했습니다."
+    }
+  ],
+  "gemini-3.1-flash-image-preview": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_29\\_variants\\gemini-3_1-flash-image_v1.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 요구사항(HWP/HWPX 처리 및 자산화, 한국인, 모던 미니멀 스타일, 따뜻한 조명, 16:9 비율, 추상 기호/한글 텍스트 없음)이 완벽하게 구현되었으며, 시각적으로도 매우 뛰어나고 정보 전달력이 명확합니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_29\\_variants\\gemini-3_1-flash-image_v3.png",
+      "ok": true,
+      "score": 53,
+      "reason": "이미지는 모던 미니멀 일러스트 스타일, 따뜻한 조명, 16:9 비율 등 시각적 요소와 구도는 프롬프트 의도에 잘 부합합니다. 컴퓨터 작업과 복잡한 데이터/문서 흐름을 추상적으로 잘 표현했으나, 화면 내 텍스트를 '추상 기호로만 표현'하고 '한글 텍스트 없음'으로 명시했음에도 불구하고 'HEADER', 'FOOTER'와 같은 영문 텍스트가 명확하게 표시되어 "
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_29\\_variants\\gemini-3_1-flash-image_v2.png",
+      "ok": true,
+      "score": 65,
+      "reason": "The image successfully captures the requested modern minimalist style, warm lighting, and the conceptual workflow of document processing and asset creation, but critically fails the negative constrain"
+    }
+  ],
+  "gemini-3-pro-image-preview": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_29\\_variants\\gemini-3-pro-image_v2.png",
+      "ok": true,
+      "score": 98,
+      "reason": "프롬프트의 의도, 구도, 스타일, 텍스트 가독성 및 시각적 완성도가 매우 높고, 정보 전달이 명확합니다. 다만, 지정된 네 가지 표준 양식 중 '기안문' 하나가 누락된 점이 아쉽습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_29\\_variants\\gemini-3-pro-image_v3.png",
+      "ok": true,
+      "score": 63,
+      "reason": "전반적인 프로세스, 구도, 미니멀하고 따뜻한 스타일은 잘 구현되었으나, '한글 텍스트 없음, 추상 기호로만 표현'이라는 핵심 제약 조건을 완전히 위반하여 점수가 크게 감점되었습니다. (텍스트의 가독성은 좋지만, 애초에 존재해서는 안 되는 텍스트임.)"
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_29\\_variants\\gemini-3-pro-image_v1.png",
+      "ok": true,
+      "score": 85,
+      "reason": "프롬프트의 핵심 요청인 HWP/HWPX 공공 양식 자산화 흐름과 현대적이고 미니멀한 스타일은 완벽하게 구현되었으나, 화면 내 모든 텍스트를 추상 기호로 표현하고 한글 텍스트를 사용하지 말라는 명확한 지시를 따르지 않아 감점되었습니다."
+    }
+  ]
+}

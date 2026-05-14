@@ -1,0 +1,23 @@
+SUNNY AI MAGIC 50 — 해부학 결함 수정 + 재배포 v3 (2026-05-13)
+
+Production:
+https://sunny-ai-magic-50-isvmtsnea-finder-world.vercel.app
+
+수정 내역:
+- #10: 머리/목 누락 → 잠옷 입고 책상에서 졸고 있는 개발자(머리·얼굴 정상)로 재생성. 무인 실행 콘셉트(claude -p 자동 실행, 03:00 AM 시계, Autonomous/No Human Input 라벨) 유지.
+- #38: 손/팔 비정상 연결 → 키보드 위 정상 손 자세로 재생성. Tool Atlas / revfactory/skills / Anthropic skill marketplace 3 출처 + 발굴→검증→자산화 funnel 유지.
+
+문제 버전 백업:
+- covers/covers_backup_2026-05-13/10_v2_problem.png (머리 없는 버전)
+- covers/covers_backup_2026-05-13/38_v2_problem.png (손/팔 결함 버전)
+
+확인 URL:
+- 전체: https://sunny-ai-magic-50-isvmtsnea-finder-world.vercel.app
+- #10: https://sunny-ai-magic-50-isvmtsnea-finder-world.vercel.app/covers/10.png
+- #38: https://sunny-ai-magic-50-isvmtsnea-finder-world.vercel.app/covers/38.png
+
+근본 원인:
+프롬프트의 "EMPTY desk / No Human"이 #01 스타일 레퍼런스(사람 포함)와 충돌해
+머리 없는 몸통을 생성했다. 신규 프롬프트는 "FULL HEAD AND FACE clearly visible"
++ "missing neck/face = Negative"로 명시했고, 콘셉트 자체를 "사람이 자고 있는 동안
+AI가 무인 실행"으로 재구성해 충돌을 해소했다.

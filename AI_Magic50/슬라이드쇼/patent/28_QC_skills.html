@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>#28 4종 품질관리 스킬 (QC) — 3 평가 + 1 디버깅</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#000814;color:#fff;line-height:1.6}
+.hero{background:radial-gradient(circle at 30% 30%,#002d5c 0%,#000814 70%);padding:60px 24px 50px;text-align:center;border-bottom:3px solid #FF8C00}
+.hero .tag{color:#FF8C00;font-size:14px;font-weight:900;letter-spacing:6px;margin-bottom:14px}
+.hero h1{font-size:clamp(24px,4.5vw,46px);font-weight:900;line-height:1.2;margin-bottom:14px;color:#fff;text-shadow:0 4px 24px rgba(255,140,0,0.4)}
+.hero .sub{font-size:clamp(14px,1.8vw,18px);color:#bcd;max-width:880px;margin:0 auto;font-weight:500}
+.hero .skill-badge{display:inline-block;background:#3498DB;color:#fff;padding:6px 18px;border-radius:20px;font-size:13px;font-weight:900;letter-spacing:1px;margin-top:18px}
+.back{position:absolute;top:24px;left:24px;color:#FF8C00;text-decoration:none;font-size:14px;font-weight:700;padding:8px 16px;border:2px solid #FF8C00;border-radius:20px}
+.back:hover{background:#FF8C00;color:#001020}
+.section{max-width:1100px;margin:0 auto;padding:50px 24px}
+.section h2{font-size:clamp(22px,3vw,32px);font-weight:900;color:#FF8C00;margin-bottom:24px;letter-spacing:1px;border-left:5px solid #FF8C00;padding-left:14px}
+.section p{font-size:15px;color:#dde;margin-bottom:14px}
+.section .lead{font-size:16px;color:#fff;background:rgba(255,140,0,0.08);border:1.5px solid rgba(255,140,0,0.35);border-radius:10px;padding:20px 24px;margin-bottom:24px}
+.arch{background:#fff;border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px;margin-top:18px}
+.arch img{width:100%;display:block}
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+@media(max-width:760px){.skills{grid-template-columns:1fr}}
+.sk{border-radius:10px;padding:18px}
+.sk.s1{background:rgba(52,152,219,0.08);border:1.5px solid rgba(52,152,219,0.4)}
+.sk.s2{background:rgba(155,89,182,0.08);border:1.5px solid rgba(155,89,182,0.4)}
+.sk.s3{background:rgba(231,76,60,0.08);border:1.5px solid rgba(231,76,60,0.4)}
+.sk.s4{background:rgba(255,140,0,0.08);border:1.5px solid rgba(255,140,0,0.4)}
+.sk .badge{display:inline-block;font-size:11px;font-weight:900;padding:3px 10px;border-radius:12px;margin-bottom:8px;letter-spacing:1px}
+.sk.s1 .badge{background:#3498DB;color:#fff}
+.sk.s2 .badge{background:#9b59b6;color:#fff}
+.sk.s3 .badge{background:#e74c3c;color:#fff}
+.sk.s4 .badge{background:#FF8C00;color:#001020}
+.sk h3{font-size:17px;font-weight:900;color:#fff;margin-bottom:6px}
+.sk .role{font-size:12px;color:#fde;margin-bottom:10px;font-style:italic}
+.sk ul{list-style:none;padding-left:0}
+.sk li{font-size:13px;color:#dde;line-height:1.7;padding-left:18px;position:relative;margin-bottom:6px}
+.sk li::before{content:'▸';position:absolute;left:0;color:#FF8C00}
+.sk .weight{font-size:11px;color:#bcd;margin-top:10px;padding-top:8px;border-top:1px dashed rgba(255,255,255,0.15)}
+table{width:100%;border-collapse:collapse;margin-top:18px;background:rgba(255,255,255,0.03);border-radius:8px;overflow:hidden}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08);font-size:14px}
+th{background:rgba(255,140,0,0.15);color:#FF8C00;font-weight:900}
+td{color:#dde}
+tr:last-child td{border-bottom:none}
+code{background:rgba(255,140,0,0.1);color:#ffd789;padding:2px 6px;border-radius:4px;font-size:13px}
+.footer{background:#001020;border-top:1px solid #1a2a3a;padding:30px 24px;text-align:center;color:#7a8c9c;font-size:13px}
+.footer a{color:#FF8C00;text-decoration:none;margin:0 10px}
+</style>
+</head>
+<body>
+<a href="../index.html" class="back">← 슬라이드쇼로</a>
+<section class="hero">
+  <div class="tag">SUNNY AI MAGIC · #28</div>
+  <h1>4종 품질관리 스킬 (QC) — 3 평가 + 1 디버깅</h1>
+  <div class="sub">작업결과물을 수시로 검증·개선하는 4개 스킬 — 가벼움(점수 채점)부터 무거움(다차원 진단)까지 위계가 다른 도구들의 조합</div>
+  <div class="skill-badge">🛠 Skills: /review-evaluate · /pro-persona-debate · /주작-sal-da · /5times-debug-loop</div>
+</section>
+
+<section class="section">
+  <h2>📌 핵심 정의</h2>
+  <div class="lead">
+    AI 작업물에 대해 "다 됐다"를 그대로 믿지 않고, <strong>4종 품질관리 스킬을 위계적으로 운용</strong>하여 완성도를 올린다. 평가 3종은 가벼움→무거움 순으로 <code>review-evaluate</code>(점수 채점) → <code>pro-persona-debate</code>(다관점 토론) → <code>주작-sal-da</code>(다차원 진단·감사). 그리고 디버깅 1종은 <code>5times-debug-loop</code>(반복 박살). 본 4종은 <strong>특허 출원 대상</strong>(SDA Recommendation V9 — 만장일치 97.6점)인 자동 등급 부여 체계의 실행 도구이기도 하다.
+  </div>
+</section>
+
+<section class="section">
+  <h2>🏗 4종 위계 — 가벼움 → 무거움</h2>
+  <div class="arch"><img src="28_QC_skills_architecture.svg" alt="4종 품질관리 스킬 아키텍처"></div>
+</section>
+
+<section class="section">
+  <h2>🎯 4종 스킬 상세</h2>
+  <div class="skills">
+    <div class="sk s1">
+      <span class="badge">평가 1 · 가벼움</span>
+      <h3>/review-evaluate-코어1</h3>
+      <div class="role">점수 채점 · 자기수렴 100점 도달까지 최대 10회 순환</div>
+      <ul>
+        <li>파일 타입별 전문 리뷰어 (Code/Document/Report)</li>
+        <li>Cross Validator로 자기평가 편향 차단</li>
+        <li>루브릭 5~6기준 × 15~20점 = 100점</li>
+        <li>Phase 1.5 사양-구현 대조 (Spec-Code Alignment)</li>
+        <li>명시적 증상 → /5times-debug-loop 위임</li>
+      </ul>
+      <div class="weight">위치: QC 평가 3종 중 1번 · 단일 파일~디렉토리 검수</div>
+    </div>
+    <div class="sk s2">
+      <span class="badge">평가 2 · 중간</span>
+      <h3>/pro-persona-debate-코어6</h3>
+      <div class="role">3+ 전문가 페르소나 + Devil's Advocate 토론</div>
+      <ul>
+        <li>다관점 검증 — 단일 LLM 편향 차단</li>
+        <li>Devil's Advocate 필수 참여 (반대측 논거)</li>
+        <li>의사결정 정당화 + 합의안 도출</li>
+        <li>특허 #02 (BuzzLab) 기반 다중 LLM 다차원 발언 ID</li>
+      </ul>
+      <div class="weight">위치: QC 평가 3종 중 2번 · 정책·아키텍처 의사결정 검증</div>
+    </div>
+    <div class="sk s3">
+      <span class="badge">평가 3 · 무거움</span>
+      <h3>/주작-sal-da</h3>
+      <div class="role">다차원 진단·감사 · 실측 + 시스템 등급/리포트 품질 분리</div>
+      <ul>
+        <li>P0 런타임 베이스라인 필수 (빌드·서빙·스모크·스키마)</li>
+        <li>SAL Grid 3D 좌표로 산출물 분해</li>
+        <li>20개 속성 6개 그룹 × Stage별 진단</li>
+        <li><strong>시스템 등급(X/10)과 리포트 품질(Y/100) 분리 표기</strong></li>
+        <li>RuntimeFailFlag · Deferred Verdict로 결함 은닉 차단</li>
+      </ul>
+      <div class="weight">위치: QC 평가 3종 중 3번 · 납품 전 최종 감사 · 특허 출원</div>
+    </div>
+    <div class="sk s4">
+      <span class="badge">디버깅 · 박살</span>
+      <h3>/5times-debug-loop-코어3</h3>
+      <div class="role">5회 반복 디버깅 — 근본 원인 추적</div>
+      <ul>
+        <li>증상 → 가설 → 시도 → 결과 → 학습 사이클</li>
+        <li>review-evaluate · 주작-sal-da가 위임하는 도구</li>
+        <li>명시적 증상 (빌드 실패·500 에러·테스트 실패) 전담</li>
+        <li>위임 호출 가능: 라운드 소모 없이 빠르게 해결</li>
+      </ul>
+      <div class="weight">위치: QC 디버깅 1종 · 평가가 "박살내라" 위임 시 호출</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>⚡ 위임 규칙 — 누가 누구를 부르는가</h2>
+  <table>
+    <thead><tr><th>호출자</th><th>증상</th><th>위임 대상</th></tr></thead>
+    <tbody>
+      <tr><td>review-evaluate</td><td>빌드 실패 / 500 / 테스트 실패 / 반복 미해결</td><td>→ 5times-debug-loop</td></tr>
+      <tr><td>주작-sal-da</td><td>P0 Fail 카드 (빌드·API·유령 컬럼)</td><td>→ 5times-debug-loop</td></tr>
+      <tr><td>주작-sal-da</td><td>정책 결정 충돌 · Major Non-conformance</td><td>→ pro-persona-debate</td></tr>
+      <tr><td>review-evaluate</td><td>다관점 검증이 필요한 정책·구조 결정</td><td>→ pro-persona-debate</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section">
+  <h2>📜 특허 연결</h2>
+  <table>
+    <tbody>
+      <tr><td><strong>SDA Recommendation</strong></td><td>본 4종 QC가 자동 등급 부여하는 대상이 SDA(Structured Digital Artifact). 5축 신뢰성 평가의 실행 도구.</td></tr>
+      <tr><td><strong>BuzzLab (#02)</strong></td><td>pro-persona-debate의 다중 LLM 다차원 발언 ID 체계</td></tr>
+      <tr><td><strong>SAL Grid (#03·13)</strong></td><td>주작-sal-da의 3차원 좌표계 + Grid 분해 방법론</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section">
+  <h2>📂 관련 항목</h2>
+  <table>
+    <tbody>
+      <tr><td><strong>#28 SDA 특허</strong> (별도 링크)</td><td>본 4종이 산출물에 등급을 부여하는 자동화 체계</td></tr>
+      <tr><td><strong>#02</strong> 전문가 페르소나 토론</td><td>pro-persona-debate 특허 본체</td></tr>
+      <tr><td><strong>#03·13</strong> SAL Grid</td><td>주작-sal-da 좌표계 본체</td></tr>
+      <tr><td><strong>#30</strong> AI 오류 인정 + 창발</td><td>다단계 검증의 사상적 근거</td></tr>
+      <tr><td><strong>#29</strong> 스크린샷 자율 검증</td><td>UI 검증 — curl 200 ≠ 동작함 (실패 사례 교훈)</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="footer">
+  <a href="../index.html">← Sunny AI Magic 50</a><span>·</span><a href="https://www.ax-on.net/">AX 전문가 풀</a>
+</div>
+</body>
+</html>

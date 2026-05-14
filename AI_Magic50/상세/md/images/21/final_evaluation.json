@@ -1,0 +1,110 @@
+{
+  "ranking": [
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_21\\labeled\\gemini-3_1-flash-image.png",
+      "score": 97,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "요청된 모던 미니멀 스타일, 따뜻한 조명, 16:9 비율, 화면 내 추상 기호 표현 등 시각적 요구사항을 완벽하게 충족하며, 복잡한 데이터 처리 및 통찰력 도출 과정을 매우 효과적으로 시각화했습니다.",
+      "weakness": "프롬프트의 추상적인 철학('AI 오류 가능성 인정')은 텍스트 없이 그림만으로는 직접적으로 표현하기 어려운 부분이었습니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_21\\labeled\\gpt-image-1.png",
+      "score": 89,
+      "grade": "GOLD",
+      "intent": 25,
+      "text": 20,
+      "visual": 20,
+      "clarity": 9,
+      "layout": 15,
+      "strength": "요청한 모던 미니멀 일러스트 스타일, 따뜻한 조명, 16:9 구도, 화면 내 추상 기호 사용 및 한글 텍스트 없음 등 구체적인 시각적 요소들이 매우 높은 완성도로 구현되었습니다.",
+      "weakness": "AI의 오류 가능성 인정, 다단계 검증, 창발 현상 포착과 같은 추상적인 철학적 개념이 시각적으로 명확하게 전달되지 않고, 다소 모호하게 해석될 여지가 있습니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_21\\labeled\\gemini-3-pro-image.png",
+      "score": 87,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 10,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "현대적이고 미니멀한 일러스트 스타일로 AI 운영 철학의 다단계 검증과 창발적 통찰 과정을 시각적으로 명확하게 전달합니다.",
+      "weakness": "화면 속 중앙의 'AI'는 추상 기호가 아닌 텍스트(약어)로, '화면 속 텍스트는 추상 기호로만 표현'이라는 프롬프트 지시를 위반했습니다."
+    },
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_21\\labeled\\gemini-2_5-flash-image.png",
+      "score": 64,
+      "grade": "BRONZE",
+      "intent": 28,
+      "text": 0,
+      "visual": 18,
+      "clarity": 4,
+      "layout": 14,
+      "strength": "전반적인 시각적 미학(모던 미니멀리스트 일러스트, 따뜻한 조명, 구도)이 뛰어나 프롬프트의 스타일 요청에 완벽하게 부합합니다.",
+      "weakness": "모든 텍스트 라벨에 심각한 오탈자가 있어 정보 전달력을 크게 저해하며, 인포그래픽으로서 활용 불가능합니다."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_21\\labeled\\dall-e-3.png",
+      "score": 56,
+      "grade": "BRONZE",
+      "intent": 18,
+      "text": 0,
+      "visual": 18,
+      "clarity": 8,
+      "layout": 12,
+      "strength": "모던 미니멀 일러스트 스타일, 따뜻한 조명, 그리고 전반적인 시각적 완성도가 매우 뛰어납니다.",
+      "weakness": "텍스트 관련 프롬프트 지시사항(추상 기호로만 표현, 한글 텍스트 없음)을 완전히 따르지 못하고, 의미 없는 영어식 텍스트와 하단에 한글 텍스트가 포함된 점이 치명적인 약점입니다."
+    }
+  ],
+  "top_picks": [
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_21\\labeled\\gemini-3_1-flash-image.png",
+      "score": 97,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "요청된 모던 미니멀 스타일, 따뜻한 조명, 16:9 비율, 화면 내 추상 기호 표현 등 시각적 요구사항을 완벽하게 충족하며, 복잡한 데이터 처리 및 통찰력 도출 과정을 매우 효과적으로 시각화했습니다.",
+      "weakness": "프롬프트의 추상적인 철학('AI 오류 가능성 인정')은 텍스트 없이 그림만으로는 직접적으로 표현하기 어려운 부분이었습니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_21\\labeled\\gpt-image-1.png",
+      "score": 89,
+      "grade": "GOLD",
+      "intent": 25,
+      "text": 20,
+      "visual": 20,
+      "clarity": 9,
+      "layout": 15,
+      "strength": "요청한 모던 미니멀 일러스트 스타일, 따뜻한 조명, 16:9 구도, 화면 내 추상 기호 사용 및 한글 텍스트 없음 등 구체적인 시각적 요소들이 매우 높은 완성도로 구현되었습니다.",
+      "weakness": "AI의 오류 가능성 인정, 다단계 검증, 창발 현상 포착과 같은 추상적인 철학적 개념이 시각적으로 명확하게 전달되지 않고, 다소 모호하게 해석될 여지가 있습니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_21\\labeled\\gemini-3-pro-image.png",
+      "score": 87,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 10,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "현대적이고 미니멀한 일러스트 스타일로 AI 운영 철학의 다단계 검증과 창발적 통찰 과정을 시각적으로 명확하게 전달합니다.",
+      "weakness": "화면 속 중앙의 'AI'는 추상 기호가 아닌 텍스트(약어)로, '화면 속 텍스트는 추상 기호로만 표현'이라는 프롬프트 지시를 위반했습니다."
+    }
+  ]
+}

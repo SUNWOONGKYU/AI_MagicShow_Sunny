@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>SUNNY AI MAGIC 50 · #06 5단계 순차 작업</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#000814;color:#fff;line-height:1.7}
+.hero{background:radial-gradient(circle at 30% 30%,#002d5c 0%,#000814 70%);padding:50px 24px 40px;text-align:center;border-bottom:3px solid #FF8C00}
+.hero .tag{color:#FF8C00;font-size:13px;font-weight:900;letter-spacing:5px;margin-bottom:12px}
+.hero h1{font-size:clamp(22px,4vw,40px);font-weight:900;line-height:1.25;margin-bottom:8px;color:#fff;text-shadow:0 4px 24px rgba(255,140,0,0.35)}
+.hero .subtitle{font-size:clamp(13px,1.6vw,17px);color:#FF8C00;font-weight:600;letter-spacing:0.3px;margin-bottom:14px;opacity:0.92}
+.hero .meta{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.hero .badge{background:rgba(255,140,0,0.15);color:#FF8C00;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:900;letter-spacing:1px;border:1px solid rgba(255,140,0,0.4)}
+.hero .badge.type-a{background:rgba(231,76,60,0.15);color:#e74c3c;border-color:rgba(231,76,60,0.4)}
+.hero .badge.type-b{background:rgba(52,152,219,0.15);color:#3498DB;border-color:rgba(52,152,219,0.4)}
+.hero .badge.type-c{background:rgba(63,185,80,0.15);color:#3fb950;border-color:rgba(63,185,80,0.4)}
+.back{position:absolute;top:20px;left:20px;color:#FF8C00;text-decoration:none;font-size:13px;font-weight:700;padding:7px 14px;border:2px solid #FF8C00;border-radius:18px}
+.back:hover{background:#FF8C00;color:#001020}
+.content{max-width:900px;margin:0 auto;padding:40px 24px 60px}
+.content h1{display:none}
+.content h2{font-size:clamp(20px,2.8vw,28px);font-weight:900;color:#FF8C00;margin:32px 0 16px;letter-spacing:0.5px;border-left:5px solid #FF8C00;padding-left:14px}
+.content h2:first-child{margin-top:0}
+.content h3{font-size:18px;font-weight:900;color:#fff;margin:24px 0 12px}
+.content h4{font-size:16px;font-weight:700;color:#FF8C00;margin:18px 0 10px}
+.content p{font-size:15px;color:#dde;margin-bottom:14px}
+.content ul,.content ol{margin:0 0 16px 24px;color:#dde}
+.content li{font-size:15px;margin-bottom:6px;line-height:1.7}
+.content strong{color:#fff;font-weight:900}
+.content em{color:#FF8C00;font-style:normal;font-weight:600}
+.content code{background:rgba(255,140,0,0.12);color:#FF8C00;padding:2px 6px;border-radius:4px;font-size:13px;font-family:'D2Coding','Consolas',monospace}
+.content pre{background:rgba(0,0,0,0.4);border:1px solid rgba(255,140,0,0.25);border-radius:8px;padding:16px;overflow-x:auto;margin:16px 0}
+.content pre code{background:none;color:#bcd;padding:0;font-size:13px}
+.content blockquote{border-left:4px solid #FF8C00;background:rgba(255,140,0,0.05);padding:14px 20px;margin:16px 0;border-radius:0 8px 8px 0;color:#bcd}
+.content table{width:100%;border-collapse:collapse;margin:18px 0;background:rgba(255,255,255,0.03);border-radius:8px;overflow:hidden;font-size:14px}
+.content th,.content td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08)}
+.content th{background:rgba(255,140,0,0.15);color:#FF8C00;font-weight:900}
+.content td{color:#dde}
+.content tr:last-child td{border-bottom:none}
+.content hr{border:none;border-top:1px solid rgba(255,140,0,0.2);margin:30px 0}
+.content a{color:#FF8C00;text-decoration:none;border-bottom:1px dashed rgba(255,140,0,0.4)}
+.content a:hover{border-bottom-style:solid}
+.footer{background:#001020;border-top:1px solid #1a2a3a;padding:24px;text-align:center;color:#7a8c9c;font-size:13px}
+.footer a{color:#FF8C00;text-decoration:none;margin:0 10px}
+</style>
+</head>
+<body>
+<a href="../index.html" class="back">← 슬라이드쇼로</a>
+<section class="hero">
+  <div class="tag">SUNNY AI MAGIC 50 · #06</div>
+  <h1>5단계 순차 작업</h1>
+  <div class="subtitle">한 번에 하지 말고 쪼개서 실행·검증을 반복</div>
+  <div class="meta">
+    <span class="badge">G2 · 실행 프로세스</span>
+    <span class="badge type-c">C타입</span>
+    
+  </div>
+</section>
+
+<section class="content">
+<h2>한 줄 정의</h2>
+<p>어떤 작업이든 한 번에 통째로 하지 않고 <strong>다섯 단계로 쪼개어 실행과 검증을 번갈아 다섯 번 반복</strong>하는 본인 표준 워크플로우. 단계마다 <em>실행→검증</em> 사이클을 거치고 게이트를 통과한 다음에만 다음 단계로 넘어간다. 슬라이드쇼 20번 <em>"매직 2"</em>에서 강의 메인 메시지로 인용.</p>
+<h2>큰 작업이든 작은 작업이든 마찬가지</h2>
+<p>본인이 반복 운용에서 가장 많이 본 실패 패턴은 단 한 마디로 요약된다. <em>"이거 한 번에 다 해줘."</em> AI에게 한 번에 6,000자, 한 번에 50개 파일, 한 번에 전체 시스템을 던지면 결과물은 그럴듯해 보이지만 어디가 틀렸는지 사람 머리로 추적이 안 된다. 검증 비용이 결과물 작성 비용을 넘어선다.</p>
+<p>본인이 강조하고 싶은 것은 이 함정이 <strong>큰 작업에만 있는 게 아니라는 점</strong>이다. 5분짜리 작은 작업도 한 번에 던지면 같은 일이 일어난다. 작은 코드를 한 번에 짜게 두면 그 안에 든 두 줄짜리 버그가 결과물 전체를 무력화한다. 큰 작업이든 작은 작업이든 본인의 원칙은 같다. <em>다섯 단계로 쪼개라. 단계마다 검증하라.</em></p>
+<h2>다섯 단계의 의미</h2>
+<p>본인이 <em>다섯</em>을 표준으로 박은 데에는 이유가 있다. 셋은 너무 거칠어 중간 검증 지점이 부족하고, 일곱은 너무 잘게 쪼개 단계 자체가 부담이 된다. 다섯은 <em>분석→설계→실행→검증→정리</em>라는 사고의 자연스러운 흐름과 정확히 들어맞고, 단계 사이마다 한 번씩 사람이 확인을 끼워 넣었을 때 검증 횟수가 작업 부담을 압도하지 않는 마지막 숫자다.</p>
+<p>본인이 운영하는 다섯 단계의 표준형은 다음과 같다.</p>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>명칭</th>
+<th>실행</th>
+<th>검증</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1</td>
+<td>분석·이해</td>
+<td>자료 읽기·요구사항 정리</td>
+<td>이해도 점검</td>
+</tr>
+<tr>
+<td>S2</td>
+<td>설계·계획</td>
+<td>구조·접근 방식 제안</td>
+<td>방향 승인</td>
+</tr>
+<tr>
+<td>S3</td>
+<td>구현·생산</td>
+<td>실제 결과물 만들기</td>
+<td>1차 결과물 검토</td>
+</tr>
+<tr>
+<td>S4</td>
+<td>검증·수정</td>
+<td>자기 비판·약점 보강</td>
+<td>품질 확인</td>
+</tr>
+<tr>
+<td>S5</td>
+<td>정리·자산화</td>
+<td>회고·문서·Wiki 정리</td>
+<td>다음 작업 자산 확정</td>
+</tr>
+</tbody>
+</table>
+<p>도메인이 달라져도 다섯이라는 골격은 그대로 유지된다. 글쓰기는 <em>자료 수집 → 목차 → 초안 → 교정 → 최종</em> 다섯, 개발은 <em>분석 → 설계 → 구현 → 테스트 → 배포</em> 다섯, 이미지는 <em>컨셉 → 생성 → 베스트 선별 → 후처리 → 게재</em> 다섯, 특허는 <em>선행조사 → 차별점 → 청구항 → 명세서 → 출원</em> 다섯이다. 본인이 도메인을 바꿔도 다섯이라는 숫자를 깨지 않는 것은, 검증 횟수가 다섯 번을 밑돌면 거의 항상 어딘가에서 누수가 생기더라는 누적 경험치 때문이다.</p>
+<h2>실행-검증 사이클이 단계의 안쪽이다</h2>
+<p>다섯 단계 각각은 단순히 <em>해라</em>가 아니라 <strong>실행과 검증이 한 쌍으로 묶인 한 사이클</strong>이다. 사이클은 두 동작으로 닫힌다.</p>
+<p>첫 동작은 <em>실행</em>이다. 그 단계에 할당된 작업을 AI가 수행한다. 분량은 한 사람이 한 자리에서 검토할 수 있는 크기까지로 의도적으로 줄인다. 본인 경험상 한 단계의 결과물은 본문 1,200자, 코드는 한 모듈, 이미지는 다섯 장 안쪽이 적정 크기다.</p>
+<p>두 번째 동작은 <em>검증</em>이다. 실행 직후 그 결과물만 본다. 다음 단계로 넘어가기 전에 <em>지금 이 결과가 옳은가</em>에 답이 나와야 한다. 검증을 사람이 직접 해도 되고 다른 인스턴스에 던져도 된다(#05 듀얼 모드의 크로스 체킹). 검증을 거치지 않은 단계의 결과를 다음 단계 입력으로 삼는 순간 오류는 누적되고 마지막에 가서야 폭발한다.</p>
+<p>두 동작 사이에는 <strong>게이트</strong>가 있다. 게이트가 <em>열림</em>으로 바뀌어야만 다음 단계가 시작된다. 본인 운용에서 게이트는 사람의 한 마디 <em>"OK, 다음"</em>으로 구현되지만, 자동 도구일 때는 테스트 통과·빌드 성공·외부 검증 같은 객관 신호로 대체된다. 다섯 단계 사이에 게이트는 네 번 들어가고, 마지막 S5 뒤에는 다음 작업으로 자산을 이관하는 다섯 번째 게이트가 있다.</p>
+<h2>운용 절차</h2>
+<p>본인이 작업을 시작할 때 가장 먼저 하는 일은 그 작업의 다섯 단계를 한 줄씩 적어 두는 것이다. 적지 않고 머릿속에만 두면 단계가 흐려지고 단계 사이의 게이트가 사라진다. 본인은 작업 시작 시 다음과 같은 한 단락을 먼저 만든다.</p>
+<blockquote>
+<p>이 작업을 다음 다섯 단계로 진행한다. S1: 자료 5개 항목 원문 확인. S2: 5섹션 구조 초안. S3: 본문 작성. S4: 자기 비판·약점 보강. S5: 보고 + Wiki 자산화.</p>
+</blockquote>
+<p>각 단계가 끝나면 정해진 형식으로 보고한다. 본인이 쓰는 형식은 다음 세 줄이다.</p>
+<pre><code>S{N} 완료
+- 산출물: &lt;위치&gt;
+- 검증 결과: &lt;한 줄&gt;
+- 다음 단계 진입 여부: 사용자 결정
+</code></pre>
+<p>이 보고가 곧 게이트다. <em>다음 단계 진입 여부: 사용자 결정</em>이라는 줄이 박혀 있어야 AI가 멋대로 다음 단계로 폭주하지 않는다. 본인이 <em>진행</em>이라고 답해야 다음 단계가 시작된다.</p>
+<p>큰 작업의 경우 본인은 시작 전에 #04 Plan Mode로 다섯 단계 계획 전체를 먼저 만들고 승인 후 실행 모드로 전환한다. 단계 간 컨텍스트 인계는 누적 .md 한 장에 단계별 결과를 차곡차곡 쌓아 다음 단계 입력으로 삼는다. S5의 자산화는 빠뜨리면 다음 작업이 다시 처음부터 시작되므로 절대 생략하지 않는다.</p>
+<h2>자주 빠지는 함정</h2>
+<p>본인이 가장 자주 본 실수는 세 가지다. 첫째, 다섯 단계를 미리 정하지 않고 즉흥 진행. 중간에 길을 잃는다. 둘째, 검증 단계를 생략하고 다음 단계로 폭주. 마지막 단계에 가서 어디가 처음 틀렸는지 추적이 안 된다. 셋째, 실행하는 인스턴스가 자기 결과를 자기가 검증. 자기검증 폐쇄 루프가 발생한다(#05 듀얼 모드의 검증자 분리 원칙).</p>
+<p>세 번째 함정은 본인이 듀얼 모드와 본 항목을 자매 노하우로 묶는 이유다. 한 인스턴스가 <em>실행자</em>이자 <em>검증자</em>이면 검증은 형식이 된다. 검증은 다른 인스턴스나 사람의 눈을 통과해야 한다.</p>
+<h2>왜 작동하는가</h2>
+<p>한 번에 다 하면 사람이 검증에 들이는 시간이 작성 시간보다 길어진다. 다섯으로 쪼개면 한 단계의 검증 시간이 그 단계의 작성 시간보다 짧아진다. 단계 수가 늘어도 총합은 줄어든다. 잘못 가도 한 단계 분량만 폐기하면 된다. 사용자의 통제력과 AI의 정확도가 동시에 확보된다. 이것이 본인이 <em>매직 2</em>로 이 노하우를 슬라이드 메인 메시지에 박은 이유다.</p>
+<h2>관련 항목</h2>
+<ul>
+<li><strong>#04 실행 전 학습·검토·계획</strong> — 다섯 단계 계획을 미리 짜는 도구</li>
+<li><strong>#05 Dual Mode 실행</strong> — 단계의 실행자-검증자 분리</li>
+<li><strong>#07 아젠다별 설명·승인</strong> — 본 항목의 단발 버전</li>
+<li><strong>#12 MBO</strong> — 한 단계 = 1 MBO 단위</li>
+<li><strong>#13 SAL Grid 개발방법론</strong> — Stage 축이 곧 다섯 단계의 일반화</li>
+</ul>
+</section>
+
+<div class="footer">
+  <a href="../index.html">← SUNNY AI MAGIC 50</a>
+  <div style="margin-top:10px;color:#5a6c7c;font-size:12px;letter-spacing:0.3px">© 2026 SUN WOONGKYU · SUNNY AI MAGIC 50 · CC BY-NC-ND 4.0 · 특허 별도 보유</div>
+</div>
+</body>
+</html>

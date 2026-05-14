@@ -11,3 +11,7 @@ slide12_image.jpg
 /slide7.png
 v3/
 .vercel
+
+# Video output (too large for GitHub)
+AI_Magic50/videos/*/output/
+*.mp4

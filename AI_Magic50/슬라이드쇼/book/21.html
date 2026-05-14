@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>SUNNY AI MAGIC 50 · #21 대량 검색 시 토큰비를 줄이려면 네이버·구글 검색 활용하기</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#000814;color:#fff;line-height:1.7}
+.hero{background:radial-gradient(circle at 30% 30%,#002d5c 0%,#000814 70%);padding:50px 24px 40px;text-align:center;border-bottom:3px solid #FF8C00}
+.hero .tag{color:#FF8C00;font-size:13px;font-weight:900;letter-spacing:5px;margin-bottom:12px}
+.hero h1{font-size:clamp(22px,4vw,40px);font-weight:900;line-height:1.25;margin-bottom:8px;color:#fff;text-shadow:0 4px 24px rgba(255,140,0,0.35)}
+.hero .subtitle{font-size:clamp(13px,1.6vw,17px);color:#FF8C00;font-weight:600;letter-spacing:0.3px;margin-bottom:14px;opacity:0.92}
+.hero .meta{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.hero .badge{background:rgba(255,140,0,0.15);color:#FF8C00;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:900;letter-spacing:1px;border:1px solid rgba(255,140,0,0.4)}
+.hero .badge.type-a{background:rgba(231,76,60,0.15);color:#e74c3c;border-color:rgba(231,76,60,0.4)}
+.hero .badge.type-b{background:rgba(52,152,219,0.15);color:#3498DB;border-color:rgba(52,152,219,0.4)}
+.hero .badge.type-c{background:rgba(63,185,80,0.15);color:#3fb950;border-color:rgba(63,185,80,0.4)}
+.back{position:absolute;top:20px;left:20px;color:#FF8C00;text-decoration:none;font-size:13px;font-weight:700;padding:7px 14px;border:2px solid #FF8C00;border-radius:18px}
+.back:hover{background:#FF8C00;color:#001020}
+.content{max-width:900px;margin:0 auto;padding:40px 24px 60px}
+.content h1{display:none}
+.content h2{font-size:clamp(20px,2.8vw,28px);font-weight:900;color:#FF8C00;margin:32px 0 16px;letter-spacing:0.5px;border-left:5px solid #FF8C00;padding-left:14px}
+.content h2:first-child{margin-top:0}
+.content h3{font-size:18px;font-weight:900;color:#fff;margin:24px 0 12px}
+.content h4{font-size:16px;font-weight:700;color:#FF8C00;margin:18px 0 10px}
+.content p{font-size:15px;color:#dde;margin-bottom:14px}
+.content ul,.content ol{margin:0 0 16px 24px;color:#dde}
+.content li{font-size:15px;margin-bottom:6px;line-height:1.7}
+.content strong{color:#fff;font-weight:900}
+.content em{color:#FF8C00;font-style:normal;font-weight:600}
+.content code{background:rgba(255,140,0,0.12);color:#FF8C00;padding:2px 6px;border-radius:4px;font-size:13px;font-family:'D2Coding','Consolas',monospace}
+.content pre{background:rgba(0,0,0,0.4);border:1px solid rgba(255,140,0,0.25);border-radius:8px;padding:16px;overflow-x:auto;margin:16px 0}
+.content pre code{background:none;color:#bcd;padding:0;font-size:13px}
+.content blockquote{border-left:4px solid #FF8C00;background:rgba(255,140,0,0.05);padding:14px 20px;margin:16px 0;border-radius:0 8px 8px 0;color:#bcd}
+.content table{width:100%;border-collapse:collapse;margin:18px 0;background:rgba(255,255,255,0.03);border-radius:8px;overflow:hidden;font-size:14px}
+.content th,.content td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08)}
+.content th{background:rgba(255,140,0,0.15);color:#FF8C00;font-weight:900}
+.content td{color:#dde}
+.content tr:last-child td{border-bottom:none}
+.content hr{border:none;border-top:1px solid rgba(255,140,0,0.2);margin:30px 0}
+.content a{color:#FF8C00;text-decoration:none;border-bottom:1px dashed rgba(255,140,0,0.4)}
+.content a:hover{border-bottom-style:solid}
+.footer{background:#001020;border-top:1px solid #1a2a3a;padding:24px;text-align:center;color:#7a8c9c;font-size:13px}
+.footer a{color:#FF8C00;text-decoration:none;margin:0 10px}
+</style>
+</head>
+<body>
+<a href="../index.html" class="back">← 슬라이드쇼로</a>
+<section class="hero">
+  <div class="tag">SUNNY AI MAGIC 50 · #21</div>
+  <h1>대량 검색 시 토큰비를 줄이려면 네이버·구글 검색 활용하기</h1>
+  <div class="subtitle">Claude·ChatGPT는 검색 엔진이 없고 외부 서비스를 빌려 쓰니 네이버·구글을 통해 검색</div>
+  <div class="meta">
+    <span class="badge">G3 · 실행 방법</span>
+    <span class="badge type-c">C타입</span>
+    
+  </div>
+</section>
+
+<section class="content">
+<h2>한 줄 정의</h2>
+<p>생성형 AI에게 직접 웹 검색을 시키면 <strong>크레딧 폭탄</strong>을 맞는다. Claude·ChatGPT는 자체 검색 엔진이 없어 외부 검색 서비스를 빌려 쓰고 그 비용이 사용자에게 전가되기 때문. <strong>검색은 검색 전문인 네이버·구글에서 사람이 직접 처리</strong>하고, AI에는 정제된 결과만 투입해 토큰·크레딧을 절감하는 운용 원칙.</p>
+<h2>왜 이 노하우가 중요한가</h2>
+<p>본인 누적 운용에서 가장 큰 비용 누수가 발생하는 지점이 <strong>AI에게 "찾아봐"를 시키는 순간</strong>이다. 이유는 단순하다 — <strong>AI마다 검색 인프라 구조가 다르고, 검색 엔진이 없는 AI는 외부 서비스를 호출당 과금으로 빌려 쓴다</strong>.</p>
+<h3>AI사별 검색 인프라 차이</h3>
+<table>
+<thead>
+<tr>
+<th>AI</th>
+<th>검색 인프라</th>
+<th>비용 구조</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gemini</strong></td>
+<td>자체 Google 검색 (Google Search Grounding 무료 제공)</td>
+<td><strong>추가 비용 없음</strong></td>
+</tr>
+<tr>
+<td><strong>Perplexity</strong></td>
+<td>자체 검색 엔진 구축</td>
+<td><strong>추가 비용 없음</strong></td>
+</tr>
+<tr>
+<td><strong>Claude</strong></td>
+<td>검색 엔진 없음 — 외부 web_search 도구 연동</td>
+<td><strong>호출 1회당 $0.01 별도 과금</strong></td>
+</tr>
+<tr>
+<td><strong>ChatGPT</strong></td>
+<td>검색 엔진 없음 — Bing 연동</td>
+<td><strong>호출당 별도 과금</strong></td>
+</tr>
+</tbody>
+</table>
+<p>→ 한쪽은 자기 인프라를 그냥 쓰는 거고, 다른 쪽은 남의 검색을 빌려 쓰고 그 요금이 그대로 사용자 크레딧에서 빠진다. 같은 "검색" 명령어를 쳐도 백엔드 구조가 다르다.</p>
+<blockquote>
+<p>참고: Claude·ChatGPT는 <strong>API 미사용 구독 모델에서도</strong> 웹 검색을 시키면 월 사용량이 일반 대화 대비 훨씬 크게 차감된다. "구독이라 무료"가 아니다.</p>
+</blockquote>
+<p>특허 출원서 한 건을 위해 선행기술 50건을 Claude로 검색하면 web_search $0.01 × 50 = $0.50 + 결과 페이지 토큰화 비용. 30개 동시 운용 환경에서 인스턴스 셋만 검색을 돌려도 5시간 Rate Limit이 한 시간 만에 소진되고 크레딧도 같이 녹는다.</p>
+<p>반면 네이버·구글 검색창에 사람이 직접 키워드 넣고 결과 제목·요약만 추려서 AI에 던지면 같은 정보를 <strong>1/20 토큰 + 검색 호출 과금 0</strong>으로 처리할 수 있다. 컨텍스트도 깨끗하게 유지된다.</p>
+<p><strong>원리 한 줄</strong>: 검색은 검색 전문 엔진의 일, AI는 정제된 결과로 사고만 — 도구별 전문성으로 역할 분리.</p>
+<h2>핵심 개념</h2>
+<p><strong>검색 비용 = (쿼리 횟수 × 외부 검색 호출 과금) + (결과 페이지 토큰 × 인스턴스 수)</strong></p>
+<p>Gemini·Perplexity는 첫 번째 항이 0이라 본 챕터 규칙이 덜 절박하지만, <strong>Claude·ChatGPT는 두 항 모두 사용자 부담</strong> 이라 절감 효과가 극대화된다.</p>
+<p>토큰 절감 3원칙:</p>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>AI 수행</th>
+<th>사람 수행</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>키워드 도출</td>
+<td>O (AI 강점)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>검색 실행</td>
+<td>X (비쌈)</td>
+<td><strong>O (네이버·구글)</strong></td>
+</tr>
+<tr>
+<td>결과 1차 필터</td>
+<td>X</td>
+<td><strong>O (제목·요약 보고)</strong></td>
+</tr>
+<tr>
+<td>본문 정독·종합</td>
+<td><strong>O (AI 강점)</strong></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>핵심은 <strong>AI는 사고 엔진, 검색은 사람의 눈</strong>으로 역할 분리. 사람이 5초 만에 거를 수 있는 무관한 결과를 AI에게 토큰으로 태워 거르게 하는 것은 낭비다.</p>
+<p>대안 도구:
+- <strong>네이버</strong>: 한국어 자료, 블로그·카페·뉴스
+- <strong>구글</strong>: 영문 논문·GitHub·StackOverflow·해외 특허
+- <strong>구글 학술검색</strong>: 논문 PDF 직링크
+- <strong>KIPRIS·Google Patents</strong>: 특허 검색은 반드시 전용 사이트
+- <strong>DuckDuckGo</strong>: 익명 검색·중복 제거</p>
+<h2>실전 사용법</h2>
+<p><strong>1단계 — AI에 키워드 5~10개 추출 시키기</strong>
+"SAL Grid 개발방법론 관련 선행기술 검색용 키워드 10개 뽑아줘. 영문·한글 혼합."</p>
+<p><strong>2단계 — 사람이 네이버·구글에 직접 검색</strong>
+키워드별 상위 10건 제목·URL 메모장에 복사. 본인은 클라우드 동기화 폴더의 임시 .txt에 모은다.</p>
+<p><strong>3단계 — AI에 1차 필터 시키기</strong>
+"이 50건 중 SAL Grid 3차원 좌표 관점에서 관련성 높은 것 10건 골라."</p>
+<p><strong>4단계 — 사람이 10건 본문 PDF·HTML 다운로드</strong>
+AI 내장 검색이 아니라 직접 다운로드. 토큰 0.</p>
+<p><strong>5단계 — AI에 본문 투입해 비교·종합</strong>
+이때부터 AI 강점 발휘. 차별점·약점·창발 포인트 추출.</p>
+<p><strong>본인 운용 결과</strong>: 특허 10-2026-0009425 SAL Grid 출원 시 선행기술 80건 검토를 본 방식으로 처리. Claude 내장 web_search 추정치 대비 <strong>토큰비 약 1/15 + 검색 호출 과금 $0.80 절감</strong>으로 완료. 같은 작업을 #10 트랙터 운전 패러다임과 결합하면 한 번 익혀둔 검색 루틴이 매 작업마다 비용을 깎는다.</p>
+<p><strong>주의</strong>: 시급한 단답·실시간 정보(주가·환율 등)는 AI 내장 검색이 더 빠르다. 또 Gemini는 자체 검색이라 비용 부담이 거의 없으니 가벼운 단발 검색은 Gemini에 위임하는 것도 선택지. <strong>대량·심층</strong> 검색에서 Claude·ChatGPT를 쓸 때 본 방식 적용이 가장 효과적.</p>
+<h2>관련 항목</h2>
+<ul>
+<li><strong>#23 API 비용 최적화</strong> — 본 방식이 32번의 검색 비용 축의 구체화</li>
+<li><strong>#27 특허출원서 작성</strong> — 선행기술 검색에서 본 방식 효과 극대화</li>
+<li><strong>#11 외부 스킬·에이전트 발굴</strong> — revfactory/skills 같은 저장소 탐색도 동일 패턴</li>
+<li><strong>#4 /model 명령</strong> — 검색 결과 1차 필터는 Haiku로 충분</li>
+</ul>
+</section>
+
+<div class="footer">
+  <a href="../index.html">← SUNNY AI MAGIC 50</a>
+  <div style="margin-top:10px;color:#5a6c7c;font-size:12px;letter-spacing:0.3px">© 2026 SUN WOONGKYU · SUNNY AI MAGIC 50 · CC BY-NC-ND 4.0 · 특허 별도 보유</div>
+</div>
+</body>
+</html>

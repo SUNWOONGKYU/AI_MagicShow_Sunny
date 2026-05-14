@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#001a3a"/>
+      <stop offset="100%" stop-color="#000814"/>
+    </linearGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#FF8C00"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <text x="600" y="44" font-size="26" font-weight="900" fill="#FF8C00" text-anchor="middle">이미지 마스터 디스패처 — 3 Track Auto-Routing</text>
+  <text x="600" y="72" font-size="13" fill="#bcd" text-anchor="middle">Photo / Chart / Architecture 트랙 자동 분기 · GOLD 등급 깔때기 (15 → 5 → 1~2장)</text>
+
+  <!-- Router -->
+  <rect x="440" y="100" width="320" height="80" rx="12" fill="rgba(255,140,0,0.18)" stroke="#FF8C00" stroke-width="2"/>
+  <text x="600" y="130" font-size="16" font-weight="900" fill="#FF8C00" text-anchor="middle">Phase 0 — 의도 판단 라우터</text>
+  <text x="600" y="152" font-size="11" fill="#fff" text-anchor="middle">키워드 매핑 + V50/V60 우선순위 룰</text>
+  <text x="600" y="168" font-size="10" fill="#bcd" text-anchor="middle">--track photo / chart / arch 토큰으로 강제 가능</text>
+
+  <line x1="510" y1="185" x2="195" y2="245" stroke="#FF8C00" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="600" y1="185" x2="600" y2="245" stroke="#FF8C00" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="690" y1="185" x2="1005" y2="245" stroke="#FF8C00" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Photo Track -->
+  <rect x="40" y="250" width="340" height="350" rx="12" fill="rgba(52,152,219,0.08)" stroke="#3498DB" stroke-width="1.5"/>
+  <text x="210" y="278" font-size="15" font-weight="900" fill="#3498DB" text-anchor="middle">Photo Track</text>
+  <text x="210" y="296" font-size="11" fill="#7fbfff" text-anchor="middle">사실적 사진 / AI 일러스트 / 로고 / 스티커</text>
+
+  <rect x="58" y="310" width="304" height="50" rx="6" fill="rgba(52,152,219,0.18)"/>
+  <text x="210" y="332" font-size="12" font-weight="900" fill="#fff" text-anchor="middle">[1] 15장 생성</text>
+  <text x="210" y="350" font-size="10" fill="#bcd" text-anchor="middle">5모델 × 3변형 (best-of 3)</text>
+
+  <rect x="58" y="368" width="304" height="50" rx="6" fill="rgba(52,152,219,0.18)"/>
+  <text x="210" y="390" font-size="12" font-weight="900" fill="#fff" text-anchor="middle">[2] 5장 선별 (Vision 1차 채점)</text>
+  <text x="210" y="408" font-size="10" fill="#bcd" text-anchor="middle">모델별 베스트 1장</text>
+
+  <rect x="58" y="426" width="304" height="50" rx="6" fill="rgba(52,152,219,0.18)"/>
+  <text x="210" y="448" font-size="12" font-weight="900" fill="#fff" text-anchor="middle">[3] 5장 마감</text>
+  <text x="210" y="466" font-size="10" fill="#bcd" text-anchor="middle">Pillow 라벨 / 워터마크</text>
+
+  <rect x="58" y="484" width="304" height="64" rx="6" fill="rgba(255,140,0,0.18)" stroke="#FF8C00"/>
+  <text x="210" y="508" font-size="12" font-weight="900" fill="#FF8C00" text-anchor="middle">[4] 1~2장 추천 (GOLD)</text>
+  <text x="210" y="525" font-size="10" fill="#fff" text-anchor="middle">Vision 2차 정밀 채점</text>
+  <text x="210" y="540" font-size="10" fill="#bcd" text-anchor="middle">GOLD 등급만 통과</text>
+
+  <text x="210" y="572" font-size="10" fill="#7fbfff" text-anchor="middle">Gemini · GPT Image · DALL-E</text>
+  <text x="210" y="588" font-size="10" fill="#7fbfff" text-anchor="middle">/ai-image-기본</text>
+
+  <!-- Chart Track -->
+  <rect x="430" y="250" width="340" height="350" rx="12" fill="rgba(155,89,182,0.08)" stroke="#9b59b6" stroke-width="1.5"/>
+  <text x="600" y="278" font-size="15" font-weight="900" fill="#9b59b6" text-anchor="middle">Chart Track</text>
+  <text x="600" y="296" font-size="11" fill="#c39bd3" text-anchor="middle">다이어그램 / 표 / 차트 / 대시보드</text>
+
+  <rect x="448" y="310" width="304" height="50" rx="6" fill="rgba(155,89,182,0.18)"/>
+  <text x="600" y="332" font-size="12" font-weight="900" fill="#fff" text-anchor="middle">Mermaid 코드 생성</text>
+  <text x="600" y="350" font-size="10" fill="#bcd" text-anchor="middle">플로우차트 / 시퀀스 / 간트 / ER</text>
+
+  <rect x="448" y="368" width="304" height="50" rx="6" fill="rgba(155,89,182,0.18)"/>
+  <text x="600" y="390" font-size="12" font-weight="900" fill="#fff" text-anchor="middle">HTML + CSS 대시보드</text>
+  <text x="600" y="408" font-size="10" fill="#bcd" text-anchor="middle">반응형 카드 그리드</text>
+
+  <rect x="448" y="426" width="304" height="50" rx="6" fill="rgba(155,89,182,0.18)"/>
+  <text x="600" y="448" font-size="12" font-weight="900" fill="#fff" text-anchor="middle">SVG 직접 작성</text>
+  <text x="600" y="466" font-size="10" fill="#bcd" text-anchor="middle">관계도 / 인포그래픽</text>
+
+  <rect x="448" y="484" width="304" height="64" rx="6" fill="rgba(155,89,182,0.18)"/>
+  <text x="600" y="508" font-size="12" font-weight="900" fill="#fff" text-anchor="middle">Pillow 이미지 합성</text>
+  <text x="600" y="526" font-size="10" fill="#bcd" text-anchor="middle">한글 폰트 (malgun.ttf)</text>
+  <text x="600" y="540" font-size="10" fill="#bcd" text-anchor="middle">데이터 시각화</text>
+
+  <text x="600" y="572" font-size="10" fill="#c39bd3" text-anchor="middle">Claude 코드 직접 생성</text>
+  <text x="600" y="588" font-size="10" fill="#c39bd3" text-anchor="middle">/create-image-기본</text>
+
+  <!-- Architecture Track -->
+  <rect x="820" y="250" width="340" height="350" rx="12" fill="rgba(63,185,80,0.08)" stroke="#3fb950" stroke-width="1.5"/>
+  <text x="990" y="278" font-size="15" font-weight="900" fill="#3fb950" text-anchor="middle">Architecture Track</text>
+  <text x="990" y="296" font-size="11" fill="#7fdc7f" text-anchor="middle">V50/V60 시스템 구조도 (전용 스타일)</text>
+
+  <rect x="838" y="310" width="304" height="50" rx="6" fill="rgba(63,185,80,0.18)"/>
+  <text x="990" y="332" font-size="12" font-weight="900" fill="#fff" text-anchor="middle">컬러팔레트 고정 (라이트모드 13컬러)</text>
+  <text x="990" y="350" font-size="10" fill="#bcd" text-anchor="middle">BuzzLab / PoliticianFinder 통일</text>
+
+  <rect x="838" y="368" width="304" height="50" rx="6" fill="rgba(63,185,80,0.18)"/>
+  <text x="990" y="390" font-size="12" font-weight="900" fill="#fff" text-anchor="middle">섹션 구조화 (①②③ 영역 분할)</text>
+  <text x="990" y="408" font-size="10" fill="#bcd" text-anchor="middle">파이프라인 + 도구 목록</text>
+
+  <rect x="838" y="426" width="304" height="50" rx="6" fill="rgba(63,185,80,0.18)"/>
+  <text x="990" y="448" font-size="12" font-weight="900" fill="#fff" text-anchor="middle">반복 사용 가능한 패턴</text>
+  <text x="990" y="466" font-size="10" fill="#bcd" text-anchor="middle">단일 SVG (인쇄 가능)</text>
+
+  <rect x="838" y="484" width="304" height="64" rx="6" fill="rgba(63,185,80,0.18)"/>
+  <text x="990" y="508" font-size="12" font-weight="900" fill="#fff" text-anchor="middle">화살표·마커·그라데이션 표준</text>
+  <text x="990" y="526" font-size="10" fill="#bcd" text-anchor="middle">marker arr / linearGradient</text>
+  <text x="990" y="540" font-size="10" fill="#bcd" text-anchor="middle">텍스트 계층 (28/16/12px)</text>
+
+  <text x="990" y="572" font-size="10" fill="#7fdc7f" text-anchor="middle">Claude 직접 SVG 작성</text>
+  <text x="990" y="588" font-size="10" fill="#7fdc7f" text-anchor="middle">/architecture-svg</text>
+
+  <!-- Shared Resources Bar -->
+  <rect x="40" y="620" width="1120" height="80" rx="12" fill="rgba(255,140,0,0.06)" stroke="rgba(255,140,0,0.35)"/>
+  <text x="600" y="645" font-size="13" font-weight="900" fill="#FF8C00" text-anchor="middle">🔧 공유 자원 (3트랙 공통 SSOT)</text>
+  <text x="120" y="670" font-size="11" fill="#fff">📁 palette.md</text>
+  <text x="120" y="685" font-size="10" fill="#bcd">컬러 팔레트 카탈로그</text>
+  <text x="370" y="670" font-size="11" fill="#fff">🔤 fonts.md</text>
+  <text x="370" y="685" font-size="10" fill="#bcd">한글 폰트 처리 (malgun.ttf)</text>
+  <text x="640" y="670" font-size="11" fill="#fff">💾 output-rules.md</text>
+  <text x="640" y="685" font-size="10" fill="#bcd">저장 위치 규칙</text>
+  <text x="900" y="670" font-size="11" fill="#fff">✅ quality-checklist.md</text>
+  <text x="900" y="685" font-size="10" fill="#bcd">공통 품질 검증</text>
+</svg>

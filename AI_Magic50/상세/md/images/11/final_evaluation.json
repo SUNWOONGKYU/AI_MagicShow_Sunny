@@ -1,0 +1,84 @@
+{
+  "ranking": [
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_11\\labeled\\gemini-2_5-flash-image.png",
+      "score": 86,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 10,
+      "visual": 19,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "자동화 인프라의 핵심 구성 요소와 흐름이 명확하고 시각적으로 매력적인 일러스트 스타일로 잘 구현되었습니다.",
+      "weakness": "화면 속 텍스트가 추상 기호 대신 의미를 알 수 없는 영어 유사 문자로 표현되어 정보 전달의 정확성을 저해합니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_11\\labeled\\gpt-image-1.png",
+      "score": 74,
+      "grade": "SILVER",
+      "intent": 20,
+      "text": 5,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "자동화 인프라의 핵심 구조(2트랙 기획 → 1엔진 제작 → 1일 1영상 업로드)가 매우 명확하고 깔끔한 미니멀 일러스트 스타일로 표현되었습니다.",
+      "weakness": "화면 속 텍스트를 '추상 기호로만 표현'하고 '한글 텍스트 없음'으로 요청했으나, 영어 단어(Plan-A, Produce 등)가 사용되어 핵심적인 텍스트 제약을 따르지 못했습니다."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_11\\labeled\\dall-e-3.png",
+      "score": 57,
+      "grade": "BRONZE",
+      "intent": 18,
+      "text": 0,
+      "visual": 18,
+      "clarity": 8,
+      "layout": 13,
+      "strength": "현대적이고 미니멀한 일러스트 스타일과 따뜻한 조명, 그리고 자동화된 워크플로우의 전체적인 구도를 매우 효과적으로 시각화했습니다.",
+      "weakness": "화면 속 텍스트는 추상 기호로만 표현하고 한글 텍스트를 사용하지 말라는 핵심 지시사항을 완전히 이행하지 못했으며, 대신 영어와 판독 불가능한 왜곡된 텍스트가 다수 포함되어 있습니다."
+    },
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_11\\labeled\\gemini-3_1-flash-image.png",
+      "score": 56,
+      "grade": "BRONZE",
+      "intent": 12,
+      "text": 2,
+      "visual": 18,
+      "clarity": 10,
+      "layout": 14,
+      "strength": "모던하고 미니멀한 일러스트 스타일과 따뜻한 조명, 균형 잡힌 구도는 시각적으로 매우 완성도가 높고 매력적입니다. 좌측 모니터의 워크플로우 다이어그램은 'Plan-A/B'와 'Produce' 개념을 명확하게 전달합니다.",
+      "weakness": "가장 큰 약점은 '화면 속 텍스트는 추상 기호로만 표현, 한글 텍스트 없음'이라는 프롬프트 지시를 위반하여 화면에 실제 영어 단어가 표시되고 하단에 한글이 포함된 텍스트가 있다는 점입니다. 또한 '헤드리스 모드(#42)'와 '멀티 모델 이미지 제작(#47)'과 같은 구체적인 기술적 요소들이 시각적으로 전혀 표현되지 않았습니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_11\\labeled\\gemini-3-pro-image.png",
+      "score": 55,
+      "grade": "BRONZE",
+      "intent": 10,
+      "text": 0,
+      "visual": 18,
+      "clarity": 12,
+      "layout": 15,
+      "strength": "요청된 모던 미니멀 일러스트 스타일, 따뜻한 조명, 그리고 컴퓨터 작업 장면 및 워크플로우 다이어그램의 시각적 구성 및 정렬이 매우 뛰어납니다.",
+      "weakness": "화면 속 텍스트를 추상 기호로만 표현하고 한글 텍스트를 사용하지 말라는 핵심적인 부정 제약 조건을 완전히 위반하여, 영어와 한글 텍스트를 명확하게 포함하고 있습니다."
+    }
+  ],
+  "top_picks": [
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_11\\labeled\\gemini-2_5-flash-image.png",
+      "score": 86,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 10,
+      "visual": 19,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "자동화 인프라의 핵심 구성 요소와 흐름이 명확하고 시각적으로 매력적인 일러스트 스타일로 잘 구현되었습니다.",
+      "weakness": "화면 속 텍스트가 추상 기호 대신 의미를 알 수 없는 영어 유사 문자로 표현되어 정보 전달의 정확성을 저해합니다."
+    }
+  ]
+}

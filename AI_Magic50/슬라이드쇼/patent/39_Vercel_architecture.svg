@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#001a3a"/>
+      <stop offset="100%" stop-color="#000814"/>
+    </linearGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#FF8C00"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <text x="600" y="44" font-size="26" font-weight="900" fill="#FF8C00" text-anchor="middle">Vercel Private URL 배포 — HTML 신속 공유</text>
+  <text x="600" y="72" font-size="13" fill="#bcd" text-anchor="middle">URL 아는 사람만 접근 · 검색엔진 차단 · 비밀번호 옵션 3종 (없음 / 고정 / Supabase)</text>
+
+  <!-- Step 1: 인자 + 기존 배포 감지 -->
+  <rect x="40" y="100" width="260" height="240" rx="12" fill="rgba(52,152,219,0.08)" stroke="#3498DB" stroke-width="1.5"/>
+  <text x="170" y="128" font-size="15" font-weight="900" fill="#3498DB" text-anchor="middle">Step 1 — 인자 파악</text>
+  <rect x="58" y="148" width="224" height="80" rx="6" fill="rgba(52,152,219,0.15)"/>
+  <text x="72" y="170" font-size="11" font-weight="900" fill="#fff">파일 / 프로젝트명 / 비밀번호</text>
+  <text x="72" y="190" font-size="10" fill="#bcd">"없음" → 정적 배포</text>
+  <text x="72" y="206" font-size="10" fill="#bcd">"고정" → PASSWORD env</text>
+  <text x="72" y="222" font-size="10" fill="#bcd">"supabase" → DB 필드 검증</text>
+
+  <rect x="58" y="240" width="224" height="84" rx="6" fill="rgba(255,140,0,0.15)" stroke="#FF8C00"/>
+  <text x="72" y="262" font-size="11" font-weight="900" fill="#FF8C00">Step 1.5 — .vercel/ 탐지</text>
+  <text x="72" y="280" font-size="10" fill="#fff">기존 projectId 발견 시</text>
+  <text x="72" y="296" font-size="10" fill="#fff">→ 같은 프로젝트 재배포</text>
+  <text x="72" y="312" font-size="10" fill="#bcd">없으면 신규 배포 진행</text>
+
+  <line x1="305" y1="220" x2="335" y2="220" stroke="#FF8C00" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- Step 2: 비밀번호 보호 (Next.js) -->
+  <rect x="340" y="100" width="280" height="240" rx="12" fill="rgba(155,89,182,0.08)" stroke="#9b59b6" stroke-width="1.5"/>
+  <text x="480" y="128" font-size="15" font-weight="900" fill="#9b59b6" text-anchor="middle">Step 2 — 보호 여부 분기</text>
+
+  <rect x="358" y="148" width="244" height="64" rx="6" fill="rgba(155,89,182,0.15)"/>
+  <text x="372" y="170" font-size="11" font-weight="900" fill="#fff">없음 → Step 3 (정적)</text>
+  <text x="372" y="190" font-size="10" fill="#bcd">noindex 메타 삽입만</text>
+
+  <rect x="358" y="222" width="244" height="110" rx="6" fill="rgba(155,89,182,0.15)"/>
+  <text x="372" y="244" font-size="11" font-weight="900" fill="#fff">고정/Supabase → Next.js 앱</text>
+  <text x="372" y="262" font-size="10" fill="#bcd">2a 스캐폴딩 (영문 경로!)</text>
+  <text x="372" y="278" font-size="10" fill="#bcd">2b /r/[name] 게이트 + API</text>
+  <text x="372" y="294" font-size="10" fill="#bcd">2c public/reports/{slug}</text>
+  <text x="372" y="310" font-size="10" fill="#bcd">2d 빌드 확인</text>
+
+  <line x1="625" y1="220" x2="655" y2="220" stroke="#FF8C00" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- Step 3-5: 배포 -->
+  <rect x="660" y="100" width="500" height="240" rx="12" fill="rgba(63,185,80,0.08)" stroke="#3fb950" stroke-width="1.5"/>
+  <text x="910" y="128" font-size="15" font-weight="900" fill="#3fb950" text-anchor="middle">Step 3~5 — 배포 실행</text>
+
+  <rect x="678" y="148" width="464" height="40" rx="6" fill="rgba(63,185,80,0.15)"/>
+  <text x="692" y="172" font-size="11" font-weight="900" fill="#fff">3. noindex 메타 + robots.txt 자동 삽입</text>
+
+  <rect x="678" y="196" width="464" height="40" rx="6" fill="rgba(63,185,80,0.15)"/>
+  <text x="692" y="220" font-size="11" font-weight="900" fill="#fff">4. 영문 프로젝트명 결정 (한글 폴더 빌드 오류 차단)</text>
+
+  <rect x="678" y="244" width="464" height="60" rx="6" fill="rgba(255,140,0,0.18)" stroke="#FF8C00"/>
+  <text x="692" y="268" font-size="12" font-weight="900" fill="#FF8C00">5. vercel --prod --yes [--name 영문명]</text>
+  <text x="692" y="286" font-size="10" fill="#fff">리포지토리 루트 또는 프로젝트 디렉토리에서 실행</text>
+  <text x="692" y="302" font-size="10" fill="#bcd">.vercel/project.json 자동 생성</text>
+
+  <!-- Step 6-7-8 -->
+  <rect x="40" y="360" width="1120" height="180" rx="12" fill="rgba(255,140,0,0.06)" stroke="#FF8C00" stroke-width="1.5"/>
+  <text x="600" y="386" font-size="15" font-weight="900" fill="#FF8C00" text-anchor="middle">Step 6~8 — 환경변수 + Protection 해제 + URL 확인</text>
+
+  <rect x="58" y="406" width="350" height="110" rx="8" fill="rgba(255,140,0,0.12)"/>
+  <text x="72" y="428" font-size="12" font-weight="900" fill="#FF8C00">6. 환경변수 (보호 시)</text>
+  <text x="72" y="450" font-size="10" fill="#fff">Vercel API로 주입:</text>
+  <text x="72" y="468" font-size="10" fill="#bcd">고정 → PASSWORD</text>
+  <text x="72" y="484" font-size="10" fill="#bcd">supabase → SUPABASE_URL +</text>
+  <text x="72" y="500" font-size="10" fill="#bcd">SERVICE_ROLE_KEY</text>
+
+  <rect x="428" y="406" width="350" height="110" rx="8" fill="rgba(255,140,0,0.12)"/>
+  <text x="442" y="428" font-size="12" font-weight="900" fill="#FF8C00">7. Deployment Protection 해제</text>
+  <text x="442" y="450" font-size="10" fill="#fff">PATCH /v9/projects/{id}</text>
+  <text x="442" y="466" font-size="10" fill="#bcd">ssoProtection: null</text>
+  <text x="442" y="482" font-size="10" fill="#bcd">passwordProtection: null</text>
+  <text x="442" y="500" font-size="10" fill="#fde">→ 재배포 필요</text>
+
+  <rect x="798" y="406" width="344" height="110" rx="8" fill="rgba(63,185,80,0.15)"/>
+  <text x="812" y="428" font-size="12" font-weight="900" fill="#3fb950">8. URL 확인</text>
+  <text x="812" y="450" font-size="10" fill="#fff">curl -I → HTTP/2 200</text>
+  <text x="812" y="468" font-size="10" fill="#bcd">https://{프로젝트명}.vercel.app/</text>
+  <text x="812" y="486" font-size="10" fill="#7fdc7f">검색엔진 차단 + 로그인 X</text>
+  <text x="812" y="502" font-size="10" fill="#bcd">→ URL 아는 사람만 진입</text>
+
+  <!-- Pitfalls -->
+  <rect x="40" y="560" width="1120" height="140" rx="12" fill="rgba(255,123,114,0.06)" stroke="rgba(255,123,114,0.35)"/>
+  <text x="600" y="585" font-size="14" font-weight="900" fill="#ff7b72" text-anchor="middle">⚠ 함정 패턴 (실전 트러블슈팅)</text>
+
+  <text x="80" y="615" font-size="11" font-weight="900" fill="#fff">· 한글 폴더명</text>
+  <text x="80" y="632" font-size="10" fill="#bcd">→ --name 영문 지정 필수</text>
+  <text x="80" y="648" font-size="10" fill="#bcd">→ Next.js 16: 영문 경로 필수</text>
+
+  <text x="350" y="615" font-size="11" font-weight="900" fill="#fff">· vercel.json 인증 키</text>
+  <text x="350" y="632" font-size="10" fill="#bcd">→ vercelAuthentication 금지</text>
+  <text x="350" y="648" font-size="10" fill="#bcd">→ 반드시 API로만 해제</text>
+
+  <text x="620" y="615" font-size="11" font-weight="900" fill="#fff">· 서브폴더 실행 금지</text>
+  <text x="620" y="632" font-size="10" fill="#bcd">→ git root에서 실행</text>
+  <text x="620" y="648" font-size="10" fill="#bcd">→ rootDirectory 충돌 회피</text>
+
+  <text x="890" y="615" font-size="11" font-weight="900" fill="#fff">· 기존 .vercel 충돌</text>
+  <text x="890" y="632" font-size="10" fill="#bcd">→ --name 무시됨</text>
+  <text x="890" y="648" font-size="10" fill="#bcd">→ vercel link 사용</text>
+
+  <text x="600" y="685" font-size="11" fill="#ffd789" text-anchor="middle" font-style="italic">"vercel.json으로 인증 해제 시도 → Invalid 오류. API로만 가능"</text>
+</svg>

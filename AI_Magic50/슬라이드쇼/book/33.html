@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>SUNNY AI MAGIC 50 · #33 CLAUDE.md 잘 활용하기</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#000814;color:#fff;line-height:1.7}
+.hero{background:radial-gradient(circle at 30% 30%,#002d5c 0%,#000814 70%);padding:50px 24px 40px;text-align:center;border-bottom:3px solid #FF8C00}
+.hero .tag{color:#FF8C00;font-size:13px;font-weight:900;letter-spacing:5px;margin-bottom:12px}
+.hero h1{font-size:clamp(22px,4vw,40px);font-weight:900;line-height:1.25;margin-bottom:8px;color:#fff;text-shadow:0 4px 24px rgba(255,140,0,0.35)}
+.hero .subtitle{font-size:clamp(13px,1.6vw,17px);color:#FF8C00;font-weight:600;letter-spacing:0.3px;margin-bottom:14px;opacity:0.92}
+.hero .meta{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.hero .badge{background:rgba(255,140,0,0.15);color:#FF8C00;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:900;letter-spacing:1px;border:1px solid rgba(255,140,0,0.4)}
+.hero .badge.type-a{background:rgba(231,76,60,0.15);color:#e74c3c;border-color:rgba(231,76,60,0.4)}
+.hero .badge.type-b{background:rgba(52,152,219,0.15);color:#3498DB;border-color:rgba(52,152,219,0.4)}
+.hero .badge.type-c{background:rgba(63,185,80,0.15);color:#3fb950;border-color:rgba(63,185,80,0.4)}
+.back{position:absolute;top:20px;left:20px;color:#FF8C00;text-decoration:none;font-size:13px;font-weight:700;padding:7px 14px;border:2px solid #FF8C00;border-radius:18px}
+.back:hover{background:#FF8C00;color:#001020}
+.content{max-width:900px;margin:0 auto;padding:40px 24px 60px}
+.content h1{display:none}
+.content h2{font-size:clamp(20px,2.8vw,28px);font-weight:900;color:#FF8C00;margin:32px 0 16px;letter-spacing:0.5px;border-left:5px solid #FF8C00;padding-left:14px}
+.content h2:first-child{margin-top:0}
+.content h3{font-size:18px;font-weight:900;color:#fff;margin:24px 0 12px}
+.content h4{font-size:16px;font-weight:700;color:#FF8C00;margin:18px 0 10px}
+.content p{font-size:15px;color:#dde;margin-bottom:14px}
+.content ul,.content ol{margin:0 0 16px 24px;color:#dde}
+.content li{font-size:15px;margin-bottom:6px;line-height:1.7}
+.content strong{color:#fff;font-weight:900}
+.content em{color:#FF8C00;font-style:normal;font-weight:600}
+.content code{background:rgba(255,140,0,0.12);color:#FF8C00;padding:2px 6px;border-radius:4px;font-size:13px;font-family:'D2Coding','Consolas',monospace}
+.content pre{background:rgba(0,0,0,0.4);border:1px solid rgba(255,140,0,0.25);border-radius:8px;padding:16px;overflow-x:auto;margin:16px 0}
+.content pre code{background:none;color:#bcd;padding:0;font-size:13px}
+.content blockquote{border-left:4px solid #FF8C00;background:rgba(255,140,0,0.05);padding:14px 20px;margin:16px 0;border-radius:0 8px 8px 0;color:#bcd}
+.content table{width:100%;border-collapse:collapse;margin:18px 0;background:rgba(255,255,255,0.03);border-radius:8px;overflow:hidden;font-size:14px}
+.content th,.content td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08)}
+.content th{background:rgba(255,140,0,0.15);color:#FF8C00;font-weight:900}
+.content td{color:#dde}
+.content tr:last-child td{border-bottom:none}
+.content hr{border:none;border-top:1px solid rgba(255,140,0,0.2);margin:30px 0}
+.content a{color:#FF8C00;text-decoration:none;border-bottom:1px dashed rgba(255,140,0,0.4)}
+.content a:hover{border-bottom-style:solid}
+.footer{background:#001020;border-top:1px solid #1a2a3a;padding:24px;text-align:center;color:#7a8c9c;font-size:13px}
+.footer a{color:#FF8C00;text-decoration:none;margin:0 10px}
+</style>
+</head>
+<body>
+<a href="../index.html" class="back">← 슬라이드쇼로</a>
+<section class="hero">
+  <div class="tag">SUNNY AI MAGIC 50 · #33</div>
+  <h1>CLAUDE.md 잘 활용하기</h1>
+  <div class="subtitle">Claude Code가 켤 때마다 먼저 읽는 사용자 운영 매뉴얼</div>
+  <div class="meta">
+    <span class="badge">G5 · 환경</span>
+    <span class="badge type-a">A타입</span>
+    
+  </div>
+</section>
+
+<section class="content">
+<h2>한 줄 정의</h2>
+<p>CLAUDE.md는 Claude Code가 매 세션을 켤 때 가장 먼저 자동으로 읽는 사용자 지시 파일이다. 위치는 두 곳 — 전역(<code>~/.claude/CLAUDE.md</code>, 모든 프로젝트에 적용) + 프로젝트별(<code>&lt;project&gt;/CLAUDE.md</code>, 그 프로젝트만). 사용자가 매 새 세션마다 직접 천 번 말해야 했을 <strong>출력 포맷·도구 호출 화법·작업 방식·자동 발동 트리거·절차 규칙·쓸 수 있는 도구 목록·사용자 환경 정보</strong>를 한 파일에 모아둔다. 30개 인스턴스가 어느 디렉토리·어느 서브에이전트에서 작업하든 동일한 규칙·동일한 자동 발동을 갖게 만드는 사용자 운영 매뉴얼이다.</p>
+<h2>왜 이 노하우가 중요한가</h2>
+<p>Claude Code를 5개 이상 동시에 돌려본 사람은 곧 한 가지 사실을 깨닫는다. <strong>같은 모델·같은 프롬프트라도 같은 결정을 내리지 않는다.</strong> A 인스턴스는 파일 경로를 한 줄로 길게 출력하고, B 인스턴스는 끊어서 출력한다. C 인스턴스는 자기가 만든 UI를 자기가 검증해 "Verified" 처리하고, D 인스턴스는 별도 검증을 거친다. 이 작은 분기가 30개 인스턴스에서 누적되면, 본인 한 사람이 "도대체 어느 결과를 신뢰해야 하는가"의 늪에 빠진다.</p>
+<p>본인 4,000시간 누적에서 도달한 결론 — <strong>운영 원칙은 입으로 말하는 한 흩어진다.</strong> 같은 사용자가 같은 요청을 30번 다르게 표현하기 때문이다. "버튼 클릭 테스트해줘", "실제로 동작하는지 확인해줘", "Verified 처리해줘" — 표현이 다르면 AI는 다른 검증 강도를 적용한다. 그래서 표현이 아닌 <strong>CLAUDE.md 파일</strong>이 필요하다. 모든 인스턴스가 세션 시작 시 자동으로 읽고, 그 안의 규칙을 사용자 발화보다 우선해 따르는 단 하나의 파일.</p>
+<p>본인 <code>~/.claude/CLAUDE.md</code>는 그래서 단순한 메모가 아니다. <strong>일곱 개의 다층 가드</strong>가 들어 있다.</p>
+<ol>
+<li><strong>표시 규칙 가드</strong> — 파일 경로 한 줄 출력 금지(폴더/파일 분리)</li>
+<li><strong>언어 운용 가드</strong> — recall 호출을 "조용히" 사용(채팅창 노출 금지)</li>
+<li><strong>UI 검증 가드</strong> — <code>curl 200 ≠ 동작함</code>(브라우저 클릭 테스트 강제)</li>
+<li><strong>자동 감지 가드</strong> — <code>SAL_Grid_Dev_Suite/</code> 폴더 보이면 청룡 + MBO 자동 발동</li>
+<li><strong>멀티 페이즈 가드</strong> — 3단계 이상 작업 시 PHASE 파일 강제 생성·체크</li>
+<li><strong>도구 카탈로그 가드</strong> — 다큐킹앱 57개 스킬 목록 색인</li>
+<li><strong>모바일 전달 가드</strong> — 결과는 G드라이브 <code>.txt</code>로 저장(원격 데스크탑 한계 우회)</li>
+</ol>
+<p>이 일곱 개가 동시에 작동하면, 30개 인스턴스 어디에 들어가도 같은 답이 나오기 시작한다. CLAUDE.md가 표현 차이를 흡수하기 때문이다. <em>"입력은 사람의 자연어, 실행 골격은 CLAUDE.md의 결정론"</em> — 이 문장이 본인 CLAUDE.md 운용의 한 줄 요약이다.</p>
+<h2>핵심 개념</h2>
+<h3>CLAUDE.md에 보통 적어두는 7가지</h3>
+<p>본인 운영 매뉴얼을 살펴보면 다음 7개 카테고리가 분명히 분리된다.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>카테고리</th>
+<th>CLAUDE.md에 적어두는 것</th>
+<th>본인 CLAUDE.md의 실제 항목</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>출력 포맷 강제</td>
+<td>Claude 답변의 모양 통일</td>
+<td>파일 경로 폴더/파일 분리</td>
+</tr>
+<tr>
+<td>2</td>
+<td>도구 호출 화법</td>
+<td>메타 발화 금지</td>
+<td>recall 침묵 원칙</td>
+</tr>
+<tr>
+<td>3</td>
+<td>작업 방식 규칙</td>
+<td>"이렇게 일해라"의 강제</td>
+<td>UI 검증 — curl 200 ≠ 동작함</td>
+</tr>
+<tr>
+<td>4</td>
+<td>자동 발동 트리거</td>
+<td>폴더·키워드 보면 알아서 발동</td>
+<td>SAL Grid 폴더 → 청룡+MBO 자동</td>
+</tr>
+<tr>
+<td>5</td>
+<td>절차 규칙</td>
+<td>작업 진행 흐름 강제</td>
+<td>3단계 이상 → PHASE 파일 필수</td>
+</tr>
+<tr>
+<td>6</td>
+<td>도구 카탈로그</td>
+<td>"쓸 수 있는 무기 목록" 통보</td>
+<td>다큐킹앱 57개 스킬</td>
+</tr>
+<tr>
+<td>7</td>
+<td>사용자 환경 정보</td>
+<td>본인 작업 환경 특이점</td>
+<td>모바일 원격접속 → G드라이브 .txt 전달</td>
+</tr>
+</tbody>
+</table>
+<p>이 7개가 본인 CLAUDE.md 한 파일 안에 동시에 들어 있다. 매 새 세션마다 사용자가 새로 가르칠 필요 없게 만드는 구조다.</p>
+<h3>CLAUDE.md의 위치 — 단일 출처(SSOT)</h3>
+<p>본인 운영 매뉴얼은 정확히 한 곳에 있다.</p>
+<pre><code>📁 ~/.claude/   (Windows 실경로: C:\Users\home\.claude\)
+📄 CLAUDE.md
+</code></pre>
+<p>이 한 파일이 모든 디렉토리·모든 인스턴스·모든 세션의 첫 페이지로 자동 로드된다. 프로젝트별 <code>&lt;프로젝트&gt;/.claude/CLAUDE.md</code>는 이 전역 매뉴얼을 <strong>상속</strong>받아 프로젝트 고유 규칙만 추가한다. SAL Grid Dev Suite의 <code>MBO_SPEC_VERSION</code> 태그처럼, CLAUDE.md 간 정합성도 pre-commit 훅(<code>scripts/verify-mbo-sync.js</code>)이 자동 검증한다.</p>
+<h3>7대 가드 상세</h3>
+<h4>가드 1 — 표시 규칙 (모바일 친화)</h4>
+<pre><code>📁 zz_KingFolder/KingDesk2_DOC/
+📄 24000_클코_킹워크지침_인젝션_프로세스_기본정책.md
+</code></pre>
+<p>긴 절대경로를 한 줄로 쓰지 않는다. 본인이 폰에서 원격 데스크탑으로 접속할 때 화면 폭이 좁아 한 줄로 출력하면 줄바꿈이 깨진다. 폴더와 파일명을 분리하면 "폴더 먼저 찾고 그 안에서 파일 클릭"의 흐름이 그대로 살아난다. 이건 미적 취향이 아니라 <strong>모바일 운용 환경에서 도출된 인체공학 규칙</strong>이다.</p>
+<h4>가드 2 — 언어 운용 (recall 침묵 원칙)</h4>
+<p>recall은 본인의 장기기억 검색 도구다. CLAUDE.md는 명시한다 — <em>"recall 호출 사실을 굳이 언급하지 않는다."</em> "기억을 찾아보겠습니다", "recall에서 찾았는데" 같은 메타 발화 금지. 결과는 자연스럽게 응답에 녹여라. 이 규칙은 사용자 체감 응답 속도를 30~40% 끌어올린다 — 도구 호출이 보이지 않으니 "AI가 그냥 알고 있는 것"으로 인지되기 때문이다. 작은 규칙처럼 보이지만 신뢰도와 직결된다.</p>
+<h4>가드 3 — UI 검증 철칙 (curl 200 ≠ 동작함)</h4>
+<p>이게 본인 운영 매뉴얼에서 가장 비싼 교훈이다. 한 배포 사건에서 <code>curl</code>로 200 OK 받고 Verified 처리했지만, 실제 브라우저에서 보니:</p>
+<ul>
+<li>"시작하기"·"더 알아보기" 버튼 → <code>href</code> 없어 클릭 무반응</li>
+<li>4개 은하 원 → <code>&lt;div&gt;</code>로 만들어 클릭 불가</li>
+<li>"View All" → 존재하지 않는 <code>/rankings</code>로 404</li>
+<li>랭킹 카드 → <code>/skills/${uuid}</code> 경로·파라미터 전부 틀림</li>
+</ul>
+<p>이 한 사건이 <strong>5개 파일에 동시 반영</strong>됐다 — <code>mbo-코어5/SKILL.md</code>, <code>청룡-sal-grid-dev/SKILL.md</code>, <code>SAL_Grid_Dev_Suite/.claude/CLAUDE.md</code>, <code>rules/06_verification.md</code>, <code>rules/07_task-crud.md</code>. 하나의 사고가 다섯 곳의 운영 매뉴얼을 동시에 갱신하는 <strong>리플렉션 체인</strong> — 이게 CLAUDE.md가 살아 있다는 증거다. CLAUDE.md는 한 번 쓰고 끝나는 문서가 아니라, 사고가 발생할 때마다 자라는 유기체다.</p>
+<h4>가드 4 — SAL Grid 자동 감지 (사용자 발화 없이 발동)</h4>
+<p>가장 영리한 가드. CLAUDE.md에 다음과 같이 적혀 있다.</p>
+<blockquote>
+<p>작업 디렉토리에 <code>SAL_Grid_Dev_Suite/</code> 폴더가 존재하거나 경로에 <code>Process/S0_Project-SAL-Grid_생성/</code>이 보이면, 별도 지시 없이도 청룡 스킬 + mbo-코어5가 자동 적용된다.</p>
+</blockquote>
+<p>사용자가 "청룡 써", "MBO 해" 라고 말하지 않아도 발동. 이 한 줄이 인스턴스 간 행동 차이를 0으로 만든다. 본인이 새 컴퓨터에서 새 인스턴스를 띄워도, 전역 CLAUDE.md만 동일하면 SAL Grid 프로젝트에선 동일한 자동화가 즉시 작동한다. <strong>표현은 환경에 의존하지 않는다 — 폴더 구조만 의존한다.</strong></p>
+<p>추가로 Stage 진입 키워드("S2 실행", "다음 Stage", "Stage Gate 통과")를 감지하면 MBO 제시 → PO 승인 → Task 실행 순서를 강제한다. <code>scripts/task-guard.js</code>(Tier 3)가 MBO 미승인 상태의 Task status 전이를 <strong>물리적으로 차단</strong>한다 — CLAUDE.md가 코드 가드와 짝을 이루는 지점.</p>
+<h4>가드 5 — 멀티 페이즈 행동 규칙</h4>
+<p>3단계 이상 작업 시 강제 흐름.</p>
+<pre><code>zz_KingFolder/_TalkTodoPlan/2026_05_06__21.30_PHASE_본문일괄작성.md
+</code></pre>
+<ul>
+<li><strong>규칙 1</strong> — 시작 전 PHASE 파일 생성</li>
+<li><strong>규칙 2</strong> — 매 Phase 시작 전 파일 Read(컴팩션·세션 변경 시 상태 복원)</li>
+<li><strong>규칙 3</strong> — Phase 완료 즉시 <code>[ ]</code> → <code>[x]</code> 갱신</li>
+<li><strong>규칙 4</strong> — <code>[ ]</code>가 남아 있는 Phase는 미완료로 간주</li>
+</ul>
+<p>마지막 한 줄이 핵심 — <em>"'했던 것 같다'는 기억은 신뢰하지 마라. 파일이 진실이다."</em> AI의 환각, 본인의 착각을 동시에 차단하는 단일 진실원천 원칙.</p>
+<h4>가드 6 — 도구 카탈로그 (다큐킹앱 57개 스킬 색인)</h4>
+<p>CLAUDE.md 안에 워크플로우 15개 + 도구 42개 = 57개 스킬 사용 시점이 표로 정리돼 있다. <code>/feature-development</code>, <code>/full-review</code>, <code>/smart-fix</code>, <code>/tdd-cycle</code>부터 <code>/cost-optimize</code>까지. 새 인스턴스가 CLAUDE.md를 읽는 즉시 본인이 보유한 무기 목록 전체를 알고 시작한다. 모르고 새로 만드는 일이 사라진다.</p>
+<h4>가드 7 — 모바일 전달 (G드라이브 .txt 자동화)</h4>
+<p>긴 명령어·URL·요약은 항상 <strong>클라우드 동기화 폴더</strong>(Google 드라이브/OneDrive 등)에 <code>.txt</code>로 떨어뜨린다.</p>
+<pre><code>📁 &lt;클라우드 동기화 폴더&gt;/&lt;프로젝트&gt;/
+📄 2026_05_06__결과_URL.txt
+</code></pre>
+<p>폰에서 원격 데스크탑으로 들어갈 때, 화면 텍스트는 복사가 안 되지만 클라우드 동기화 앱은 즉시 열린다. 이 한 줄 가드가 누적 운용에서 가장 자주 호출되는 규칙이다.</p>
+<h3>CLAUDE.md와 스킬의 짝 — 청룡·MBO 자동 호출 메커니즘</h3>
+<p>CLAUDE.md가 "자동 감지" 가드에서 호출하는 두 스킬:</p>
+<table>
+<thead>
+<tr>
+<th>호출되는 스킬</th>
+<th>역할</th>
+<th>트리거</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>청룡-sal-grid-dev</code></td>
+<td>Stage 실행 6단계, Verification 분리, Stage Gate 5단계 리포트</td>
+<td><code>SAL_Grid_Dev_Suite/</code> 폴더 감지</td>
+</tr>
+<tr>
+<td><code>mbo-코어5</code></td>
+<td>Stage 진입 전 목표 정의·PO 승인 플로우·결과 보고</td>
+<td>"S{N} 실행" 등 키워드 감지</td>
+</tr>
+</tbody>
+</table>
+<p>CLAUDE.md가 두 스킬을 짝으로 묶는다. SAL Grid가 실행 골격, MBO가 합의 골격. 둘은 분리해 쓰지 않는다(#8·#2 참고).</p>
+<h3>한국 공공 문서 양식 적용 응용</h3>
+<p>본인 CLAUDE.md의 다층 활용 중 한 갈래는 <strong>한국 공공 문서 양식 통합</strong>이다. CLAUDE.md의 모바일 전달 가드는 <code>G:\내 드라이브\</code> 동기화 폴더 활용을 명시하고, 이 폴더에 한국 공공 양식(HWP/HWPX, PDF 보고서)을 떨어뜨리면 본인이 폰의 Google 드라이브 앱에서 즉시 확인할 수 있다. CLAUDE.md + 다큐킹 스킬(<code>/doc-generate</code>) + <code>doc-generator-기본</code> 스킬이 한 흐름으로 묶이며, 결과는 한국식 공공 양식으로 출력 — 한국 공공 발주 환경 특유의 "HWP 의존성"을 CLAUDE.md 한 줄로 흡수한다.</p>
+<h2>실전 사용법</h2>
+<h3>1단계 — CLAUDE.md 초안 작성</h3>
+<p>빈 <code>~/.claude/CLAUDE.md</code>에 4개 섹션부터 시작.</p>
+<ol>
+<li><strong>표시 규칙</strong> — 파일 경로 폴더/파일 분리(모바일 친화)</li>
+<li><strong>언어 운용</strong> — 도구 호출 침묵 원칙</li>
+<li><strong>UI 검증</strong> — <code>curl 200 ≠ 동작함</code></li>
+<li><strong>자동 발동</strong> — 폴더 감지 시 자동 적용할 스킬 목록</li>
+</ol>
+<p>이 4개가 최소 골격. 나머지는 사고가 발생할 때마다 추가한다.</p>
+<h3>2단계 — HTML 주석 마커로 구조화</h3>
+<pre><code class="language-markdown">&lt;!-- FILE_PATH_DISPLAY_START --&gt;
+## 파일 경로 표시 규칙
+...
+&lt;!-- FILE_PATH_DISPLAY_END --&gt;
+
+&lt;!-- RECALL_GUIDE_START --&gt;
+## recall 사용 지침
+...
+&lt;!-- RECALL_GUIDE_END --&gt;
+</code></pre>
+<p>마커가 있으면 자동화 스크립트가 섹션별 추출·갱신을 할 수 있다. 본인 CLAUDE.md는 6개 마커로 분할돼 있어, <code>verify-mbo-sync.js</code>가 청룡·mbo-코어5 SKILL.md와의 정합성을 마커 단위로 검증한다.</p>
+<h3>3단계 — 사고 발생 시 리플렉션 체인 생성</h3>
+<p>새 사고가 터지면 <strong>반드시 다섯 곳에 동시 반영</strong>한다.</p>
+<pre><code>1. ~/.claude/CLAUDE.md (전역 매뉴얼 본문)
+2. ~/.claude/skills/&lt;관련 스킬&gt;/SKILL.md
+3. &lt;프로젝트&gt;/.claude/CLAUDE.md
+4. &lt;프로젝트&gt;/.claude/rules/&lt;번호&gt;_&lt;주제&gt;.md
+5. SAL Grid의 grid_records JSON (해당 Stage Gate 사고 기록)
+</code></pre>
+<p>한 곳만 고치면 다인스턴스 중 CLAUDE.md만 읽고 들어온 일부가 옛 규칙으로 작동한다. 다섯 곳을 동시에 고쳐야 운영 매뉴얼이 생물처럼 진화한다. <em>"curl 200 ≠ 동작함"</em> 사고가 정확히 이 5단 동시 반영 패턴의 첫 사례다.</p>
+<h3>4단계 — pre-commit 훅으로 정합성 강제</h3>
+<pre><code class="language-bash"># .git/hooks/pre-commit (또는 husky)
+node scripts/verify-mbo-sync.js   # MBO_SPEC_VERSION 일치 검증
+node scripts/sal-guard.js         # TASK_PLAN ↔ grid_records 정합성
+node scripts/task-guard.js        # MBO 미승인 Task status 전이 차단(Tier 3)
+</code></pre>
+<p>CLAUDE.md가 종이호랑이가 되지 않는 마지막 방어선. 사람이 잊어도 시스템이 차단한다.</p>
+<h3>5단계 — 자동 발동 키워드 풍부화</h3>
+<p>처음엔 "S2 실행" 같은 명시적 키워드만 트리거하지만, 운용하면서 <em>"다음 단계로 갈게"</em>, <em>"이제 백엔드"</em>, <em>"Stage 4 들어간다"</em> 같은 자연어 표현을 발견하면 CLAUDE.md에 추가한다. 키워드 풍부화가 곧 본인의 자연어가 CLAUDE.md 트리거로 흡수되는 과정이다. 6개월 운용 끝에 본인은 "청룡 써" 라고 말한 적이 손에 꼽는다 — 폴더 구조와 키워드만으로 자동 발동되기 때문이다.</p>
+<h3>6단계 — 모바일 전달 자동화</h3>
+<p>긴 명령어·URL·요약은 항상 <strong>클라우드 동기화 폴더</strong>(Google 드라이브/OneDrive 등)에 <code>.txt</code>로 떨어뜨린다.</p>
+<pre><code>📁 &lt;클라우드 동기화 폴더&gt;/&lt;프로젝트&gt;/
+📄 2026_05_06__결과_URL.txt
+</code></pre>
+<p>폰에서 원격 데스크탑으로 들어갈 때, 화면 텍스트는 복사가 안 되지만 클라우드 동기화 앱은 즉시 열린다. 이 한 줄 가드가 누적 운용에서 가장 자주 호출되는 규칙이다.</p>
+<h2>본인 운용 패턴</h2>
+<p>본인 CLAUDE.md의 가장 큰 가치는 <strong>"이 파일을 잃어버리면 본인 운영이 즉시 망가진다"</strong> 라는 명제다. 그래서 CLAUDE.md는 클라우드 동기화 백업과 GitHub private repo 양쪽에 이중 동기화돼 있고, 새 컴퓨터 셋업 첫 30분이 정확히 이 CLAUDE.md를 복원하는 시간이다(#20 C드라이브+G드라이브 백업과 짝). CLAUDE.md 복원이 끝나는 순간, 새 컴퓨터에서도 "청룡 자동 발동, MBO 자동 발동, UI 클릭 검증 강제, 모바일 전달 자동화"가 즉시 살아난다.</p>
+<p>또 하나 — 본인 CLAUDE.md는 <strong>30개 동시 운용의 합의 골격</strong>이다. 인스턴스마다 다른 답을 내지 않게 만드는 것은 모델의 결정론이 아니라, <strong>모든 인스턴스가 같은 CLAUDE.md를 먼저 읽는다는 사실</strong>이다. 같은 CLAUDE.md + 같은 폴더 구조 + 같은 SAL Grid → 같은 결정. 이 등식이 성립할 때 비로소 "1인 30군"이 작동한다.</p>
+<h2>관련 항목</h2>
+<ul>
+<li><strong>#25 지능형 챗봇 만들기</strong> — 챗봇용 시스템 프롬프트가 CLAUDE.md의 응용 형태</li>
+<li><strong>#2 SAL Grid 개발방법론</strong> — CLAUDE.md의 자동 발동 가드가 가장 자주 호출하는 골격</li>
+<li><strong>#8 MBO</strong> — CLAUDE.md가 짝으로 호출하는 합의 스킬</li>
+<li><strong>#20 C드라이브 + G드라이브 백업</strong> — CLAUDE.md 이중 동기화의 인프라</li>
+<li><strong>#26 Hooks</strong> — CLAUDE.md 규칙을 settings.json hooks로 코드화</li>
+<li><strong>#21 Slash Commands</strong> — <code>.claude/commands/</code>에 CLAUDE.md 운용 명령어 등록</li>
+<li><strong>#49 스크린샷 자율 검증</strong> — UI 검증 철칙(curl 200 ≠ 동작함)의 Playwright 구현</li>
+<li><strong>#43 HWP/HWPX 한국 공공 양식</strong> — CLAUDE.md 모바일 전달 가드 + doc-generator의 합류 지점</li>
+<li><strong>다큐킹앱 57개 스킬</strong> — CLAUDE.md 안에 색인된 도구 무기고</li>
+<li><strong><code>~/.claude/skills/청룡-sal-grid-dev/SKILL.md</code></strong> — CLAUDE.md 자동 발동 1순위 스킬</li>
+<li><strong><code>~/.claude/skills/mbo-코어5/SKILL.md</code></strong> — CLAUDE.md 자동 발동 2순위 스킬</li>
+</ul>
+</section>
+
+<div class="footer">
+  <a href="../index.html">← SUNNY AI MAGIC 50</a>
+  <div style="margin-top:10px;color:#5a6c7c;font-size:12px;letter-spacing:0.3px">© 2026 SUN WOONGKYU · SUNNY AI MAGIC 50 · CC BY-NC-ND 4.0 · 특허 별도 보유</div>
+</div>
+</body>
+</html>

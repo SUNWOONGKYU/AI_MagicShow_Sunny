@@ -1,0 +1,97 @@
+{
+  "ranking": [
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_29\\labeled\\gemini-3_1-flash-image.png",
+      "score": 97,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "HWP/HWPX 문서 처리 및 자산화라는 복잡한 개념을 모던하고 미니멀한 스타일로 명확하게 시각화했으며, '한글 텍스트 없음' 등 모든 프롬프트 제약을 완벽하게 준수했습니다.",
+      "weakness": "프롬프트의 'doc-generator-기본 스킬 Phase 5(HWP)'와 같은 매우 구체적인 내부 프로젝트 명칭은 시각적으로 직접 표현되지 않았지만, '단축/재구성된 운용 패턴'의 개념은 잘 전달되었습니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_29\\labeled\\gemini-3-pro-image.png",
+      "score": 91,
+      "grade": "GOLD",
+      "intent": 22,
+      "text": 20,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "HWP/HWPX 문서의 처리 및 공공 양식 생성 과정을 명확하고 미니멀한 일러스트로 훌륭하게 시각화했으며, 텍스트와 레이아웃의 완성도가 높습니다.",
+      "weakness": "요청된 4가지 공공 양식 중 '기안문'이 누락되어 프롬프트 의도 부합도가 약간 떨어집니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_29\\labeled\\gpt-image-1.png",
+      "score": 67,
+      "grade": "BRONZE",
+      "intent": 20,
+      "text": 3,
+      "visual": 19,
+      "clarity": 10,
+      "layout": 15,
+      "strength": "요청된 모던 미니멀 일러스트 스타일과 따뜻한 조명, 깔끔하게 정렬된 인포그래픽 레이아웃이 매우 성공적으로 구현되었습니다.",
+      "weakness": "프롬프트에서 명시한 'HWPX' 대신 'HMPY'로 표기된 텍스트 환각과, '화면 속 텍스트는 추상 기호로만 표현'하라는 지시를 따르지 않고 알파벳을 사용한 것이 주요 약점입니다."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_29\\labeled\\dall-e-3.png",
+      "score": 60,
+      "grade": "BRONZE",
+      "intent": 20,
+      "text": 0,
+      "visual": 19,
+      "clarity": 7,
+      "layout": 14,
+      "strength": "전반적인 시각적 완성도와 현대적인 미니멀리즘 스타일, 따뜻한 조명 연출이 매우 뛰어나며, 정보 흐름의 구도와 배치를 효과적으로 시각화했습니다.",
+      "weakness": "가장 중요한 요구사항 중 하나인 '한글 텍스트 없음'과 '추상 기호로만 표현'을 완전히 무시하고, 의미 없는 영어 및 한글 유사 텍스트를 생성하여 정보 전달력을 심각하게 저해했습니다."
+    },
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_29\\labeled\\gemini-2_5-flash-image.png",
+      "score": 55,
+      "grade": "BRONZE",
+      "intent": 20,
+      "text": 0,
+      "visual": 18,
+      "clarity": 3,
+      "layout": 14,
+      "strength": "모던 미니멀 일러스트 스타일과 따뜻한 색감이 훌륭하고, 전체적인 구도와 레이아웃 정렬이 매우 깔끔하게 잘 구성되었습니다.",
+      "weakness": "인포그래픽 내 주요 한글 텍스트(예: '하국 공용 AX 사역 흐름', '재사용 가아는 스킬 자산')에 심각한 오타 및 환각이 있어 정보 전달이 불가능하며, 요청된 '공문' 요소가 누락되었습니다."
+    }
+  ],
+  "top_picks": [
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_29\\labeled\\gemini-3_1-flash-image.png",
+      "score": 97,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "HWP/HWPX 문서 처리 및 자산화라는 복잡한 개념을 모던하고 미니멀한 스타일로 명확하게 시각화했으며, '한글 텍스트 없음' 등 모든 프롬프트 제약을 완벽하게 준수했습니다.",
+      "weakness": "프롬프트의 'doc-generator-기본 스킬 Phase 5(HWP)'와 같은 매우 구체적인 내부 프로젝트 명칭은 시각적으로 직접 표현되지 않았지만, '단축/재구성된 운용 패턴'의 개념은 잘 전달되었습니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_29\\labeled\\gemini-3-pro-image.png",
+      "score": 91,
+      "grade": "GOLD",
+      "intent": 22,
+      "text": 20,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "HWP/HWPX 문서의 처리 및 공공 양식 생성 과정을 명확하고 미니멀한 일러스트로 훌륭하게 시각화했으며, 텍스트와 레이아웃의 완성도가 높습니다.",
+      "weakness": "요청된 4가지 공공 양식 중 '기안문'이 누락되어 프롬프트 의도 부합도가 약간 떨어집니다."
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>#45 DID Loop — 특허</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#000814;color:#fff;line-height:1.6}
+.hero{background:radial-gradient(circle at 30% 30%,#002d5c 0%,#000814 70%);padding:60px 24px 50px;text-align:center;border-bottom:3px solid #FF8C00}
+.hero .tag{color:#FF8C00;font-size:14px;font-weight:900;letter-spacing:6px;margin-bottom:14px}
+.hero h1{font-size:clamp(24px,4.5vw,46px);font-weight:900;line-height:1.2;margin-bottom:14px;color:#fff;text-shadow:0 4px 24px rgba(255,140,0,0.4)}
+.hero .sub{font-size:clamp(14px,1.8vw,18px);color:#bcd;max-width:880px;margin:0 auto;font-weight:500}
+.hero .patent-badge{display:inline-block;background:#3498DB;color:#fff;padding:6px 18px;border-radius:20px;font-size:13px;font-weight:900;letter-spacing:1px;margin-top:18px}
+.back{position:absolute;top:24px;left:24px;color:#FF8C00;text-decoration:none;font-size:14px;font-weight:700;padding:8px 16px;border:2px solid #FF8C00;border-radius:20px}
+.back:hover{background:#FF8C00;color:#001020}
+.section{max-width:1100px;margin:0 auto;padding:50px 24px}
+.section h2{font-size:clamp(22px,3vw,32px);font-weight:900;color:#FF8C00;margin-bottom:24px;letter-spacing:1px;border-left:5px solid #FF8C00;padding-left:14px}
+.section p{font-size:15px;color:#dde;margin-bottom:14px}
+.section .lead{font-size:16px;color:#fff;background:rgba(255,140,0,0.08);border:1.5px solid rgba(255,140,0,0.35);border-radius:10px;padding:20px 24px;margin-bottom:24px}
+.loop{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+@media(max-width:760px){.loop{grid-template-columns:1fr}}
+.node{border-radius:12px;padding:20px;text-align:center;position:relative}
+.node.n1{background:rgba(52,152,219,0.1);border:2px solid #3498DB}
+.node.n2{background:rgba(155,89,182,0.1);border:2px solid #9b59b6}
+.node.n3{background:rgba(231,76,60,0.1);border:2px solid #e74c3c}
+.node .letter{font-size:48px;font-weight:900;line-height:1;margin-bottom:6px}
+.node.n1 .letter{color:#3498DB}
+.node.n2 .letter{color:#9b59b6}
+.node.n3 .letter{color:#e74c3c}
+.node h3{font-size:16px;font-weight:900;color:#fff;margin-bottom:6px}
+.node p{font-size:13px;color:#bcd;line-height:1.5}
+.mechs{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px}
+@media(max-width:760px){.mechs{grid-template-columns:1fr}}
+.mech{background:rgba(255,140,0,0.06)
+;border:1.5px solid rgba(255,140,0,0.35);border-radius:10px;padding:18px}
+.mech .clause{color:#FF8C00;font-size:12px;font-weight:900;letter-spacing:0.5px;margin-bottom:6px}
+.mech h4{font-size:15px;font-weight:900;color:#fff;margin-bottom:8px}
+.mech p{font-size:13px;color:#bcd;line-height:1.6}
+table{width:100%;border-collapse:collapse;margin-top:18px;background:rgba(255,255,255,0.03);border-radius:8px;overflow:hidden}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08);font-size:14px}
+th{background:rgba(255,140,0,0.15);color:#FF8C00;font-weight:900}
+td{color:#dde}
+tr:last-child td{border-bottom:none}
+.footer{background:#001020;border-top:1px solid #1a2a3a;padding:30px 24px;text-align:center;color:#7a8c9c;font-size:13px}
+.footer a{color:#FF8C00;text-decoration:none;margin:0 10px}
+</style>
+</head>
+<body>
+<a href="../index.html" class="back">← 슬라이드쇼로</a>
+<section class="hero">
+  <div class="tag">SUNNY AI MAGIC · #45</div>
+  <h1>Data → Information → Decision<br>의사결정 지원 Loop 시스템</h1>
+  <div class="sub">원시 데이터를 의미 있는 정보로 가공하고, 정보를 의사결정으로 연결하며, 의사결정 결과를 다시 데이터로 환류하는 폐쇄 루프 — 이를 시스템화한 특허</div>
+  <div class="patent-badge">📜 특허 출원 · DID Loop</div>
+</section>
+
+<section class="section">
+  <h2>📌 발명의 핵심</h2>
+  <div class="lead">
+    "데이터 처리·정보 산출·의사결정 지원"이라는 3단계를 <strong>단일 폐쇄 루프</strong>로 연결하여, 의사결정 결과가 다시 데이터 수집·정보 가공 단계로 환류되는 자기 강화형 시스템. 기존 BI·DSS가 D→I→D 1회 직선이라면, 본 발명은 <strong>의사결정 결과(D₃)를 다시 데이터로 인코딩(D₁')</strong>하여 루프를 닫는다. 시간이 지날수록 데이터·정보·의사결정의 품질이 누적적으로 향상.
+  </div>
+</section>
+
+<section class="section">
+  <h2>🔁 3-Node Loop 구조</h2>
+  <div class="loop">
+    <div class="node n1"><div class="letter">D</div><h3>Data</h3><p>원시 데이터 수집·정제·저장. 외부 센서·로그·API·사용자 입력</p></div>
+    <div class="node n2"><div class="letter">I</div><h3>Information</h3><p>데이터를 도메인 의미를 가진 정보로 가공. 통계·요약·시각화·LLM 추론</p></div>
+    <div class="node n3"><div class="letter">D</div><h3>Decision</h3><p>정보 기반 의사결정 + 결과를 다시 데이터로 인코딩(피드백)</p></div>
+  </div>
+  <p style="text-align:center;margin-top:18px;color:#FF8C00;font-weight:700">↻ Decision 결과 → Data 환류 → 다음 사이클에서 더 정밀한 Information 산출</p>
+</section>
+
+<section class="section">
+  <h2>🛠 핵심 차별화 메커니즘</h2>
+  <div class="mechs">
+    <div class="mech"><div class="clause">(a) 의사결정 환류</div><h4>D₃ → D₁' 인코딩</h4><p>의사결정 결과(채택·기각·보류·근거)를 구조화된 데이터로 변환하여 데이터 레이어에 재진입. 다음 사이클에서 의사결정 패턴 학습 가능</p></div>
+    <div class="mech"><div class="clause">(b) 누적 품질 향상</div><h4>Loop 회차별 정밀도 증가</h4><p>Loop가 N회 돌수록 Information의 도메인 정합성, Decision의 정확도가 누적 향상. 정량 측정 지표 내장</p></div>
+    <div class="mech"><div class="clause">(c) 명시적 단계 분리</div><h4>D-I-D 게이트 검증</h4><p>각 단계 사이에 게이트를 두어 "데이터 누락 채로 정보 산출"·"정보 없이 직관 의사결정" 등 단계 건너뛰기 차단</p></div>
+    <div class="mech"><div class="clause">(d) 도메인 의미 일관성</div><h4>약자·명칭·요약 3중 검증</h4><p>D·I·D 각 단계에서 사용된 용어·약자·핵심 개념이 도메인 명세서와 일관되는지 자동 검증 (의미 일관성 게이트)</p></div>
+    <div class="mech"><div class="clause">(e) 의사결정 감사 로그</div><h4>모든 D₃에 근거 ID 부여</h4><p>의사결정마다 사용된 Information ID·Data ID를 기록. 사후에 "왜 그 결정을 했나"를 역추적 가능</p></div>
+    <div class="mech"><div class="clause">(f) 다중 LLM 평가 결합</div><h4>전문가 페르소나 토론 통합</h4><p>중요 Decision 단계에서 BuzzLab 다관점 토론 결과를 자동 호출, 단일 LLM 판단 편향 차단</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>⚡ 기존 BI·DSS 시스템과의 차별점</h2>
+  <table>
+    <thead><tr><th>항목</th><th>기존 (BI · DSS · Data Warehouse)</th><th>본 발명 (DID Loop)</th></tr></thead>
+    <tbody>
+      <tr><td>흐름 구조</td><td>D → I → D 1회 직선</td><td>D → I → D → D' 폐쇄 루프</td></tr>
+      <tr><td>의사결정 결과</td><td>로그·메일·구두 (구조화 안 됨)</td><td>구조화된 D₃ → D₁' 환류</td></tr>
+      <tr><td>품질 변화</td><td>정적 (도구 업그레이드 시에만)</td><td>회차별 누적 향상</td></tr>
+      <tr><td>단계 검증</td><td>없음 (Information 생략 가능)</td><td>D-I-D 게이트 강제 통과</td></tr>
+      <tr><td>의사결정 감사</td><td>최종 결과만 기록</td><td>근거 ID 체인 (Information ID·Data ID)</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section">
+  <h2>📂 관련 항목</h2>
+  <table>
+    <tbody>
+      <tr><td><strong>#02</strong> 전문가 페르소나 토론 (BuzzLab)</td><td>D₃ 단계에서 다관점 토론을 자동 호출</td></tr>
+      <tr><td><strong>#03·13</strong> SAL Grid</td><td>D-I-D 각 단계를 3D 좌표로 분해·관리</td></tr>
+      <tr><td><strong>#28</strong> 4종 품질관리 (SDA 추천)</td><td>각 단계 산출물에 등급 부여</td></tr>
+      <tr><td><strong>#33</strong> CLAUDE.md 활용</td><td>도메인 명세서 — 의미 일관성 게이트의 기준</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="footer">
+  <a href="../index.html">← Sunny AI Magic 50</a><span>·</span><a href="https://www.ax-on.net/">AX 전문가 풀</a>
+</div>
+</body>
+</html>

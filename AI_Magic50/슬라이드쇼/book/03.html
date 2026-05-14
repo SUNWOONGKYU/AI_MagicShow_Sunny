@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>SUNNY AI MAGIC 50 · #03 SAL(Stage, Area, Level) 3차원 좌표</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#000814;color:#fff;line-height:1.7}
+.hero{background:radial-gradient(circle at 30% 30%,#002d5c 0%,#000814 70%);padding:50px 24px 40px;text-align:center;border-bottom:3px solid #FF8C00}
+.hero .tag{color:#FF8C00;font-size:13px;font-weight:900;letter-spacing:5px;margin-bottom:12px}
+.hero h1{font-size:clamp(22px,4vw,40px);font-weight:900;line-height:1.25;margin-bottom:8px;color:#fff;text-shadow:0 4px 24px rgba(255,140,0,0.35)}
+.hero .subtitle{font-size:clamp(13px,1.6vw,17px);color:#FF8C00;font-weight:600;letter-spacing:0.3px;margin-bottom:14px;opacity:0.92}
+.hero .meta{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.hero .badge{background:rgba(255,140,0,0.15);color:#FF8C00;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:900;letter-spacing:1px;border:1px solid rgba(255,140,0,0.4)}
+.hero .badge.type-a{background:rgba(231,76,60,0.15);color:#e74c3c;border-color:rgba(231,76,60,0.4)}
+.hero .badge.type-b{background:rgba(52,152,219,0.15);color:#3498DB;border-color:rgba(52,152,219,0.4)}
+.hero .badge.type-c{background:rgba(63,185,80,0.15);color:#3fb950;border-color:rgba(63,185,80,0.4)}
+.back{position:absolute;top:20px;left:20px;color:#FF8C00;text-decoration:none;font-size:13px;font-weight:700;padding:7px 14px;border:2px solid #FF8C00;border-radius:18px}
+.back:hover{background:#FF8C00;color:#001020}
+.content{max-width:900px;margin:0 auto;padding:40px 24px 60px}
+.content h1{display:none}
+.content h2{font-size:clamp(20px,2.8vw,28px);font-weight:900;color:#FF8C00;margin:32px 0 16px;letter-spacing:0.5px;border-left:5px solid #FF8C00;padding-left:14px}
+.content h2:first-child{margin-top:0}
+.content h3{font-size:18px;font-weight:900;color:#fff;margin:24px 0 12px}
+.content h4{font-size:16px;font-weight:700;color:#FF8C00;margin:18px 0 10px}
+.content p{font-size:15px;color:#dde;margin-bottom:14px}
+.content ul,.content ol{margin:0 0 16px 24px;color:#dde}
+.content li{font-size:15px;margin-bottom:6px;line-height:1.7}
+.content strong{color:#fff;font-weight:900}
+.content em{color:#FF8C00;font-style:normal;font-weight:600}
+.content code{background:rgba(255,140,0,0.12);color:#FF8C00;padding:2px 6px;border-radius:4px;font-size:13px;font-family:'D2Coding','Consolas',monospace}
+.content pre{background:rgba(0,0,0,0.4);border:1px solid rgba(255,140,0,0.25);border-radius:8px;padding:16px;overflow-x:auto;margin:16px 0}
+.content pre code{background:none;color:#bcd;padding:0;font-size:13px}
+.content blockquote{border-left:4px solid #FF8C00;background:rgba(255,140,0,0.05);padding:14px 20px;margin:16px 0;border-radius:0 8px 8px 0;color:#bcd}
+.content table{width:100%;border-collapse:collapse;margin:18px 0;background:rgba(255,255,255,0.03);border-radius:8px;overflow:hidden;font-size:14px}
+.content th,.content td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08)}
+.content th{background:rgba(255,140,0,0.15);color:#FF8C00;font-weight:900}
+.content td{color:#dde}
+.content tr:last-child td{border-bottom:none}
+.content hr{border:none;border-top:1px solid rgba(255,140,0,0.2);margin:30px 0}
+.content a{color:#FF8C00;text-decoration:none;border-bottom:1px dashed rgba(255,140,0,0.4)}
+.content a:hover{border-bottom-style:solid}
+.footer{background:#001020;border-top:1px solid #1a2a3a;padding:24px;text-align:center;color:#7a8c9c;font-size:13px}
+.footer a{color:#FF8C00;text-decoration:none;margin:0 10px}
+</style>
+</head>
+<body>
+<a href="../index.html" class="back">← 슬라이드쇼로</a>
+<section class="hero">
+  <div class="tag">SUNNY AI MAGIC 50 · #03</div>
+  <h1>SAL(Stage, Area, Level) 3차원 좌표</h1>
+  <div class="subtitle">대규모 작업 계획 세우기 or 분해하기</div>
+  <div class="meta">
+    <span class="badge">G1 · 구상 및 계획</span>
+    <span class="badge type-b">B타입</span>
+    <span class="badge">📜 특허 10-2026-0009425</span>
+  </div>
+</section>
+
+<section class="content">
+<h2>한 줄 정의</h2>
+<p>큰 작업을 <em>Stage</em>(절차) × <em>Area</em>(영역) × <em>Level</em>(셀 내 순서)에 <em>Variant</em>(병렬 분기)를 더한 네 축의 좌표 위에 매핑하여, 누락 없는 분해와 의존성의 좌표 표시, 그리고 진척의 한눈 가시화를 동시에 달성하는 본인 발명의 작업 분해 체계.</p>
+<h2>1축 분해의 한계</h2>
+<p>큰 작업을 쪼갤 때 사람이 가장 자주 실패하는 지점은 <em>분해 축이 하나뿐</em>이라는 사실이다. 흔히 쓰는 도구를 떠올려 보면 분명해진다. WBS는 트리 한 줄, 간트는 시간축 한 줄, 지라의 epic-story-task는 계층 한 줄. 1축 분해는 단순해서 빠르지만, <em>이 작업이 어느 영역에 속하는가</em>와 <em>이 작업이 누구 다음에 와야 하는가</em>가 같은 축 위에서 뭉개진다. 결과는 두 가지로 나타난다. 영역 분포의 빈자리가 보이지 않아 누락이 생기고, 의존성을 사람이 일일이 선언해야 해서 잊는다.</p>
+<p>본인이 누적 운용에서 끝까지 밀고 갔던 가설은 한 줄이다. <em>작업 좌표는 최소 3차원이어야 한다.</em> 시간을 가리키는 축, 영역을 가리키는 축, 의존을 가리키는 축. 이 셋을 직교시켜 놓고 작업을 그 안에 한 점으로 찍으면 누락도 충돌도 자연스럽게 줄어든다. SAL은 이 가설의 구현이다.</p>
+<h2>네 축의 좌표</h2>
+<p>첫 번째 축은 <em>Stage</em>다. 절차적 순서로, S1을 끝내야 S2로 갈 수 있는 직렬 의존이 박혀 있다. 단순 일정이 아니라 <em>완료가 다음을 연다</em>는 관계가 시간 위에 인코딩된 축이다.</p>
+<p>두 번째 축은 <em>Area</em>다. 기능적 영역이며, 같은 Area에 속한 작업들은 같은 도구나 같은 에이전트로 묶어 처리할 수 있다. 분류 기준이 <em>기능 인접성</em>이라는 점이 핵심이다. 도구의 단위와 좌표의 단위를 일치시켰기 때문에 작업 배분이 별도 계획 없이도 자동으로 따라온다.</p>
+<p>세 번째 축은 <em>Level</em>이다. 같은 (Stage, Area) 셀 안에 작업이 여러 개일 때 그 안에서의 미시 의존을 표시한다. L1이 끝나야 L2가 가능하다. 같은 셀에 작업이 하나뿐이면 L1만 붙는다.</p>
+<p>네 번째 축은 <em>Variant</em>다. 이 축이 본인이 가장 영리하게 설계했다고 생각하는 부분이다. Stage·Area·Level까지는 모두 직렬 의존이지만 Variant는 정반대로 <em>병렬 가능성</em>을 명시한다. <code>S2BI3a</code>·<code>S2BI3b</code>·<code>S2BI3c</code>는 같은 셀 안 같은 Level의 세 분기로, 셋은 동시에 시작해도 충돌이 없다는 사실이 좌표 자체에 박혀 있다. 30개 동시 운용에서 <em>어느 작업을 동시에 던질 수 있느냐</em>는 질문의 답이 별도 그래프 없이 좌표 안에서 그대로 읽힌다.</p>
+<p>좌표 한 줄은 그래서 네 가지 정보를 동시에 전달한다. <code>S2BI3a</code> 하나를 보면 <em>Stage 2, Backend Implementation 영역, Level 3, Variant a</em>라는 사실이 메타데이터 조회 없이 즉시 드러난다. 의존성 그래프를 따로 그리거나 선언하지 않는다. <em>의존성 개념 자체가 식별자의 구조적 속성으로 치환된</em> 셈이다. 이것이 본인 특허 10-2026-0009425 청구항 1의 요지다.</p>
+<h2>운용 흐름 — 좌표를 잡는 다섯 동작</h2>
+<p>본인이 새 프로젝트에서 좌표를 잡을 때의 흐름은 다섯 동작으로 정리된다. 먼저 작업 전체를 절차적 순서로 세 개에서 열 개 사이의 단계로 나눠 <em>Stage</em>를 확정한다. 다음 작업의 기능적 영역을 네 개에서 일곱 개 정도로 분류해 <em>Area</em>를 잡는다. 개발 도메인은 본인이 표준화한 열한 개의 Area를 그대로 쓰지만, 도메인이 바뀌면 그에 맞춰 새로 짠다. 그 두 축이 잡히면 N×M 매트릭스를 그리는데, 이 그리는 행위 자체가 누락 점검 도구가 된다. 빈 셀에 대고 <em>정말 비어 있는 게 맞느냐</em>고 질문하다 보면 한두 칸씩 작업이 자라난다.</p>
+<p>매트릭스가 채워지면 각 셀 안의 작업에 <em>Level</em>을 부여한다. 같은 셀의 일이라도 순서가 있는 경우 L1·L2·L3로 미시 의존을 표시한다. 그 다음 Level이 같은 작업 중 동시 실행 가능한 분기가 보이면 <em>Variant</em> a·b·c로 분리한다. 이 단계가 끝나면 모든 작업이 <code>S{Stage}{Area}{Level}{Variant?}</code> 형식의 좌표를 한 줄씩 갖게 되고, 좌표 자체가 곧 식별자이자 의존성 명세가 된다.</p>
+<p>여기까지가 좌표계만 사용하는 분해의 끝이다. 30개 동시 운용 같은 본격 운용 단계로 가려면 22속성 Task 그리드와 grid_records JSON, Stage Gate, sal-guard 검증 같은 운용 인프라를 얹는데, 그 영역은 #13 SAL Grid 개발 방법론에서 다룬다. 작업이 30개 미만이거나 단발성 분해라면 본 좌표계까지만 써도 충분하다.</p>
+<h2>응용 도메인</h2>
+<p>좌표계는 도메인을 가리지 않는다. 본인이 직접 적용해 본 것만 네 가지다. 개발 도메인은 다섯에서 여섯 개의 Stage(계획·기획·구현·검증·배포)와 열한 개 Area(F·BA·BI·S·D·T·M·U·O·E·C)로 짠다. 학습 콘텐츠는 초·중·고급 세 Stage에 여섯 개 Area로 18셀이다. 사업계획서는 시장조사부터 검증까지 다섯 Stage에 시장·재무·운영·리스크·거버넌스 다섯 Area로 잡고, 특허 출원은 선행조사·청구항·도면·심사대응 네 Stage에 청구항·명세서·도면·응답 네 Area로 짠다. 도메인이 달라져도 <em>3차원 좌표 + Variant</em>라는 골격은 그대로다. 응용 영역마다 Stage와 Area의 이름과 개수만 갈아 끼우면 된다.</p>
+<h2>매트릭스 — 시각화의 본질</h2>
+<p>좌표계를 시각화하면 N×M 매트릭스가 된다. 행이 Stage, 열이 Area, 각 셀에 그 좌표의 작업이 배치된다. 빈 셀은 <em>그 단계엔 그 영역의 작업이 없다</em>는 의미이고, 채워진 셀은 색상으로 진행 상태를 보여준다. 프로젝트 전체의 진척이 한 장의 매트릭스로 한눈에 잡힌다.</p>
+<p>본인이 가장 자주 사용하는 진단법은 <em>빈 셀을 의심한다</em>는 규칙이다. <em>S3 행의 Test 열이 비어 있다</em>면 둘 중 하나다. 정말 그 단계에는 테스트 작업이 없거나, 아니면 누락. 본인 경험상 열에 아홉은 누락이다. 빈 셀은 1축 WBS에서는 절대 보이지 않는 정보이며, 매트릭스 형태로 늘어놓는 행위 자체가 분해의 빈 곳을 비추는 거울이 된다.</p>
+<h2>좌표는 곧 의사소통</h2>
+<p>30개 인스턴스를 동시에 굴리다 보면 작업 지시의 비용이 발목을 잡는다. 자연어로 일일이 <em>이 작업을 너에게 맡기고 그건 백엔드 쪽이며 두 번째 단계의 세 번째 의존 위치인데 동시 실행 가능한 분기이다</em>라고 풀어 쓰면 인스턴스 30개분의 prompt가 30 종류가 되고 관리가 무너진다.</p>
+<p>좌표를 도입하면 지시가 ID 한 줄로 끝난다. <code>S2BI3a</code>를 던지면 <em>어디·무엇·언제·병렬가능여부</em>가 동시에 전달된다. 좌표가 프롬프트를 압축한다. 본인이 30개 동시 운용을 실용 단계로 끌어올릴 수 있었던 결정적 이유 중 하나가 이 압축 효과다.</p>
+<p>또 하나의 운용 효과는 <em>재사용</em>이다. 한 번 (Stage, Area) 매트릭스를 잡으면 다음 프로젝트에 그대로 재활용된다. 본인이 운영 중인 SSAL Works Project는 5 Stage × 11 Area = 55셀에 74개 Task를 배치한 매트릭스인데, 후속 프로젝트들은 이 매트릭스를 출발점으로 잡고 차이만 조정한다. 템플릿화된 좌표계가 매번의 분해 비용을 한 자릿수 분의 일로 줄인다.</p>
+<h2>같은 좌표계의 두 응용</h2>
+<p>좌표계 자체는 <em>순서·영역·의존</em>이 존재하는 어떤 도메인에도 응용 가능하다. 본인이 직접 적용해 본 두 가지를 소개한다.</p>
+<p>첫째 응용은 <strong>SAL Grid 개발 방법론</strong>(본 책 #13)이다. 좌표계 위에 22속성 Task 그리드와 11 Area 표준, grid_records JSON과 Stage Gate, 검증 자동화를 얹은 운용 인프라다. 30개 동시 운용의 골격이며, 본인 특허 출원의 직접 대상이다. 좌표계는 <em>개념</em>이고 SAL Grid 개발 방법론은 그 개념을 개발 도메인에 응용한 <em>운용</em>이다.</p>
+<p>둘째 응용은 <strong>ax-on.net의 18셀 학습 그리드</strong>다. 같은 좌표계를 학습 콘텐츠 분류에 응용한 결과로, Stage 3개(초·중·고급)와 Area 6개(CO·ST·WF·TO·QC·CM)를 곱한 18셀 위에 Claude Code 지식을 배치했다. 7,758줄짜리 마스터 가이드가 좌표 18개로 정리됐다는 점 자체가 좌표계의 응용 범용성을 증명한다. 독자는 <em>지금 어디서 무엇을 배우는지</em>를 좌표로 안내받는다.</p>
+<p>여기에 한 가지를 더한다면 <em>역방향 응용</em>이다. 본인 vault의 <code>S0_grid.md</code>는 이미 완성된 특허 출원서 1,082줄과 도면 14장을 SAL 좌표로 거꾸로 분해해 출원 직전 감사에 사용한 기록이다. 좌표가 정방향 분해뿐 아니라 역방향 진단에서도 작동한다는 직접 증거다.</p>
+<h2>왜 작동하는가</h2>
+<p>1축 분해는 사람이 모든 의존을 머리에 이고 있어야 한다. 30개를 동시에 굴리면 그 부하가 한 사람의 머리로는 감당이 안 된다. SAL은 의존 정보를 식별자의 구조 안으로 옮겨 머리 밖에 둔다. 작업이 늘어나도 부담은 늘지 않는다. 좌표만 정확히 찍히면 의존 표시·작업 배분·진척 가시화·재사용까지 같은 한 줄에서 동시에 해결된다. 반복 운용에서 이만한 압축률을 가진 분해 도구를 본인은 아직 찾지 못했다.</p>
+<h2>관련 항목</h2>
+<ul>
+<li><strong>#13 SAL Grid 개발 방법론</strong> — 본 좌표계의 개발 도메인 응용 (직접 짝)</li>
+<li><strong>#12 MBO</strong> — Stage 진입 시 좌표 기반 합의 골격</li>
+<li><strong>#14 군대 소대 편제</strong> — 좌표가 인적 배분의 기준</li>
+<li><strong>#16 Subagent vs Agent Teams</strong> — Variant 병렬성이 동시 투입의 근거</li>
+<li><strong>#22 SVG 아키텍처</strong> — Stage × Area 매트릭스의 시각화 도구</li>
+<li><strong>#31 5컴퓨터 30개 운용</strong> — 좌표가 30개 인스턴스의 작업 배분 키</li>
+</ul>
+</section>
+
+<div class="footer">
+  <a href="../index.html">← SUNNY AI MAGIC 50</a>
+  <div style="margin-top:10px;color:#5a6c7c;font-size:12px;letter-spacing:0.3px">© 2026 SUN WOONGKYU · SUNNY AI MAGIC 50 · CC BY-NC-ND 4.0 · 특허 별도 보유</div>
+</div>
+</body>
+</html>

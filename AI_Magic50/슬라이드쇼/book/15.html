@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>SUNNY AI MAGIC 50 · #15 Claude Code 오케스트레이터 + 멀티 CLI</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#000814;color:#fff;line-height:1.7}
+.hero{background:radial-gradient(circle at 30% 30%,#002d5c 0%,#000814 70%);padding:50px 24px 40px;text-align:center;border-bottom:3px solid #FF8C00}
+.hero .tag{color:#FF8C00;font-size:13px;font-weight:900;letter-spacing:5px;margin-bottom:12px}
+.hero h1{font-size:clamp(22px,4vw,40px);font-weight:900;line-height:1.25;margin-bottom:8px;color:#fff;text-shadow:0 4px 24px rgba(255,140,0,0.35)}
+.hero .subtitle{font-size:clamp(13px,1.6vw,17px);color:#FF8C00;font-weight:600;letter-spacing:0.3px;margin-bottom:14px;opacity:0.92}
+.hero .meta{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.hero .badge{background:rgba(255,140,0,0.15);color:#FF8C00;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:900;letter-spacing:1px;border:1px solid rgba(255,140,0,0.4)}
+.hero .badge.type-a{background:rgba(231,76,60,0.15);color:#e74c3c;border-color:rgba(231,76,60,0.4)}
+.hero .badge.type-b{background:rgba(52,152,219,0.15);color:#3498DB;border-color:rgba(52,152,219,0.4)}
+.hero .badge.type-c{background:rgba(63,185,80,0.15);color:#3fb950;border-color:rgba(63,185,80,0.4)}
+.back{position:absolute;top:20px;left:20px;color:#FF8C00;text-decoration:none;font-size:13px;font-weight:700;padding:7px 14px;border:2px solid #FF8C00;border-radius:18px}
+.back:hover{background:#FF8C00;color:#001020}
+.content{max-width:900px;margin:0 auto;padding:40px 24px 60px}
+.content h1{display:none}
+.content h2{font-size:clamp(20px,2.8vw,28px);font-weight:900;color:#FF8C00;margin:32px 0 16px;letter-spacing:0.5px;border-left:5px solid #FF8C00;padding-left:14px}
+.content h2:first-child{margin-top:0}
+.content h3{font-size:18px;font-weight:900;color:#fff;margin:24px 0 12px}
+.content h4{font-size:16px;font-weight:700;color:#FF8C00;margin:18px 0 10px}
+.content p{font-size:15px;color:#dde;margin-bottom:14px}
+.content ul,.content ol{margin:0 0 16px 24px;color:#dde}
+.content li{font-size:15px;margin-bottom:6px;line-height:1.7}
+.content strong{color:#fff;font-weight:900}
+.content em{color:#FF8C00;font-style:normal;font-weight:600}
+.content code{background:rgba(255,140,0,0.12);color:#FF8C00;padding:2px 6px;border-radius:4px;font-size:13px;font-family:'D2Coding','Consolas',monospace}
+.content pre{background:rgba(0,0,0,0.4);border:1px solid rgba(255,140,0,0.25);border-radius:8px;padding:16px;overflow-x:auto;margin:16px 0}
+.content pre code{background:none;color:#bcd;padding:0;font-size:13px}
+.content blockquote{border-left:4px solid #FF8C00;background:rgba(255,140,0,0.05);padding:14px 20px;margin:16px 0;border-radius:0 8px 8px 0;color:#bcd}
+.content table{width:100%;border-collapse:collapse;margin:18px 0;background:rgba(255,255,255,0.03);border-radius:8px;overflow:hidden;font-size:14px}
+.content th,.content td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08)}
+.content th{background:rgba(255,140,0,0.15);color:#FF8C00;font-weight:900}
+.content td{color:#dde}
+.content tr:last-child td{border-bottom:none}
+.content hr{border:none;border-top:1px solid rgba(255,140,0,0.2);margin:30px 0}
+.content a{color:#FF8C00;text-decoration:none;border-bottom:1px dashed rgba(255,140,0,0.4)}
+.content a:hover{border-bottom-style:solid}
+.footer{background:#001020;border-top:1px solid #1a2a3a;padding:24px;text-align:center;color:#7a8c9c;font-size:13px}
+.footer a{color:#FF8C00;text-decoration:none;margin:0 10px}
+</style>
+</head>
+<body>
+<a href="../index.html" class="back">← 슬라이드쇼로</a>
+<section class="hero">
+  <div class="tag">SUNNY AI MAGIC 50 · #15</div>
+  <h1>Claude Code 오케스트레이터 + 멀티 CLI</h1>
+  <div class="subtitle">Codex CLI·Gemini CLI·Grok CLI와 실행형 협업 (실행·로그·검증·재실행)</div>
+  <div class="meta">
+    <span class="badge">G3 · 실행 방법</span>
+    <span class="badge type-b">B타입</span>
+    
+  </div>
+</section>
+
+<section class="content">
+<h2>한 줄 정의</h2>
+<p>Claude Code 를 <strong>지휘자(오케스트레이터)</strong> 로 두고 Codex CLI · Gemini CLI · Grok CLI 를 각자 <strong>특화된 실행 도구(용병)</strong> 로 호출 — <em>대화형 협업</em>에서 <em>실행형 협업</em>(실행 → 로그 → 검증 → 재실행 루프)으로 격상시키는 멀티 모델 운용 패턴. MagicShow 강의자료 <strong>슬라이드 26번</strong>(매직 8 위치, 분량이 아니라 n번째 슬라이드 — <a href="../_PHASE/2026_05_06__19.50_분류표_확정.md#사실-키-ssot-single-source-of-truth">분류표 SSOT</a>) <em>"매직 8: Claude Code로 다른 AI 용병 부리기"</em> 의 본체.</p>
+<h2>왜 이 노하우가 중요한가</h2>
+<p>단일 AI에 모든 일을 시키면 두 가지가 동시에 깨진다 — <em>첫째</em> 컨텍스트 윈도우가 빨리 차서 긴 자료 처리에 약하고, <em>둘째</em> 각 모델이 가진 강점을 활용 못 하니 결과 품질이 평균치에 머문다. 본인 4,000시간 누적에서 가장 효용이 큰 변곡점은 <strong>2025년 말 멀티 CLI 운용 전환</strong> 이었다. ChatGPT 앱과 Claude 앱을 번갈아 열고 복붙하던 <em>대화형 협업</em> 에서, Claude Code가 직접 다른 CLI를 호출하고 stdout 을 받아 처리하는 <em>실행형 협업</em> 으로 넘어간 순간 작업 속도가 4~5배가 됐다.</p>
+<p>핵심 차이는 단순하다. <strong>CLI 협업은 루프가 자동이고, API/대화 협업은 사람이 매 단계 개입한다.</strong> Claude Code 가 Codex CLI 에 <em>"이 함수 리팩터링해서 결과를 ./out/refactored.ts 에 써라"</em> 라고 명령하면 Codex 가 실행하고, Claude Code 가 그 파일을 Read 하고 검증하고, 실패면 다시 다른 프롬프트로 재실행한다. 사람은 처음 한 번 시켰을 뿐. <em>실행 → 로그 → 검증 → 재실행</em> 의 4단계가 주도권을 사람에게 한 번도 넘기지 않고 돈다.</p>
+<p>이게 슬라이드 26번 — <em>"CLI 방식(실행 기반 협업) vs API 방식(텍스트 왕복) / CLI = 실행 → 로그 → 검증 → 재실행 루프"</em> — 의 핵심이다. <em>"Claude가 오케스트레이터, 나머지 AI가 전문 도구 역할"</em> 한 줄에 본인 운용 철학이 압축돼 있다.</p>
+<p>또 하나 중요한 부수 효과 — <strong>각 CLI 가 독립 컨텍스트</strong> 라는 점. Gemini CLI 에 200MB 짜리 PDF 를 던져도 Claude Code 메인 세션의 컨텍스트는 <em>"Gemini 에 던졌다"</em> 한 줄만 차지한다. 메인 컨텍스트는 지휘만 담당하니 끝까지 깨끗하다. 이건 #15(컨텍스트 관리 3종) 의 가장 강력한 도구이기도 하다.</p>
+<h2>핵심 개념</h2>
+<h3>CLI 협업 vs API 협업</h3>
+<table>
+<thead>
+<tr>
+<th>차원</th>
+<th>CLI 협업 (실행형)</th>
+<th>API/대화 협업 (텍스트형)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>루프 주체</strong></td>
+<td>Claude Code 자체</td>
+<td>사람 (복붙 매개)</td>
+</tr>
+<tr>
+<td><strong>사이클 시간</strong></td>
+<td>분 단위</td>
+<td>시간 단위</td>
+</tr>
+<tr>
+<td><strong>재시도</strong></td>
+<td>자동 (조건부 분기 포함)</td>
+<td>수동</td>
+</tr>
+<tr>
+<td><strong>컨텍스트 격리</strong></td>
+<td>각 CLI 독립</td>
+<td>단일 세션 누적</td>
+</tr>
+<tr>
+<td><strong>로그 보존</strong></td>
+<td>stdout/stderr 파일 자동</td>
+<td>채팅 히스토리만</td>
+</tr>
+<tr>
+<td><strong>검증</strong></td>
+<td>다음 CLI 가 파일 검증 가능</td>
+<td>사람 시각 의존</td>
+</tr>
+<tr>
+<td><strong>확장성</strong></td>
+<td>N개 CLI 병렬 호출</td>
+<td>사람 처리 한계</td>
+</tr>
+</tbody>
+</table>
+<p>API/대화 협업은 <em>"같은 일을 N번 다른 모델에게 물어보고 답을 비교"</em> 가 한계다. CLI 협업은 <em>"같은 파일을 N개 모델이 순차/병렬로 가공해서 단일 산출물 생성"</em> 까지 간다.</p>
+<h3>3 CLI 강점 분리표</h3>
+<p><code>deploy-subagent-기본</code> 8대 철칙 중 5번 — <em>"용병 투입: 서브 에이전트로 안 되면 외부 AI(Codex, Gemini, Grok) 활용"</em> — 의 강점 분리.</p>
+<table>
+<thead>
+<tr>
+<th>CLI</th>
+<th>핵심 강점</th>
+<th>본인 활용 패턴</th>
+<th>모델</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Codex CLI</strong></td>
+<td>리팩터링·코드 생성 / 이미지 생성 (GPT Image)</td>
+<td>TS·Python 함수 단위 리팩터링, GPT Image 1 호출</td>
+<td>GPT-5 / GPT Image 1</td>
+</tr>
+</tbody>
+</table>
+<!-- Codex CLI를 *Claude 측 커스텀 스킬*로 감싸 호출하는 시도(=Codex CLI 스킬 호출)는 본인 사용 결과 효용 낮음으로 제외했다. 본 항목의 "Codex CLI"는 그 시도가 아니라 Codex 자체를 직접 Bash로 호출하는 형태를 가리킨다. -->
+
+<p>| <strong>Gemini CLI</strong> | 대용량 컨텍스트 (1M+ 토큰) / 이미지 (Nano Banana) | 200MB PDF 요약, 5,000줄 로그 분석, Gemini 3 Pro Image | Gemini 3 Pro / Image |
+| <strong>Grok CLI</strong> | 실시간 리서치 (X 데이터) / 트렌드 분석 | 최신 모델 출시 동향, X 여론 스냅샷 | Grok-4 |</p>
+<p>각 CLI 가 잘하는 것만 시키는 게 원칙이다. Codex 에게 리서치 시키지 않고 Grok 에게 리팩터링 시키지 않는다. 슬라이드 26번 <em>"각 AI 강점 활용: Codex=리팩터링/이미지 만들기, Gemini=대용량 처리/이미지 만들기, Grok=리서치"</em> 가 정확히 이 표.</p>
+<h3>오케스트레이터 의사결정 트리</h3>
+<pre><code>작업 도착
+  ├─ 코드 변경(리팩터링·생성·테스트)
+  │   └─ Codex CLI (Claude Code 메인이 직접 못 할 때만)
+  ├─ 대용량 파일 분석(&gt;50KB 텍스트, &gt;100MB 미디어)
+  │   └─ Gemini CLI
+  ├─ 최근 1주 이내 정보·X 트렌드
+  │   └─ Grok CLI
+  ├─ 이미지 생성 (사실적/일러스트)
+  │   └─ ai-image-기본 비교 워크플로우 (5모델 동시)
+  └─ 그 외 → Claude Code 본인 처리
+</code></pre>
+<h3>실행 → 로그 → 검증 → 재실행 루프</h3>
+<pre><code>[1] 실행      Claude Code → Bash(&quot;codex run refactor.ts &gt; ./out/log.txt&quot;)
+[2] 로그      Claude Code Read ./out/log.txt
+[3] 검증      KPI 체크 (예: 빌드 통과 / 테스트 12/12 / Lighthouse 90+)
+[4] 재실행    실패 시 다른 프롬프트로 다시 [1] (최대 5회 — 5times-debug-loop-코어3)
+[5] 보고      성공 시 결과 + 미달성 항목 보고 (MBO 결과보고서 양식)
+</code></pre>
+<p>루프의 종결 조건은 <em>"KPI 통과 OR 5회 시도 완료"</em> 둘 중 하나. 무한 루프는 청룡 스킬의 sal-guard hook 이 차단한다.</p>
+<h3><code>ai-image-기본</code> 의 정점 사례 — 5모델 동시 비교</h3>
+<p>이미지 생성에서는 <em>어느 모델이 이번 작업에 맞는지</em> 미리 알 수 없다. 따라서 같은 프롬프트를 <strong>5개 모델(Gemini 3 Pro / Gemini 3.1 Flash / Gemini 2.5 Flash / GPT Image 1 / DALL·E 3) 에 동시 호출 → 갤러리 자동 생성 → PO 가 1장 선택 → 고품질 재생성</strong> 의 4단계 깔때기. 이게 멀티 CLI 운용의 표본이다 — <em>비교가 기본, 단일 호출은 예외</em>.</p>
+<pre><code class="language-bash">python &quot;$HOME/.claude/skills/ai-image-기본/scripts/compare_models.py&quot; \
+  &quot;프롬프트 한 줄&quot; \
+  --outdir &quot;C:/Users/home/Desktop/{작업명}_compare&quot;
+# → 5장 PNG + Pillow 후처리(라벨/워터마크/EXIF) + 콜라주 + index.html 자동
+</code></pre>
+<h2>실전 사용법</h2>
+<h3>1단계 — 의사결정 트리 적용</h3>
+<p>작업 도착 즉시 <em>"내가 직접 할 일인가, 용병 호출할 일인가"</em> 판단. 본인 기준 ≈ 70% 는 메인 Claude Code 직접 처리, 30% 가 용병 위임. 위임 비율을 무리하게 올리면 컨텍스트 전달 비용 때문에 오히려 느려진다.</p>
+<h3>2단계 — 프롬프트에 저장 위치 규칙 주입 (필수)</h3>
+<p><code>deploy-subagent-기본</code> 8대 철칙 중 8번 강제 — <em>"⛔ 저장 위치 규칙 필수 주입"</em>. 외부 CLI 도 동일. Stage 폴더(원본) + 루트 디렉토리(배포용) 양쪽 경로를 프롬프트에 박지 않으면 산출물이 엉뚱한 곳에 떨어진다. 본인이 S1 Batch 에서 5개 Task 중 4개가 Stage 폴더 누락된 사고가 정확히 이 빠짐 때문이었다.</p>
+<h3>3단계 — 병렬 호출 (독립 작업만)</h3>
+<p>Gemini CLI 가 PDF 요약하는 동안 Grok CLI 가 X 트렌드 검색하고 Codex CLI 가 리팩터링하는 — 3개 CLI 가 동시에 도는 패턴. 단, <em>서로 결과 의존성이 없을 때만</em>. Codex 가 만든 코드를 Gemini 가 검토해야 하는 순서 의존이 있으면 직렬 — 슬라이드 26번 <em>"실행 → 로그 → 검증 → 재실행"</em> 4단계 중 <em>검증</em> 자리에 다음 CLI 가 들어간다.</p>
+<h3>4단계 — 검증 KPI 양쪽 확보</h3>
+<p>검증 원칙 — <em>"curl 200 ≠ 동작함"</em>. 외부 CLI 산출물 검증도 데이터 레이어 KPI(파일 크기 / 빌드 통과 / 테스트 개수) + 사용자 여정 KPI(브라우저 클릭 / 실제 화면 확인) 둘 다 측정해야 통과. 단일 KPI 만 보고 <em>Verified</em> 처리 금지.</p>
+<h3>5단계 — 자기 검증 금지 원칙</h3>
+<p>각 CLI 가 자기 산출물을 자기가 검증하면 안 된다. Codex 가 만든 코드는 Gemini 또는 Claude Code 가 검증, Gemini 가 요약한 PDF 는 Claude Code 가 SSOT 와 대조. 별도 Verification Agent 를 따로 돌려야 한다.</p>
+<h3>본인 운용 패턴 — 30개 동시 운용에서</h3>
+<p>5개 컴퓨터 × 6개 Claude Code = 30 인스턴스 운용 시(#31), 각 인스턴스가 개별로 Codex/Gemini/Grok CLI 를 호출하면 API 키 충돌·rate limit 폭주가 발생한다. 본인은 <em>Gemini 29키 로테이션</em> (<code>ai-image-기본</code> 내장) 처럼 키 풀을 분배하고, Grok 처럼 단일 키 모델은 <em>리서치 전담 인스턴스 1개</em> 만 호출 권한 부여. #23(API 비용 최적화) 와 짝.</p>
+<p>비용 측면 — Gemini 3 Pro 는 대용량이라 1회 호출 비용 높지만 컨텍스트 절약 효과가 그 이상. 본인 월간 API 사용 비용의 약 65% 가 Gemini 대용량 처리, 27% Codex 코드 생성, 8% Grok. <em>(측정: 본인 월간 각 CLI 청구서 합산 비율, 30개 운용 환경 기준)</em></p>
+<h2>관련 항목</h2>
+<ul>
+<li><strong>#31 5컴퓨터 30개 운용</strong> — 멀티 CLI 가 가로 확장의 동력</li>
+<li><strong>#14 군대 소대 편제</strong> — 멀티 CLI = 외부 용병 4명, 본인 분대장과 분리</li>
+<li><strong>#14 1개 AI Multi Role</strong> — 단일 인스턴스 다역할 vs 17번 다인스턴스 다역할</li>
+<li><strong>#39 Subagent vs Agent Teams</strong> — 내부 위임 메커니즘, 17번은 외부 용병</li>
+<li><strong>#15 컨텍스트 관리</strong> — 외부 CLI 가 메인 컨텍스트 보호 도구</li>
+<li><strong>#23 API 비용 최적화</strong> — 멀티 CLI 비용 통제 사전 설계</li>
+<li><strong>#44 MCP 서버</strong> — 17번이 CLI 레벨, MCP 는 데이터·시스템 레벨 협업</li>
+<li><strong>#33 멀티 모델 이미지 제작</strong> — 17번을 이미지 트랙에 적용한 정점 사례</li>
+</ul>
+<blockquote>
+<p>Vault 사례: <code>claude-platoons-control/wiki/CPC_ARCHITECTURE_OVERVIEW.md</code> 가 본인이 멀티 CLI 운용을 <em>"각자 흩어진 16개 소대 + 외부 용병"</em> 으로 통합한 통신 인프라 기록이다. <strong>CPC(Supabase + Vercel API)</strong> 가 중앙 명령 센터 역할을 하고, <strong>MCP 서버(<code>cpc_mcp_server.py</code> + Channel)</strong> 가 Claude Code ↔ CPC 브리지로 <em>"명령 폴링·결과 보고·5개 도구(<code>wait_cpc_command</code>/<code>report_cpc_result</code> 등)"</em> 를 노출한다. 16개 소대(5 프로젝트 × 3소대 + trader-bot) 가 등록되어 IDLE/RUNNING/PAUSED/DONE 상태가 중앙에서 관리되고, 모바일에서 ax-on.net 웹챗봇 UI로 명령을 던질 수 있다. 본 항목 §본인 운용 패턴(<em>30개 동시 운용에서 키 풀 분배</em>) 가 단순 키 로테이션을 넘어 <strong>명령 라우팅 인프라</strong>로 격상한 흔적이 이 노트다.</p>
+</blockquote>
+</section>
+
+<div class="footer">
+  <a href="../index.html">← SUNNY AI MAGIC 50</a>
+  <div style="margin-top:10px;color:#5a6c7c;font-size:12px;letter-spacing:0.3px">© 2026 SUN WOONGKYU · SUNNY AI MAGIC 50 · CC BY-NC-ND 4.0 · 특허 별도 보유</div>
+</div>
+</body>
+</html>

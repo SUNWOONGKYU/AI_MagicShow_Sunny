@@ -1,0 +1,35 @@
+SUNNY AI MAGIC 50 — 표지 좌상단 헤더 오버레이 적용 + 배포 (2026-05-14)
+
+Production:
+https://sunny-ai-magic-50-izn7a3ykd-finder-world.vercel.app
+
+작업 요약:
+- 50장 표지 PNG 좌상단에 챕터 헤더(#NN + Title + Subtitle) 합성
+- 방식: Pillow 오버레이 (AI 텍스트 렌더링 불안정 → 결정론적 한글 폰트 합성)
+- 디자인:
+  · 위치: 좌상단 margin 2.5%
+  · 박스: 반투명 다크 네이비 (15,20,35, alpha 205) + 라운드 코너
+  · 좌측 액센트 바: 골드 (255,196,64)
+  · #NN: 그레이 (200,210,230)
+  · Title: 화이트 볼드 (맑은 고딕 Bold, W*3.8%)
+  · Subtitle: 앰버 (255,220,150), 2줄 제한 + 말줄임
+- 폰트: 맑은 고딕 Bold/Regular
+- 데이터 소스: MD frontmatter (id, title, subtitle)
+- 스크립트: _overlay_headers.py
+
+백업:
+- 오버레이 적용 전 50장 → covers/covers_backup_pretitle/
+- 32장 재생성 전 원본 → covers/covers_backup_2026-05-13/
+- 해부학 결함 v2 백업 → covers/covers_backup_2026-05-13/10_v2_problem.png, 38_v2_problem.png
+
+확인 URL:
+- 전체: https://sunny-ai-magic-50-izn7a3ykd-finder-world.vercel.app
+- 샘플 표지(#36): https://sunny-ai-magic-50-izn7a3ykd-finder-world.vercel.app/covers/36.png
+- 샘플 표지(#10): https://sunny-ai-magic-50-izn7a3ykd-finder-world.vercel.app/covers/10.png
+- 샘플 표지(#48): https://sunny-ai-magic-50-izn7a3ykd-finder-world.vercel.app/covers/48.png
+
+배경:
+이전 32장 재생성으로 정합도는 5/5 달성했으나 "콘텐츠 핵심 요약이 미흡"
+→ AI 이미지에 한글 텍스트를 직접 박는 방식은 글자 깨짐/오타 빈발
+→ Option A (Pillow 결정론적 오버레이) 채택: 폰트·위치·색상 100% 일관
+→ 본문에서 추출한 정확한 title/subtitle을 표지마다 자동 합성

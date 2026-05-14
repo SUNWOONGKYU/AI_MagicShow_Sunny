@@ -1,0 +1,84 @@
+{
+  "ranking": [
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_22\\labeled\\gemini-3-pro-image.png",
+      "score": 98,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "요청된 챗봇 시스템의 복잡한 구조와 개인 자산화 노하우를 명확하고 시각적으로 매력적인 인포그래픽으로 완벽하게 구현했습니다.",
+      "weakness": "화면 내 텍스트를 '추상 기호로만 표현'하라는 지시에서 영어 단어 형태의 라벨을 사용한 점이 엄밀히는 약간의 편차로 볼 수 있으나, 정보 전달력을 극대화하여 실제 단점으로는 작용하지 않습니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_22\\labeled\\gpt-image-1.png",
+      "score": 84,
+      "grade": "SILVER",
+      "intent": 20,
+      "text": 19,
+      "visual": 20,
+      "clarity": 10,
+      "layout": 15,
+      "strength": "요청된 모던 미니멀 일러스트 스타일, 따뜻한 조명, 그리고 'MyChatbot World'라는 핵심 콘셉트를 다수의 챗봇 아바타와 함께 시각적으로 매력적이고 깔끔하게 구현했습니다.",
+      "weakness": "본인 자료 학습/튜닝 과정과 챗봇의 아바타형/도우미형 구분 등 프롬프트의 구체적인 정보 전달 요소들이 시각적으로 명확하게 표현되지 못했습니다."
+    },
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_22\\labeled\\gemini-3_1-flash-image.png",
+      "score": 71,
+      "grade": "SILVER",
+      "intent": 21,
+      "text": 2,
+      "visual": 19,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "인포그래픽의 복잡한 시스템 개념, 현대적인 미니멀리스트 아트 스타일, 따뜻한 조명 및 세부적인 아키텍처(챗봇 유형, 학습 흐름) 요청을 탁월하게 시각화했습니다.",
+      "weakness": "화면 내 텍스트를 추상 기호로만 표현하고 한글 텍스트를 사용하지 말라는 명시적인 지시사항을 따르지 못했으며, 'Knowledg'라는 오타가 있습니다."
+    },
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_22\\labeled\\gemini-2_5-flash-image.png",
+      "score": 67,
+      "grade": "BRONZE",
+      "intent": 17,
+      "text": 20,
+      "visual": 20,
+      "clarity": 5,
+      "layout": 5,
+      "strength": "모던 미니멀 일러스트 스타일, 따뜻한 조명, 그리고 화면 내 추상 기호 표현 등 시각적 요구사항과 분위기를 완벽하게 구현했습니다.",
+      "weakness": "인포그래픽/시각 자료로서 챗봇 유형, 데이터 소스, UI, 자산명 등 프롬프트의 구체적인 핵심 정보들을 시각적으로 전달하지 못하고 일반적인 컴퓨터 작업 장면으로만 묘사되어 정보 전달력이 매우 낮습니다."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_22\\labeled\\dall-e-3.png",
+      "score": 55,
+      "grade": "BRONZE",
+      "intent": 15,
+      "text": 0,
+      "visual": 18,
+      "clarity": 8,
+      "layout": 14,
+      "strength": "모던 미니멀 일러스트 스타일, 따뜻한 조명, 그리고 UI 레이아웃의 시각적 완성도가 매우 뛰어나며, 개인화된 지능형 시스템 구축이라는 큰 컨셉을 잘 표현했습니다.",
+      "weakness": "화면 내 텍스트를 '추상 기호로만 표현하고 한글 텍스트는 없음'이라는 핵심 프롬프트 지시를 준수하지 못하고, 영어 단어가 명확하게 나타나 '텍스트 정확도'가 0점입니다. 이는 인포그래픽/시각자료의 완성도에 심각한 결함입니다."
+    }
+  ],
+  "top_picks": [
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_22\\labeled\\gemini-3-pro-image.png",
+      "score": 98,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "요청된 챗봇 시스템의 복잡한 구조와 개인 자산화 노하우를 명확하고 시각적으로 매력적인 인포그래픽으로 완벽하게 구현했습니다.",
+      "weakness": "화면 내 텍스트를 '추상 기호로만 표현'하라는 지시에서 영어 단어 형태의 라벨을 사용한 점이 엄밀히는 약간의 편차로 볼 수 있으나, 정보 전달력을 극대화하여 실제 단점으로는 작용하지 않습니다."
+    }
+  ]
+}

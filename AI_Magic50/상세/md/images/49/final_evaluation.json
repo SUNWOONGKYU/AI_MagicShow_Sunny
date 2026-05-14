@@ -1,0 +1,123 @@
+{
+  "ranking": [
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_49\\labeled\\gemini-3_1-flash-image.png",
+      "score": 100,
+      "grade": "GOLD",
+      "intent": 30,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "요청한 '習보다 學' 학습 철학을 벽면의 한자 표기와 인물의 행위로 명확하고 효과적으로 시각화했으며, 모든 프롬프트 요구사항(구도, 스타일, 조명, 화면 내용)을 완벽하게 구현했습니다.",
+      "weakness": "AI가 생성한 이미지 자체에는 명백한 약점이 없습니다. (하단 오버레이 텍스트는 AI 생성물로 간주하지 않음)"
+    },
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_49\\labeled\\gemini-2_5-flash-image.png",
+      "score": 98,
+      "grade": "GOLD",
+      "intent": 29,
+      "text": 20,
+      "visual": 19,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "프롬프트의 '學보다 習' 철학을 손으로 AI를 다루는 장면과 추상적인 시각화로 완벽하게 구현했으며, 모던 미니멀 스타일과 따뜻한 조명 등 모든 시각적 요청을 충족하는 매우 높은 완성도를 보입니다.",
+      "weakness": "마우스를 잡은 손의 디테일이 미세하게 덜 정교할 수 있으나, 전반적인 품질에 영향을 미치지 않는 사소한 부분입니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_49\\labeled\\gemini-3-pro-image.png",
+      "score": 97,
+      "grade": "GOLD",
+      "intent": 27,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "학습 철학인 '學보다 習'을 따뜻하고 미니멀한 일러스트 스타일로 매우 효과적으로 시각화했습니다.",
+      "weakness": "학(學)의 개념은 책으로 표현되었으나, '習' 글자처럼 '學' 글자 자체를 명시적으로 함께 배치했다면 비교 의도를 더욱 강화했을 것입니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_49\\labeled\\gpt-image-1.png",
+      "score": 96,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 19,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "프롬프트의 모든 시각적 요청사항(스타일, 색감, 구도, 화면 텍스트 처리)을 완벽에 가깝게 구현했으며, 추상적인 '習'의 개념 또한 능동적인 컴퓨터 작업으로 잘 암시합니다.",
+      "weakness": "시각적 완성도나 프롬프트 이행에 있어 특별한 약점은 없으며, 요청사항을 충실히 반영하여 제작된 매우 훌륭한 이미지입니다."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_49\\labeled\\dall-e-3.png",
+      "score": 45,
+      "grade": "CUT",
+      "intent": 10,
+      "text": 0,
+      "visual": 18,
+      "clarity": 3,
+      "layout": 14,
+      "strength": "따뜻한 조명, 모던 미니멀 일러스트 스타일과 색감은 매우 훌륭하게 구현되었습니다.",
+      "weakness": "화면 및 이미지 내부에 한글 텍스트 환각 현상이 심하고, 요청한 '한글 텍스트 없음' 지시를 완전히 위반했으며, 핵심 프롬프트인 '학(學)보다 습(習)'의 학습 철학을 명확히 전달하지 못했습니다."
+    }
+  ],
+  "top_picks": [
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_49\\labeled\\gemini-3_1-flash-image.png",
+      "score": 100,
+      "grade": "GOLD",
+      "intent": 30,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "요청한 '習보다 學' 학습 철학을 벽면의 한자 표기와 인물의 행위로 명확하고 효과적으로 시각화했으며, 모든 프롬프트 요구사항(구도, 스타일, 조명, 화면 내용)을 완벽하게 구현했습니다.",
+      "weakness": "AI가 생성한 이미지 자체에는 명백한 약점이 없습니다. (하단 오버레이 텍스트는 AI 생성물로 간주하지 않음)"
+    },
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_49\\labeled\\gemini-2_5-flash-image.png",
+      "score": 98,
+      "grade": "GOLD",
+      "intent": 29,
+      "text": 20,
+      "visual": 19,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "프롬프트의 '學보다 習' 철학을 손으로 AI를 다루는 장면과 추상적인 시각화로 완벽하게 구현했으며, 모던 미니멀 스타일과 따뜻한 조명 등 모든 시각적 요청을 충족하는 매우 높은 완성도를 보입니다.",
+      "weakness": "마우스를 잡은 손의 디테일이 미세하게 덜 정교할 수 있으나, 전반적인 품질에 영향을 미치지 않는 사소한 부분입니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_49\\labeled\\gemini-3-pro-image.png",
+      "score": 97,
+      "grade": "GOLD",
+      "intent": 27,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "학습 철학인 '學보다 習'을 따뜻하고 미니멀한 일러스트 스타일로 매우 효과적으로 시각화했습니다.",
+      "weakness": "학(學)의 개념은 책으로 표현되었으나, '習' 글자처럼 '學' 글자 자체를 명시적으로 함께 배치했다면 비교 의도를 더욱 강화했을 것입니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_49\\labeled\\gpt-image-1.png",
+      "score": 96,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 19,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "프롬프트의 모든 시각적 요청사항(스타일, 색감, 구도, 화면 텍스트 처리)을 완벽에 가깝게 구현했으며, 추상적인 '習'의 개념 또한 능동적인 컴퓨터 작업으로 잘 암시합니다.",
+      "weakness": "시각적 완성도나 프롬프트 이행에 있어 특별한 약점은 없으며, 요청사항을 충실히 반영하여 제작된 매우 훌륭한 이미지입니다."
+    }
+  ]
+}

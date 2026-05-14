@@ -1,0 +1,84 @@
+{
+  "ranking": [
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_32\\labeled\\gemini-3_1-flash-image.png",
+      "score": 92,
+      "grade": "GOLD",
+      "intent": 25,
+      "text": 20,
+      "visual": 19,
+      "clarity": 13,
+      "layout": 15,
+      "strength": "모던 미니멀 스타일, 따뜻한 색감, 추상 기호만 사용하라는 텍스트 지시사항을 완벽하게 구현하여 시각적으로 매우 완성도가 높고, 전반적인 최적화 프로세스를 명확하게 전달합니다.",
+      "weakness": "캐싱 및 배치와 같은 일부 세부 구성 요소들이 유사한 아이콘으로 표현되어 개별적인 의미 전달이 다소 모호합니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_32\\labeled\\gpt-image-1.png",
+      "score": 81,
+      "grade": "SILVER",
+      "intent": 25,
+      "text": 10,
+      "visual": 19,
+      "clarity": 13,
+      "layout": 14,
+      "strength": "요청된 모던 미니멀 일러스트 스타일, 따뜻한 조명, 구도, 그리고 API 비용 최적화라는 핵심 주제를 시각적으로 매우 잘 구현했습니다.",
+      "weakness": "화면 속 텍스트를 추상 기호로만 표현해달라는 명확한 지시와 달리, 'API COST OPTIMIZATION'이라는 구체적인 영어 텍스트가 표시되어 프롬프트 의도를 완전히 따르지 못했습니다."
+    },
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_32\\labeled\\gemini-2_5-flash-image.png",
+      "score": 77,
+      "grade": "SILVER",
+      "intent": 22,
+      "text": 10,
+      "visual": 18,
+      "clarity": 13,
+      "layout": 14,
+      "strength": "모던 미니멀 스타일, 따뜻한 조명, 한국인 컴퓨터 작업 구도 등 프롬프트의 시각적 요소를 훌륭하게 구현했으며, 핵심 개념 대부분을 명확한 아이콘과 영문 라벨로 표현했습니다.",
+      "weakness": "이미지 내 'BuzzLab AI · /ai-image-기본' 한글 워터마크가 '한글 텍스트 없음'이라는 프롬프트 지시와 직접적으로 충돌하며, '캐싱'과 '배치' 항목이 명시적으로 시각화되지 않았습니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_32\\labeled\\gemini-3-pro-image.png",
+      "score": 60,
+      "grade": "BRONZE",
+      "intent": 12,
+      "text": 0,
+      "visual": 19,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "현대적 미니멀리즘 일러스트 스타일과 따뜻한 조명, 깔끔하고 정렬된 레이아웃이 매우 우수합니다.",
+      "weakness": "화면 속 텍스트를 추상 기호로만 표현하라는 명시적인 지시를 어기고 영어 텍스트 라벨을 사용했습니다."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_32\\labeled\\dall-e-3.png",
+      "score": 58,
+      "grade": "BRONZE",
+      "intent": 20,
+      "text": 0,
+      "visual": 20,
+      "clarity": 3,
+      "layout": 15,
+      "strength": "요청한 모던 미니멀 일러스트 스타일과 따뜻한 조명, 깔끔한 레이아웃 등 시각적 완성도가 매우 높습니다.",
+      "weakness": "정보 전달에 핵심적인 텍스트 라벨들이 거의 모두 오타와 환각으로 채워져 프롬프트의 구체적인 내용을 전혀 전달하지 못합니다."
+    }
+  ],
+  "top_picks": [
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_32\\labeled\\gemini-3_1-flash-image.png",
+      "score": 92,
+      "grade": "GOLD",
+      "intent": 25,
+      "text": 20,
+      "visual": 19,
+      "clarity": 13,
+      "layout": 15,
+      "strength": "모던 미니멀 스타일, 따뜻한 색감, 추상 기호만 사용하라는 텍스트 지시사항을 완벽하게 구현하여 시각적으로 매우 완성도가 높고, 전반적인 최적화 프로세스를 명확하게 전달합니다.",
+      "weakness": "캐싱 및 배치와 같은 일부 세부 구성 요소들이 유사한 아이콘으로 표현되어 개별적인 의미 전달이 다소 모호합니다."
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "gemini-2.5-flash-image": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_16\\_variants\\gemini-2_5-flash-image_v1.png",
+      "ok": true,
+      "score": 97,
+      "reason": "프롬프트의 모든 시각적 요구사항(인물, 스타일, 조명, 화면 텍스트 추상화, 한글 부재)을 완벽하게 구현했으며, 시각적 완성도도 뛰어남."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_16\\_variants\\gemini-2_5-flash-image_v3.png",
+      "ok": true,
+      "score": 98,
+      "reason": "프롬프트의 복잡한 기술적 의도(HTML + Vercel 신속 배포, URL 접근 전용, 검색엔진 노출 X)를 'HTML + Vercel Instant Deployment. Share Results Instantly. Private Access' 배너와 'vercel --prod --yes --name instant-share-output' 명령어로 매우 명"
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_16\\_variants\\gemini-2_5-flash-image_v2.png",
+      "ok": true,
+      "score": 80,
+      "reason": "프롬프트의 모던 미니멀 일러스트 스타일, 따뜻한 조명, 16:9 비율 및 한국인 작업 장면을 완벽하게 구현했습니다. 개인 공유 채널을 나타내는 자물쇠 아이콘도 잘 표현되었습니다. '화면 속 텍스트는 추상 기호로만 표현' 요구사항은 메인 모니터와 말풍선 내 기호에는 잘 지켜졌으나, 명시된 'vercel --prod --yes --name <영문>' 명령어는 "
+    }
+  ],
+  "dall-e-3": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_16\\_variants\\dall-e-3_v2.png",
+      "ok": true,
+      "score": 60,
+      "reason": "이미지는 모던 미니멀 스타일, 따뜻한 조명, 구도 등 시각적 완성도는 매우 높으나, 화면 속 텍스트를 추상 기호로만 표현하고 한글 텍스트는 없어야 한다는 중요한 지시사항을 위반하여 한글('ㅇ') 및 한자('大')가 명확히 보이는 것이 감점 요인입니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_16\\_variants\\dall-e-3_v3.png",
+      "ok": true,
+      "score": 55,
+      "reason": "이미지는 모던 미니멀 스타일, 따뜻한 조명, 16:9 비율 등 시각적 완성도는 높으나, 화면 내 텍스트가 '한글 텍스트 없음, 추상 기호로만 표현' 요구사항을 명백히 위반하고 한글 자모가 무작위로 나열되어 있어 프롬프트 의도 부합도 및 정보 명확성, 텍스트 가독성에서 크게 감점되었습니다. Vercel 배포 등 핵심 정보는 시각적으로 전달되지 않습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_16\\_variants\\dall-e-3_v1.png",
+      "ok": true,
+      "score": 96,
+      "reason": "프롬프트의 모든 시각적 요구사항(모던 미니멀, 따뜻한 조명, 추상 텍스트, 16:9, 한국인 컴퓨터 작업)을 완벽하게 구현했으며, 시각적 완성도 또한 매우 높습니다."
+    }
+  ],
+  "gpt-image-1": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_16\\_variants\\gpt-image-1_v1.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 요구사항, 특히 Vercel 명령어의 추상적 표현과 HTML 기호, 모던 미니멀 스타일 및 따뜻한 조명까지 완벽하게 구현되었습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_16\\_variants\\gpt-image-1_v3.png",
+      "ok": true,
+      "score": 58,
+      "reason": "핵심적인 배포 의도와 스타일은 잘 반영되었으나, 화면 텍스트를 '추상 기호'로만 표현하라는 명시적인 지시를 어기고 알아볼 수 있는 단어('prod', 'yes')가 표시되어 감점되었습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_16\\_variants\\gpt-image-1_v2.png",
+      "ok": true,
+      "score": 77,
+      "reason": "모던 미니멀 스타일, 따뜻한 조명, 16:9 비율, 한국인 컴퓨터 작업 장면 등 다수의 프롬프트 요청 사항을 잘 구현했으나, 화면 속 텍스트가 '추상 기호로만 표현'되어야 한다는 핵심 지시를 어기고 'HTML + Vercel'이라는 구체적인 영문 텍스트가 포함된 점에서 감점되었습니다."
+    }
+  ],
+  "gemini-3.1-flash-image-preview": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_16\\_variants\\gemini-3_1-flash-image_v2.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 시각적 요소(인물, 작업 내용, 스타일, 조명, 화면 콘텐츠)가 완벽하게 구현되었습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_16\\_variants\\gemini-3_1-flash-image_v1.png",
+      "ok": true,
+      "score": 97,
+      "reason": "이미지는 프롬프트의 모든 시각적 요구사항(인물, 작업 내용, 스타일, 조명, 화면 구성)을 완벽하게 충족하며 높은 시각적 완성도를 보여줍니다. Vercel 배포와 같은 추상적인 개념은 시각화의 한계로 직접적으로 표현되지 않았지만, 코드 작업 장면을 통해 의도를 효과적으로 전달합니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_16\\_variants\\gemini-3_1-flash-image_v3.png",
+      "ok": true,
+      "score": 100,
+      "reason": "Vercel 명령어, 현대적 미니멀 스타일, 따뜻한 조명, 추상화된 텍스트 등 프롬프트의 모든 세부 요청이 완벽하게 구현된 훌륭한 이미지입니다."
+    }
+  ],
+  "gemini-3-pro-image-preview": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_16\\_variants\\gemini-3-pro-image_v3.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 요구사항(HTML, Vercel 배포 명령, 추상 기호 화면, URL 공유, 스타일, 인물, 언어 제약)을 완벽하게 구현하여 시각적으로 매우 명확하고 완성도 높습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_16\\_variants\\gemini-3-pro-image_v1.png",
+      "ok": true,
+      "score": 97,
+      "reason": "프롬프트의 모든 핵심 요구사항(Vercel 명령어, 보안/색인 제외, 한국인, 모던 미니멀, 따뜻한 조명, 16:9, 추상 기호 텍스트)이 완벽하게 반영되어 시각적 완성도와 정보 전달력이 매우 높습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_16\\_variants\\gemini-3-pro-image_v2.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 세부 요구사항(모던 미니멀 일러스트, 따뜻한 조명, 16:9, 한국인 컴퓨터 작업, Vercel 배포 컨텍스트, 특정 Vercel 명령어, 한글 텍스트 없음, 그 외 추상 기호)이 완벽하게 구현되었습니다."
+    }
+  ]
+}

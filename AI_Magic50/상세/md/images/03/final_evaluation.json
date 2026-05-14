@@ -1,0 +1,110 @@
+{
+  "ranking": [
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_03\\labeled\\gemini-2_5-flash-image.png",
+      "score": 100,
+      "grade": "GOLD",
+      "intent": 30,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "요청된 '아젠다별 통제형 진행 방식'의 복잡한 흐름을 시각적으로 완벽하게 구현했으며, 모든 프롬프트의 구체적인 요구사항(구도, 요소, 스타일, 텍스트 추상화)을 탁월하게 충족합니다.",
+      "weakness": "프롬프트의 모든 조건을 완벽하게 만족하여, 특기할 만한 약점을 찾기 어렵습니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_03\\labeled\\gpt-image-1.png",
+      "score": 100,
+      "grade": "GOLD",
+      "intent": 30,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "프롬프트의 모든 세부 요청사항(통제형 진행 방식, 추상 기호 사용, 따뜻한 조명, 미니멀 일러스트 등)을 완벽하게 구현하여 의도 전달력과 시각적 완성도가 탁월합니다.",
+      "weakness": "특정 아젠다가 'AI 설명'을 들었다는 시각적 요소가 명시적으로 표현되지는 않았으나, '승인' 과정이 명확하게 강조되어 전반적인 의도는 완벽하게 전달됩니다."
+    },
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_03\\labeled\\gemini-3_1-flash-image.png",
+      "score": 98,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "아젠다별 단계적 승인이라는 핵심 프롬프트 의도를 모던 미니멀 스타일로 매우 명확하고 완성도 높게 시각화했습니다.",
+      "weakness": "AI의 '설명'을 듣는 과정보다는 사용자 '승인' 행동에 시각적 초점이 맞춰져 있어, 설명의 구체적인 표현은 다소 추상적입니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_03\\labeled\\gemini-3-pro-image.png",
+      "score": 81,
+      "grade": "SILVER",
+      "intent": 22,
+      "text": 10,
+      "visual": 19,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "아젠다 기반 AI 설명-승인 흐름, 현대적인 미니멀리즘 일러스트 스타일, 따뜻한 조명, 깔끔한 레이아웃 등 프롬프트의 핵심 의도를 매우 정확하고 시각적으로 완벽하게 구현했습니다.",
+      "weakness": "화면 속 텍스트를 '추상 기호로만 표현'하라는 요청을 따르지 않고, 영문 단어(Agenda 1, AI Explanation, User Approval)를 사용한 점이 명확한 약점입니다."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_03\\labeled\\dall-e-3.png",
+      "score": 74,
+      "grade": "SILVER",
+      "intent": 15,
+      "text": 20,
+      "visual": 19,
+      "clarity": 5,
+      "layout": 15,
+      "strength": "요청한 모던 미니멀 일러스트 스타일, 따뜻한 조명, 한국인 작업자 구도, 그리고 화면 내 추상 기호 표현을 훌륭하게 구현했습니다.",
+      "weakness": "가장 중요한 프롬프트 의도인 '아젠다별 AI 설명 및 사용자 명시적 승인'이라는 통제형 진행 방식이 시각적으로 전혀 표현되지 않아 정보 전달력이 미흡합니다."
+    }
+  ],
+  "top_picks": [
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_03\\labeled\\gemini-2_5-flash-image.png",
+      "score": 100,
+      "grade": "GOLD",
+      "intent": 30,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "요청된 '아젠다별 통제형 진행 방식'의 복잡한 흐름을 시각적으로 완벽하게 구현했으며, 모든 프롬프트의 구체적인 요구사항(구도, 요소, 스타일, 텍스트 추상화)을 탁월하게 충족합니다.",
+      "weakness": "프롬프트의 모든 조건을 완벽하게 만족하여, 특기할 만한 약점을 찾기 어렵습니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_03\\labeled\\gpt-image-1.png",
+      "score": 100,
+      "grade": "GOLD",
+      "intent": 30,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "프롬프트의 모든 세부 요청사항(통제형 진행 방식, 추상 기호 사용, 따뜻한 조명, 미니멀 일러스트 등)을 완벽하게 구현하여 의도 전달력과 시각적 완성도가 탁월합니다.",
+      "weakness": "특정 아젠다가 'AI 설명'을 들었다는 시각적 요소가 명시적으로 표현되지는 않았으나, '승인' 과정이 명확하게 강조되어 전반적인 의도는 완벽하게 전달됩니다."
+    },
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_03\\labeled\\gemini-3_1-flash-image.png",
+      "score": 98,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "아젠다별 단계적 승인이라는 핵심 프롬프트 의도를 모던 미니멀 스타일로 매우 명확하고 완성도 높게 시각화했습니다.",
+      "weakness": "AI의 '설명'을 듣는 과정보다는 사용자 '승인' 행동에 시각적 초점이 맞춰져 있어, 설명의 구체적인 표현은 다소 추상적입니다."
+    }
+  ]
+}

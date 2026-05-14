@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>SUNNY AI MAGIC 50 · #37 Git 브랜치·Worktree로 여럿이 같은 저장소 동시 작업하기</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#000814;color:#fff;line-height:1.7}
+.hero{background:radial-gradient(circle at 30% 30%,#002d5c 0%,#000814 70%);padding:50px 24px 40px;text-align:center;border-bottom:3px solid #FF8C00}
+.hero .tag{color:#FF8C00;font-size:13px;font-weight:900;letter-spacing:5px;margin-bottom:12px}
+.hero h1{font-size:clamp(22px,4vw,40px);font-weight:900;line-height:1.25;margin-bottom:8px;color:#fff;text-shadow:0 4px 24px rgba(255,140,0,0.35)}
+.hero .subtitle{font-size:clamp(13px,1.6vw,17px);color:#FF8C00;font-weight:600;letter-spacing:0.3px;margin-bottom:14px;opacity:0.92}
+.hero .meta{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.hero .badge{background:rgba(255,140,0,0.15);color:#FF8C00;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:900;letter-spacing:1px;border:1px solid rgba(255,140,0,0.4)}
+.hero .badge.type-a{background:rgba(231,76,60,0.15);color:#e74c3c;border-color:rgba(231,76,60,0.4)}
+.hero .badge.type-b{background:rgba(52,152,219,0.15);color:#3498DB;border-color:rgba(52,152,219,0.4)}
+.hero .badge.type-c{background:rgba(63,185,80,0.15);color:#3fb950;border-color:rgba(63,185,80,0.4)}
+.back{position:absolute;top:20px;left:20px;color:#FF8C00;text-decoration:none;font-size:13px;font-weight:700;padding:7px 14px;border:2px solid #FF8C00;border-radius:18px}
+.back:hover{background:#FF8C00;color:#001020}
+.content{max-width:900px;margin:0 auto;padding:40px 24px 60px}
+.content h1{display:none}
+.content h2{font-size:clamp(20px,2.8vw,28px);font-weight:900;color:#FF8C00;margin:32px 0 16px;letter-spacing:0.5px;border-left:5px solid #FF8C00;padding-left:14px}
+.content h2:first-child{margin-top:0}
+.content h3{font-size:18px;font-weight:900;color:#fff;margin:24px 0 12px}
+.content h4{font-size:16px;font-weight:700;color:#FF8C00;margin:18px 0 10px}
+.content p{font-size:15px;color:#dde;margin-bottom:14px}
+.content ul,.content ol{margin:0 0 16px 24px;color:#dde}
+.content li{font-size:15px;margin-bottom:6px;line-height:1.7}
+.content strong{color:#fff;font-weight:900}
+.content em{color:#FF8C00;font-style:normal;font-weight:600}
+.content code{background:rgba(255,140,0,0.12);color:#FF8C00;padding:2px 6px;border-radius:4px;font-size:13px;font-family:'D2Coding','Consolas',monospace}
+.content pre{background:rgba(0,0,0,0.4);border:1px solid rgba(255,140,0,0.25);border-radius:8px;padding:16px;overflow-x:auto;margin:16px 0}
+.content pre code{background:none;color:#bcd;padding:0;font-size:13px}
+.content blockquote{border-left:4px solid #FF8C00;background:rgba(255,140,0,0.05);padding:14px 20px;margin:16px 0;border-radius:0 8px 8px 0;color:#bcd}
+.content table{width:100%;border-collapse:collapse;margin:18px 0;background:rgba(255,255,255,0.03);border-radius:8px;overflow:hidden;font-size:14px}
+.content th,.content td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08)}
+.content th{background:rgba(255,140,0,0.15);color:#FF8C00;font-weight:900}
+.content td{color:#dde}
+.content tr:last-child td{border-bottom:none}
+.content hr{border:none;border-top:1px solid rgba(255,140,0,0.2);margin:30px 0}
+.content a{color:#FF8C00;text-decoration:none;border-bottom:1px dashed rgba(255,140,0,0.4)}
+.content a:hover{border-bottom-style:solid}
+.footer{background:#001020;border-top:1px solid #1a2a3a;padding:24px;text-align:center;color:#7a8c9c;font-size:13px}
+.footer a{color:#FF8C00;text-decoration:none;margin:0 10px}
+</style>
+</head>
+<body>
+<a href="../index.html" class="back">← 슬라이드쇼로</a>
+<section class="hero">
+  <div class="tag">SUNNY AI MAGIC 50 · #37</div>
+  <h1>Git 브랜치·Worktree로 여럿이 같은 저장소 동시 작업하기</h1>
+  <div class="subtitle">여러 사람·AI가 한 저장소를 동시에 사용해도 서로의 작업을 덮어쓰지 않는 협업체계</div>
+  <div class="meta">
+    <span class="badge">G5 · 환경</span>
+    <span class="badge type-c">C타입</span>
+    
+  </div>
+</section>
+
+<section class="content">
+<h2>한 줄 정의</h2>
+<p>같은 저장소를 <strong>여러 사람(또는 여러 AI 인스턴스)이 동시에 만져도 서로의 작업을 덮어쓰지 않게</strong> 만드는 Git 협업 골격. 기본은 <strong>브랜치</strong>로 작업을 분리하고, 한 사람이 여러 브랜치를 동시에 봐야 할 때는 <strong>worktree</strong>로 폴더까지 분리한다. 머지 시점에만 합친다.</p>
+<h2>왜 이 노하우가 중요한가</h2>
+<p>두 사람이 같은 저장소를 동시에 만진다고 해보자. 둘이 같은 폴더·같은 브랜치에서 일하면 파일 덮어쓰기, 커밋 충돌, 리베이스 지옥이 줄줄이 따라온다. Git이 협업 도구가 된 이유 자체가 <strong>"각자 자기 브랜치에서 일하고, 머지 시점에만 합친다"</strong>라는 규칙이다.</p>
+<p>브랜치만으로 충분한 경우가 대부분이다 — A는 <code>feature/login</code> 폴더에서, B는 <code>feature/payment</code> 폴더에서 일하면 끝이다. 그런데 한 사람이 <strong>여러 브랜치를 동시에 들여다봐야 하는 순간</strong>이 온다. 본인이 자기 작업 브랜치를 굴리는 중에 동료 PR을 리뷰해야 한다거나, hotfix 브랜치를 잠깐 띄워 긴급 수정을 해야 한다거나. 이때 한 폴더에서 <code>git checkout</code>으로 브랜치를 갈아타면 <strong>node_modules·빌드 캐시·임시 파일이 매번 무너진다</strong>. Claude Code 인스턴스를 두 개 띄워두면 한쪽 작업 중 다른 쪽 checkout이 파일을 덮어쓴다.</p>
+<p>worktree는 이 문제를 <strong>물리적으로</strong> 분리한다. 같은 저장소를 여러 폴더에 동시 체크아웃해 폴더마다 다른 브랜치를 띄운다. 폴더가 다르므로 캐시·node_modules·인스턴스가 섞이지 않는다.</p>
+<p>AI 협업 시대엔 이 그림이 더 중요해진다. <strong>AI 인스턴스도 "사람 1명"으로 취급</strong>해 각자 자기 브랜치를 받아 PR을 보내게 만들면, 사람 2~3명 + AI 5~10명이 한 저장소를 동시에 굴리는 협업이 가능해진다. 이때 worktree는 각 AI에게 독립 작업 폴더를 깔아주는 인프라가 된다.</p>
+<h2>핵심 개념</h2>
+<h3>협업의 기본 — 브랜치로 작업 분리</h3>
+<pre><code class="language-bash">git checkout -b feature/login          # A의 브랜치
+# 작업 후
+git push origin feature/login
+# PR 생성 → 리뷰 → 머지
+
+git checkout -b feature/payment        # B의 브랜치 (다른 사람·다른 폴더 가능)
+</code></pre>
+<p>여러 사람·여러 AI가 동시에 일해도 각자 자기 브랜치만 만지면 충돌은 머지 시점에만 발생한다. 그 시점은 PR 리뷰로 통제된다.</p>
+<h3>한 사람이 여러 브랜치를 동시에 — Worktree</h3>
+<pre><code class="language-bash">git worktree add ../proj-review-PR-42 feature/review-target   # PR 리뷰용
+git worktree add ../proj-hotfix       hotfix/urgent           # hotfix용
+git worktree list
+git worktree remove ../proj-review-PR-42                       # 정리
+</code></pre>
+<ul>
+<li>메인 저장소는 그대로 유지, 형제 폴더에 다른 브랜치 체크아웃</li>
+<li>폴더마다 VS Code·Claude Code 인스턴스를 따로 띄움</li>
+<li>같은 브랜치를 두 worktree에서 동시 체크아웃은 불가 (Git이 막아줌)</li>
+<li><code>.git</code> 본체는 메인 폴더에만 있고, worktree 폴더의 <code>.git</code>은 텍스트 파일 (메인을 가리킴)</li>
+<li><code>node_modules</code>·<code>dist</code>는 폴더별 독립 → 각 worktree마다 한 번씩 install (pnpm 쓰면 디스크 비용 거의 0)</li>
+</ul>
+<h3>협업 시나리오별 도구 선택</h3>
+<table>
+<thead>
+<tr>
+<th>시나리오</th>
+<th>도구</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>여러 사람이 각자 자기 작업만 한다</td>
+<td>브랜치만</td>
+</tr>
+<tr>
+<td>사람 A가 자기 작업 중 사람 B의 PR을 리뷰해야 한다</td>
+<td>A 머신에서 worktree 추가</td>
+</tr>
+<tr>
+<td>Hotfix가 들어왔는데 본인 작업을 멈출 수 없다</td>
+<td>hotfix 브랜치 + worktree</td>
+</tr>
+<tr>
+<td>같은 저장소를 사람 2~3명 + AI 5~10명이 동시에 굴린다</td>
+<td>각자 브랜치 + 필요 시 worktree</td>
+</tr>
+<tr>
+<td>한 AI에게 두 브랜치를 비교 분석시킨다</td>
+<td>worktree 두 개</td>
+</tr>
+</tbody>
+</table>
+<h3>협업 흐름</h3>
+<pre><code>각자 브랜치에서 작업
+  ↓
+push → PR 생성
+  ↓
+다른 사람·AI가 리뷰 (필요 시 worktree로 PR 브랜치 체크아웃)
+  ↓
+승인 후 main에 머지
+  ↓
+다음 브랜치 시작
+</code></pre>
+<h2>실전 사용법</h2>
+<p><strong>1단계</strong> — 팀 규칙 합의. 브랜치 명명 규칙(<code>feature/</code>, <code>fix/</code>, <code>hotfix/</code>), PR 리뷰어 수 최소치, main 직접 push 금지 등. 이게 없으면 worktree 깔아봐야 무너진다.</p>
+<p><strong>2단계</strong> — 각 협업자(사람·AI)가 자기 브랜치를 만들어 작업. 다른 사람 브랜치는 건드리지 않는다. 충돌 위험이 있는 파일을 둘 다 만져야 하는 경우엔 미리 협의.</p>
+<p><strong>3단계</strong> — PR 리뷰가 본인 작업과 겹치는 시점에 worktree 추가.</p>
+<pre><code class="language-bash">git worktree add ../proj-review feature/팀원-A-PR
+cd ../proj-review
+code .   # 또는 claude code
+</code></pre>
+<p>리뷰 끝나면 <code>git worktree remove</code>. 본인 메인 작업 폴더는 그대로 살아 있음.</p>
+<p><strong>4단계</strong> — AI 인스턴스에 브랜치 배정. AI 분대원에게 <em>"<code>feature/login-form</code> 브랜치에서 작업해 PR 올려"</em> 라고 지시. AI는 그 브랜치에서 자율 작업 후 PR 생성. 사람은 PR만 본다. 같은 저장소에 AI 인스턴스 5~10개가 각자 다른 브랜치에서 PR을 만들어 보내는 흐름이 가능해진다.</p>
+<p><strong>5단계</strong> — worktree 정리. 작업 끝난 worktree는 <code>git worktree remove</code>로 삭제. 브랜치는 남고 폴더만 사라진다. 폴더가 쌓이면 어느 게 활성인지 헷갈리니 주기적 정리 필수.</p>
+<p><strong>충돌 발생 시</strong> — <code>git pull --rebase</code> 또는 PR에서 직접 리졸브. worktree는 충돌 자체를 줄이지 못한다. 같은 파일을 두 사람이 만지면 결국 머지 시점에 풀어야 한다. worktree의 가치는 <strong>동시 작업 중에 환경이 무너지지 않게 하는 것</strong>이지 머지 충돌 자체를 없애는 게 아니다.</p>
+<h2>본인 운용 패턴</h2>
+<p>본인 환경에서는 같은 저장소에 사람 1명(본인) + AI 인스턴스 3~5명이 동시 작업하는 경우가 많다. 각 AI에게 브랜치 1개씩 배정하고, 본인은 main worktree에서 작업하면서 필요할 때 worktree를 추가해 AI PR을 리뷰한다. 리뷰 끝난 worktree는 즉시 정리. AI가 자율 작업 중 본인이 다른 AI를 도와주려고 폴더를 옮겨도 본인 main 작업이 무너지지 않는다.</p>
+<p>같은 저장소에 동시에 살아 있는 폴더는 보통 <strong>main 1개 + 진행 중 PR 리뷰용 1~2개 + hotfix가 들어오면 1개</strong> 정도. 5개를 넘기면 어느 게 어느 작업인지 본인이 잊는다. 적정 수는 사람 인지 한도와 같다.</p>
+<h2>관련 항목</h2>
+<ul>
+<li><strong>#31 5컴퓨터 30개 동시 운용</strong> — 저장소가 여러 개일 때의 확장. worktree는 한 저장소 안 협업</li>
+<li><strong>#14 군대 소대 편제</strong> — AI 분대원에게 브랜치 1개씩 배정하는 협업 단위</li>
+<li><strong>#20 C드라이브 + G드라이브 백업</strong> — worktree 폴더도 백업 대상</li>
+<li><strong>#13 --dangerously-skip-permissions</strong> — AI 인스턴스가 worktree 안에서 자동 작업할 때 가드와 결합</li>
+<li><strong>#26 Hooks</strong> — 브랜치 보호·PR 검증 hook과 결합</li>
+</ul>
+</section>
+
+<div class="footer">
+  <a href="../index.html">← SUNNY AI MAGIC 50</a>
+  <div style="margin-top:10px;color:#5a6c7c;font-size:12px;letter-spacing:0.3px">© 2026 SUN WOONGKYU · SUNNY AI MAGIC 50 · CC BY-NC-ND 4.0 · 특허 별도 보유</div>
+</div>
+</body>
+</html>

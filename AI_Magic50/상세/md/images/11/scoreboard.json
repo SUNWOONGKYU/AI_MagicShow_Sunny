@@ -1,0 +1,102 @@
+{
+  "gemini-2.5-flash-image": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_11\\_variants\\gemini-2_5-flash-image_v3.png",
+      "ok": true,
+      "score": 80,
+      "reason": "이미지는 모던 미니멀 스타일과 따뜻한 조명 등 시각적 요구사항을 완벽하게 충족하며, 화면 속 주요 개념(Plan-A, Produce, #42, #47, 1 VIDEO/DAY)을 명확하게 표현했지만, '사람의 손이 GUI에 닿지 않는 채로'라는 핵심 의도와 작업하는 사람의 모습이 상충됩니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_11\\_variants\\gemini-2_5-flash-image_v2.png",
+      "ok": true,
+      "score": 43,
+      "reason": "스타일은 좋으나, 한글 텍스트 금지 및 인간 GUI 조작 배제라는 핵심 프롬프트 요구사항을 명백히 위반했으며, 일부 한글 텍스트에 오류가 있습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_11\\_variants\\gemini-2_5-flash-image_v1.png",
+      "ok": true,
+      "score": 81,
+      "reason": "프롬프트의 핵심적인 자동화 인프라 개념, 구도, 시각적 스타일은 매우 잘 구현되었으나, 화면 내 텍스트를 추상 기호로 표현하라는 지시를 따르지 않고 오타가 많은 영어 단어를 사용한 점이 감점 요인입니다."
+    }
+  ],
+  "dall-e-3": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_11\\_variants\\dall-e-3_v1.png",
+      "ok": true,
+      "score": 48,
+      "reason": "모던 미니멀 스타일과 워크플로우 구성은 훌륭하나, '추상 기호로만 텍스트 표현' 요구를 완전히 무시하고 오타가 많은 영어 텍스트를 생성하여 핵심 의도 부합도와 텍스트 관련 점수가 크게 하락했습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_11\\_variants\\dall-e-3_v3.png",
+      "ok": true,
+      "score": 53,
+      "reason": "이미지는 따뜻한 조명, 모던한 스타일, 자동화된 워크플로우의 시각적 컨셉을 잘 구현했으나, '추상 기호로만 표현, 한글 텍스트 없음'이라는 텍스트 요구사항을 완전히 실패하여 알아볼 수 없는 영어가 나타나 의도 전달과 가독성이 크게 저하됨."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_11\\_variants\\dall-e-3_v2.png",
+      "ok": true,
+      "score": 45,
+      "reason": "시각적 스타일과 구성은 훌륭하나, '사람의 손이 GUI에 닿지 않는' 핵심 자동화 요소를 사람이 직접 컴퓨터를 사용하는 장면으로 표현하여 프롬프트 의도를 심각하게 위반했으며, 텍스트도 추상 기호 대신 의미 없는 영어 단어로 대체되었습니다."
+    }
+  ],
+  "gpt-image-1": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_11\\_variants\\gpt-image-1_v1.png",
+      "ok": true,
+      "score": 52,
+      "reason": "이미지는 전반적인 스타일, 구도, 주제(유튜브 자동화 인프라, 한국인 컴퓨터 작업)를 잘 구현했으나, '화면 속 텍스트는 추상 기호로만 표현'하라는 핵심 지시를 어기고 명확한 영어 텍스트를 사용한 것이 큰 감점 요인입니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_11\\_variants\\gpt-image-1_v2.png",
+      "ok": true,
+      "score": 28,
+      "reason": "자동화의 핵심인 'GUI 비접촉'이 사람의 직접 타이핑으로 상충되며, '한글 텍스트 없음'과 '추상 기호로만 표현'이라는 텍스트 지시를 명백히 위반했습니다. 시각적 완성도와 스타일은 매우 우수합니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_11\\_variants\\gpt-image-1_v3.png",
+      "ok": true,
+      "score": 65,
+      "reason": "주요 요구사항(한국인, 컴퓨터 작업, 모던 미니멀 스타일, 따뜻한 조명, 16:9 비율, 자동화 인프라 구도)은 잘 구현되었으나, 화면 내 텍스트를 추상 기호로만 표현해야 한다는 지시를 따르지 않고 영어 단어를 사용하여 감점되었습니다."
+    }
+  ],
+  "gemini-3.1-flash-image-preview": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_11\\_variants\\gemini-3_1-flash-image_v2.png",
+      "ok": true,
+      "score": 50,
+      "reason": "요구한 추상 기호 텍스트와 GUI 비접촉 요건을 준수하지 못했으나, 워크플로우 구성 및 모던 미니멀 스타일과 따뜻한 조명은 훌륭하게 구현되었습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_11\\_variants\\gemini-3_1-flash-image_v1.png",
+      "ok": true,
+      "score": 70,
+      "reason": "복잡한 시스템 구조와 시각적 스타일(모던 미니멀, 따뜻한 조명, 16:9, 한국인)은 매우 훌륭하게 구현되었으나, 화면 내 텍스트를 추상 기호로만 표현해달라는 핵심적인 지시를 어기고 영문 텍스트를 사용한 점에서 감점되었습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_11\\_variants\\gemini-3_1-flash-image_v3.png",
+      "ok": true,
+      "score": 86,
+      "reason": "이미지는 모던 미니멀 스타일, 따뜻한 조명, 구도 등 프롬프트의 대부분을 훌륭하게 구현했으나, 화면 내 텍스트가 '추상 기호로만 표현'되어야 한다는 지시 대신 영어 단어가 사용된 점이 아쉽습니다."
+    }
+  ],
+  "gemini-3-pro-image-preview": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_11\\_variants\\gemini-3-pro-image_v2.png",
+      "ok": true,
+      "score": 90,
+      "reason": "이미지는 요청된 워크플로우, 구도, 인물, 모던 미니멀 스타일 및 따뜻한 조명 등을 완벽하게 구현했습니다. 텍스트 가독성과 시각적 완성도, 정보 명확성도 매우 뛰어납니다. 다만, '화면 속 텍스트는 추상 기호로만 표현, 한글 텍스트 없음'이라는 지시를 따르지 못하고 구체적인 문자를 사용했으며, 한글 텍스트가 포함된 점이 감점 요인입니다. (프롬프트 내 한글"
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_11\\_variants\\gemini-3-pro-image_v1.png",
+      "ok": true,
+      "score": 61,
+      "reason": "스타일, 구도, 자동화 워크플로우 표현은 훌륭하나, 화면 내 한글 텍스트를 사용하지 말라는 지시를 따르지 않아 점수 삭감."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_11\\_variants\\gemini-3-pro-image_v3.png",
+      "ok": true,
+      "score": 50,
+      "reason": "이미지는 모던 미니멀 스타일, 따뜻한 조명, 그리고 복잡한 워크플로우 다이어그램을 훌륭하게 구현하여 자동화 개념을 명확히 전달합니다. 그러나 화면에 '한글 텍스트 없음'이라는 명시적인 지시를 어기고 한국어 라벨을 표시하여 프롬프트 의도 부합도와 텍스트 관련 기준에서 크게 실패했습니다."
+    }
+  ]
+}

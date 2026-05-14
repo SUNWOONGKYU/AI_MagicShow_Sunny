@@ -1,0 +1,122 @@
+═══════════════════════════════════════════════════════════════════
+  Claude Code HUD 커스텀 statusline 작성 완료 보고서 (최종)
+  작업일: 2026-05-06
+  근거: AI_Magic50/작업지시서_Claude_Code_HUD.md
+═══════════════════════════════════════════════════════════════════
+
+■ 1. 최종 구현 현황 (10/10 항목 100%)
+
+  표시 항목 매칭표:
+  ┌──┬─────────────────────────────┬───────┬──────┐
+  │# │ 항목                        │ 행번호│ 상태 │
+  ├──┼─────────────────────────────┼───────┼──────┤
+  │1 │ 📁 디렉토리명               │ 1행   │  ✅  │
+  │2 │ 🤖 모델 (BR_YELLOW 강조)    │ 1행   │  ✅  │
+  │3 │ ctx 막대+%                  │ 2행   │  ✅  │
+  │4 │ 5h Rate ⏰                  │ 2행   │  ✅  │
+  │5 │ 7d Rate ⏰                  │ 2행   │  ✅  │
+  │6 │ 🔧 도구 종류 (▶=실행중)     │ 3행   │  ✅  │
+  │6h│ Hook(이벤트) — BR_MAGENTA   │ 3행   │  ✅  │
+  │7 │ 도구 인자 (60자 컷)         │ 3행   │  ✅  │
+  │8 │ 🤖 서브에이전트 진행시간    │ 3행   │  ✅  │
+  │9 │ 👥 팀이름[name(role/status)]│ 4행   │  ✅  │
+  │10│ git: 브랜치 상태 ↑↓         │ 1행   │  ✅  │
+  └──┴─────────────────────────────┴───────┴──────┘
+
+■ 2. 파일 구성
+
+  ① ~/.claude/my-statusline.sh         (메인 셸 스크립트)
+  ② ~/.claude/transcript-analyze.py    (transcript JSONL 분석)
+  ③ ~/.claude/hooks/hook-logger.js     (Hook 발동 로거 — 신규)
+  ④ ~/bin/jq.exe                        (jq 1.7.1)
+
+■ 3. 9-c·d·e (팀메이트 역할/상태/색상) 구현 방식
+
+  데이터 소스:
+    - 역할: ~/.claude/teams/<team>/config.json 의 .members[].agentType
+    - 상태: ~/.claude/teams/<team>/inboxes/<name>.json (멤버 inbox)
+            + .../inboxes/team-lead.json (lead inbox 응답)
+
+  상태 추론 로직:
+    - 미독 메시지(read:false) 존재          → 작업중 (노랑)
+    - 마지막 lead→teammate > 마지막 응답    → 작업중 (노랑)
+    - 30분 내 응답 있음                     → 완료    (초록)
+    - 그 외                                 → 대기    (회색)
+
+  표시 예:
+    👥 buzzlab-1 [TL-DA-S3(general/대기), TL-OP-C2(general/작업중)]
+
+■ 4. 6-h (Hook 발동 표시) 구현 방식
+
+  제약: Hook 발동은 transcript JSONL에 기록되지 않음.
+  해결: 별도 hook-logger.js를 모든 hook event에 등록해
+        /tmp/claude-statusline/hooks_<sess>.log 에 한 줄씩 기록.
+        statusline은 최근 3초 이내 발동된 event만 표시.
+
+  로그 형식: <epoch>\t<event_name>\t<tool_name>
+  자동 회전: 200줄 초과 시 마지막 100줄 유지
+
+  settings.json 에 추가된 hook-logger 등록:
+    - UserPromptSubmit (기존 skill-trigger 다음)
+    - PreToolUse       (기존 Agent matcher 다음, 별도 그룹)
+    - PostToolUse      (신규)
+    - Stop             (신규)
+    - SessionStart     (신규)
+    - PreCompact       (기존 export-session-to-wiki 다음)
+
+  표시 예:
+    🔧 ▶ Bash echo "test" Hook(PreToolUse,PostToolUse)
+
+■ 5. 색상 규칙 (최종)
+
+  ctx ≥ 80% / Rate ≥ 70%   : 빨강
+  ctx ≥ 50% / Rate ≥ 50%   : 노랑
+  그 외                    : 초록
+  모델명                   : Bold + Bright Yellow (눈에 띔)
+  디렉토리                 : Bold + Cyan
+  git dirty                : 노랑
+  git clean                : 초록
+  git branch               : 마젠타
+  도구 종류 / 인자         : 청록 / 흰색
+  서브에이전트             : 노랑
+  Hook 발동                : Bright Magenta (신규)
+  팀이름                   : 마젠타
+  팀메이트 작업중          : Bright Yellow
+  팀메이트 완료            : Bright Green
+  팀메이트 대기            : Gray
+
+■ 6. 통합 테스트 결과 (실제 출력)
+
+  📁 Sunny_Magic_Show │ 🤖 Opus 4.6 │ main *dirty
+  ctx ██████████░░░░░░░░░░ 50% │ 5h ██████░░░░ 65% ⏰ 11h45m │ 7d ███░░░░░░░ 35% ⏰ 72h45m
+  Hook(PreToolUse,PostToolUse)
+  👥 buzzlab-1 [TL-DA-S3(general/대기), ..., TL-OP-C2(general/작업중)]
+
+■ 7. 백업 위치
+
+  settings.json 백업:
+    - ~/.claude/backups/settings.json.bak.20260506_145939 (claude-hud 제거 직전)
+    - ~/.claude/backups/settings.json.bak.20260506_160748 (hook-logger 추가 직전)
+
+  복구:
+    cp ~/.claude/backups/settings.json.bak.20260506_160748 \
+       ~/.claude/settings.json
+
+■ 8. 캐싱
+
+  /tmp/claude-statusline/
+    ├ transcript_<sess>.cache  (5초 TTL — Python 분석 결과)
+    ├ git_<sess>.cache         (5초 TTL — git 브랜치/dirty)
+    └ hooks_<sess>.log         (Hook 발동 로그, 최근 3초만 표시)
+
+■ 9. 재시작 후 확인
+
+  1) Claude Code 완전 종료
+  2) Claude Code 재실행
+  3) 4줄(또는 3줄, 팀 비활성 시) statusline 확인
+  4) 도구 사용 시 Hook(PreToolUse) → Hook(PostToolUse) 깜빡임 관찰
+
+═══════════════════════════════════════════════════════════════════
+  미구현 → 0건
+  작업지시서 모든 요구사항 100% 구현 완료
+═══════════════════════════════════════════════════════════════════

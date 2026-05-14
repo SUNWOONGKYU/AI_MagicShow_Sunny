@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 740" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#001a3a"/>
+      <stop offset="100%" stop-color="#000814"/>
+    </linearGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#FF8C00"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="740" fill="url(#bg)"/>
+  <text x="600" y="44" font-size="26" font-weight="900" fill="#FF8C00" text-anchor="middle">YouTube 영상 제작 — 2 Track + 1 Engine</text>
+  <text x="600" y="72" font-size="13" fill="#bcd" text-anchor="middle">Plan-A 벤치마크형 / Plan-B 원본형 → 공통 Produce 엔진 → MBO 6기준 검증 → 배포</text>
+
+  <!-- Phase 1: PLAN -->
+  <rect x="40" y="100" width="540" height="380" rx="14" fill="rgba(52,152,219,0.06)" stroke="#3498DB" stroke-width="1.5"/>
+  <text x="310" y="128" font-size="16" font-weight="900" fill="#3498DB" text-anchor="middle">Phase 1 — PLAN (기획 2트랙)</text>
+
+  <!-- Plan-A -->
+  <rect x="60" y="150" width="240" height="310" rx="10" fill="rgba(52,152,219,0.12)" stroke="#3498DB"/>
+  <text x="180" y="175" font-size="14" font-weight="900" fill="#FF8C00" text-anchor="middle">Plan-A 벤치마크형</text>
+  <text x="180" y="194" font-size="11" fill="#bcd" text-anchor="middle">"인기 영상 분석하고 따라 만들어"</text>
+
+  <rect x="72" y="210" width="216" height="62" rx="6" fill="rgba(52,152,219,0.18)"/>
+  <text x="86" y="232" font-size="12" font-weight="900" fill="#fff">A0 경쟁영상 자동 검색·분석</text>
+  <text x="86" y="252" font-size="10" fill="#bcd">Gemini · YouTube API</text>
+  <text x="86" y="266" font-size="10" fill="#bcd">제목/썸네일/구조 패턴 추출</text>
+
+  <rect x="72" y="280" width="216" height="62" rx="6" fill="rgba(52,152,219,0.18)"/>
+  <text x="86" y="302" font-size="12" font-weight="900" fill="#fff">A1 대본·제목·썸네일 작성</text>
+  <text x="86" y="322" font-size="10" fill="#bcd">벤치마크 인사이트 반영</text>
+
+  <rect x="72" y="350" width="216" height="62" rx="6" fill="rgba(52,152,219,0.18)"/>
+  <text x="86" y="372" font-size="12" font-weight="900" fill="#fff">A2 메타데이터·블로그 글</text>
+  <text x="86" y="392" font-size="10" fill="#bcd">동시 산출</text>
+
+  <text x="180" y="438" font-size="10" fill="#7fbfff" text-anchor="middle">→ 발표문_스크립트.txt</text>
+  <text x="180" y="452" font-size="10" fill="#7fbfff" text-anchor="middle">→ glossary.md + 메타데이터</text>
+
+  <!-- Plan-B -->
+  <rect x="320" y="150" width="240" height="310" rx="10" fill="rgba(155,89,182,0.12)" stroke="#9b59b6"/>
+  <text x="440" y="175" font-size="14" font-weight="900" fill="#FF8C00" text-anchor="middle">Plan-B 원본형</text>
+  <text x="440" y="194" font-size="11" fill="#bcd" text-anchor="middle">"내 자료로 발표 영상 만들어"</text>
+
+  <rect x="332" y="210" width="216" height="62" rx="6" fill="rgba(155,89,182,0.18)"/>
+  <text x="346" y="232" font-size="12" font-weight="900" fill="#fff">B1 분량 추정·대본 4회 개정</text>
+  <text x="346" y="252" font-size="10" fill="#bcd">1초≈5.7자 환산</text>
+  <text x="346" y="266" font-size="10" fill="#bcd">자료 분석 → 구조화 내러티브</text>
+
+  <rect x="332" y="280" width="216" height="62" rx="6" fill="rgba(155,89,182,0.18)"/>
+  <text x="346" y="302" font-size="12" font-weight="900" fill="#fff">B2 glossary 사전 컨펌</text>
+  <text x="346" y="322" font-size="10" fill="#bcd">약어 오류 사전 차단</text>
+
+  <rect x="332" y="350" width="216" height="62" rx="6" fill="rgba(155,89,182,0.18)"/>
+  <text x="346" y="372" font-size="12" font-weight="900" fill="#fff">B3 씬 시나리오 + anchor regex</text>
+  <text x="346" y="392" font-size="10" fill="#bcd">자막 자동 정렬 설계</text>
+
+  <text x="440" y="438" font-size="10" fill="#c39bd3" text-anchor="middle">→ 발표문_스크립트.txt</text>
+  <text x="440" y="452" font-size="10" fill="#c39bd3" text-anchor="middle">→ glossary.md + 씬 시나리오</text>
+
+  <!-- arrow -->
+  <line x1="585" y1="305" x2="615" y2="305" stroke="#FF8C00" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- Phase 2: PRODUCE -->
+  <rect x="620" y="100" width="540" height="380" rx="14" fill="rgba(63,185,80,0.06)" stroke="#3fb950" stroke-width="1.5"/>
+  <text x="890" y="128" font-size="16" font-weight="900" fill="#3fb950" text-anchor="middle">Phase 2 — PRODUCE (제작 공통)</text>
+  <text x="890" y="146" font-size="11" fill="#7fdc7f" text-anchor="middle">양 트랙 동일 산출 형식으로 수렴</text>
+
+  <rect x="640" y="166" width="500" height="48" rx="6" fill="rgba(63,185,80,0.15)"/>
+  <text x="655" y="186" font-size="12" font-weight="900" fill="#fff">S2 AI 음성·자막</text>
+  <text x="655" y="204" font-size="10" fill="#bcd">ElevenLabs → Whisper STT → SRT 교정</text>
+
+  <rect x="640" y="220" width="500" height="48" rx="6" fill="rgba(63,185,80,0.15)"/>
+  <text x="655" y="240" font-size="12" font-weight="900" fill="#fff">S3 자산 제작 (병렬)</text>
+  <text x="655" y="258" font-size="10" fill="#bcd">Multi-Source Best-of-N 이미지 + 다이어그램 페어</text>
+
+  <rect x="640" y="274" width="500" height="48" rx="6" fill="rgba(63,185,80,0.15)"/>
+  <text x="655" y="294" font-size="12" font-weight="900" fill="#fff">S4 영상 합성</text>
+  <text x="655" y="312" font-size="10" fill="#bcd">FFmpeg zoompan / concat / xfade · tail-pad 6~8s</text>
+
+  <rect x="640" y="328" width="500" height="60" rx="6" fill="rgba(255,140,0,0.18)" stroke="#FF8C00"/>
+  <text x="655" y="350" font-size="12" font-weight="900" fill="#FF8C00">S5 검증·튜닝</text>
+  <text x="655" y="368" font-size="10" fill="#fff">MBO 6기준 120점/씬: 타이포 · 색감 · 정보밀도 · 균형 · 임팩트 · 나레이션</text>
+  <text x="655" y="382" font-size="10" fill="#fff">Hook BPI(Buzz Performance Index) + BGM</text>
+
+  <rect x="640" y="396" width="500" height="48" rx="6" fill="rgba(63,185,80,0.15)"/>
+  <text x="655" y="416" font-size="12" font-weight="900" fill="#fff">S6 YouTube 배포</text>
+  <text x="655" y="434" font-size="10" fill="#bcd">영문 SRT 4단계 업로드 (한글 SRT 금지)</text>
+
+  <!-- Polished tech bar -->
+  <rect x="40" y="500" width="1120" height="100" rx="12" fill="rgba(255,140,0,0.06)" stroke="rgba(255,140,0,0.35)"/>
+  <text x="600" y="525" font-size="14" font-weight="900" fill="#FF8C00" text-anchor="middle">자동화 일원화 — Multi-Source Best-of-N + FFmpeg</text>
+
+  <text x="80" y="560" font-size="12" font-weight="900" fill="#fff">샘플 5씬</text>
+  <text x="80" y="578" font-size="10" fill="#bcd">→ MLLM 채점 → 채택 → 일괄</text>
+
+  <text x="300" y="560" font-size="12" font-weight="900" fill="#fff">이미지 소스</text>
+  <text x="300" y="578" font-size="10" fill="#bcd">Gemini Image Preview + DALL-E 3 + ...</text>
+
+  <text x="560" y="560" font-size="12" font-weight="900" fill="#fff">자막 anchor regex</text>
+  <text x="560" y="578" font-size="10" fill="#bcd">Whisper segments.json 자동 정렬</text>
+
+  <text x="820" y="560" font-size="12" font-weight="900" fill="#fff">팔레트 / glossary</text>
+  <text x="820" y="578" font-size="10" fill="#bcd">라이트모드 13컬러 SSOT</text>
+
+  <!-- Deprecated bar -->
+  <rect x="40" y="620" width="1120" height="80" rx="12" fill="rgba(255,123,114,0.06)" stroke="rgba(255,123,114,0.35)"/>
+  <text x="600" y="645" font-size="13" font-weight="900" fill="#ff7b72" text-anchor="middle">🛑 2026-05-06 폐기 — 수동 GUI 도구</text>
+  <text x="600" y="668" font-size="11" fill="#fff" text-anchor="middle">Vrew · Whisk · 나노바나나(수동) · 단일 이미지 도구 일괄 생성 · 한글 SRT</text>
+  <text x="600" y="685" font-size="10" fill="#bcd" text-anchor="middle">→ FFmpeg 자동 합성 + Multi-Source + 영문 SRT BOM 제거 LF로 완전 대체</text>
+</svg>

@@ -1,0 +1,123 @@
+{
+  "ranking": [
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_38\\labeled\\gemini-3-pro-image.png",
+      "score": 97,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "추상적인 자동화 파이프라인 개념을 모던 미니멀 스타일의 플로우차트로 시각화하여, '텍스트 없음'과 '따뜻한 조명' 등 모든 시각적 요청을 완벽하게 충족합니다.",
+      "weakness": "6개의 특정 훅 이벤트를 시각적으로 명확하게 구분하여 보여주지는 못했으나, 이는 추상 기호 요청을 고려할 때 큰 단점으로 보기는 어렵습니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_38\\labeled\\gpt-image-1.png",
+      "score": 97,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 19,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "요청된 6가지 훅 이벤트를 정확하고 명확하게 시각화하며, 현대적이고 미니멀한 디자인과 따뜻한 색감으로 정보 전달력이 매우 우수합니다.",
+      "weakness": "인포그래픽 내용은 모두 영어로 잘 구현되었으나, 이미지 하단에 포함된 메타데이터/캡션에 한글 텍스트가 포함되어 '한글 텍스트 없음' 요청에 부분적으로 부합하지 않습니다."
+    },
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_38\\labeled\\gemini-3_1-flash-image.png",
+      "score": 96,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 18,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "요청된 6개 훅 이벤트 이름과 세션 백업을 정확하게 명시하고, 자동화 파이프라인의 핵심 개념을 미니멀한 일러스트로 명확하게 시각화했습니다.",
+      "weakness": "화면 내 텍스트를 추상 기호로만 표현하라는 지시를 부분적으로 따르지 않고, 특정 훅 이름과 백업 라벨에 영어 텍스트를 사용했습니다."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_38\\labeled\\dall-e-3.png",
+      "score": 96,
+      "grade": "GOLD",
+      "intent": 29,
+      "text": 20,
+      "visual": 19,
+      "clarity": 14,
+      "layout": 14,
+      "strength": "복잡한 '훅' 개념을 추상적이면서도 원문과 유사한 단어들로 화면 텍스트에 탁월하게 구현했으며, 모던 미니멀 일러스트 스타일과 따뜻한 조명 등 시각적 요구사항을 완벽하게 충족했습니다.",
+      "weakness": "프롬프트에 따른 명확한 약점은 없으나, DALL-E 3 워터마크에 한글이 포함되어 있어 프롬프트의 '한글 텍스트 없음' 지시를 문맥상 화면 텍스트에 한정하지 않고 전체 이미지로 해석할 경우 미세한 감점 요인이 될 수 있습니다."
+    },
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_38\\labeled\\gemini-2_5-flash-image.png",
+      "score": 64,
+      "grade": "BRONZE",
+      "intent": 20,
+      "text": 0,
+      "visual": 19,
+      "clarity": 11,
+      "layout": 14,
+      "strength": "요청된 모던 미니멀 일러스트 스타일, 따뜻한 조명, 그리고 시스템의 전반적인 흐름과 구성 요소를 시각적으로 명확하게 표현했습니다.",
+      "weakness": "화면 속 텍스트는 추상 기호로만 표현하고 한글 텍스트를 사용하지 말라는 핵심 지시를 완전히 무시하고 영어 텍스트 라벨과 한글 텍스트까지 사용했습니다. 또한, 요청된 6개 훅 이벤트 중 'PostToolUse'가 누락되고 'Pre-ToolUse'가 중복되었으며, 'UserPromptSubmit'에 오타가 있습니다."
+    }
+  ],
+  "top_picks": [
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_38\\labeled\\gemini-3-pro-image.png",
+      "score": 97,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "추상적인 자동화 파이프라인 개념을 모던 미니멀 스타일의 플로우차트로 시각화하여, '텍스트 없음'과 '따뜻한 조명' 등 모든 시각적 요청을 완벽하게 충족합니다.",
+      "weakness": "6개의 특정 훅 이벤트를 시각적으로 명확하게 구분하여 보여주지는 못했으나, 이는 추상 기호 요청을 고려할 때 큰 단점으로 보기는 어렵습니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_38\\labeled\\gpt-image-1.png",
+      "score": 97,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 19,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "요청된 6가지 훅 이벤트를 정확하고 명확하게 시각화하며, 현대적이고 미니멀한 디자인과 따뜻한 색감으로 정보 전달력이 매우 우수합니다.",
+      "weakness": "인포그래픽 내용은 모두 영어로 잘 구현되었으나, 이미지 하단에 포함된 메타데이터/캡션에 한글 텍스트가 포함되어 '한글 텍스트 없음' 요청에 부분적으로 부합하지 않습니다."
+    },
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_38\\labeled\\gemini-3_1-flash-image.png",
+      "score": 96,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 18,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "요청된 6개 훅 이벤트 이름과 세션 백업을 정확하게 명시하고, 자동화 파이프라인의 핵심 개념을 미니멀한 일러스트로 명확하게 시각화했습니다.",
+      "weakness": "화면 내 텍스트를 추상 기호로만 표현하라는 지시를 부분적으로 따르지 않고, 특정 훅 이름과 백업 라벨에 영어 텍스트를 사용했습니다."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_38\\labeled\\dall-e-3.png",
+      "score": 96,
+      "grade": "GOLD",
+      "intent": 29,
+      "text": 20,
+      "visual": 19,
+      "clarity": 14,
+      "layout": 14,
+      "strength": "복잡한 '훅' 개념을 추상적이면서도 원문과 유사한 단어들로 화면 텍스트에 탁월하게 구현했으며, 모던 미니멀 일러스트 스타일과 따뜻한 조명 등 시각적 요구사항을 완벽하게 충족했습니다.",
+      "weakness": "프롬프트에 따른 명확한 약점은 없으나, DALL-E 3 워터마크에 한글이 포함되어 있어 프롬프트의 '한글 텍스트 없음' 지시를 문맥상 화면 텍스트에 한정하지 않고 전체 이미지로 해석할 경우 미세한 감점 요인이 될 수 있습니다."
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "gemini-2.5-flash-image": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_20\\_variants\\gemini-2_5-flash-image_v2.png",
+      "ok": true,
+      "score": 80,
+      "reason": "이미지는 모던 미니멀 스타일, 따뜻한 조명, '실행 우선' 원칙의 핵심 의도를 잘 표현했습니다. 'Plan Mode'와 '34'가 교차된 표시, 추상적인 화면 속 기호 등 대부분의 요청 사항을 정확히 따랐습니다. 다만, '한글 텍스트 없음'이라는 명확한 제약 조건에도 불구하고 '실행 우문'이라는 한글 텍스트가 포함되어 점수가 감점되었습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_20\\_variants\\gemini-2_5-flash-image_v1.png",
+      "ok": true,
+      "score": 97,
+      "reason": "프롬프트의 복잡한 개념(실행 우선 원칙, 플랜 모드)을 한글 텍스트로 명확히 표현하면서도 디지털 화면은 추상 기호로 처리하여 요구사항을 훌륭하게 해석하고 시각적으로도 완성도 높게 구현했습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_20\\_variants\\gemini-2_5-flash-image_v3.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 요구사항(모던 미니멀 일러스트, 따뜻한 조명, 16:9, 추상 기호 화면, 한글 텍스트 없음, #34 Plan Mode 텍스트 포함, 실행 우선 원칙의 맥락)이 완벽하게 구현되었습니다."
+    }
+  ],
+  "dall-e-3": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_20\\_variants\\dall-e-3_v1.png",
+      "ok": true,
+      "score": 45,
+      "reason": "모던 미니멀 일러스트, 따뜻한 조명, 구도 등은 프롬프트 의도에 잘 부합하나, 화면 속 텍스트가 추상 기호가 아닌 명확히 한글로 인식되어 '한글 텍스트 없음, 추상 기호로만 표현'이라는 핵심 요구사항을 충족하지 못했습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_20\\_variants\\dall-e-3_v3.png",
+      "ok": true,
+      "score": 41,
+      "reason": "모던 미니멀 스타일과 따뜻한 조명은 훌륭하나, 화면 속 텍스트가 명시적으로 금지된 한글로 표현되어 프롬프트 의도를 심각하게 위반함."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_20\\_variants\\dall-e-3_v2.png",
+      "ok": true,
+      "score": 59,
+      "reason": "전반적인 스타일, 구도, 색감은 훌륭하나, '한글 텍스트 없음' 및 '추상 기호로만 표현' 요청에도 불구하고 화면과 UI 요소에 한글(ㄱㄱㅁ, ㅁㅂ)이 포함되어 프롬프트 의도를 심각하게 위반했습니다."
+    }
+  ],
+  "gpt-image-1": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_20\\_variants\\gpt-image-1_v2.png",
+      "ok": true,
+      "score": 85,
+      "reason": "요구한 모던 미니멀 스타일, 따뜻한 조명, 추상화된 화면 텍스트, 한국인의 컴퓨터 작업 장면은 잘 구현되었으나, 16:9 화면비율을 놓쳤고 '실행 우선 원칙'의 핵심 메시지 전달은 간접적입니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_20\\_variants\\gpt-image-1_v3.png",
+      "ok": true,
+      "score": 96,
+      "reason": "모던 미니멀 스타일, 따뜻한 조명, 16:9 비율, 한국인 남성의 컴퓨터 작업 모습이 완벽하게 구현되었고, 화면 속 추상 기호 표현으로 '실행 우선' 원칙의 의미를 잘 전달합니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_20\\_variants\\gpt-image-1_v1.png",
+      "ok": true,
+      "score": 97,
+      "reason": "프롬프트의 모든 시각적 요구사항(스타일, 조명, 화면 내용, 비율)을 완벽하게 구현했으며, '실행 우선'이라는 추상적인 개념도 컴퓨터 작업 장면으로 잘 표현했습니다. 시각적 완성도와 정보 전달력 또한 뛰어납니다."
+    }
+  ],
+  "gemini-3.1-flash-image-preview": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_20\\_variants\\gemini-3_1-flash-image_v2.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 요구사항(실행 우선 원칙, 한국인, 모던 미니멀, 따뜻한 조명, 16:9 비율, 추상 기호 텍스트)을 완벽하게 반영하여 의도가 명확하고 시각적 완성도가 매우 높습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_20\\_variants\\gemini-3_1-flash-image_v3.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 핵심 의도인 '실행 우선 원칙'을 시각적으로 완벽하게 표현했으며, 스타일, 조명, 텍스트 처리 등 모든 요구사항을 충족시켰습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_20\\_variants\\gemini-3_1-flash-image_v1.png",
+      "ok": true,
+      "score": 98,
+      "reason": "문서화는 나중에, 실행 우선 원칙을 명확히 전달하며, 요청된 모든 스타일과 구도를 완벽하게 구현했습니다."
+    }
+  ],
+  "gemini-3-pro-image-preview": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_20\\_variants\\gemini-3-pro-image_v3.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 요구사항(모던 미니멀 스타일, 따뜻한 조명, 16:9 비율, 한국인, 컴퓨터 작업, 추상 기호 텍스트, 한글 텍스트 없음)을 완벽하게 구현했습니다. 실행 우선 원칙 또한 여러 작업 화면으로 잘 표현되었습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_20\\_variants\\gemini-3-pro-image_v2.png",
+      "ok": true,
+      "score": 97,
+      "reason": "프롬프트의 모든 요구사항, 특히 화면 속 추상 기호와 한글 텍스트 없음, 모던 미니멀 일러스트, 따뜻한 조명 등이 완벽하게 구현되었습니다. 시각적 완성도도 매우 높습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_20\\_variants\\gemini-3-pro-image_v1.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 시각적 및 의도적 요구사항(한국인, 컴퓨터 작업, 모던 미니멀 일러스트, 따뜻한 조명, 16:9 화면비, 추상 기호 텍스트, 빠른 실행 원칙)이 완벽하게 구현되었습니다."
+    }
+  ]
+}

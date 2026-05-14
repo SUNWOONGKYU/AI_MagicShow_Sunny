@@ -1,0 +1,102 @@
+{
+  "gemini-2.5-flash-image": [
+    {
+      "path": "[Gemini] 모델: gemini-2.5-flash-image\n[Gemini] 프롬프트: 엔비디아 NeMoTron 100만 한국인 합성 데이터셋 활용하기. NVIDIA가 2026년 공개한 합성 한국인 페르소나 100만 명 데이터셋(N...\n[Gemini] 등록된 키: 29개 (자동 로테이션)\n[키 #1 AIzaSyA5...lrbw] quota 초과 → 다음 키\n[성공] 키 #14 (AIzaSyBz...2HM0) 사용\n[경고] 응답에 이미지가 없습니다. 프롬프트가 정책 위반일 수 있습니다.",
+      "ok": false,
+      "score": 0,
+      "reason": ""
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_08\\_variants\\gemini-2_5-flash-image_v2.png",
+      "ok": true,
+      "score": 98,
+      "reason": "프롬프트에서 요구한 모던 미니멀 일러스트 스타일, 따뜻한 조명, 16:9 화면비, 컴퓨터 작업하는 한국인, 화면 속 추상 기호, 한글 텍스트 없음 등 모든 시각적 요소를 완벽하게 구현했습니다. 시각적 완성도 또한 매우 뛰어납니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_08\\_variants\\gemini-2_5-flash-image_v1.png",
+      "ok": true,
+      "score": 94,
+      "reason": "요청된 모던 미니멀 일러스트 스타일, 따뜻한 조명, 구도, 16:9 비율을 완벽하게 구현했으며, 핵심 개념인 'NVIDIA NeMoTron'과 '한국인 페르소나 데이터셋'을 명확하게 시각화했습니다. 'IM KOREAN PEbSDNAS' 텍스트에 약간의 오타와 '1M' 누락이 있지만, 전반적인 정보 전달력과 시각적 완성도는 매우 뛰어납니다."
+    }
+  ],
+  "gemini-3.1-flash-image-preview": [
+    {
+      "path": "flash-image-preview\n[Gemini] 프롬프트: 엔비디아 NeMoTron 100만 한국인 합성 데이터셋 활용하기. NVIDIA가 2026년 공개한 합성 한국인 페르소나 100만 명 데이터셋(N...\n[Gemini] 등록된 키: 29개 (자동 로테이션)\n[키 #29 AIzaSyC3...Dg1I] quota 초과 → 다음 키\n[키 #8 AIzaSyAh...kb7U] quota 초과 → 다음 키\n[성공] 키 #14 (AIzaSyBz...2HM0) 사용\n[경고] 응답에 이미지가 없습니다. 프롬프트가 정책 위반일 수 있습니다.",
+      "ok": false,
+      "score": 0,
+      "reason": ""
+    },
+    {
+      "path": "flash-image-preview\n[Gemini] 프롬프트: 엔비디아 NeMoTron 100만 한국인 합성 데이터셋 활용하기. NVIDIA가 2026년 공개한 합성 한국인 페르소나 100만 명 데이터셋(N...\n[Gemini] 등록된 키: 29개 (자동 로테이션)\n[키 #17 AIzaSyCC...XQKU] quota 초과 → 다음 키\n[키 #19 AIzaSyC_...wwZ0] quota 초과 → 다음 키\n[성공] 키 #7 (AIzaSyAg...GZPk) 사용\n[경고] 응답에 이미지가 없습니다. 프롬프트가 정책 위반일 수 있습니다.",
+      "ok": false,
+      "score": 0,
+      "reason": ""
+    },
+    {
+      "path": "026년 공개한 합성 한국인 페르소나 100만 명 데이터셋(N...\n[Gemini] 등록된 키: 29개 (자동 로테이션)\n[키 #23 AIzaSyCu...GfiQ] quota 초과 → 다음 키\n[키 #21 AIzaSyCm...1hkg] quota 초과 → 다음 키\n[키 #28 AIzaSyDs...g4Vk] quota 초과 → 다음 키\n[키 #29 AIzaSyC3...Dg1I] quota 초과 → 다음 키\n[성공] 키 #11 (AIzaSyB9...OYJs) 사용\n[경고] 응답에 이미지가 없습니다. 프롬프트가 정책 위반일 수 있습니다.",
+      "ok": false,
+      "score": 0,
+      "reason": ""
+    }
+  ],
+  "dall-e-3": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_08\\_variants\\dall-e-3_v3.png",
+      "ok": true,
+      "score": 97,
+      "reason": "프롬프트의 모든 시각적 지시사항(장면, 스타일, 조명, 화면 텍스트, 한글 없음)을 완벽하게 구현한 매우 완성도 높은 이미지입니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_08\\_variants\\dall-e-3_v1.png",
+      "ok": true,
+      "score": 100,
+      "reason": "모든 시각적 요구사항(구도, 스타일, 따뜻한 조명, 추상 기호만 있는 화면)을 완벽하게 충족하며, 데이터 및 AI 학습이라는 주제를 상징적으로 잘 표현했습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_08\\_variants\\dall-e-3_v2.png",
+      "ok": true,
+      "score": 61,
+      "reason": "이미지는 모던 미니멀 스타일, 따뜻한 조명, 구도 등 대부분의 시각적 요소를 잘 구현하고 핵심 브랜드도 포함했으나, '한글 텍스트 없음' 지시를 위반하고 가독성 있는 한글 텍스트를 포함하여 프롬프트 의도 부합도와 텍스트 가독성에서 감점되었습니다."
+    }
+  ],
+  "gpt-image-1": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_08\\_variants\\gpt-image-1_v3.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 시각적 요구사항(한국인, 컴퓨터 작업, 모던 미니멀 일러스트, 따뜻한 조명, 16:9, 추상 기호 텍스트, 한글 텍스트 없음)이 완벽하게 구현되었습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_08\\_variants\\gpt-image-1_v1.png",
+      "ok": true,
+      "score": 88,
+      "reason": "전반적으로 프롬프트의 의도(주제, 스타일, 조명, 화면 내용)를 잘 반영했으나, 요청된 16:9 화면 비율이 아닌 4:3으로 제작된 점이 감점 요인입니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_08\\_variants\\gpt-image-1_v2.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 시각적 요구사항(한국인, 컴퓨터 작업, 모던 미니멀 일러스트, 따뜻한 조명, 16:9, 추상 기호 텍스트)이 완벽하게 구현되었으며, 시각적 완성도도 높습니다."
+    }
+  ],
+  "gemini-3-pro-image-preview": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_08\\_variants\\gemini-3-pro-image_v1.png",
+      "ok": true,
+      "score": 97,
+      "reason": "프롬프트의 모든 시각적 요구사항(모던 미니멀 일러스트, 따뜻한 조명, 16:9, 화면 속 추상 기호 및 한글 텍스트 없음)을 완벽하게 구현했으며, 화면 속 엔비디아 유사 로고로 핵심 주제를 명확히 표현했습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_08\\_variants\\gemini-3-pro-image_v2.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 시각적 요구사항(한국인 컴퓨터 작업, 모던 미니멀 일러스트, 따뜻한 조명, 16:9, 화면 속 추상 기호/한글 텍스트 없음)이 완벽하게 구현되었습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_08\\_variants\\gemini-3-pro-image_v3.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 시각적 요구사항(구도, 스타일, 색감, 화면 내용)을 완벽하게 구현한 매우 훌륭한 결과물입니다."
+    }
+  ]
+}

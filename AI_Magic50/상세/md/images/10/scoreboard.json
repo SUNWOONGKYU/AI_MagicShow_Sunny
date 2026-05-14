@@ -1,0 +1,102 @@
+{
+  "gemini-2.5-flash-image": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_10\\_variants\\gemini-2_5-flash-image_v1.png",
+      "ok": true,
+      "score": 75,
+      "reason": "이미지는 모던 미니멀 스타일, 따뜻한 조명, 추상 기호 사용 등 시각적 요구사항을 훌륭히 충족했으나, 'MBO의 4표 양식'이라는 핵심 구조적 요청을 일반적인 대시보드 형태로 표현하여 MBO의 특정 의도를 명확히 전달하는 데 미흡했습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_10\\_variants\\gemini-2_5-flash-image_v2.png",
+      "ok": true,
+      "score": 70,
+      "reason": "MBO 구조, 인물, 설정, AI 협업은 잘 구현되었으나, 화면 속 텍스트가 추상 기호가 아닌 영단어로 명확하게 표현되어 프롬프트의 중요한 요구사항을 놓쳤습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_10\\_variants\\gemini-2_5-flash-image_v3.png",
+      "ok": true,
+      "score": 95,
+      "reason": "MBO 4표 양식(목표, KPI, 실행계획, 리스크)이 화면에 명확하게 구현되었고, 현대 미니멀 스타일과 따뜻한 조명 등 프롬프트의 시각적 요구사항을 완벽하게 만족합니다. '추상 기호' 요구사항에서 'KPIS'와 '9%'와 같은 실제 문자가 포함된 점이 약간의 감점 요인이지만, 전체적인 의도 전달에는 방해가 되지 않습니다."
+    }
+  ],
+  "gpt-image-1": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_10\\_variants\\gpt-image-1_v1.png",
+      "ok": true,
+      "score": 90,
+      "reason": "MBO 프레임워크와 스타일, 구도가 완벽하게 구현되었으나, 화면 내 텍스트가 추상 기호로만 표현되어야 한다는 지시를 'MBO GOAL'과 'KP' 문구로 일부 벗어났습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_10\\_variants\\gpt-image-1_v2.png",
+      "ok": true,
+      "score": 60,
+      "reason": "요청한 모던 미니멀 스타일과 구도는 잘 구현했으나, 화면 내 텍스트가 한글로 표현되었고 그마저도 정확하지 않아 프롬프트의 핵심 지시(한글 텍스트 없음, 추상 기호로만 표현)를 따르지 못함."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_10\\_variants\\gpt-image-1_v3.png",
+      "ok": true,
+      "score": 62,
+      "reason": "이미지는 MBO 목표 제시 시나리오, 모던 미니멀 스타일, 따뜻한 조명 등 대부분의 구체적인 요구사항을 잘 구현했으나, 화면 속 텍스트를 '추상 기호로만 표현'하라는 지시를 어기고 'MBO GOALS'라는 영문 텍스트를 포함하여 감점."
+    }
+  ],
+  "dall-e-3": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_10\\_variants\\dall-e-3_v1.png",
+      "ok": true,
+      "score": 43,
+      "reason": "이미지는 따뜻한 조명과 모던 미니멀 스타일 등 시각적 완성도는 높으나, '한글 텍스트 없음' 및 '추상 기호로만 표현'이라는 핵심 텍스트 요구사항을 완전히 위반하여 점수가 크게 감점되었습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_10\\_variants\\dall-e-3_v2.png",
+      "ok": true,
+      "score": 53,
+      "reason": "모던 미니멀 스타일, 따뜻한 조명, 16:9 비율 및 MBO 구조를 잘 표현했으나, 텍스트가 추상 기호가 아닌 영문 유사 기호로 표현되어 가독성 및 정보 명확성이 크게 저하되었음."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_10\\_variants\\dall-e-3_v3.png",
+      "ok": true,
+      "score": 44,
+      "reason": "MBO 구조, 스타일, 조명, 비율은 잘 구현되었으나, '한글 텍스트 없음'과 '추상 기호로만 표현'이라는 핵심 요구사항을 완전히 무시하고 가독성 없는 한글이 다수 포함되어 감점 요인이 큽니다."
+    }
+  ],
+  "gemini-3.1-flash-image-preview": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_10\\_variants\\gemini-3_1-flash-image_v3.png",
+      "ok": true,
+      "score": 98,
+      "reason": "프롬프트의 모든 핵심 요소(MBO 4분할 양식, Claude Code AI, 한국인 작업자, 모던 미니멀 스타일, 따뜻한 조명, 16:9 비율)를 완벽하게 구현했으며, 화면 내 텍스트 또한 한글 없이 추상 기호로 표현되어 의도에 매우 부합합니다. 다만 섹션 라벨이 추상 기호가 아닌 영어 텍스트인 점이 미세한 감점 요인입니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_10\\_variants\\gemini-3_1-flash-image_v1.png",
+      "ok": true,
+      "score": 62,
+      "reason": "MBO 워크플로우 및 모던 미니멀 스타일은 완벽하게 구현되었으나, 화면 내 모든 텍스트를 추상 기호로 표현하고 한글 텍스트를 사용하지 말라는 핵심 지시를 완전히 위반하여 점수가 대폭 삭감됨."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_10\\_variants\\gemini-3_1-flash-image_v2.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 세부 요청사항(MBO 4분할 양식, Claude Code, 1인-AI 협업, 한국인, 모던 미니멀 스타일, 따뜻한 조명, 16:9 비율, 추상 기호 및 한글 텍스트 없음)이 완벽하게 구현되었습니다. 시각적 완성도와 정보 전달력 또한 매우 뛰어납니다."
+    }
+  ],
+  "gemini-3-pro-image-preview": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_10\\_variants\\gemini-3-pro-image_v1.png",
+      "ok": true,
+      "score": 92,
+      "reason": "MBO 구조, AI 협업, PO 승인, 따뜻한 분위기 등 대부분의 의도가 완벽하게 구현되었으나, 화면 내 텍스트가 '추상 기호' 대신 영어 단어로 표현된 점이 유일한 아쉬움입니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_10\\_variants\\gemini-3-pro-image_v2.png",
+      "ok": true,
+      "score": 98,
+      "reason": "MBO 워크플로우, AI 협업, 시각적 스타일, 정보 명확성 모두 탁월하며, 화면 텍스트도 한국어 없이 명확하게 표현되어 의도를 거의 완벽하게 구현했습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_10\\_variants\\gemini-3-pro-image_v3.png",
+      "ok": true,
+      "score": 78,
+      "reason": "이미지는 MBO 구조, 모던 미니멀 스타일, 따뜻한 조명 등 프롬프트의 대부분의 의도를 잘 구현했으나, 화면 내 텍스트를 추상 기호 대신 명확한 영어 단어로 표현하여 주요 지시사항을 따르지 않았습니다."
+    }
+  ]
+}

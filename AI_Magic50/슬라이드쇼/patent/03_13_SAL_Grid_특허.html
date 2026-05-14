@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAL Grid 특허 — 3차원 좌표계 기반 멀티태스크 오케스트레이션</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; overflow: hidden; font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; }
+
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #1e293b;
+      --muted: #475569;
+      --accent: #2563eb;
+      --accent2: #7c3aed;
+      --accent3: #059669;
+      --warn: #d97706;
+      --code-bg: #f1f5f9;
+      --slide-max-w: 1100px;
+      --border: rgba(100,116,139,0.15);
+      --hl-accent: rgba(37,99,235,0.08);
+      --hl-warn: rgba(217,119,6,0.08);
+      --hl-green: rgba(5,150,105,0.08);
+      --hl-purple: rgba(124,58,237,0.08);
+      --hover-bg: rgba(37,99,235,0.05);
+    }
+    :root.dark {
+      --bg: #002451;
+      --surface: #00346e;
+      --text: #ffffff;
+      --muted: #7285b7;
+      --accent: #bbdaff;
+      --accent2: #ebbbff;
+      --accent3: #d1f1a9;
+      --warn: #ffeead;
+      --code-bg: #003f8e;
+      --border: rgba(187,218,255,0.15);
+      --hl-accent: rgba(187,218,255,0.08);
+      --hl-warn: rgba(255,238,173,0.08);
+      --hl-green: rgba(209,241,169,0.08);
+      --hl-purple: rgba(235,187,255,0.08);
+      --hover-bg: rgba(187,218,255,0.08);
+    }
+
+    body { background: var(--bg); color: var(--text); }
+
+    .progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3)); z-index: 100; transition: width 0.3s ease; }
+
+    .slides { position: relative; width: 100%; height: 100vh; }
+    .slide {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 60px 48px 80px;
+      opacity: 0; transform: translateX(60px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+      pointer-events: none;
+      overflow-y: auto;
+    }
+    .slide.active { opacity: 1; transform: translateX(0); pointer-events: auto; }
+    .slide.prev { opacity: 0; transform: translateX(-60px); }
+    .slide-inner { max-width: var(--slide-max-w); width: 100%; }
+
+    .slide h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; margin-bottom: 24px; line-height: 1.35; color: var(--accent); }
+    .slide h2 .accent { color: var(--accent); }
+    .slide h2 .accent2 { color: var(--accent2); }
+    .slide h2 .accent3 { color: var(--accent3); }
+    .slide h2 .text { color: var(--text); }
+    .slide h3 { font-size: 1.1rem; color: var(--accent2); margin: 16px 0 10px; font-weight: 700; }
+    .slide p { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin-bottom: 14px; }
+    .slide ul, .slide ol { font-size: 1.05rem; line-height: 1.9; padding-left: 24px; color: var(--text); }
+    .slide li { margin-bottom: 8px; }
+    .slide li::marker { color: var(--accent); }
+    .slide strong { color: var(--accent); font-weight: 700; }
+    .slide em strong { color: var(--accent2); }
+    .slide code { background: var(--code-bg); padding: 2px 8px; border-radius: 4px; font-size: 0.92em; color: var(--text); font-weight: 600; }
+    .slide pre { background: var(--code-bg); border-radius: 12px; padding: 18px 22px; overflow-x: auto; margin: 14px 0; font-size: 0.88rem; line-height: 1.6; border: 1px solid var(--border); }
+    .slide pre code { font-weight: 400; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 14px 0; position: relative; }
+    .table-wrap::after { content: '→ 스크롤'; position: absolute; top: 8px; right: 8px; font-size: 0.75rem; color: var(--muted); opacity: 0.6; display: none; }
+    @media (max-width: 768px) { .table-wrap::after { display: block; } }
+    .slide table { width: 100%; border-collapse: collapse; font-size: 1rem; min-width: 600px; }
+    .slide th { background: var(--surface); padding: 10px 14px; text-align: left; font-weight: 700; color: var(--accent); border-bottom: 2px solid var(--accent); }
+    .slide td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+    .slide tr:hover td { background: var(--hover-bg); }
+
+    .slide.title-slide { text-align: center; }
+    .slide.title-slide h1 { font-size: clamp(1.5rem, 3.5vw, 2.6rem); font-weight: 900; line-height: 1.5; margin-bottom: 28px; color: var(--accent); }
+    .slide.title-slide .subtitle { font-size: 1.15rem; color: var(--accent2); margin-bottom: 20px; font-weight: 600; }
+    .slide.title-slide .date { font-size: 0.95rem; color: var(--muted); }
+
+    .slide.end-slide { text-align: center; }
+    .section-label { display: inline-block; font-size: 0.78rem; font-weight: 700; color: var(--muted); letter-spacing: 0.05em; margin-bottom: 6px; }
+
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 18px 0; }
+    .card { background: var(--surface); border-radius: 12px; padding: 18px 20px; border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .card .label { font-size: 0.82rem; color: var(--muted); margin-bottom: 4px; }
+    .card .value { font-size: 1.5rem; font-weight: 800; color: var(--accent); }
+    .card .desc { font-size: 0.95rem; color: var(--text); margin-top: 6px; line-height: 1.6; }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; gap: 16px; } }
+
+    .highlight { background: var(--hl-accent); border-left: 4px solid var(--accent); padding: 14px 18px; border-radius: 0 12px 12px 0; margin: 14px 0; font-size: 1rem; line-height: 1.7; color: var(--text); }
+    .highlight.warn { border-left-color: var(--warn); background: var(--hl-warn); }
+    .highlight.green { border-left-color: var(--accent3); background: var(--hl-green); }
+    .highlight.purple { border-left-color: var(--accent2); background: var(--hl-purple); }
+
+    .vs-box { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center; margin: 16px 0; }
+    .vs-box .side { background: var(--surface); padding: 16px 20px; border-radius: 12px; border: 1px solid var(--border); }
+    .vs-box .vs { font-size: 1.5rem; font-weight: 900; color: var(--warn); }
+    @media (max-width: 768px) { .vs-box { grid-template-columns: 1fr; } .vs-box .vs { text-align: center; padding: 4px 0; } }
+
+
+    .nav-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--surface); border-top: 1px solid var(--border); padding: 10px 20px; display: flex; align-items: center; justify-content: center; gap: 20px; z-index: 100; }
+    .nav-btn { background: none; border: 2px solid var(--accent); color: var(--accent); padding: 6px 24px; border-radius: 20px; cursor: pointer; font-size: 15px; font-weight: 700; transition: all 0.2s; font-family: inherit; }
+    .nav-btn:hover { background: var(--accent); color: var(--bg); }
+    .nav-btn:disabled { border-color: var(--border); color: var(--muted); opacity: 0.4; cursor: default; background: none; }
+    .counter { color: var(--muted); font-size: 15px; min-width: 70px; text-align: center; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+    .theme-toggle { position: fixed; top: 12px; right: 12px; z-index: 100; background: var(--surface); border: 1px solid var(--border); color: var(--text); border-radius: 8px; padding: 6px 12px; cursor: pointer; font-size: 13px; }
+    .fs-toggle { position: fixed; top: 12px; right: 80px; z-index: 100; background: var(--surface); border: 1px solid var(--border); color: var(--text); border-radius: 8px; padding: 6px 12px; cursor: pointer; font-size: 13px; }
+
+    @media print {
+      .nav-bar, .progress, .theme-toggle, .fs-toggle { display: none !important; }
+      .slides { position: static; height: auto; }
+      .slide { position: static; opacity: 1 !important; transform: none !important; pointer-events: auto !important; page-break-after: always; height: 100vh; padding: 40px; }
+      .slide:last-child { page-break-after: avoid; }
+      .slide img { max-width: 80% !important; }
+    }
+    @media (max-width: 768px) {
+      .slide { padding: 48px 18px 68px; }
+      .card-grid { grid-template-columns: 1fr !important; }
+      .toc-grid { grid-template-columns: 1fr !important; }
+      .toc-left { border-right: none !important; padding-right: 0 !important; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 8px; }
+      .toc-right { padding-left: 0 !important; }
+      .slide h2 { font-size: 1.3rem; margin-bottom: 16px; }
+      .slide h3 { font-size: 1rem; }
+      .slide p, .slide ul, .slide ol { font-size: 0.95rem; line-height: 1.75; }
+      .slide li { margin-bottom: 5px; }
+      .slide pre { font-size: 0.75rem; padding: 14px 16px; }
+      .highlight { padding: 12px 14px; font-size: 0.92rem; }
+      .nav-bar { padding: 8px 12px; gap: 12px; }
+      .nav-btn { padding: 5px 16px; font-size: 13px; }
+      .counter { font-size: 13px; min-width: 56px; }
+      .theme-toggle, .fs-toggle { font-size: 11px; padding: 4px 8px; }
+      .fs-toggle { right: 64px; }
+      .viewer-btn { padding: 9px 20px; font-size: 0.95rem; }
+      .mini-grid { font-size: 0.7rem; }
+      .mini-grid th { font-size: 0.65rem; padding: 4px 4px; }
+      .mini-grid td { font-size: 0.68rem; padding: 4px 4px; }
+      .slide.title-slide h1 { font-size: 1.3rem; line-height: 1.5; }
+      .slide.title-slide .subtitle { font-size: 1rem; }
+      .vs-box .side { padding: 12px 14px; }
+      .vs-box .side ul { font-size: 0.88rem !important; }
+      .card .value { font-size: 1.2rem; }
+      .card .desc { font-size: 0.88rem; }
+      .card { padding: 14px 16px; }
+    }
+    @media (max-width: 380px) {
+      .slide { padding: 44px 14px 64px; }
+      .slide h2 { font-size: 1.15rem; }
+      .slide p, .slide ul, .slide ol { font-size: 0.88rem; }
+      .slide pre { font-size: 0.68rem; padding: 10px 12px; }
+      .mini-grid th { font-size: 0.58rem; padding: 3px 2px; }
+      .mini-grid td { font-size: 0.6rem; padding: 3px 2px; }
+      .nav-btn { padding: 4px 12px; font-size: 12px; }
+      .slide.title-slide h1 { font-size: 1.1rem; }
+    }
+
+    .mini-grid { width: 100%; border-collapse: collapse; font-size: 0.82rem; min-width: auto; margin: 12px 0; }
+    .mini-grid th { padding: 6px 8px; font-size: 0.78rem; background: var(--surface); border-bottom: 2px solid var(--accent); }
+    .mini-grid td { padding: 5px 8px; text-align: center; border-bottom: 1px solid var(--border); font-size: 0.8rem; }
+    .mini-grid .done { color: var(--accent3); font-weight: 700; }
+    .mini-grid .prog { color: var(--warn); font-weight: 700; }
+    .mini-grid .area-label { text-align: left; font-weight: 700; color: var(--accent2); }
+    .viewer-btn { display: inline-block; margin-top: 8px; padding: 10px 28px; background: var(--accent); color: var(--bg); font-weight: 700; font-size: 1.05rem; text-decoration: none; border-radius: 24px; transition: opacity 0.2s; }
+    .viewer-btn:hover { opacity: 0.85; }
+  </style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+<button class="fs-toggle" id="fsToggle" title="전체화면 (F)" aria-label="전체화면 토글">⛶</button>
+<button class="theme-toggle" id="themeToggle" aria-label="테마 전환">Light</button>
+
+<div class="slides" id="slides">
+
+  <!-- ===== 1. 타이틀 ===== -->
+  <div class="slide title-slide active">
+    <div class="slide-inner">
+      <h1>3차원 좌표 정보가 인코딩된<br>ID 기반 프로젝트 그리드를 활용한<br>멀티태스크 오케스트레이션</h1>
+      <div class="subtitle">특허 출원 기술 소개</div>
+      <div class="date">출원번호 10-2026-0009425</div>
+    </div>
+  </div>
+
+  <!-- ===== 2. 목차 ===== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="text">목차</span></h2>
+      <div class="toc-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:8px;">
+        <div class="toc-left" style="border-right:1px solid var(--border);padding-right:24px;">
+          <div style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);">
+            <span style="font-size:1.3rem;font-weight:800;color:var(--accent);min-width:32px;">01</span>
+            <span style="font-size:1.05rem;flex:1;">왜 필요한가 — 기존 기술의 한계</span>
+            <span style="font-size:0.82rem;color:var(--muted);">p.3</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);">
+            <span style="font-size:1.3rem;font-weight:800;color:var(--accent);min-width:32px;">02</span>
+            <span style="font-size:1.05rem;flex:1;">무엇이 다른가 — 핵심 발상</span>
+            <span style="font-size:0.82rem;color:var(--muted);">p.5</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);">
+            <span style="font-size:1.3rem;font-weight:800;color:var(--accent);min-width:32px;">03</span>
+            <span style="font-size:1.05rem;flex:1;">어떻게 작동하는가 — SAL ID 원리</span>
+            <span style="font-size:0.82rem;color:var(--muted);">p.7</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:12px;padding:12px 0;">
+            <span style="font-size:1.3rem;font-weight:800;color:var(--accent);min-width:32px;">04</span>
+            <span style="font-size:1.05rem;flex:1;">무엇이 만들어지는가 — 자동화 체계</span>
+            <span style="font-size:0.82rem;color:var(--muted);">p.12</span>
+          </div>
+        </div>
+        <div class="toc-right" style="padding-left:24px;">
+          <div style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);">
+            <span style="font-size:1.3rem;font-weight:800;color:var(--accent2);min-width:32px;">05</span>
+            <span style="font-size:1.05rem;flex:1;">어떻게 돌아가는가 — 9단계 사이클</span>
+            <span style="font-size:0.82rem;color:var(--muted);">p.17</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);">
+            <span style="font-size:1.3rem;font-weight:800;color:var(--accent2);min-width:32px;">06</span>
+            <span style="font-size:1.05rem;flex:1;">정말 다른가 — 선행기술 비교</span>
+            <span style="font-size:0.82rem;color:var(--muted);">p.21</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:12px;padding:12px 0;">
+            <span style="font-size:1.3rem;font-weight:800;color:var(--accent2);min-width:32px;">07</span>
+            <span style="font-size:1.05rem;flex:1;">적용 및 기대 효과</span>
+            <span style="font-size:0.82rem;color:var(--muted);">p.23</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- PART 1: 왜 필요한가 — 문제 제기 (2장)          -->
+  <!-- ══════════════════════════════════════════════ -->
+
+  <!-- ===== 3. 기존 기술의 3가지 한계 ===== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <div class="section-label">PART 01 — 왜 필요한가</div>
+      <h2><span class="text">기존 기술의</span> 3가지 구조적 한계</h2>
+      <div class="card-grid" style="grid-template-columns: 1fr;">
+        <div class="card">
+          <div class="value" style="font-size:1.05rem;color:var(--warn)">한계 ① 의존성을 사람이 직접 선언해야 한다</div>
+          <div class="desc">Airflow는 <code>task_a >> task_b</code>를 Python 코드로 직접 작성. Task 100개면 의존성 코드도 100줄 이상. Task 추가 시 기존 의존성도 수동 수정 필요.</div>
+        </div>
+        <div class="card">
+          <div class="value" style="font-size:1.05rem;color:var(--warn)">한계 ② 식별자에 의미가 없다</div>
+          <div class="desc">Jira의 PROJECT-1234는 순차 번호에 불과. 식별자만으로 단계, 영역, 우선순위를 알 수 없다. 별도 라벨과 메타데이터에 의존.</div>
+        </div>
+        <div class="card">
+          <div class="value" style="font-size:1.05rem;color:var(--warn)">한계 ③ 실행과 검증이 분리되어 있다</div>
+          <div class="desc">작업 완료 후 별도 QA 도구로 이동하여 검증. 결과를 다시 원래 도구에 수동 기록. "개발 완료" 후 검증 누락이 구조적으로 발생.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 4. 문제의 본질 ===== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="text">문제의 본질 —</span> 왜 해결되지 않았나</h2>
+      <p>기존 도구들은 세 가지 한계를 <strong style="color:var(--warn)">"더 편하게"</strong> 만드는 방향으로 개선해왔다.</p>
+      <ul>
+        <li>의존성 선언 → <strong style="color:var(--warn)">드래그 앤 드롭</strong>으로 더 편하게 (그래도 사람이 선언)</li>
+        <li>식별자 → <strong style="color:var(--warn)">라벨과 태그</strong>를 추가 (그래도 식별자 자체는 무의미)</li>
+        <li>검증 → <strong style="color:var(--warn)">CI/CD 연동</strong>으로 자동화 (그래도 별도 시스템)</li>
+      </ul>
+      <div class="highlight purple">
+        모든 선행 기술의 암묵적 전제: <strong>"의존성은 반드시 누군가가 선언해야 한다."</strong><br>
+        이 전제를 깨지 않는 한, 어떤 개선도 같은 프레임 안에서 맴돈다.
+      </div>
+      <p style="margin-top:8px"><strong style="color:var(--accent)">SAL Grid는 이 전제 자체를 뒤집는다.</strong></p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- PART 2: 무엇이 다른가 — 핵심 발상 (2장)        -->
+  <!-- ══════════════════════════════════════════════ -->
+
+  <!-- ===== 5. VS 비교 ===== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <div class="section-label">PART 02 — 무엇이 다른가</div>
+      <h2><span class="text">핵심 발상 —</span> 의존성을 선언하지 않는다</h2>
+      <div class="vs-box">
+        <div class="side">
+          <h3 style="color:var(--warn)">기존 방식</h3>
+          <ul style="font-size:0.95rem">
+            <li>의존성을 코드로 <strong style="color:var(--warn)">수동 선언</strong></li>
+            <li>식별자 = 순차 번호 (의미 없음)</li>
+            <li>실행 → (별도 도구) → 검증</li>
+            <li>Task 추가 시 기존 구조 수정</li>
+            <li>프로그래밍 지식 필수</li>
+          </ul>
+        </div>
+        <div class="vs">VS</div>
+        <div class="side">
+          <h3 style="color:var(--accent)">SAL Grid</h3>
+          <ul style="font-size:0.95rem">
+            <li>ID 파싱으로 의존성 <strong>자동 추론</strong></li>
+            <li>식별자 = 3차원 좌표 (자기 설명적)</li>
+            <li>실행-검증 <strong>일체화</strong></li>
+            <li>Task 추가해도 기존 구조 유지</li>
+            <li>No-Code (비개발자 즉시 활용)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="highlight">
+        <strong>의존성 선언을 자동화</strong>한 것이 아니다. <strong>의존성이라는 개념 자체를 식별자의 구조적 속성으로 치환</strong>한 것이다.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 6. ID 하나로 전체 구축 ===== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="text">ID 하나로</span> 프로젝트 관리 체계 완성</h2>
+      <p><strong>SAL ID</strong> 하나를 부여하면, 프로젝트 관리에 필요한 모든 구조가 자동으로 만들어진다.</p>
+      <pre><code>SAL ID 부여  →  파싱  →  22개 속성 그리드 자동 생성
+                       →  Task 지시서 + 검증 지시서 쌍으로 생성
+                       →  에이전트 · 도구 자동 배정
+                       →  의존성 · 병렬성 · 실행 순서 자동 결정
+                       →  9단계 오케스트레이션 사이클 자동 구동</code></pre>
+      <div class="highlight green">
+        코딩 한 줄 없이, <strong>식별자 하나로</strong> 프로젝트 관리 체계가 완성된다. 이것이 SAL Grid의 근본적 차별점이다.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- PART 3: 어떻게 작동하는가 — SAL ID 원리 (5장)  -->
+  <!-- ══════════════════════════════════════════════ -->
+
+  <!-- ===== 7. SAL ID 형식 ===== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <div class="section-label">PART 03 — 어떻게 작동하는가</div>
+      <h2><span class="text">SAL ID</span> 형식 정의</h2>
+      <pre><code>S{Stage}{Area}{Level}{Variant?}
+
+  S       — 접두사 (고정)
+  Stage   — 1~2자리 정수. 프로젝트 진행 단계
+  Area    — 2자리 영문 대문자. 기능적 영역 코드
+  Level   — 1~2자리 정수. 의존성 계층
+  Variant — 소문자 a~z (선택). 병렬 분기</code></pre>
+      <p><code>S2BA3</code> = Stage 2, Backend API, Level 3<br>
+      <code>S1FE1a</code> = Stage 1, Frontend, Level 1, 첫 번째 병렬 분기</p>
+      <div class="highlight purple">
+        Jira의 PROJECT-1234(순차 번호)와 달리, <strong>식별자를 읽는 것만으로 작업의 위치와 맥락을 즉시 파악</strong>할 수 있다.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 8. ID에 인코딩된 4가지 정보 ===== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="text">SAL ID에 인코딩된</span> 4가지 정보</h2>
+      <div class="card-grid" style="grid-template-columns: 1fr 1fr;">
+        <div class="card">
+          <div class="value" style="font-size:1.05rem;color:var(--accent)">① 절차적 순서</div>
+          <div class="desc">Stage 값 대소 비교로 순서 자동 결정<br><code>S1 → S2 → S3</code></div>
+        </div>
+        <div class="card">
+          <div class="value" style="font-size:1.05rem;color:var(--accent2)">② 실행 의존성</div>
+          <div class="desc">동일 Stage-Area 내 Level 비교로 선후 관계 추론<br><code>S2BA1 → S2BA2 → S2BA3</code></div>
+        </div>
+        <div class="card">
+          <div class="value" style="font-size:1.05rem;color:var(--accent3)">③ 병렬성</div>
+          <div class="desc">Variant(a, b, c)로 병렬 실행 판별<br><code>S2BA1a</code>와 <code>S2BA1b</code> 동시 수행</div>
+        </div>
+        <div class="card">
+          <div class="value" style="font-size:1.05rem;color:var(--warn)">④ 기능적 인접성</div>
+          <div class="desc">동일 Stage-Area 조합의 Task는 같은 맥락 공유<br><code>S2BA1, S2BA2, S2BA3</code> = 같은 기능군</div>
+        </div>
+      </div>
+      <div class="highlight">
+        건물 층수를 보면 "1층은 2층보다 먼저"라는 것을 별도 명시 없이 안다. SAL ID도 같은 원리다.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 9. SAL ID 파싱 ===== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="text">SAL ID</span> 파싱 과정</h2>
+      <pre><code>정규식:  ^S(\d{1,2})([A-Z]{2})(\d{1,2})([a-z])?$
+
+파싱 예시:  S 2 BA 3 a
+           │ │  │  │ └─ 그룹4: Variant = a (병렬 분기)
+           │ │  │  └─── 그룹3: Level   = 3 (의존성 계층)
+           │ │  └────── 그룹2: Area    = BA (Backend API)
+           │ └───────── 그룹1: Stage   = 2 (진행 단계)
+           └─────────── 접두사 S (고정)</code></pre>
+      <div class="highlight green">
+        <strong>쉽게 말하면:</strong> ID 문자열을 정해진 규칙으로 잘라서, 어느 단계(Stage)·어느 영역(Area)·어느 순서(Level)인지를 자동으로 읽어낸다. 이 결과가 22개 속성 그리드 자동 구축의 <strong>출발점</strong>이 된다.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 10. 3차원 좌표계 — Stage · Area · Level ===== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="text">3차원 좌표계</span> Stage · Area · Level</h2>
+      <div class="card-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+        <div class="card">
+          <div class="value" style="font-size:1.05rem;color:var(--accent)">Stage 축</div>
+          <div class="desc"><strong>시간적 진행 단계</strong><br>1~99 범위 정수. 낮은 값 = 초기, 높은 값 = 후기.<br>대소 비교만으로 순서 결정.<br>도메인별 자유 정의 가능</div>
+        </div>
+        <div class="card">
+          <div class="value" style="font-size:1.05rem;color:var(--accent2)">Area 축</div>
+          <div class="desc"><strong>기능적 영역</strong><br>2자리 영문 대문자. 최대 676개(26×26).<br>Area 코드 → 에이전트 자동 배정 기준.<br>다른 Area = 독립적 병렬 진행</div>
+        </div>
+        <div class="card">
+          <div class="value" style="font-size:1.05rem;color:var(--accent3)">Level 축</div>
+          <div class="desc"><strong>의존성 계층</strong><br>동일 셀(Stage×Area) 내 순서 결정.<br>같은 Area: Level 대소로 자동 추론.<br>다른 Area: 명시적 선언으로 보완</div>
+        </div>
+      </div>
+      <div class="highlight purple">
+        Stage(시간) × Area(기능) × Level(깊이) — 3개 축의 조합으로 프로젝트의 모든 작업을 <strong>입체적으로 좌표화</strong>한다. 간트 차트(2차원)로는 불가능한 표현.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 11. Stage × Area 매트릭스 ===== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="text">Stage × Area</span> 매트릭스</h2>
+      <p>모든 작업은 Stage(X축) × Area(Y축) <strong>2차원 매트릭스</strong> 위에 배치되며, 각 셀 안에서 Level이 깊이를 부여하여 3차원 구조를 형성한다.</p>
+      <ul>
+        <li>Stage 범위 + Area 범위 정의 → 매트릭스 셀(교차점)이 작업 영역. 예: 5 Stage × 11 Area = 55개 셀</li>
+        <li>각 셀 안에서 Level + Variant 부여 → SAL ID 확정. 하나의 셀에 여러 Task 배치 가능</li>
+        <li>매트릭스를 그리고 Task를 배치하면 → 의존성, 에이전트 배정, 지시서, 검증 체계가 <strong>자동 완성</strong></li>
+      </ul>
+      <div class="highlight">
+        SSAL Works 적용 사례: <strong>5 Stage × 11 Area = 55 셀</strong>에 총 74개 Task 배치. 매트릭스만 보면 진행 현황, 병목, 의존 관계를 즉시 파악.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- PART 4: 무엇이 만들어지는가 — 자동화 체계 (5장) -->
+  <!-- ══════════════════════════════════════════════ -->
+
+  <!-- ===== 12. 22개 속성 프로젝트 그리드 ===== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <div class="section-label">PART 04 — 무엇이 만들어지는가</div>
+      <h2><span class="text">22개 속성</span> 프로젝트 그리드</h2>
+      <p>SAL ID 하나를 파싱하면 <strong style="color:var(--accent2)">22개 속성</strong>의 프로젝트 관리 그리드가 자동 완성된다.</p>
+      <div class="card-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="card"><div class="value" style="font-size:1.05rem;color:var(--accent)">기본 정보 4개</div><div class="desc">Stage, Area, Task ID, Name</div></div>
+        <div class="card"><div class="value" style="font-size:1.05rem;color:var(--accent2)">작업 지시 5개</div><div class="desc">지침, 에이전트, 도구, 의존성, 타입</div></div>
+        <div class="card"><div class="value" style="font-size:1.05rem;color:var(--accent3)">작업 실행 4개</div><div class="desc">상태, 진행률, 산출물, 소요시간</div></div>
+        <div class="card"><div class="value" style="font-size:1.05rem;color:var(--warn)">검증 지시 2개</div><div class="desc">검증 기준, 검증 에이전트</div></div>
+        <div class="card"><div class="value" style="font-size:1.05rem;color:var(--accent)">검증 실행 4개</div><div class="desc">테스트, 빌드, 통합, 차단요소</div></div>
+        <div class="card"><div class="value" style="font-size:1.05rem;color:var(--accent2)">검증 완료 3개</div><div class="desc">종합, AI 의견, Stage Gate</div></div>
+      </div>
+      <div class="highlight" style="text-align:center;margin-top:12px;">
+        <strong>4 + 5 + 4 + 2 + 4 + 3 = 22개 속성</strong> — SAL ID 하나로 이 모든 항목이 자동 생성된다.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 13. 지시서 자동 생성 ===== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="text">Task 지시서 +</span> <span class="accent2">검증 지시서</span> <span class="text">동시 생성</span></h2>
+      <p>SAL ID를 기반으로 <strong style="color:var(--accent2)">Task 지시서</strong>와 <strong style="color:var(--accent3)">검증 지시서</strong>가 쌍으로 동시 생성된다.</p>
+      <div class="two-col">
+        <div>
+          <h3 style="color:var(--accent)">Task 지시서</h3>
+          <ul>
+            <li>목표, 선행 조건, 의존성 정의</li>
+            <li>수행 지침, 예상 산출물, 완료 기준</li>
+            <li>기술 스택, 에이전트, 도구 자동 배정</li>
+            <li>참조해야 할 규칙 파일 목록</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="color:var(--accent3)">검증 지시서</h3>
+          <ul>
+            <li>통과 기준 (검증 항목 정의)</li>
+            <li>실행할 테스트 명세</li>
+            <li>빌드·통합 검증 항목</li>
+            <li>검증 에이전트 지정 (작업자 ≠ 검증자)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="highlight green">
+        Task 지시서와 검증 지시서가 <strong>동시에</strong> 생성되므로, "작업은 했는데 검증 기준이 없다"는 상황이 구조적으로 불가능하다.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 14. 실행-검증 일체화 ===== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="text">실행-검증</span> 일체화</h2>
+      <p>Task 완료와 동시에 검증이 <strong>자동 트리거</strong>되며, 작성자 ≠ 검증자 <strong style="color:var(--accent2)">분리 배정</strong>이 시스템 레벨에서 강제된다.</p>
+      <ul>
+        <li><strong style="color:var(--warn)">기존</strong>: Jira에서 "완료" 클릭 → 별도 QA 도구로 이동 → 결과를 다시 Jira에 수동 기록 (검증 누락 빈번)</li>
+        <li><strong>SAL Grid</strong>: Executed 상태 전환 → 검증 에이전트 자동 투입 → 4개 검증 항목(Test, Build, Integration, Blocker) 결과 실시간 기록</li>
+        <li><strong style="color:var(--accent2)">Verified 아닌 Task는 Completed 전환 불가</strong> — DB 트리거로 강제. 검증 우회 구조적 불가</li>
+      </ul>
+      <div class="highlight">
+        상태 전이: <code>Pending → In Progress → Executed → (Verified 후) Completed</code>. 단계 건너뛰기 불가.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 15. ID 체인 + 리졸버 ===== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="text">ID 체인(Append-Only) +</span> <span class="accent3">리졸버(자가 치유)</span></h2>
+      <pre><code>최초 ID:      S4BI1
+1차 변경 후:  S4BI1_S1BI2       ← 기존 ID 뒤에 새 ID 연결
+2차 변경 후:  S4BI1_S1BI2_S1BI3 ← 체인이 계속 연장
+              ───────────  ──────
+              변경 이력      최신 ID</code></pre>
+      <ul>
+        <li><strong style="color:var(--accent2)">Append-Only</strong>: 추가만 가능, 삭제·수정 불가 — 블록체인 불변 원장과 동일 원리. 감사 추적 자동 확보</li>
+        <li><strong style="color:var(--accent3)">리졸버</strong>: 구(Old) ID로 조회해도 체인을 순회하여 최신 ID 자동 반환 — 참조 무결성 자가 치유</li>
+        <li><strong style="color:var(--warn)">Jira</strong>: Issue 이동 시 기존 참조 링크 전부 깨짐 → 수동 복구 필요</li>
+      </ul>
+      <div class="highlight green">
+        <strong>참조 무결성의 자가 치유(Self-Healing)</strong> — 프로젝트 구조가 아무리 변경되어도, 한 번 생성된 참조는 영구 유효.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 16. Stage Gate ===== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="text">Stage Gate —</span> 단계별 품질 관문</h2>
+      <p>개별 Task 검증에 더하여, <strong>Stage 단위 최종 승인 절차</strong>가 존재한다. 비유하면 "층별 준공 검사"와 같다.</p>
+      <ul>
+        <li>Stage 내 <strong>모든 Task가 Completed</strong> 상태인지 확인 — 하나라도 미완이면 통과 불가</li>
+        <li>전체 빌드·테스트 통과 + 의존성 체인 완결성 + 차단 요소(Blocker) 종합 점검</li>
+        <li>AI가 검증 리포트 자동 생성 → 관리자(PO)가 직접 테스트 후 최종 승인</li>
+        <li>승인(Approved) → 다음 Stage 진입 / 거절(Rejected) → Task 실행 단계로 자동 회귀</li>
+      </ul>
+      <div class="highlight warn">
+        <strong>Jira에는 Stage Gate 개념이 없다.</strong> "Done"으로 옮기면 끝. SAL Grid의 Stage Gate는 시스템 레벨에서 강제되는 품질 관문이다.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- PART 5: 어떻게 돌아가는가 — 9단계 사이클 (4장)  -->
+  <!-- ══════════════════════════════════════════════ -->
+
+  <!-- ===== 17. 9단계 전체 ===== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <div class="section-label">PART 05 — 어떻게 돌아가는가</div>
+      <h2><span class="text">9단계</span> 오케스트레이션 사이클</h2>
+      <p style="margin-bottom:12px"><strong>계획</strong>(①~③) → <strong style="color:var(--accent2)">실행</strong>(④~⑥) → <strong style="color:var(--accent3)">검증·승인</strong>(⑦~⑨)의 3단계 그룹으로 구성.</p>
+      <div class="card-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="card"><div class="value" style="font-size:1.05rem;color:var(--accent)">① 계획 수립</div><div class="desc">매트릭스에서 Task 선정</div></div>
+        <div class="card"><div class="value" style="font-size:1.05rem;color:var(--accent)">② SAL ID 생성</div><div class="desc">3차원 좌표 인코딩</div></div>
+        <div class="card"><div class="value" style="font-size:1.05rem;color:var(--accent)">③ 그리드 구축</div><div class="desc">22개 속성 자동 생성</div></div>
+        <div class="card"><div class="value" style="font-size:1.05rem;color:var(--accent2)">④ Task 실행</div><div class="desc">에이전트가 지시서 따라 수행</div></div>
+        <div class="card"><div class="value" style="font-size:1.05rem;color:var(--accent2)">⑤ 검증 수행</div><div class="desc">검증 에이전트 자동 투입</div></div>
+        <div class="card"><div class="value" style="font-size:1.05rem;color:var(--accent2)">⑥ 결과 기록</div><div class="desc">그리드 레코드에 실시간 기록</div></div>
+        <div class="card"><div class="value" style="font-size:1.05rem;color:var(--accent3)">⑦ Stage 검증</div><div class="desc">Stage 전체 단위 종합 확인</div></div>
+        <div class="card"><div class="value" style="font-size:1.05rem;color:var(--accent3)">⑧ 리포트 생성</div><div class="desc">검증 결과 자동 문서화</div></div>
+        <div class="card"><div class="value" style="font-size:1.05rem;color:var(--accent3)">⑨ Stage 승인</div><div class="desc">승인 → 다음 Stage / 거절 → ④회귀</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 18. ①~③ 계획 ===== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="text">사이클 ①~③</span> 계획 → ID 생성 → 그리드 구축</h2>
+      <p>프로젝트 관리 체계를 <strong>설계하는 단계</strong>. 매트릭스 위에 작업을 배치하고, ID를 부여하면 나머지는 자동 완성.</p>
+      <ul>
+        <li><strong>① 계획 수립</strong>: Stage × Area 매트릭스에서 필요한 작업을 선정하고 셀에 배치</li>
+        <li><strong style="color:var(--accent2)">② SAL ID 생성</strong>: 각 Task에 SAL ID 가확정(Provisional) → 의존성 방향 검증 → 최종 확정(Finalization)</li>
+        <li><strong style="color:var(--accent3)">③ 그리드 구축</strong>: 정규식 파싱 → 범위 검사 → 22개 속성의 프로젝트 그리드 자동 생성</li>
+      </ul>
+      <div class="highlight">
+        이 세 단계를 거치면 <strong>코딩 한 줄 없이</strong> Task 지시서, 검증 지시서, 에이전트 배정, 의존성 체계가 모두 완성된다.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 19. ④~⑥ 실행 ===== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="text">사이클 ④~⑥</span> 실행 → 검증 → 기록</h2>
+      <p>실제 작업이 수행되고 품질이 확보되는 <strong>핵심 실행 단계</strong>.</p>
+      <ul>
+        <li><strong>④ Task 실행</strong>: 지시서에 따라 에이전트가 작업 수행. 상태·진행률·산출물을 실시간 추적</li>
+        <li><strong style="color:var(--accent2)">⑤ 검증 수행</strong>: Executed 상태 전환 즉시 검증 에이전트 자동 투입. 4개 항목 자동 점검</li>
+        <li><strong style="color:var(--accent3)">⑥ 결과 기록</strong>: 실행·검증 결과를 원자적 쓰기(Atomic Write)로 그리드에 기록</li>
+      </ul>
+      <div class="highlight green">
+        실행과 검증 사이에 <strong>인간의 개입이 없다</strong>. Task 완료 → 검증 → 기록이 하나의 연속 자동 프로세스로 작동하므로 검증 누락이 구조적으로 불가능.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 20. ⑦~⑨ 검증·승인 ===== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="text">사이클 ⑦~⑨</span> Stage 검증 → 리포트 → 승인</h2>
+      <p>개별 Task 검증을 넘어 <strong>Stage 전체 단위의 종합 품질 관문</strong>.</p>
+      <ul>
+        <li><strong>⑦ Stage 검증</strong>: Stage 내 모든 Task 완료·검증 여부 + 전체 빌드·테스트 통과 + 의존성 체인 완결성 종합 점검</li>
+        <li><strong style="color:var(--accent2)">⑧ 검증 리포트</strong>: Task별 현황, 빌드/테스트 결과, AI 의견 등 구조화된 문서 자동 생성</li>
+        <li><strong style="color:var(--accent3)">⑨ Stage 승인</strong>: 승인(Approved) → 다음 Stage 사이클 시작 / 거절(Rejected) → ④단계로 자동 회귀</li>
+      </ul>
+      <div class="highlight warn">
+        피드백 루프가 시스템에 내장되어, <strong>결함이 있는 상태로 다음 Stage에 진입하는 것이 구조적으로 불가능</strong>하다.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- PART 6: 정말 다른가 — 증명 (2장)               -->
+  <!-- ══════════════════════════════════════════════ -->
+
+  <!-- ===== 21. 선행기술 종합 비교 ===== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <div class="section-label">PART 06 — 정말 다른가</div>
+      <h2><span class="text">선행기술 대비</span> 종합 비교</h2>
+      <div class="table-wrap"><table>
+        <tr><th>비교 항목</th><th>Airflow</th><th>Jira / Asana</th><th>간트 차트</th><th style="color:var(--accent2);font-weight:900">SAL Grid</th></tr>
+        <tr><td><strong>의존성 정의</strong></td><td>Python 수동</td><td>수동 링크</td><td>수동 연결</td><td style="color:var(--accent)">ID 파싱 자동</td></tr>
+        <tr><td><strong>식별자 구조</strong></td><td>단순 문자열</td><td>순차 번호</td><td>없음</td><td style="color:var(--accent)">3차원 좌표</td></tr>
+        <tr><td><strong>변경 이력</strong></td><td>Git 이력</td><td>텍스트 로그</td><td>미지원</td><td style="color:var(--accent)">Append-Only</td></tr>
+        <tr><td><strong>참조 무결성</strong></td><td>해당 없음</td><td>링크 깨짐</td><td>해당 없음</td><td style="color:var(--accent)">자가 치유</td></tr>
+        <tr><td><strong>실행-검증</strong></td><td>별도 도구</td><td>별도 도구</td><td>미지원</td><td style="color:var(--accent)">일체화</td></tr>
+        <tr><td><strong>Stage Gate</strong></td><td>없음</td><td>없음</td><td>없음</td><td style="color:var(--accent)">시스템 강제</td></tr>
+        <tr><td><strong>비개발자</strong></td><td>불가</td><td>제한적</td><td>가능</td><td style="color:var(--accent)">완전 가능</td></tr>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- ===== 22. 패러다임 전환 ===== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="text">점진적 개선이 아닌,</span> 설계 패러다임의 전환</h2>
+      <p>기존 기술의 개선 방향과 SAL Grid의 접근 방식은 <strong>근본적으로 다른 차원</strong>에 있다.</p>
+      <ul>
+        <li><strong>기존 통념</strong>: "의존성은 코드로 선언해야 한다" — 모든 선행 기술의 암묵적 전제</li>
+        <li><strong>기존 개선 방향</strong>: 선언을 "더 편하게" → <strong style="color:var(--warn)">"선언 자체를 없앤다"는 발상에는 도달 불가</strong></li>
+        <li><strong style="color:var(--accent)">SAL Grid</strong>: 식별자에 좌표를 인코딩하여, 대소 비교만으로 의존성 추론. Task를 <strong style="color:var(--accent)">자기 설명적 객체</strong>로 재정의</li>
+      </ul>
+      <div class="highlight purple">
+        이것은 기존 기술의 연장선에서는 도달할 수 없는 <strong>구조적 혁신</strong>이다.<br>
+        SAL Grid는 "더 나은 도구"가 아니라, <strong>프로젝트 관리의 새로운 좌표계</strong>를 제시한다.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- PART 7: 적용 및 기대 효과 (4장)                 -->
+  <!-- ══════════════════════════════════════════════ -->
+
+  <!-- ===== 23. 산업 적용 ===== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <div class="section-label">PART 07 — 적용 및 기대 효과</div>
+      <h2><span class="text">산업</span> 적용 분야</h2>
+      <p>SAL Grid의 3차원 좌표계는 <strong>도메인 비종속적 구조</strong>이다. Stage와 Area의 정의만 해당 산업에 맞게 바꾸면 동일한 시스템을 적용할 수 있다.</p>
+      <div class="card-grid" style="grid-template-columns: 1fr 1fr;">
+        <div class="card"><div class="value" style="font-size:1.05rem;color:var(--accent)">소프트웨어 개발</div><div class="desc">MSA 배포 단계를 그리드에 매핑, 의존성 충돌 사전 방지</div></div>
+        <div class="card"><div class="value" style="font-size:1.05rem;color:var(--accent2)">제조 / 선박 건조</div><div class="desc">블록 조립·의장 작업 좌표화, ID 체인으로 품질 이력 추적</div></div>
+        <div class="card"><div class="value" style="font-size:1.05rem;color:var(--accent3)">건설 / 인프라</div><div class="desc">시공 단계 × 공구별 작업 입체 관리, 협력사 간 간섭 방지</div></div>
+        <div class="card"><div class="value" style="font-size:1.05rem;color:var(--warn)">회계 감사 / 영상 제작</div><div class="desc">감사 증적(Audit Trail) 확보, 프리~포스트프로덕션 3차원 구조화</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 24. 기대 효과 ===== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="text">기대</span> 효과</h2>
+      <div class="card-grid" style="grid-template-columns: 1fr 1fr;">
+        <div class="card">
+          <div class="value" style="font-size:1.05rem;color:var(--accent)">No-Code 즉시 구축</div>
+          <div class="desc">SAL ID 파싱만으로 프로젝트 그리드 자동 완성. 도입 비용·시간 획기적 절감</div>
+        </div>
+        <div class="card">
+          <div class="value" style="font-size:1.05rem;color:var(--accent2)">3차원 정밀 제어</div>
+          <div class="desc">2차원(간트, 칸반)으로 불가능했던 복잡한 의존 관계를 입체적으로 관리</div>
+        </div>
+        <div class="card">
+          <div class="value" style="font-size:1.05rem;color:var(--accent3)">품질 무결성</div>
+          <div class="desc">실행-검증 일체화 + Stage Gate로 결함 전파 원천 차단</div>
+        </div>
+        <div class="card">
+          <div class="value" style="font-size:1.05rem;color:var(--warn)">영구적 참조 무결성</div>
+          <div class="desc">Append-Only ID 체인 + 리졸버 자가 치유로 참조 자동 보존</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 25. SAL Grid 실제 적용 샘플 ===== -->
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><span class="text">실제 적용 사례 —</span> SSAL Works Project SAL Grid</h2>
+      <p>아래는 SAL Grid를 실제 적용한 <strong>SSAL Works 프로젝트</strong>의 Stage × Area 매트릭스(일부 발췌)이다. 5 Stage × 11 Area에 총 74개 Task가 배치되어 있다.</p>
+      <div class="table-wrap">
+        <table class="mini-grid">
+          <tr><th style="text-align:left">Area</th><th>S1 개발준비</th><th>S2 개발1차</th><th>S3 개발2차</th><th>S4 개발3차</th><th>S5 마무리</th></tr>
+          <tr><td class="area-label">F (Frontend)</td><td class="done">2 Task</td><td class="done">3 Task</td><td class="done">2 Task</td><td class="done">8 Task</td><td class="done">3 Task</td></tr>
+          <tr><td class="area-label">BA (Backend API)</td><td>—</td><td class="done">5 Task</td><td class="done">3 Task</td><td class="done">6 Task</td><td class="done">3 Task</td></tr>
+          <tr><td class="area-label">BI (Backend Infra)</td><td class="done">2 Task</td><td class="done">3 Task</td><td class="done">2 Task</td><td class="done">1 Task</td><td>—</td></tr>
+          <tr><td class="area-label">S (Security)</td><td class="done">1 Task</td><td class="done">1 Task</td><td class="done">1 Task</td><td class="done">2 Task</td><td class="done">2 Task</td></tr>
+          <tr><td class="area-label">D (Database)</td><td class="done">1 Task</td><td class="done">1 Task</td><td class="done">1 Task</td><td class="done">2 Task</td><td class="done">1 Task</td></tr>
+          <tr><td class="area-label">T (Testing)</td><td class="done">1 Task</td><td class="done">1 Task</td><td class="done">1 Task</td><td class="done">2 Task</td><td class="done">1 Task</td></tr>
+          <tr style="font-size:0.75rem;color:var(--muted)"><td colspan="6" style="text-align:right;padding-top:4px;">+ M, U, O, E, C Area (생략) = 총 74개 Task</td></tr>
+        </table>
+      </div>
+      <div class="highlight" style="text-align:center;">
+        <strong>실제 작동하는 Project SAL Grid Viewer로 직접 확인하기</strong><br>
+        <a href="https://www.ssalworks.ai.kr/S0_Project-SAL-Grid_%EC%83%9D%EC%84%B1/viewer/viewer_database.html" target="_blank" rel="noopener" class="viewer-btn">SSAL Works Project SAL Grid Viewer 열기 →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 26. 출원번호통지서 + 감사합니다 ===== -->
+  <div class="slide end-slide">
+    <div class="slide-inner" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+      <img src="특허출원번호통지서.jpg" alt="특허출원번호통지서" style="max-width:560px;width:100%;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.15);border:1px solid var(--border);">
+      <p style="margin-top:24px;font-size:0.95rem;color:var(--accent);font-weight:700;">프로젝트 관리의 새로운 좌표계</p>
+      <p style="margin-top:8px;font-size:1.1rem;color:var(--muted);font-weight:600;">감사합니다</p>
+      <p style="margin-top:16px;font-size:0.85rem;color:var(--muted);letter-spacing:0.05em;">Blue Dragon · 청룡</p>
+    </div>
+  </div>
+
+</div>
+
+<nav class="nav-bar">
+  <button class="nav-btn" id="btn-p" onclick="prev()" aria-label="이전 슬라이드">◀ 이전</button>
+  <span class="counter" id="counter" aria-live="polite">1 / 26</span>
+  <button class="nav-btn" id="btn-n" onclick="next()" aria-label="다음 슬라이드">다음 ▶</button>
+</nav>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const btnP = document.getElementById('btn-p');
+const btnN = document.getElementById('btn-n');
+const counter = document.getElementById('counter');
+const progress = document.getElementById('progress');
+let cur = 0;
+
+function updateSlide(n) {
+  if (n < 0 || n >= slides.length) return;
+  slides.forEach(s => s.classList.remove('active', 'prev'));
+  if (n > cur) slides[cur].classList.add('prev');
+  cur = n;
+  slides[cur].classList.add('active');
+  counter.textContent = (cur + 1) + ' / ' + slides.length;
+  progress.style.width = ((cur + 1) / slides.length * 100) + '%';
+  btnP.disabled = (cur === 0);
+  btnN.disabled = (cur === slides.length - 1);
+}
+function next() { updateSlide(cur + 1); }
+function prev() { updateSlide(cur - 1); }
+function toggleFS() { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); }
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+  if (e.key === 'ArrowLeft') prev();
+  if (e.key === 'f' || e.key === 'F') toggleFS();
+  if (e.key === 'Home') updateSlide(0);
+  if (e.key === 'End') updateSlide(slides.length - 1);
+});
+let tx = 0, ty = 0;
+document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; });
+document.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - tx; const dy = e.changedTouches[0].clientY - ty; if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) { dx < 0 ? next() : prev(); } });
+document.getElementById('themeToggle').addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  document.getElementById('themeToggle').textContent = document.documentElement.classList.contains('dark') ? 'Light' : 'Dark';
+});
+document.getElementById('fsToggle').addEventListener('click', toggleFS);
+updateSlide(0);
+</script>
+</body>
+</html>

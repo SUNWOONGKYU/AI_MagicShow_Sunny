@@ -1,0 +1,97 @@
+{
+  "ranking": [
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_13\\labeled\\gemini-3_1-flash-image.png",
+      "score": 94,
+      "grade": "GOLD",
+      "intent": 25,
+      "text": 20,
+      "visual": 19,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "다수의 전문가 페르소나와 데블스 애드버킷이 참여하는 다단계 반복 토론 과정을 시각적으로 매우 명확하고 전문적으로 표현했습니다.",
+      "weakness": "명시된 '3명의 같은 도메인 전문가 + 1명의 데블스 애드버킷' (총 4명) 대신 5개의 페르소나가 화면에 표시되어 요청된 인원수와 약간의 차이가 있습니다."
+    },
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_13\\labeled\\gemini-2_5-flash-image.png",
+      "score": 85,
+      "grade": "GOLD",
+      "intent": 15,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "다수 페르소나의 단계별 토론, 반복 주기 및 점수 산정 등 프롬프트의 핵심 개념을 매우 명확하고 미니멀한 스타일로 시각화했습니다.",
+      "weakness": "화면 내 텍스트를 '추상 기호'로 표현하라는 매우 구체적인 요청을 완전히 무시하고, 가독성 있는 영어 라벨을 사용했습니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_13\\labeled\\gpt-image-1.png",
+      "score": 78,
+      "grade": "SILVER",
+      "intent": 17,
+      "text": 20,
+      "visual": 19,
+      "clarity": 7,
+      "layout": 15,
+      "strength": "모던 미니멀 일러스트 스타일과 따뜻한 조명, 화면 내 추상 기호만 사용하라는 지시를 완벽하게 구현하여 시각적 완성도가 높습니다.",
+      "weakness": "프롬프트에서 요청한 '5단계 토론 (S1~S5)' 및 '최대 5 Cycle 반복'과 같은 구체적인 토론 절차를 추상적으로도 효과적으로 표현하지 못했습니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_13\\labeled\\gemini-3-pro-image.png",
+      "score": 68,
+      "grade": "BRONZE",
+      "intent": 15,
+      "text": 5,
+      "visual": 19,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "전반적인 시각적 완성도가 높고, 모던 미니멀 스타일과 따뜻한 조명을 잘 구현하며 다중 페르소나 검토 및 피드백 개념을 명확하게 전달합니다.",
+      "weakness": "요청된 5단계 토론 중 'S4' 단계가 누락되었고, 화면 속 텍스트를 '추상 기호로만 표현'하라는 지시를 따르지 않고 영어 단어를 사용했습니다."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_13\\labeled\\dall-e-3.png",
+      "score": 54,
+      "grade": "BRONZE",
+      "intent": 15,
+      "text": 0,
+      "visual": 18,
+      "clarity": 7,
+      "layout": 14,
+      "strength": "모던 미니멀 일러스트 스타일, 따뜻한 조명, 그리고 안정적인 전체 구도와 시각적 디자인 품질이 매우 우수합니다.",
+      "weakness": "화이트보드와 화면에 표시된 텍스트가 대부분 의미 없는 글자(gibberish)이거나 오타이며, '한글 텍스트 없음'이라는 명시적인 지시를 어기고 한국어 텍스트가 포함되어 정보 전달력이 매우 떨어집니다."
+    }
+  ],
+  "top_picks": [
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_13\\labeled\\gemini-3_1-flash-image.png",
+      "score": 94,
+      "grade": "GOLD",
+      "intent": 25,
+      "text": 20,
+      "visual": 19,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "다수의 전문가 페르소나와 데블스 애드버킷이 참여하는 다단계 반복 토론 과정을 시각적으로 매우 명확하고 전문적으로 표현했습니다.",
+      "weakness": "명시된 '3명의 같은 도메인 전문가 + 1명의 데블스 애드버킷' (총 4명) 대신 5개의 페르소나가 화면에 표시되어 요청된 인원수와 약간의 차이가 있습니다."
+    },
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_13\\labeled\\gemini-2_5-flash-image.png",
+      "score": 85,
+      "grade": "GOLD",
+      "intent": 15,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "다수 페르소나의 단계별 토론, 반복 주기 및 점수 산정 등 프롬프트의 핵심 개념을 매우 명확하고 미니멀한 스타일로 시각화했습니다.",
+      "weakness": "화면 내 텍스트를 '추상 기호'로 표현하라는 매우 구체적인 요청을 완전히 무시하고, 가독성 있는 영어 라벨을 사용했습니다."
+    }
+  ]
+}

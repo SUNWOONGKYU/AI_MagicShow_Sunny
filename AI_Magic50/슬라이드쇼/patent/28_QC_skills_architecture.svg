@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 980" font-family="'Pretendard', 'Apple SD Gothic Neo', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="title" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="50%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#db2777"/>
+    </linearGradient>
+    <marker id="ar" markerWidth="14" markerHeight="14" refX="12" refY="5" orient="auto">
+      <polygon points="0 0, 12 5, 0 10" fill="#475569"/>
+    </marker>
+    <marker id="arGreen" markerWidth="14" markerHeight="14" refX="12" refY="5" orient="auto">
+      <polygon points="0 0, 12 5, 0 10" fill="#059669"/>
+    </marker>
+    <marker id="arOrange" markerWidth="14" markerHeight="14" refX="12" refY="5" orient="auto">
+      <polygon points="0 0, 12 5, 0 10" fill="#d97706"/>
+    </marker>
+    <marker id="arRed" markerWidth="14" markerHeight="14" refX="12" refY="5" orient="auto">
+      <polygon points="0 0, 12 5, 0 10" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <!-- 라이트 배경 -->
+  <rect width="1400" height="980" fill="#f8fafc"/>
+
+  <!-- 타이틀 -->
+  <text x="700" y="56" text-anchor="middle" font-size="34" font-weight="800" fill="url(#title)">품질·검증·디버깅 4종 스킬 관계도</text>
+  <text x="700" y="86" text-anchor="middle" font-size="15" font-weight="500" fill="#475569">review-evaluate / pro-persona-debate / 주작-sal-da / 5times-debug-loop</text>
+
+  <!-- ───── 가운데: 4 스킬 무게 계층 ───── -->
+  <g transform="translate(60, 130)">
+    <text x="0" y="0" font-size="18" font-weight="800" fill="#1e293b">📊 평가 3종 — 무게 계층 (가벼움 → 무거움)</text>
+
+    <!-- review-evaluate -->
+    <g transform="translate(0, 24)">
+      <rect width="370" height="170" rx="14" fill="#dbeafe" stroke="#2563eb" stroke-width="2.5"/>
+      <text x="185" y="36" text-anchor="middle" font-size="18" font-weight="800" fill="#1e3a8a">review-evaluate-코어1</text>
+      <text x="185" y="58" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">루브릭 평가 + 자가수정</text>
+      <line x1="20" y1="70" x2="350" y2="70" stroke="#93c5fd" stroke-width="1.5"/>
+      <g font-size="12" fill="#1e3a8a">
+        <text x="20" y="90"><tspan font-weight="700">무게:</tspan> 가벼움</text>
+        <text x="20" y="110"><tspan font-weight="700">검증자:</tspan> 1 리뷰어 + 1 Cross Validator</text>
+        <text x="20" y="130"><tspan font-weight="700">종료:</tspan> 100점 / 10 Round</text>
+        <text x="20" y="150"><tspan font-weight="700">언제:</tspan> 문서 광택, 단일 파일 점진 개선</text>
+      </g>
+    </g>
+
+    <!-- pro-debate -->
+    <g transform="translate(390, 24)">
+      <rect width="370" height="170" rx="14" fill="#fce7f3" stroke="#db2777" stroke-width="2.5"/>
+      <text x="185" y="36" text-anchor="middle" font-size="18" font-weight="800" fill="#831843">pro-persona-debate-코어6</text>
+      <text x="185" y="58" text-anchor="middle" font-size="12" font-weight="700" fill="#9d174d">다관점 토론 + 자가수정</text>
+      <line x1="20" y1="70" x2="350" y2="70" stroke="#f9a8d4" stroke-width="1.5"/>
+      <g font-size="12" fill="#831843">
+        <text x="20" y="90"><tspan font-weight="700">무게:</tspan> 중간</text>
+        <text x="20" y="110"><tspan font-weight="700">검증자:</tspan> 3 전문가 + DA Subagent</text>
+        <text x="20" y="130"><tspan font-weight="700">종료:</tspan> rubric_score 100 / Cycle 5</text>
+        <text x="20" y="150"><tspan font-weight="700">언제:</tspan> 사업계획·전략·기획 검증</text>
+      </g>
+    </g>
+
+    <!-- 주작 -->
+    <g transform="translate(780, 24)">
+      <rect width="370" height="170" rx="14" fill="#fed7aa" stroke="#ea580c" stroke-width="2.5"/>
+      <text x="185" y="36" text-anchor="middle" font-size="18" font-weight="800" fill="#7c2d12">주작-sal-da</text>
+      <text x="185" y="58" text-anchor="middle" font-size="12" font-weight="700" fill="#9a3412">다차원 진단·감사 (실측 우선)</text>
+      <line x1="20" y1="70" x2="350" y2="70" stroke="#fdba74" stroke-width="1.5"/>
+      <g font-size="12" fill="#7c2d12">
+        <text x="20" y="90"><tspan font-weight="700">무게:</tspan> 무거움</text>
+        <text x="20" y="110"><tspan font-weight="700">검증자:</tspan> 파서 + 런타임 + review-eval 자동</text>
+        <text x="20" y="130"><tspan font-weight="700">종료:</tspan> Runtime OK + Fail 0 + 리포트 97</text>
+        <text x="20" y="150"><tspan font-weight="700">언제:</tspan> 배포 검수, 법률·절차 문서</text>
+      </g>
+    </g>
+
+    <!-- 우측: 5times-debug (외부 단발성) -->
+    <g transform="translate(1170, 24)">
+      <rect width="170" height="170" rx="14" fill="#dcfce7" stroke="#059669" stroke-width="2.5" stroke-dasharray="6 4"/>
+      <text x="85" y="36" text-anchor="middle" font-size="14" font-weight="800" fill="#064e3b">5times-debug-loop</text>
+      <text x="85" y="56" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">단발성 버그 박살</text>
+      <line x1="15" y1="68" x2="155" y2="68" stroke="#86efac" stroke-width="1.5"/>
+      <g font-size="11" fill="#064e3b">
+        <text x="15" y="86"><tspan font-weight="700">무게:</tspan> 가장 가벼움</text>
+        <text x="15" y="104"><tspan font-weight="700">검증:</tspan> 빌드/스크린샷</text>
+        <text x="15" y="122"><tspan font-weight="700">종료:</tspan> 증상 사라짐</text>
+        <text x="15" y="140"><tspan font-weight="700">언제:</tspan> 명확한 버그</text>
+        <text x="15" y="160" font-style="italic" fill="#15803d">(외부 단발성 도구)</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ───── 본질 차이 ───── -->
+  <g transform="translate(60, 350)">
+    <rect width="1280" height="80" rx="12" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="20" y="30" font-size="15" font-weight="800" fill="#1e293b">⚖️ 본질 구분</text>
+    <text x="160" y="30" font-size="13" font-weight="700" fill="#1e3a8a">평가 3종 (review-eval / pro-debate / 주작)</text>
+    <text x="160" y="52" font-size="12" fill="#475569">→ "얼마나 잘 됐나?" 점수·등급·합의에 도달</text>
+    <text x="160" y="68" font-size="12" fill="#475569">→ 무겁다 · PO 명시 승인 필수</text>
+    <line x1="700" y1="15" x2="700" y2="65" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="720" y="30" font-size="13" font-weight="700" fill="#064e3b">5times-debug-loop</text>
+    <text x="720" y="52" font-size="12" fill="#475569">→ "왜 안 돼?" 증상이 사라질 때까지 박살</text>
+    <text x="720" y="68" font-size="12" fill="#475569">→ 가볍다 · SA 자동 호출 가능 (단발성)</text>
+  </g>
+
+  <!-- ───── 워크플로우 흐름 ───── -->
+  <g transform="translate(60, 460)">
+    <text x="0" y="0" font-size="18" font-weight="800" fill="#1e293b">🔄 워크플로우 위치 (자동 통합 금지 · 단계별 명시 호출)</text>
+
+    <!-- 4단계 -->
+    <!-- 기획 → pro-debate -->
+    <g transform="translate(0, 24)">
+      <rect width="180" height="60" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+      <text x="90" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#92400e">[기획·집필]</text>
+      <text x="90" y="48" text-anchor="middle" font-size="11" fill="#b45309">방향성 검증 단계</text>
+    </g>
+    <line x1="180" y1="54" x2="220" y2="54" stroke="#475569" stroke-width="2.5" marker-end="url(#ar)"/>
+    <g transform="translate(220, 24)">
+      <rect width="200" height="60" rx="10" fill="#fce7f3" stroke="#db2777" stroke-width="2"/>
+      <text x="100" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#831843">/pro-debate</text>
+      <text x="100" y="48" text-anchor="middle" font-size="11" fill="#9d174d">3 전문가 + DA 토론</text>
+    </g>
+    <line x1="320" y1="84" x2="320" y2="124" stroke="#475569" stroke-width="2.5" marker-end="url(#ar)"/>
+
+    <!-- 구현 → 5times-debug -->
+    <g transform="translate(220, 134)">
+      <rect width="200" height="60" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+      <text x="100" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#92400e">[구현]</text>
+      <text x="100" y="48" text-anchor="middle" font-size="11" fill="#b45309">버그 발생 시 즉시 호출</text>
+    </g>
+    <line x1="420" y1="164" x2="500" y2="164" stroke="#059669" stroke-width="2.5" stroke-dasharray="5 4" marker-end="url(#arGreen)"/>
+    <text x="460" y="156" text-anchor="middle" font-size="11" font-weight="700" fill="#059669">버그 시</text>
+    <g transform="translate(500, 134)">
+      <rect width="200" height="60" rx="10" fill="#dcfce7" stroke="#059669" stroke-width="2"/>
+      <text x="100" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#064e3b">/5times-debug</text>
+      <text x="100" y="48" text-anchor="middle" font-size="11" fill="#065f46">단발성 박살 (자동 가능)</text>
+    </g>
+    <line x1="320" y1="194" x2="320" y2="234" stroke="#475569" stroke-width="2.5" marker-end="url(#ar)"/>
+
+    <!-- 배포 전 → 주작 -->
+    <g transform="translate(0, 244)">
+      <rect width="180" height="60" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+      <text x="90" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#92400e">[배포 전 점검]</text>
+      <text x="90" y="48" text-anchor="middle" font-size="11" fill="#b45309">실측·표준 검증</text>
+    </g>
+    <line x1="180" y1="274" x2="220" y2="274" stroke="#475569" stroke-width="2.5" marker-end="url(#ar)"/>
+    <g transform="translate(220, 244)">
+      <rect width="200" height="60" rx="10" fill="#fed7aa" stroke="#ea580c" stroke-width="2"/>
+      <text x="100" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7c2d12">/주작-sal-da</text>
+      <text x="100" y="48" text-anchor="middle" font-size="11" fill="#9a3412">P0 런타임 + S0~SN</text>
+    </g>
+    <line x1="420" y1="274" x2="500" y2="274" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="5 4" marker-end="url(#arRed)"/>
+    <text x="460" y="266" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">PART 3 자동</text>
+    <g transform="translate(500, 244)">
+      <rect width="200" height="60" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+      <text x="100" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#1e3a8a">/review-evaluate</text>
+      <text x="100" y="48" text-anchor="middle" font-size="11" fill="#1e40af">리포트 품질 검증</text>
+    </g>
+    <line x1="700" y1="274" x2="780" y2="274" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="5 4" marker-end="url(#arRed)"/>
+    <text x="740" y="266" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">권장 위임</text>
+    <g transform="translate(780, 244)">
+      <rect width="200" height="60" rx="10" fill="#dcfce7" stroke="#059669" stroke-width="2"/>
+      <text x="100" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#064e3b">/5times-debug</text>
+      <text x="100" y="48" text-anchor="middle" font-size="11" fill="#065f46">P0 Fail 카드 박살</text>
+    </g>
+    <line x1="320" y1="304" x2="320" y2="344" stroke="#475569" stroke-width="2.5" marker-end="url(#ar)"/>
+
+    <!-- 배포 후 → 5times-debug -->
+    <g transform="translate(0, 354)">
+      <rect width="180" height="60" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+      <text x="90" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#92400e">[배포 후 이슈]</text>
+      <text x="90" y="48" text-anchor="middle" font-size="11" fill="#b45309">증상 발견 시 즉시</text>
+    </g>
+    <line x1="180" y1="384" x2="220" y2="384" stroke="#059669" stroke-width="2.5" stroke-dasharray="5 4" marker-end="url(#arGreen)"/>
+    <g transform="translate(220, 354)">
+      <rect width="200" height="60" rx="10" fill="#dcfce7" stroke="#059669" stroke-width="2"/>
+      <text x="100" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#064e3b">/5times-debug</text>
+      <text x="100" y="48" text-anchor="middle" font-size="11" fill="#065f46">또 호출 (단발성)</text>
+    </g>
+
+    <!-- 우측: 위임 관계 ↘ -->
+    <g transform="translate(950, 24)">
+      <rect width="330" height="220" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+      <text x="165" y="28" text-anchor="middle" font-size="14" font-weight="800" fill="#9a3412">📌 위임 관계 (스킬 본문 박힘)</text>
+      <line x1="20" y1="40" x2="310" y2="40" stroke="#fdba74" stroke-width="1.5"/>
+      <g font-size="11" fill="#7c2d12">
+        <text x="20" y="60" font-weight="700">주작 PART 3 →</text>
+        <text x="35" y="76">/review-evaluate (자동)</text>
+
+        <text x="20" y="100" font-weight="700">주작 P0 Fail 카드 →</text>
+        <text x="35" y="116">/5times-debug (권장)</text>
+
+        <text x="20" y="140" font-weight="700">review-eval Step 2 (Fix) →</text>
+        <text x="35" y="156">/5times-debug (권장)</text>
+
+        <text x="20" y="180" font-weight="700">pro-debate Phase 6 →</text>
+        <text x="35" y="196">[1]종료 / [2]주작 / [3]review</text>
+        <text x="35" y="210" font-style="italic" fill="#92400e">(PO 명시 승인 시만)</text>
+      </g>
+    </g>
+
+    <!-- 우측 하단: 비대칭 권한 -->
+    <g transform="translate(950, 264)">
+      <rect width="330" height="150" rx="12" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+      <text x="165" y="28" text-anchor="middle" font-size="14" font-weight="800" fill="#991b1b">⛔ 비대칭 권한 규칙</text>
+      <line x1="20" y1="40" x2="310" y2="40" stroke="#fca5a5" stroke-width="1.5"/>
+      <g font-size="11" fill="#991b1b">
+        <text x="20" y="62" font-weight="700">PO 명시 승인 필수:</text>
+        <text x="35" y="78">review-evaluate / pro-debate / 주작</text>
+        <text x="35" y="92" font-style="italic" fill="#b91c1c">(모두 무겁다)</text>
+
+        <text x="20" y="118" font-weight="700">SA 자동 호출 OK:</text>
+        <text x="35" y="134">5times-debug (단발성·가벼움)</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- 푸터 -->
+  <text x="700" y="960" text-anchor="middle" font-size="11" fill="#64748b">~/.claude/skills/{review-evaluate-코어1, pro-persona-debate-코어6, 주작-sal-da, 5times-debug-loop-코어3}/   ·   2026-04-29</text>
+</svg>

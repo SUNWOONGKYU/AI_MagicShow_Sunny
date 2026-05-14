@@ -1,0 +1,102 @@
+{
+  "gemini-2.5-flash-image": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_36\\_variants\\gemini-2_5-flash-image_v2.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 요구사항(구도, 스타일, 16:9, 화면 추상 기호, 한국인 작업자, C/G 드라이브 설명, 속도/안전성/모바일 접근성, 한글 텍스트 없음)을 완벽하게 구현했습니다. 텍스트 가독성 및 정보 명확성도 뛰어납니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_36\\_variants\\gemini-2_5-flash-image_v1.png",
+      "ok": true,
+      "score": 98,
+      "reason": "프롬프트의 핵심 의도(C/G 드라이브 동기화, 속도/안전성/모바일 접근성)와 스타일(모던 미니멀, 따뜻한 조명, 16:9, 화면 속 추상 기호)을 완벽하게 구현했으며, 정보 전달력이 매우 우수함. '한글 텍스트 없음' 조건은 '화면 속 텍스트'에 한정되게 해석할 때 외부 영어 텍스트는 오히려 의도 전달에 큰 도움을 줌."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_36\\_variants\\gemini-2_5-flash-image_v3.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 요구사항(구도, 스타일, 내용, 화면 텍스트, 한국어 텍스트 배제, 비율)을 완벽하게 구현하였으며, 정보 전달력이 매우 뛰어납니다."
+    }
+  ],
+  "dall-e-3": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_36\\_variants\\dall-e-3_v2.png",
+      "ok": true,
+      "score": 68,
+      "reason": "이미지는 모던 미니멀 스타일, 따뜻한 조명, 16:9 비율 및 C드라이브/G드라이브 이중화 개념을 시각적으로 훌륭하게 표현하여 의도와 시각적 완성도가 높습니다. 그러나 '화면 속 텍스트는 추상 기호로만 표현, 한글 텍스트 없음'이라는 핵심적인 부정 프롬프트 지시를 따르지 않고 한글 텍스트와 의미 없는 언어 형태의 텍스트가 포함되어 있어 텍스트 관련 점수가 "
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_36\\_variants\\dall-e-3_v1.png",
+      "ok": true,
+      "score": 53,
+      "reason": "요청한 장면과 스타일은 잘 구현되었으나, 화면 속 텍스트가 한글이 없고 추상 기호여야 한다는 핵심 지시를 명확히 위반했습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_36\\_variants\\dall-e-3_v3.png",
+      "ok": true,
+      "score": 62,
+      "reason": "이미지는 요청된 스타일, 구도, 따뜻한 조명 등 시각적 완성도는 높으나, '한글 텍스트 없음' 및 '추상 기호로만 표현'이라는 텍스트 지시를 지키지 못하고 부정확하거나 읽기 어려운 영어와 한글과 유사한 기호가 포함되어 의도 전달에 실패했습니다."
+    }
+  ],
+  "gpt-image-1": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_36\\_variants\\gpt-image-1_v3.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 요구사항(C/G 드라이브 동기화, 클라우드 백업, 한국인 개발자, 모던 미니멀 스타일, 따뜻한 조명, 16:9, 추상 기호 텍스트, 한글 텍스트 없음)이 완벽하게 구현되었습니다. 시각적 완성도와 정보 전달력도 매우 뛰어납니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_36\\_variants\\gpt-image-1_v1.png",
+      "ok": true,
+      "score": 99,
+      "reason": "프롬프트의 모든 요구사항(개발/백업 이중화 개념, 모던 미니멀 스타일, 따뜻한 조명, 16:9, 추상 기호 텍스트)을 완벽에 가깝게 구현했습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_36\\_variants\\gpt-image-1_v2.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 요구사항(C/G 드라이브 동기화 개념, 한국인, 모던 미니멀 스타일, 따뜻한 조명, 16:9 비율, 추상 기호 텍스트)이 완벽하게 구현된 훌륭한 이미지입니다."
+    }
+  ],
+  "gemini-3.1-flash-image-preview": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_36\\_variants\\gemini-3_1-flash-image_v1.png",
+      "ok": true,
+      "score": 52,
+      "reason": "전반적인 스타일과 핵심 컨셉은 잘 구현되었고 시각적 완성도도 높으나, 화면 속 텍스트를 추상 기호로만 표현하라는 명시적인 지시를 따르지 않고 가독성 있는 영문 텍스트가 삽입된 점이 프롬프트 의도 및 텍스트 관련 요구사항에서 큰 감점 요인입니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_36\\_variants\\gemini-3_1-flash-image_v3.png",
+      "ok": true,
+      "score": 90,
+      "reason": "프롬프트의 핵심 의도(C/G 드라이브 동기화, 모바일 접근성, 모던 미니멀 스타일, 따뜻한 조명)를 완벽하게 구현했으며, 시각적 완성도와 정보 전달력이 매우 높습니다. 다만, '화면 속 텍스트는 추상 기호로만 표현'이라는 지시와 다르게 영문 텍스트 라벨이 사용된 점이 유일한 아쉬운 부분입니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_36\\_variants\\gemini-3_1-flash-image_v2.png",
+      "ok": true,
+      "score": 98,
+      "reason": "프롬프트의 복잡한 기술적 개념(C드라이브 개발, G드라이브 백업, SSD, 클라우드 동기화)을 아이콘과 흐름도를 통해 매우 명확하고 직관적으로 시각화했으며, 요구한 스타일과 텍스트 제약까지 완벽하게 따랐습니다."
+    }
+  ],
+  "gemini-3-pro-image-preview": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_36\\_variants\\gemini-3-pro-image_v1.png",
+      "ok": true,
+      "score": 95,
+      "reason": "프롬프트의 핵심 의도를 훌륭하게 반영하였고, 스타일, 구도, 조명 등 대부분의 요구사항이 완벽하게 구현되었습니다. 다만 화면 속 텍스트가 추상 기호가 아닌 영어로 표현된 점이 유일한 작은 불일치입니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_36\\_variants\\gemini-3-pro-image_v3.png",
+      "ok": true,
+      "score": 95,
+      "reason": "대부분의 프롬프트 지시사항(구도, 스타일, 따뜻한 조명, 16:9 비율, 한국인, SSD/Google Drive 동기화 백업 구성, 모바일 접근성)을 훌륭하게 반영했으나, 화면 속 텍스트가 '추상 기호' 대신 명확한 영어 라벨로 표현된 점에서 감점되었습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_36\\_variants\\gemini-3-pro-image_v2.png",
+      "ok": true,
+      "score": 98,
+      "reason": "프롬프트의 모든 세부 요청사항(C드라이브 개발, G드라이브 백업/동기화, 클라우드 및 모바일 접근성, 한국인, 모던 미니멀 일러스트, 따뜻한 조명, 추상 기호 텍스트)이 완벽하게 시각적으로 구현되었습니다. 정보 명확성과 시각적 완성도 또한 뛰어납니다."
+    }
+  ]
+}

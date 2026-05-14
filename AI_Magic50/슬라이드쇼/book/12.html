@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>SUNNY AI MAGIC 50 · #12 MBO 방식으로 작업시키기</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#000814;color:#fff;line-height:1.7}
+.hero{background:radial-gradient(circle at 30% 30%,#002d5c 0%,#000814 70%);padding:50px 24px 40px;text-align:center;border-bottom:3px solid #FF8C00}
+.hero .tag{color:#FF8C00;font-size:13px;font-weight:900;letter-spacing:5px;margin-bottom:12px}
+.hero h1{font-size:clamp(22px,4vw,40px);font-weight:900;line-height:1.25;margin-bottom:8px;color:#fff;text-shadow:0 4px 24px rgba(255,140,0,0.35)}
+.hero .subtitle{font-size:clamp(13px,1.6vw,17px);color:#FF8C00;font-weight:600;letter-spacing:0.3px;margin-bottom:14px;opacity:0.92}
+.hero .meta{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.hero .badge{background:rgba(255,140,0,0.15);color:#FF8C00;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:900;letter-spacing:1px;border:1px solid rgba(255,140,0,0.4)}
+.hero .badge.type-a{background:rgba(231,76,60,0.15);color:#e74c3c;border-color:rgba(231,76,60,0.4)}
+.hero .badge.type-b{background:rgba(52,152,219,0.15);color:#3498DB;border-color:rgba(52,152,219,0.4)}
+.hero .badge.type-c{background:rgba(63,185,80,0.15);color:#3fb950;border-color:rgba(63,185,80,0.4)}
+.back{position:absolute;top:20px;left:20px;color:#FF8C00;text-decoration:none;font-size:13px;font-weight:700;padding:7px 14px;border:2px solid #FF8C00;border-radius:18px}
+.back:hover{background:#FF8C00;color:#001020}
+.content{max-width:900px;margin:0 auto;padding:40px 24px 60px}
+.content h1{display:none}
+.content h2{font-size:clamp(20px,2.8vw,28px);font-weight:900;color:#FF8C00;margin:32px 0 16px;letter-spacing:0.5px;border-left:5px solid #FF8C00;padding-left:14px}
+.content h2:first-child{margin-top:0}
+.content h3{font-size:18px;font-weight:900;color:#fff;margin:24px 0 12px}
+.content h4{font-size:16px;font-weight:700;color:#FF8C00;margin:18px 0 10px}
+.content p{font-size:15px;color:#dde;margin-bottom:14px}
+.content ul,.content ol{margin:0 0 16px 24px;color:#dde}
+.content li{font-size:15px;margin-bottom:6px;line-height:1.7}
+.content strong{color:#fff;font-weight:900}
+.content em{color:#FF8C00;font-style:normal;font-weight:600}
+.content code{background:rgba(255,140,0,0.12);color:#FF8C00;padding:2px 6px;border-radius:4px;font-size:13px;font-family:'D2Coding','Consolas',monospace}
+.content pre{background:rgba(0,0,0,0.4);border:1px solid rgba(255,140,0,0.25);border-radius:8px;padding:16px;overflow-x:auto;margin:16px 0}
+.content pre code{background:none;color:#bcd;padding:0;font-size:13px}
+.content blockquote{border-left:4px solid #FF8C00;background:rgba(255,140,0,0.05);padding:14px 20px;margin:16px 0;border-radius:0 8px 8px 0;color:#bcd}
+.content table{width:100%;border-collapse:collapse;margin:18px 0;background:rgba(255,255,255,0.03);border-radius:8px;overflow:hidden;font-size:14px}
+.content th,.content td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08)}
+.content th{background:rgba(255,140,0,0.15);color:#FF8C00;font-weight:900}
+.content td{color:#dde}
+.content tr:last-child td{border-bottom:none}
+.content hr{border:none;border-top:1px solid rgba(255,140,0,0.2);margin:30px 0}
+.content a{color:#FF8C00;text-decoration:none;border-bottom:1px dashed rgba(255,140,0,0.4)}
+.content a:hover{border-bottom-style:solid}
+.footer{background:#001020;border-top:1px solid #1a2a3a;padding:24px;text-align:center;color:#7a8c9c;font-size:13px}
+.footer a{color:#FF8C00;text-decoration:none;margin:0 10px}
+</style>
+</head>
+<body>
+<a href="../index.html" class="back">← 슬라이드쇼로</a>
+<section class="hero">
+  <div class="tag">SUNNY AI MAGIC 50 · #12</div>
+  <h1>MBO 방식으로 작업시키기</h1>
+  <div class="subtitle">작업 전 목표·KPI를 사용자 승인받고 결과로 책임지기</div>
+  <div class="meta">
+    <span class="badge">G2 · 실행 프로세스</span>
+    <span class="badge type-b">B타입</span>
+    
+  </div>
+</section>
+
+<section class="content">
+<h2>한 줄 정의</h2>
+<p>작업 시작 전에 <strong>목표·KPI·실행계획·리스크를 4표 양식으로 구조화한 MBO 목표서를 PO에게 제시·승인받아야</strong> 실행이 시작되며, 완료 시 목표 달성 여부를 KPI 실측으로 보고하게 만드는 — Claude Code 작업 합의 골격. 경영학의 Management by Objectives를 1인-AI 협업 구조에 이식한 것.</p>
+<h2>왜 이 노하우가 중요한가</h2>
+<p>MBO는 <strong>1954년 피터 드러커가 <em>The Practice of Management</em></strong> 에서 제시한 경영 철학이다. "조직 구성원 각자가 상위 조직의 목표와 자신의 목표를 정렬하고, 정해진 목표 대비 결과로 평가받는다"는 원리에 기반한다. 70년이 지난 지금도 OKR(Objectives and Key Results)·SMART(Specific Measurable Achievable Relevant Time-bound)·KPI 체계의 뿌리이며, 본질은 <strong>합의된 목표·자율 실행·결과 책임</strong> 세 단어로 압축된다.</p>
+<p>OKR과의 차이는 분명하다 — OKR은 <em>Aspirational</em>(도전 목표·달성률 70%면 성공)이고, MBO는 <em>Committed</em>(합의 목표·100% 달성 의무). 1인-AI 협업 구조에 더 적합한 쪽은 MBO다. 이유는 단순하다 — AI에게는 "도전"이 의미가 없다. AI는 합의된 목표를 100% 달성하든가, 못하든가 둘 중 하나다. 절반 달성은 사실상 미달성이며, 그 사실을 솔직히 보고하게 만드는 구조가 필요하다.</p>
+<p>이 원리를 Claude Code에 적용해야 하는 이유는 명확하다. AI에 일을 시키면 빠르게 뭔가가 만들어지지만 <strong>"내가 시킨 게 정말 그거였나"</strong> 가 절반쯤 어긋난다. AI는 모호한 지시를 자기 식으로 해석하고, 결과물을 내놓고, 사용자는 그제야 깨닫는다. 30개 동시 운용에서는 이 어긋남이 30배로 곱해진다. 본인이 SKILL_ATLAS S5에서 겪은 사고("curl 200 OK"로 Verified 처리했지만 사용자가 브라우저로 보니 버튼 4개 모두 무반응) 가 정확히 이 어긋남이다 — <em>데이터 레이어 KPI는 달성했지만 사용자 여정 KPI를 합의하지 않았기 때문</em>.</p>
+<p>원인은 합의 부재다. 기존 흐름 "지시 → 실행 → 결과"에는 <em>지시 내용을 PO·AI 양쪽이 동일하게 이해했는지 검증하는 단계</em>가 빠져 있다. MBO는 이 사이에 <strong>"목표서 제시 → PO 승인"</strong> 한 단계를 끼워 넣는다. 4표(현재vs목표·KPI·실행계획·리스크)를 PO가 보고 승인하면 합의된 계약이 되고, 완료 시 <strong>목표서를 그대로 가져다가 O/X로 표기한 결과보고서</strong>가 나온다 — 변명이 아닌 결과로 책임이 정리되는 구조다.</p>
+<h2>핵심 개념</h2>
+<h3>PO 철학 (스킬 헤더 인용)</h3>
+<blockquote>
+<p><em>"과정은 너의 마음대로 진행해도 좋다. 그러나, 나랑 합의를 해서 사전에 설정한 목표는 무조건 달성해야 한다. 단, 품질은 최고로, 비용은 합리적 수준으로, 투입시간은 적절하게."</em></p>
+</blockquote>
+<p>한 문장에 <strong>자율과 책임</strong>이 짝으로 묶여 있다. 자율 = "방법은 마음대로", 책임 = "목표는 무조건". 이것이 1인-AI 협업의 가장 효율적인 계약 형태다.</p>
+<h3>3 PHASE 구조</h3>
+<table>
+<thead>
+<tr>
+<th>PHASE</th>
+<th>단계</th>
+<th>핵심</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. 목표 정의</strong></td>
+<td>맥락 분석 → AS-IS 조사(코드 Read·배포 확인) → TO-BE 정의 → KPI 설정 → Task 도출 → <strong>PO 승인 대기</strong></td>
+<td>승인 없이 PHASE 2 진입 절대 금지</td>
+</tr>
+<tr>
+<td><strong>2. 실행</strong></td>
+<td>목표서 파일 저장(<code>_TalkTodoPlan/YYYY_MM_DD__HH.MM_MBO_{작업명}.md</code>) → Task 순서대로 실행 → 필요 시 중간 점검(KPI 현황표)</td>
+<td>PO 간섭 없음, 합의 범위 이탈 시 즉시 보고</td>
+</tr>
+<tr>
+<td><strong>3. 결과 보고</strong> (<code>/mbo report</code>)</td>
+<td>AS-IS/TO-BE/실제 결과 O·X 표 + KPI 실측 + 미달성 사유·후속조치 + 총평</td>
+<td>같은 MBO 파일 하단에 추가 기록</td>
+</tr>
+</tbody>
+</table>
+<p>3 PHASE는 분리되지 않는다. PHASE 1만 하고 끝내면 합의는 됐지만 결과가 없고, PHASE 2부터 시작하면 합의가 없으니 결과가 어긋난다. 셋이 한 묶음이어야 의미가 있다.</p>
+<h3>MBO 목표서 4표 양식</h3>
+<ol>
+<li><strong>현재 vs 목표</strong> (AS-IS / TO-BE 항목별 대비)</li>
+<li><strong>측정 지표 KPI</strong> (지표·현재값·목표값·측정 방법) — <em>"좋게 만든다"가 아니라 "Lighthouse Performance 80→95"</em></li>
+<li><strong>실행 계획</strong> (Task·설명·예상 결과)</li>
+<li><strong>리스크 및 대응 방안</strong></li>
+</ol>
+<p>목표서 마지막은 항상 <em>"이 목표를 승인하시겠습니까?"</em> 로 끝맺는다. 승인 = 계약 체결.</p>
+<p>KPI는 반드시 <strong>데이터 레이어 + 사용자 여정</strong> 양쪽을 포함해야 한다. SKILL_ATLAS 사고 이후 추가된 규칙. 예 — "테이블에 데이터가 있다(데이터 레이어)" + "랜딩 페이지 주요 버튼 4개를 클릭 시 각각 올바른 라우트로 네비게이트(사용자 여정)" 가 둘 다 있어야 합격.</p>
+<h3>9원칙 요지</h3>
+<p>합의 목표 무조건 달성 / 품질 최고 / 비용 합리적 / 시간 적절 / KPI 측정 가능 수치 / 승인=합의 / 과정 자율 / 결과는 목표 대비 / 미달성도 사유·후속조치 기록.</p>
+<p>이 9원칙은 단순한 슬로건이 아니라 <strong><code>/mbo report</code> 양식의 강제 항목</strong>이다. 미달성 항목에 사유와 후속조치를 안 적으면 결과보고서가 거부된다.</p>
+<h3>SAL Grid와의 짝</h3>
+<p>청룡 스킬 §6.0이 <em>"각 Stage 진입 전 MBO 목표 제시 + PO 승인 필수"</em> 를 강제한다. SAL Grid가 실행 골격이라면 <strong>MBO는 그 위의 합의 골격</strong>. 두 스킬을 분리해 쓰지 않는다. SAL Grid 프로젝트가 자동 감지되면 Stage 진입 키워드("S2 실행", "다음 Stage", "Stage Gate 통과", "S{N} 진입")에서 자동으로 MBO가 발동한다 — 사용자가 "MBO 해" 라고 말하지 않아도.</p>
+<h2>실전 사용법</h2>
+<h3>기본 호출</h3>
+<table>
+<thead>
+<tr>
+<th>명령</th>
+<th>동작</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/mbo</code></td>
+<td>대화 맥락에서 자동 도출</td>
+</tr>
+<tr>
+<td><code>/mbo {주제}</code></td>
+<td>명시적 주제 지정 (예: <code>/mbo 디자인 혁신</code>)</td>
+</tr>
+<tr>
+<td><code>/mbo report</code></td>
+<td>진행 중 MBO 달성 여부 보고</td>
+</tr>
+</tbody>
+</table>
+<h3>6단계 운용</h3>
+<p><strong>1단계 — <code>/mbo</code> 발동</strong>. 단순 호출 한 번에 AI가 맥락 분석·파일 Read·배포 확인까지 자동 수행하고 4표 양식의 목표서를 생성한다. 이 한 번의 발동이 수백 줄짜리 합의 명세로 변환된다.</p>
+<p><strong>2단계 — 4표 양식 PO 제시</strong>. <em>"이 목표를 승인하시겠습니까?"</em> 로 끝맺고, 수정 요청 시 재제시. 승인 전 코드 한 줄도 건드리지 않는다.</p>
+<p><strong>3단계 — KPI 수치화 강제</strong>. "성능 개선" → <strong>"Lighthouse 80→95"</strong>, "버그 수정" → <strong>"E2E 12개 중 12개 통과"</strong>, "UI 정리" → <strong>"주요 버튼 4개 클릭 시 100% 정상 라우팅"</strong>. 측정 불가능한 KPI는 자동 거부.</p>
+<p><strong>4단계 — 승인 즉시 MBO 파일 저장</strong>. <code>zz_KingFolder/_TalkTodoPlan/YYYY_MM_DD__HH.MM_MBO_{작업명}.md</code> 양식으로 자동 저장. 컨텍스트 압축·세션 전환 시 파일 한 번 읽으면 합의 복원. 이 파일이 30개 인스턴스 사이의 단일 진실 원천(SSOT) 역할을 한다.</p>
+<p><strong>5단계 — 자율 실행</strong>. PO 간섭 없음. 단, 합의 범위를 벗어나는 변경은 즉시 보고하고 목표서 갱신 후 재승인. 중간 점검이 필요하면 KPI 현황 미니 표 — <code>목표 / 현재 / 달성률</code> — 한 장으로 보고.</p>
+<p><strong>6단계 — <code>/mbo report</code></strong>. AS-IS/TO-BE/실제 결과 O·X 표 그대로 출력, 미달성 항목은 <strong>사유+후속조치 의무 기재</strong>. 실패도 기록돼야 다음번 정확도가 올라간다. 결과보고서는 같은 MBO 파일의 하단에 "## 결과 보고" 섹션으로 추가 — 한 파일에 합의와 결과가 짝으로 남는다.</p>
+<h2>본인 운용 패턴</h2>
+<p>비표준·창의적 작업은 반드시 MBO 선행, 단순 반복(번역·포맷팅·파일명 변경) 은 생략. 판단 기준은 단순하다 — <em>"끝나고 PO가 '내가 시킨 게 이거였나' 헷갈릴 가능성이 있는가?"</em> 가 있으면 MBO, 없으면 생략.</p>
+<p>SAL Grid 프로젝트는 Stage 시작마다 자동 발동(§6.0 강제). 일반 프로젝트도 3단계 이상이면 MBO 권장.</p>
+<p>미달성 보고가 부끄럽지 않은 문화 — 변명 대신 사유 한 줄, 후속조치 한 줄. 이게 다음 작업의 정확도를 올리는 유일한 방법이다. 본인 누적 운용에서 가장 많이 배운 곳은 100% 달성한 MBO가 아니라 부분달성으로 끝난 MBO들이다.</p>
+<blockquote>
+<p>본인 운용 사례: 한 MBO 파일 안에 최상위 목표·KPI·실행 계획·범위 확장 4표를 두고, 그 아래 <em>"결과 보고 → v5 재빌드 (품질 우선)"</em> 두 섹션이 이어지는 구조가 자주 등장한다. 한 MBO 파일 안에서 <strong>합의 → 자율 실행 → 결과 보고 → 미달성 시 재빌드</strong>가 단일 파일 단위로 굴러간 흔적이다. 같은 양식이 시뮬레이션·검증·배포 작업에 그대로 이식된다.</p>
+</blockquote>
+<h2>관련 항목</h2>
+<ul>
+<li><strong>#7 아젠다별 AI 설명 듣고 승인</strong> — MBO 승인 메커니즘의 단순 형태</li>
+<li><strong>#48 Plan Mode</strong> — <em>어떻게 할 것인가</em> vs MBO의 <em>무엇을 달성할 것인가</em></li>
+<li><strong>#2 SAL Grid</strong> — Stage마다 §6.0에서 MBO 강제 발동</li>
+<li><strong>#28 4종 품질관리</strong> — review-evaluate-코어1의 5기준 평가가 MBO KPI 측정 도구</li>
+<li><strong>#32 CLAUDE.md</strong> — <code>/mbo</code> 자동 발동 규칙이 글로벌 CLAUDE.md에 박힘</li>
+<li><strong>#49 스크린샷 자율 검증 루프</strong> — KPI의 사용자 여정 검증 도구</li>
+</ul>
+</section>
+
+<div class="footer">
+  <a href="../index.html">← SUNNY AI MAGIC 50</a>
+  <div style="margin-top:10px;color:#5a6c7c;font-size:12px;letter-spacing:0.3px">© 2026 SUN WOONGKYU · SUNNY AI MAGIC 50 · CC BY-NC-ND 4.0 · 특허 별도 보유</div>
+</div>
+</body>
+</html>

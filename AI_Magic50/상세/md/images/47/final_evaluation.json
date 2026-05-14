@@ -1,0 +1,97 @@
+{
+  "ranking": [
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_47\\labeled\\gemini-2_5-flash-image.png",
+      "score": 97,
+      "grade": "GOLD",
+      "intent": 29,
+      "text": 20,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 14,
+      "strength": "복잡한 멀티 모델 워크플로우와 인지 부하 감소 개념을 요청된 미학 및 장면과 완벽하게 일치하는 높은 시각적 완성도로 명확하게 구현했습니다.",
+      "weakness": "화면 상단의 초기 입력 요소 그리드가 주 깔때기 흐름에 비해 시각적으로 약간 덜 정돈되어 있습니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_47\\labeled\\gpt-image-1.png",
+      "score": 95,
+      "grade": "GOLD",
+      "intent": 27,
+      "text": 20,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 14,
+      "strength": "모던 미니멀 일러스트 스타일과 따뜻한 조명, 추상 기호로만 표현된 화면 등 시각적 요청사항을 완벽하게 구현하며 높은 시각적 완성도를 보인다.",
+      "weakness": "요청된 '한국인'의 특징이 명확하게 표현되지 않고 일반적인 인물로 그려졌다."
+    },
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_47\\labeled\\gemini-3_1-flash-image.png",
+      "score": 77,
+      "grade": "SILVER",
+      "intent": 26,
+      "text": 5,
+      "visual": 19,
+      "clarity": 13,
+      "layout": 14,
+      "strength": "멀티 모델 깔때기형 워크플로우와 '1/15 인지 부하 감소'라는 핵심 개념을 시각적으로 매우 정확하고 높은 완성도로 표현했습니다. 모던하고 따뜻한 일러스트 스타일과 구도도 훌륭합니다.",
+      "weakness": "화면 내 상당수의 텍스트가 의미 없는 기호나 오타/환각(예: 'Clamge', 'Provwilling')이며, 특히 '한글 텍스트 없음' 요청에도 불구하고 이미지 하단 캡션에 한글이 포함된 점이 가장 큰 약점입니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_47\\labeled\\gemini-3-pro-image.png",
+      "score": 68,
+      "grade": "BRONZE",
+      "intent": 20,
+      "text": 0,
+      "visual": 19,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "Exceptional visual clarity and aesthetic quality in depicting a complex multi-model image generation workflow with a modern minimalist style and warm lighting.",
+      "weakness": "Fundamental failure to adhere to explicit text guidelines, including the use of English labels instead of abstract symbols for screen content and the presence of Korean text in the footer."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_47\\labeled\\dall-e-3.png",
+      "score": 64,
+      "grade": "BRONZE",
+      "intent": 20,
+      "text": 5,
+      "visual": 18,
+      "clarity": 7,
+      "layout": 14,
+      "strength": "요청된 모던하고 미니멀한 일러스트 스타일과 따뜻한 조명, 그리고 여러 단계를 거치는 이미지 생성 워크플로우의 전반적인 분위기를 시각적으로 훌륭하게 구현했습니다.",
+      "weakness": "인포그래픽의 핵심인 AI 모델 이름과 프로세스 단계에 대한 텍스트 정보가 대부분 오타나 환각으로 표현되어 정보 전달력이 매우 낮습니다."
+    }
+  ],
+  "top_picks": [
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_47\\labeled\\gemini-2_5-flash-image.png",
+      "score": 97,
+      "grade": "GOLD",
+      "intent": 29,
+      "text": 20,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 14,
+      "strength": "복잡한 멀티 모델 워크플로우와 인지 부하 감소 개념을 요청된 미학 및 장면과 완벽하게 일치하는 높은 시각적 완성도로 명확하게 구현했습니다.",
+      "weakness": "화면 상단의 초기 입력 요소 그리드가 주 깔때기 흐름에 비해 시각적으로 약간 덜 정돈되어 있습니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_47\\labeled\\gpt-image-1.png",
+      "score": 95,
+      "grade": "GOLD",
+      "intent": 27,
+      "text": 20,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 14,
+      "strength": "모던 미니멀 일러스트 스타일과 따뜻한 조명, 추상 기호로만 표현된 화면 등 시각적 요청사항을 완벽하게 구현하며 높은 시각적 완성도를 보인다.",
+      "weakness": "요청된 '한국인'의 특징이 명확하게 표현되지 않고 일반적인 인물로 그려졌다."
+    }
+  ]
+}

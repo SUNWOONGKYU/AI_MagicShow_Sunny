@@ -1,0 +1,123 @@
+{
+  "ranking": [
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_01\\labeled\\gpt-image-1.png",
+      "score": 98,
+      "grade": "GOLD",
+      "intent": 29,
+      "text": 20,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "듀얼 모드 및 전환 개념을 모던 미니멀 스타일로 명확하고 우아하게 시각화했으며, 프롬프트의 모든 시각적 요구사항을 완벽하게 충족했습니다.",
+      "weakness": "두 인스턴스의 '사고용'과 '실행용'이라는 구체적인 목적 차이를 시각적으로 명확히 구분하기는 어렵습니다."
+    },
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_01\\labeled\\gemini-3_1-flash-image.png",
+      "score": 97,
+      "grade": "GOLD",
+      "intent": 29,
+      "text": 20,
+      "visual": 19,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "요청된 '이중화 운용 패턴'의 핵심 개념과 스타일을 매우 명확하고 아름답게 시각화했으며, 텍스트 추상화 요건까지 완벽하게 충족했습니다.",
+      "weakness": "정적인 이미지에서 '한쪽이 막히면 다른 쪽으로 즉시 넘어가는' 동적인 전환의 구체적인 상황까지 표현하기는 어렵지만, 이중화 개념 자체는 잘 전달되었습니다."
+    },
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_01\\labeled\\gemini-2_5-flash-image.png",
+      "score": 96,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 19,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "프롬프트의 핵심 의도인 '사고용/실행용 인스턴스 이중화 운용' 개념을 명확하고 직관적으로 시각화했으며, 모든 텍스트의 정확도가 높습니다.",
+      "weakness": "정적인 이미지의 한계로 인해 '한쪽이 막히면 다른 쪽으로 즉시 넘어가는' 동적인 전환 상황을 명확하게 표현하지 못했습니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_01\\labeled\\gemini-3-pro-image.png",
+      "score": 87,
+      "grade": "GOLD",
+      "intent": 27,
+      "text": 10,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "듀얼 모드 및 페일오버 개념을 시각적으로 매우 명확하고 효과적으로 표현했으며, 미니멀리즘 스타일과 따뜻한 조명이 잘 구현됨.",
+      "weakness": "화면 속 모든 텍스트를 추상 기호로 표현해달라는 요청에 따라 'AI program' 제목도 추상 기호여야 했으나, 실제로는 영문 텍스트로 표현되어 프롬프트 의도에 완전히 부합하지 못함."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_01\\labeled\\dall-e-3.png",
+      "score": 74,
+      "grade": "SILVER",
+      "intent": 20,
+      "text": 5,
+      "visual": 19,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "이미지는 '사고용 인스턴스'와 '실행용 인스턴스'라는 핵심 이중화 운용 개념을 현대적 미니멀리즘 일러스트와 따뜻한 조명으로 탁월하게 구현했으며, 시각적 완성도와 정보 전달력이 매우 높습니다.",
+      "weakness": "화면 속 텍스트를 '추상 기호로만 표현'하라는 명확한 요청에도 불구하고, 'PLANNING'과 'EXECUTING'이라는 영어 단어를 주요 라벨로 사용하여 프롬프트의 텍스트 형식 지시를 준수하지 못했습니다."
+    }
+  ],
+  "top_picks": [
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_01\\labeled\\gpt-image-1.png",
+      "score": 98,
+      "grade": "GOLD",
+      "intent": 29,
+      "text": 20,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "듀얼 모드 및 전환 개념을 모던 미니멀 스타일로 명확하고 우아하게 시각화했으며, 프롬프트의 모든 시각적 요구사항을 완벽하게 충족했습니다.",
+      "weakness": "두 인스턴스의 '사고용'과 '실행용'이라는 구체적인 목적 차이를 시각적으로 명확히 구분하기는 어렵습니다."
+    },
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_01\\labeled\\gemini-3_1-flash-image.png",
+      "score": 97,
+      "grade": "GOLD",
+      "intent": 29,
+      "text": 20,
+      "visual": 19,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "요청된 '이중화 운용 패턴'의 핵심 개념과 스타일을 매우 명확하고 아름답게 시각화했으며, 텍스트 추상화 요건까지 완벽하게 충족했습니다.",
+      "weakness": "정적인 이미지에서 '한쪽이 막히면 다른 쪽으로 즉시 넘어가는' 동적인 전환의 구체적인 상황까지 표현하기는 어렵지만, 이중화 개념 자체는 잘 전달되었습니다."
+    },
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_01\\labeled\\gemini-2_5-flash-image.png",
+      "score": 96,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 19,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "프롬프트의 핵심 의도인 '사고용/실행용 인스턴스 이중화 운용' 개념을 명확하고 직관적으로 시각화했으며, 모든 텍스트의 정확도가 높습니다.",
+      "weakness": "정적인 이미지의 한계로 인해 '한쪽이 막히면 다른 쪽으로 즉시 넘어가는' 동적인 전환 상황을 명확하게 표현하지 못했습니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_01\\labeled\\gemini-3-pro-image.png",
+      "score": 87,
+      "grade": "GOLD",
+      "intent": 27,
+      "text": 10,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "듀얼 모드 및 페일오버 개념을 시각적으로 매우 명확하고 효과적으로 표현했으며, 미니멀리즘 스타일과 따뜻한 조명이 잘 구현됨.",
+      "weakness": "화면 속 모든 텍스트를 추상 기호로 표현해달라는 요청에 따라 'AI program' 제목도 추상 기호여야 했으나, 실제로는 영문 텍스트로 표현되어 프롬프트 의도에 완전히 부합하지 못함."
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>#23 멀티 모델 이미지 종류별 제작</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#000814;color:#fff;line-height:1.6}
+.hero{background:radial-gradient(circle at 30% 30%,#002d5c 0%,#000814 70%);padding:60px 24px 50px;text-align:center;border-bottom:3px solid #FF8C00}
+.hero .tag{color:#FF8C00;font-size:14px;font-weight:900;letter-spacing:6px;margin-bottom:14px}
+.hero h1{font-size:clamp(24px,4.5vw,46px);font-weight:900;line-height:1.2;margin-bottom:14px;color:#fff;text-shadow:0 4px 24px rgba(255,140,0,0.4)}
+.hero .sub{font-size:clamp(14px,1.8vw,18px);color:#bcd;max-width:880px;margin:0 auto;font-weight:500}
+.hero .skill-badge{display:inline-block;background:#f39c12;color:#fff;padding:6px 18px;border-radius:20px;font-size:13px;font-weight:900;letter-spacing:1px;margin-top:18px}
+.back{position:absolute;top:24px;left:24px;color:#FF8C00;text-decoration:none;font-size:14px;font-weight:700;padding:8px 16px;border:2px solid #FF8C00;border-radius:20px}
+.back:hover{background:#FF8C00;color:#001020}
+.section{max-width:1100px;margin:0 auto;padding:50px 24px}
+.section h2{font-size:clamp(22px,3vw,32px);font-weight:900;color:#FF8C00;margin-bottom:24px;letter-spacing:1px;border-left:5px solid #FF8C00;padding-left:14px}
+.section p{font-size:15px;color:#dde;margin-bottom:14px}
+.section .lead{font-size:16px;color:#fff;background:rgba(255,140,0,0.08);border:1.5px solid rgba(255,140,0,0.35);border-radius:10px;padding:20px 24px;margin-bottom:24px}
+.arch{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px;margin-top:18px}
+.arch img{width:100%;display:block}
+.tracks{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+@media(max-width:880px){.tracks{grid-template-columns:1fr}}
+.tr{border-radius:10px;padding:18px}
+.tr.photo{background:rgba(52,152,219,0.08);border:1.5px solid rgba(52,152,219,0.4)}
+.tr.chart{background:rgba(155,89,182,0.08);border:1.5px solid rgba(155,89,182,0.4)}
+.tr.arch-tr{background:rgba(63,185,80,0.08);border:1.5px solid rgba(63,185,80,0.4)}
+.tr h3{font-size:18px;font-weight:900;margin-bottom:8px}
+.tr.photo h3{color:#3498DB}
+.tr.chart h3{color:#9b59b6}
+.tr.arch-tr h3{color:#3fb950}
+.tr .when{font-size:12px;color:#fde;margin-bottom:10px;font-style:italic}
+.tr ul{list-style:none;padding-left:0}
+.tr li{font-size:13px;color:#dde;line-height:1.7;padding-left:18px;position:relative;margin-bottom:6px}
+.tr li::before{content:'▸';position:absolute;left:0;color:#FF8C00}
+.funnel{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}
+@media(max-width:760px){.funnel{grid-template-columns:repeat(2,1fr)}}
+.fstep{background:rgba(255,140,0,0.08);border:1.5px solid rgba(255,140,0,0.35);border-radius:10px;padding:14px;text-align:center}
+.fstep .qty{font-size:24px;font-weight:900;color:#FF8C00}
+.fstep h4{font-size:13px;font-weight:900;color:#fff;margin:4px 0}
+.fstep p{font-size:11px;color:#bcd;line-height:1.55}
+table{width:100%;border-collapse:collapse;margin-top:18px;background:rgba(255,255,255,0.03);border-radius:8px;overflow:hidden}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08);font-size:14px}
+th{background:rgba(255,140,0,0.15);color:#FF8C00;font-weight:900}
+td{color:#dde}
+tr:last-child td{border-bottom:none}
+code{background:rgba(255,140,0,0.1);color:#ffd789;padding:2px 6px;border-radius:4px;font-size:13px}
+.footer{background:#001020;border-top:1px solid #1a2a3a;padding:30px 24px;text-align:center;color:#7a8c9c;font-size:13px}
+.footer a{color:#FF8C00;text-decoration:none;margin:0 10px}
+</style>
+</head>
+<body>
+<a href="../index.html" class="back">← 슬라이드쇼로</a>
+<section class="hero">
+  <div class="tag">SUNNY AI MAGIC · #23</div>
+  <h1>멀티 모델 이미지 종류별 제작 프로세스</h1>
+  <div class="sub">Photo · Chart · Architecture 3트랙으로 자동 라우팅 — 단일 진입점 <code>/image-기본</code>에서 의도를 판단해 적합한 도구·모델로 분기</div>
+  <div class="skill-badge">🛠 Skill: /image-기본 (Master Dispatcher)</div>
+</section>
+
+<section class="section">
+  <h2>📌 핵심 정의</h2>
+  <div class="lead">
+    "이미지" 한 단어 안에 사실적 사진·인포그래픽·시스템 구조도 등 본질적으로 다른 작업이 묶여 있다. 이걸 한 모델로 통일하려 들면 사진은 어색하고 다이어그램은 부정확해진다. 본 스킬은 <strong>의도를 먼저 판별</strong>하고, <strong>각 트랙별로 최적화된 도구·모델 조합</strong>을 호출한다. 기존 3개 독립 스킬(<code>/ai-image-기본</code>, <code>/create-image-기본</code>, <code>/architecture-svg</code>)을 그대로 보존하면서 위에 얇은 라우터를 얹은 구조다.
+  </div>
+</section>
+
+<section class="section">
+  <h2>🏗 아키텍처 — 1 Router + 3 Track</h2>
+  <div class="arch"><img src="23_Image_architecture.svg" alt="이미지 마스터 디스패처 아키텍처"></div>
+</section>
+
+<section class="section">
+  <h2>🎯 3 Track 분기</h2>
+  <div class="tracks">
+    <div class="tr photo">
+      <h3>Photo Track</h3>
+      <div class="when">사실적 사진 · AI 일러스트 · 로고 · 스티커</div>
+      <ul>
+        <li>외부 멀티모델 (Gemini · GPT Image · DALL-E)</li>
+        <li>마스킹 편집 · 멀티 레퍼런스 지원</li>
+        <li>품질 모드: 4단계 깔때기 (아래 참조)</li>
+        <li>독립 스킬: <code>/ai-image-기본</code></li>
+      </ul>
+    </div>
+    <div class="tr chart">
+      <h3>Chart Track</h3>
+      <div class="when">다이어그램 · 표 · 차트 · 대시보드 · 플로우차트</div>
+      <ul>
+        <li>Claude가 직접 코드 생성</li>
+        <li>Mermaid · HTML/CSS · SVG · Pillow</li>
+        <li>한글 폰트 (malgun.ttf) 자동 처리</li>
+        <li>독립 스킬: <code>/create-image-기본</code></li>
+      </ul>
+    </div>
+    <div class="tr arch-tr">
+      <h3>Architecture Track</h3>
+      <div class="when">V50 / V60 시스템 구조도 (전용 스타일)</div>
+      <ul>
+        <li>컬러팔레트 고정 (라이트모드 13컬러)</li>
+        <li>BuzzLab · PoliticianFinder 통일 스타일</li>
+        <li>섹션 구조화 + 표준 마커·그라데이션</li>
+        <li>독립 스킬: <code>/architecture-svg</code></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>🏆 Photo Track 품질 모드 — 4단계 깔때기 (15 → 5 → 1~2)</h2>
+  <div class="funnel">
+    <div class="fstep"><div class="qty">15장</div><h4>① 생성</h4><p>5모델 × 3변형 best-of 3</p></div>
+    <div class="fstep"><div class="qty">5장</div><h4>② 선별</h4><p>Vision 1차 채점 → 모델별 베스트</p></div>
+    <div class="fstep"><div class="qty">5장</div><h4>③ 마감</h4><p>Pillow 라벨 · 워터마크</p></div>
+    <div class="fstep"><div class="qty">1~2장</div><h4>④ 추천 (GOLD)</h4><p>Vision 2차 정밀 채점 → GOLD만 통과</p></div>
+  </div>
+  <table>
+    <thead><tr><th>모드</th><th>호출</th><th>인지 부하</th><th>비용</th></tr></thead>
+    <tbody>
+      <tr><td>빠른 시안 (기본)</td><td>기본 호출</td><td>5장 검토</td><td>1×</td></tr>
+      <tr><td><strong>품질 우선</strong></td><td><code>--best-of 3</code></td><td><strong>1~2장 검토</strong></td><td>약 3~4×</td></tr>
+      <tr><td>최저 비용</td><td><code>--best-of 3 --no-final-eval</code></td><td>5장 검토</td><td>약 2×</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section">
+  <h2>🎯 라우팅 결정 트리</h2>
+  <table>
+    <thead><tr><th>키워드 패턴</th><th>라우팅</th></tr></thead>
+    <tbody>
+      <tr><td>"사진 · 일러스트 · 로고 · 스티커 · 사실적 · 마스킹 · 투명배경 · 멀티레퍼런스"</td><td>Photo Track</td></tr>
+      <tr><td>"다이어그램 · 표 · 차트 · 대시보드 · 시퀀스 · 간트 · ER · 플로우 · 조직표"</td><td>Chart Track</td></tr>
+      <tr><td>"V50 · V60 · 아키텍처 구조도 · 전체구조도"</td><td>Architecture Track</td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:14px"><strong>강제 라우팅</strong>: <code>--track photo</code> / <code>--track chart</code> / <code>--track arch</code> 또는 <code>[photo]</code> / <code>[chart]</code> / <code>[arch]</code> 토큰</p>
+</section>
+
+<section class="section">
+  <h2>🚀 빠른 시작 예시</h2>
+  <table>
+    <thead><tr><th>명령</th><th>자동 라우팅</th></tr></thead>
+    <tbody>
+      <tr><td><code>/image-기본 "골든아워 부산 북구갑 거리 사진"</code></td><td>Photo Track</td></tr>
+      <tr><td><code>/image-기본 "BPI 산출 시퀀스 다이어그램"</code></td><td>Chart Track</td></tr>
+      <tr><td><code>/image-기본 "V60 시스템 구조도, 섹션 ①파이프라인 ②도구목록"</code></td><td>Architecture Track</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section">
+  <h2>🔧 공유 자원 (3트랙 공통 SSOT)</h2>
+  <table>
+    <tbody>
+      <tr><td><strong>palette.md</strong></td><td>컬러 팔레트 카탈로그 — BuzzLab/POLFAI/V50 라이트·다크 통합</td></tr>
+      <tr><td><strong>fonts.md</strong></td><td>한글 폰트 처리 규칙 (malgun.ttf, 이모지 주의사항)</td></tr>
+      <tr><td><strong>output-rules.md</strong></td><td>저장 위치 규칙 (<code>Desktop/</code>, <code>G:/내 드라이브/</code>)</td></tr>
+      <tr><td><strong>quality-checklist.md</strong></td><td>공통 품질 검증 체크리스트</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section">
+  <h2>📂 관련 항목</h2>
+  <table>
+    <tbody>
+      <tr><td><strong>#26</strong> 유튜브 영상 제작</td><td>S3 자산 제작 — Multi-Source Best-of-N 원리의 출처</td></tr>
+      <tr><td><strong>#22</strong> SVG 아키텍처 → 스킬화</td><td>Architecture Track과 직접 연결</td></tr>
+      <tr><td><strong>#42</strong> 포크레인·트랙터</td><td>"한 도구 통일" X → "도구별 분업" 패러다임</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="footer">
+  <a href="../index.html">← Sunny AI Magic 50</a><span>·</span><a href="https://www.ax-on.net/">AX 전문가 풀</a>
+</div>
+</body>
+</html>

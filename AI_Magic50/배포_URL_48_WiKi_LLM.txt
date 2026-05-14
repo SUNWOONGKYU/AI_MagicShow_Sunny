@@ -1,0 +1,22 @@
+#48 WiKi_LLM_Obsidian 배포 URL (2026-05-13)
+
+Production:
+https://sunny-ai-magic-50-7e7byal7n-finder-world.vercel.app
+
+#48 페이지 직링크 (book 폴더 경로):
+https://sunny-ai-magic-50-7e7byal7n-finder-world.vercel.app/book/48.html
+
+Inspect:
+https://vercel.com/finder-world/sunny-ai-magic-50/CsvT8NFgvK6xwb6KKTP6KCiHHP2B
+
+반영 내용:
+- 부제목: "장기 기억 인프라 — AI가 자기 위키에 쓰고 다음 작업 전에 그 위키를 먼저 읽는다"
+- 본문 전면 재작성 (일반론 + 본인 사례 가벼운 인용)
+- recall 흔적 전부 제거
+- 5개 결함 개선:
+  1. 호칭 정리 blockquote 추가 (WiKi_LLM ↔ LLM 위키)
+  2. ingest.js 코드 예시 추가
+  3. AI 도구·명령 구체화 (Claude Code 등 + 한국어 예문)
+  4. 모바일·원격접속 운용 단락 추가
+  5. Karpathy 톤다운
+- 9곳 교차참조 번호 보정 (#13/#17/#22/#24/#31/#33/#38/#40/#44)

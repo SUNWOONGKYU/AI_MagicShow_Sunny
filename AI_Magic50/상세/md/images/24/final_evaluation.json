@@ -1,0 +1,123 @@
+{
+  "ranking": [
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_24\\labeled\\gemini-3-pro-image.png",
+      "score": 99,
+      "grade": "GOLD",
+      "intent": 29,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "복잡한 단계별 프로세스, 추상적인 메타포, 그리고 세부적인 시간 벤치마크까지 프롬프트의 모든 요소를 시각적으로 완벽하게 구현했습니다. 레이아웃, 시각적 품질, 정보 전달력 모두 뛰어납니다.",
+      "weakness": "생성된 콘텐츠 자체에서 약점을 찾기 어렵습니다. (하단의 플랫폼 워터마크는 생성 품질 평가 대상에서 제외)"
+    },
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_24\\labeled\\gemini-3_1-flash-image.png",
+      "score": 99,
+      "grade": "GOLD",
+      "intent": 29,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "따뜻하고 모던한 일러스트 스타일로 풀스택 개발 과정의 다양한 단계를 명확하고 효과적으로 시각화하여 프롬프트 의도를 완벽하게 구현했습니다.",
+      "weakness": "명확한 약점은 없으나, 프롬프트에서 언급된 '5시간 이내' 시간 벤치마크는 시계의 ':55' 표기로 추상적으로 표현되어 있어, 문자 그대로의 시각적 요소는 아닙니다."
+    },
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_24\\labeled\\gemini-2_5-flash-image.png",
+      "score": 98,
+      "grade": "GOLD",
+      "intent": 29,
+      "text": 20,
+      "visual": 19,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "추상적인 '트랙터 운전' 비유와 시간 벤치마크 등 프롬프트의 핵심적이고 독특한 요구사항을 시각적으로 명확하게 구현한 점이 탁월합니다.",
+      "weakness": "배경의 미세한 노이즈나 먼지 같은 시각적 아티팩트가 약간 보이지만, 전체적인 완성도에 비하면 매우 미미한 수준입니다."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_24\\labeled\\dall-e-3.png",
+      "score": 97,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "복잡한 기술적 개념을 모던 미니멀 스타일과 따뜻한 조명으로 시각적으로 매력적이고 응집력 있는 일러스트로 완벽하게 구현했습니다.",
+      "weakness": "5시간 벤치마크 및 구체적인 개발 단계는 이미지 내에서 명시적으로 시각화되기보다는 암시적으로 전달됩니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_24\\labeled\\gpt-image-1.png",
+      "score": 74,
+      "grade": "SILVER",
+      "intent": 15,
+      "text": 20,
+      "visual": 19,
+      "clarity": 7,
+      "layout": 13,
+      "strength": "모던 미니멀 일러스트 스타일과 따뜻한 조명, 그리고 텍스트 없는 추상 기호 사용 요청을 훌륭하게 구현하여 시각적 완성도가 높습니다.",
+      "weakness": "프롬프트에서 요청한 'DB 스키마 → API 라우트 → UI/UX → E2E 테스트 → Vercel 배포'와 같은 구체적인 풀스택 개발 단계와 '5시간'이라는 시간 제약, '트랙터 운전' 비유를 시각적으로 명확하게 전달하지 못했습니다."
+    }
+  ],
+  "top_picks": [
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_24\\labeled\\gemini-3-pro-image.png",
+      "score": 99,
+      "grade": "GOLD",
+      "intent": 29,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "복잡한 단계별 프로세스, 추상적인 메타포, 그리고 세부적인 시간 벤치마크까지 프롬프트의 모든 요소를 시각적으로 완벽하게 구현했습니다. 레이아웃, 시각적 품질, 정보 전달력 모두 뛰어납니다.",
+      "weakness": "생성된 콘텐츠 자체에서 약점을 찾기 어렵습니다. (하단의 플랫폼 워터마크는 생성 품질 평가 대상에서 제외)"
+    },
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_24\\labeled\\gemini-3_1-flash-image.png",
+      "score": 99,
+      "grade": "GOLD",
+      "intent": 29,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "따뜻하고 모던한 일러스트 스타일로 풀스택 개발 과정의 다양한 단계를 명확하고 효과적으로 시각화하여 프롬프트 의도를 완벽하게 구현했습니다.",
+      "weakness": "명확한 약점은 없으나, 프롬프트에서 언급된 '5시간 이내' 시간 벤치마크는 시계의 ':55' 표기로 추상적으로 표현되어 있어, 문자 그대로의 시각적 요소는 아닙니다."
+    },
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_24\\labeled\\gemini-2_5-flash-image.png",
+      "score": 98,
+      "grade": "GOLD",
+      "intent": 29,
+      "text": 20,
+      "visual": 19,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "추상적인 '트랙터 운전' 비유와 시간 벤치마크 등 프롬프트의 핵심적이고 독특한 요구사항을 시각적으로 명확하게 구현한 점이 탁월합니다.",
+      "weakness": "배경의 미세한 노이즈나 먼지 같은 시각적 아티팩트가 약간 보이지만, 전체적인 완성도에 비하면 매우 미미한 수준입니다."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_24\\labeled\\dall-e-3.png",
+      "score": 97,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "복잡한 기술적 개념을 모던 미니멀 스타일과 따뜻한 조명으로 시각적으로 매력적이고 응집력 있는 일러스트로 완벽하게 구현했습니다.",
+      "weakness": "5시간 벤치마크 및 구체적인 개발 단계는 이미지 내에서 명시적으로 시각화되기보다는 암시적으로 전달됩니다."
+    }
+  ]
+}

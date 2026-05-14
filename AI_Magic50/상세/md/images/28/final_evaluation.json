@@ -1,0 +1,97 @@
+{
+  "ranking": [
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_28\\labeled\\gemini-3-pro-image.png",
+      "score": 99,
+      "grade": "GOLD",
+      "intent": 29,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "프롬프트의 모든 세부 사항(세 단계, 특정 숫자, 화면 내 추상 기호)을 놀랍도록 정확하게 구현했으며, 시각적 품질과 정보 전달력 또한 매우 뛰어납니다.",
+      "weakness": "프롬프트에서 언급된 '발굴 루프'가 시각적으로 더 명확한 순환 형태로 표현될 수 있었으나, 양방향 화살표를 통해 반복성을 잘 나타냈습니다."
+    },
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_28\\labeled\\gemini-2_5-flash-image.png",
+      "score": 99,
+      "grade": "GOLD",
+      "intent": 30,
+      "text": 19,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "복잡한 인포그래픽 요소, 특정 텍스트 포함, 시각적 스타일, 인물 설정, 한글 텍스트 없음 제약 등 모든 프롬프트 요구사항을 완벽에 가깝게 구현하여 정보 전달력이 매우 우수합니다.",
+      "weakness": "`~/.claude/skills/` 경로 표기에서 마침표 하나가 누락되었습니다."
+    },
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_28\\labeled\\gemini-3_1-flash-image.png",
+      "score": 68,
+      "grade": "BRONZE",
+      "intent": 20,
+      "text": 5,
+      "visual": 19,
+      "clarity": 9,
+      "layout": 15,
+      "strength": "전반적인 시각적 완성도와 레이아웃 정렬이 뛰어나며, 외부 생태계에서 스킬을 통합하는 개발 환경을 명확하게 표현했습니다.",
+      "weakness": "화면 내 텍스트에 한글을 사용하지 않고 추상 기호로만 표현하라는 핵심 프롬프트 제약을 위반하여, 의미 없는 한글 문자를 표시하고 특정 3단계 발굴 프로세스를 명확하게 시각화하지 못했습니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_28\\labeled\\gpt-image-1.png",
+      "score": 57,
+      "grade": "BRONZE",
+      "intent": 20,
+      "text": 0,
+      "visual": 19,
+      "clarity": 5,
+      "layout": 13,
+      "strength": "따뜻하고 모던 미니멀한 일러스트 스타일과 안정적인 구도로 시각적 완성도가 매우 높습니다.",
+      "weakness": "화면 속 텍스트가 '추상 기호로만 표현'되어야 한다는 핵심 지시를 완전히 위반하고, 'skills.sh'를 엉뚱한 텍스트로 환각하여 정보 전달력을 크게 저해했습니다."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_28\\labeled\\dall-e-3.png",
+      "score": 51,
+      "grade": "BRONZE",
+      "intent": 15,
+      "text": 0,
+      "visual": 18,
+      "clarity": 5,
+      "layout": 13,
+      "strength": "전반적인 시각적 완성도와 색감, 구도가 훌륭하며, 현대적이고 몰입감 있는 작업 환경을 잘 표현했습니다.",
+      "weakness": "가장 중요한 '화면 속 텍스트는 추상 기호로만 표현'이라는 지시를 따르지 못하고 의미 없는 영문 형태의 글자(환각 텍스트)를 생성하여 정보 전달력을 크게 해쳤습니다."
+    }
+  ],
+  "top_picks": [
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_28\\labeled\\gemini-3-pro-image.png",
+      "score": 99,
+      "grade": "GOLD",
+      "intent": 29,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "프롬프트의 모든 세부 사항(세 단계, 특정 숫자, 화면 내 추상 기호)을 놀랍도록 정확하게 구현했으며, 시각적 품질과 정보 전달력 또한 매우 뛰어납니다.",
+      "weakness": "프롬프트에서 언급된 '발굴 루프'가 시각적으로 더 명확한 순환 형태로 표현될 수 있었으나, 양방향 화살표를 통해 반복성을 잘 나타냈습니다."
+    },
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_28\\labeled\\gemini-2_5-flash-image.png",
+      "score": 99,
+      "grade": "GOLD",
+      "intent": 30,
+      "text": 19,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "복잡한 인포그래픽 요소, 특정 텍스트 포함, 시각적 스타일, 인물 설정, 한글 텍스트 없음 제약 등 모든 프롬프트 요구사항을 완벽에 가깝게 구현하여 정보 전달력이 매우 우수합니다.",
+      "weakness": "`~/.claude/skills/` 경로 표기에서 마침표 하나가 누락되었습니다."
+    }
+  ]
+}

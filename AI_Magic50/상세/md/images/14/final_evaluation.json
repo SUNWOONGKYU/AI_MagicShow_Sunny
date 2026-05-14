@@ -1,0 +1,97 @@
+{
+  "ranking": [
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_14\\labeled\\gpt-image-1.png",
+      "score": 97,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "프롬프트에서 요청한 복잡한 3차원 작업 좌표계 개념과 시각적 스타일을 매우 정확하게 구현했으며, 전반적인 디자인 품질과 정보 전달력이 뛰어납니다.",
+      "weakness": "3차원 좌표계의 'Area' 축이 명시적으로 라벨링되지 않았으나, 3D 구조 자체로 개념은 충분히 전달됩니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_14\\labeled\\gemini-3-pro-image.png",
+      "score": 87,
+      "grade": "GOLD",
+      "intent": 20,
+      "text": 19,
+      "visual": 20,
+      "clarity": 13,
+      "layout": 15,
+      "strength": "따뜻한 조명, 미니멀한 일러스트 스타일 및 SAL-V 개념의 시각적 구현이 매우 훌륭합니다.",
+      "weakness": "화면 속 핵심 라벨을 추상 기호가 아닌 영어 단어로 표현하여 '추상 기호로만 표현'하라는 프롬프트의 지시를 완전히 따르지 못했습니다."
+    },
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_14\\labeled\\gemini-3_1-flash-image.png",
+      "score": 67,
+      "grade": "BRONZE",
+      "intent": 20,
+      "text": 0,
+      "visual": 19,
+      "clarity": 13,
+      "layout": 15,
+      "strength": "3차원 좌표계의 추상적인 개념과 모던 미니멀 스타일, 따뜻한 조명 등 시각적 요구사항을 훌륭하게 구현하여 정보 전달력이 높음.",
+      "weakness": "개념 다이어그램 내 '스통' 등 한글 텍스트가 포함되어 '화면 속 텍스트는 추상 기호로만 표현, 한글 텍스트 없음'이라는 핵심 요청 사항을 명확히 위반함."
+    },
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_14\\labeled\\gemini-2_5-flash-image.png",
+      "score": 67,
+      "grade": "BRONZE",
+      "intent": 20,
+      "text": 0,
+      "visual": 19,
+      "clarity": 13,
+      "layout": 15,
+      "strength": "복잡한 다차원 작업 계획/분해 시스템을 시각적으로 훌륭하게 표현했으며, 요청된 분위기와 구도, 시각적 완성도가 매우 높습니다.",
+      "weakness": "화면 내 '추상 기호로만 표현, 한글 텍스트 없음'이라는 명시적인 프롬프트 지시를 위반하여 영문 단어 및 한글 워터마크가 포함되었습니다."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_14\\labeled\\dall-e-3.png",
+      "score": 42,
+      "grade": "CUT",
+      "intent": 5,
+      "text": 0,
+      "visual": 19,
+      "clarity": 4,
+      "layout": 14,
+      "strength": "현대적 미니멀리즘 스타일과 따뜻한 조명, 균형 잡힌 구도는 시각적으로 매우 우수합니다.",
+      "weakness": "화면 내 텍스트가 요청된 추상 기호 대신 의미 없는 영어 문구로 가득하며, 한글 텍스트 금지 지시를 명백히 위반하여 정보 전달력을 심각하게 저해합니다."
+    }
+  ],
+  "top_picks": [
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_14\\labeled\\gpt-image-1.png",
+      "score": 97,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "프롬프트에서 요청한 복잡한 3차원 작업 좌표계 개념과 시각적 스타일을 매우 정확하게 구현했으며, 전반적인 디자인 품질과 정보 전달력이 뛰어납니다.",
+      "weakness": "3차원 좌표계의 'Area' 축이 명시적으로 라벨링되지 않았으나, 3D 구조 자체로 개념은 충분히 전달됩니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_14\\labeled\\gemini-3-pro-image.png",
+      "score": 87,
+      "grade": "GOLD",
+      "intent": 20,
+      "text": 19,
+      "visual": 20,
+      "clarity": 13,
+      "layout": 15,
+      "strength": "따뜻한 조명, 미니멀한 일러스트 스타일 및 SAL-V 개념의 시각적 구현이 매우 훌륭합니다.",
+      "weakness": "화면 속 핵심 라벨을 추상 기호가 아닌 영어 단어로 표현하여 '추상 기호로만 표현'하라는 프롬프트의 지시를 완전히 따르지 못했습니다."
+    }
+  ]
+}

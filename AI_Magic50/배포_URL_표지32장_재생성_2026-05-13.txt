@@ -1,0 +1,27 @@
+SUNNY AI MAGIC 50 — 표지 32장 재생성 + 배포 (2026-05-13)
+
+Production:
+https://sunny-ai-magic-50-5vaq76412-finder-world.vercel.app
+
+Inspect:
+https://vercel.com/finder-world/sunny-ai-magic-50/34nJEFUo9KsE7CU2eiHxjkAaSdNd
+
+작업 요약:
+- 정합도 5/5 미만 32개 챕터 표지 일괄 재생성 (Gemini 3 Pro Image)
+  · Tier1 (2/5 → 5/5): #36
+  · Tier2 (3/5 → 5/5): #04, #08, #13, #14, #19, #33, #41
+  · Tier3 (4/5 보강): #01, #02, #05, #07, #09~12, #16~18, #26~28, #30,
+                    #32, #34, #35, #38, #39, #42, #44, #46, #47
+- #01 스타일 레퍼런스 입력 → 코지 모던 플랫 일관성 유지
+- 16:9 / 2K / 평균 2.2MB / 평균 37초/장
+- 5/5 17개 (#03, #06, #15, #20, #21~25, #29, #31, #37, #40, #43, #45, #48, #50) + #49(타 작업자 진행 중)는 유지
+- 원본 백업: covers_backup_2026-05-13/ (32장)
+
+검수 포인트(샘플):
+- #36 Statusline HUD — 5줄 컬러 HUD strip + 캡션 명확
+- #04 Plan Mode — 'PLAN MODE 읽기만 가능, 쓰기 차단' + 5단계 + READ-ONLY 자물쇠 + EXECUTE 흐림
+
+확인 URL:
+- 전체: https://sunny-ai-magic-50-5vaq76412-finder-world.vercel.app
+- 표지 직접: https://sunny-ai-magic-50-5vaq76412-finder-world.vercel.app/covers/36.png
+            https://sunny-ai-magic-50-5vaq76412-finder-world.vercel.app/covers/04.png

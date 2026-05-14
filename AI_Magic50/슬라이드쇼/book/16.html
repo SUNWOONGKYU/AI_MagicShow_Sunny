@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>SUNNY AI MAGIC 50 · #16 일반 Subagent와 Agent Teams 차이를 이해하고 작업시키기</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#000814;color:#fff;line-height:1.7}
+.hero{background:radial-gradient(circle at 30% 30%,#002d5c 0%,#000814 70%);padding:50px 24px 40px;text-align:center;border-bottom:3px solid #FF8C00}
+.hero .tag{color:#FF8C00;font-size:13px;font-weight:900;letter-spacing:5px;margin-bottom:12px}
+.hero h1{font-size:clamp(22px,4vw,40px);font-weight:900;line-height:1.25;margin-bottom:8px;color:#fff;text-shadow:0 4px 24px rgba(255,140,0,0.35)}
+.hero .subtitle{font-size:clamp(13px,1.6vw,17px);color:#FF8C00;font-weight:600;letter-spacing:0.3px;margin-bottom:14px;opacity:0.92}
+.hero .meta{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.hero .badge{background:rgba(255,140,0,0.15);color:#FF8C00;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:900;letter-spacing:1px;border:1px solid rgba(255,140,0,0.4)}
+.hero .badge.type-a{background:rgba(231,76,60,0.15);color:#e74c3c;border-color:rgba(231,76,60,0.4)}
+.hero .badge.type-b{background:rgba(52,152,219,0.15);color:#3498DB;border-color:rgba(52,152,219,0.4)}
+.hero .badge.type-c{background:rgba(63,185,80,0.15);color:#3fb950;border-color:rgba(63,185,80,0.4)}
+.back{position:absolute;top:20px;left:20px;color:#FF8C00;text-decoration:none;font-size:13px;font-weight:700;padding:7px 14px;border:2px solid #FF8C00;border-radius:18px}
+.back:hover{background:#FF8C00;color:#001020}
+.content{max-width:900px;margin:0 auto;padding:40px 24px 60px}
+.content h1{display:none}
+.content h2{font-size:clamp(20px,2.8vw,28px);font-weight:900;color:#FF8C00;margin:32px 0 16px;letter-spacing:0.5px;border-left:5px solid #FF8C00;padding-left:14px}
+.content h2:first-child{margin-top:0}
+.content h3{font-size:18px;font-weight:900;color:#fff;margin:24px 0 12px}
+.content h4{font-size:16px;font-weight:700;color:#FF8C00;margin:18px 0 10px}
+.content p{font-size:15px;color:#dde;margin-bottom:14px}
+.content ul,.content ol{margin:0 0 16px 24px;color:#dde}
+.content li{font-size:15px;margin-bottom:6px;line-height:1.7}
+.content strong{color:#fff;font-weight:900}
+.content em{color:#FF8C00;font-style:normal;font-weight:600}
+.content code{background:rgba(255,140,0,0.12);color:#FF8C00;padding:2px 6px;border-radius:4px;font-size:13px;font-family:'D2Coding','Consolas',monospace}
+.content pre{background:rgba(0,0,0,0.4);border:1px solid rgba(255,140,0,0.25);border-radius:8px;padding:16px;overflow-x:auto;margin:16px 0}
+.content pre code{background:none;color:#bcd;padding:0;font-size:13px}
+.content blockquote{border-left:4px solid #FF8C00;background:rgba(255,140,0,0.05);padding:14px 20px;margin:16px 0;border-radius:0 8px 8px 0;color:#bcd}
+.content table{width:100%;border-collapse:collapse;margin:18px 0;background:rgba(255,255,255,0.03);border-radius:8px;overflow:hidden;font-size:14px}
+.content th,.content td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08)}
+.content th{background:rgba(255,140,0,0.15);color:#FF8C00;font-weight:900}
+.content td{color:#dde}
+.content tr:last-child td{border-bottom:none}
+.content hr{border:none;border-top:1px solid rgba(255,140,0,0.2);margin:30px 0}
+.content a{color:#FF8C00;text-decoration:none;border-bottom:1px dashed rgba(255,140,0,0.4)}
+.content a:hover{border-bottom-style:solid}
+.footer{background:#001020;border-top:1px solid #1a2a3a;padding:24px;text-align:center;color:#7a8c9c;font-size:13px}
+.footer a{color:#FF8C00;text-decoration:none;margin:0 10px}
+</style>
+</head>
+<body>
+<a href="../index.html" class="back">← 슬라이드쇼로</a>
+<section class="hero">
+  <div class="tag">SUNNY AI MAGIC 50 · #16</div>
+  <h1>일반 Subagent와 Agent Teams 차이를 이해하고 작업시키기</h1>
+  <div class="subtitle">메인에게만 보고하고 끝나는 하위 작업자 vs 팀메이트끼리 직접 통신하는 조직 단위 협업</div>
+  <div class="meta">
+    <span class="badge">G3 · 실행 방법</span>
+    <span class="badge type-b">B타입</span>
+    
+  </div>
+</section>
+
+<section class="content">
+<h2>한 줄 정의</h2>
+<p><strong>Subagent</strong> 는 단일 세션 내 메인이 호출한 <em>하위 작업자</em> — 메인에게만 보고하고 끝. <strong>Agent Teams</strong> 는 본인 <code>settings.json</code> 의 <code>CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1</code> 환경변수로 활성화되는 공식 기능 — 팀리더 + 팀메이트들이 <strong>각자 독립 컨텍스트 윈도우</strong> 를 갖고 <strong>팀메이트끼리 직접 통신</strong> 하는 <em>조직 단위 협업 구조</em>. 양쪽 경계를 모르면 30개 동시 운용에서 컨텍스트가 무너진다.</p>
+<h2>왜 이 노하우가 중요한가</h2>
+<p>본인이 30개 동시 Claude Code 인스턴스를 굴리기 시작한 초기, 가장 많이 만난 사고가 <em>"분명히 작업 시켰는데 메인이 받은 보고가 단편적"</em> 이었다. 이유는 단순했다 — <strong>Subagent 와 Agent Teams 를 같은 것으로 착각</strong> 하고 있었기 때문이다. Subagent 는 메인 컨텍스트의 <em>연장선</em> 이라 자기 결과를 메인에게 1회 텍스트로 보고하고 사라진다. Agent Teams 의 팀메이트는 <em>독립 인스턴스</em> 라 자기 컨텍스트를 따로 유지하면서 옆 팀메이트와 직접 통신한다. 둘은 도구가 다른 게 아니라 <strong>조직 모델 자체가 다르다</strong>.</p>
+<p>이 차이가 결정적인 이유는 <strong>장기 작업의 정보 손실</strong> 이다. SAL Grid Stage 5단계짜리 프로젝트에서 분대장 3명이 각자 Stage 1~5 를 굴린다고 치자. Subagent 모델로 하면 분대장 3명이 각자 메인에게만 보고 → 메인 컨텍스트가 3배속으로 차서 Stage 3 즈음 / compact 발동 → 정보 유실. Agent Teams 모델로 하면 분대장(팀메이트)끼리 직접 통신해서 Stage 간 인계가 메인을 거치지 않는다 → 메인 컨텍스트는 지휘만 담당, 끝까지 깨끗.</p>
+<p>본인 글로벌 <code>~/.claude/settings.json</code> 첫 줄 인용 (실제 본인 설정 파일):</p>
+<pre><code class="language-json">{
+  &quot;env&quot;: {
+    &quot;CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS&quot;: &quot;1&quot;
+  }
+}
+</code></pre>
+<p>이 한 줄로 백호 스킬(<code>백호-platoon-formation</code>) 의 44명 편제 — 소대장 1명 + 분대장 N명(Alpha/Bravo/Charlie/Delta/Echo) + 분대원들 + 외부 용병 4명 + 21 Skills — 가 실제로 작동한다. 이 변수 없이 백호 스킬을 호출하면 <em>분대장끼리 통신</em> 부분이 모두 메인 경유 텍스트 보고로 격하된다 — 실질적으로 Subagent 모드로 다운그레이드.</p>
+<p>또 하나 — <code>deploy-subagent-기본</code> 의 8대 철칙 1번 <em>"분대장 주도"</em> 와 정확히 짝. <strong>분대장(팀메이트)은 위임만 하는 지휘관이 아니라 자기도 총 쏘면서 분대원(Subagent)을 지휘하는 실전 지휘관</strong>. 즉 Agent Teams 의 팀메이트가 자기 안에서 Subagent 를 또 호출할 수 있다 — 2계층 조직.</p>
+<h2>핵심 개념</h2>
+<h3>양자 비교표</h3>
+<table>
+<thead>
+<tr>
+<th>차원</th>
+<th>Subagent</th>
+<th>Agent Teams (팀메이트)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>활성화</strong></td>
+<td>기본 제공</td>
+<td><code>CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1</code> 필수</td>
+</tr>
+<tr>
+<td><strong>호출 도구</strong></td>
+<td>Task tool</td>
+<td>SendMessage / 팀 매니페스트</td>
+</tr>
+<tr>
+<td><strong>컨텍스트 윈도우</strong></td>
+<td>메인 세션 일부 차감</td>
+<td><strong>각자 독립 윈도우</strong> (200K씩 별개)</td>
+</tr>
+<tr>
+<td><strong>세션 수명</strong></td>
+<td>작업 1회분 (응답 후 소멸)</td>
+<td><strong>장기 (세션 종료까지 유지)</strong></td>
+</tr>
+<tr>
+<td><strong>통신 방향</strong></td>
+<td>메인 → Subagent → 메인 (1왕복)</td>
+<td>팀리더 ↔ 팀메이트 / <strong>팀메이트 ↔ 팀메이트 직접</strong></td>
+</tr>
+<tr>
+<td><strong>상태 보존</strong></td>
+<td>없음 (호출마다 초기화)</td>
+<td>있음 (대화 누적)</td>
+</tr>
+<tr>
+<td><strong>메인 컨텍스트 부담</strong></td>
+<td>결과 텍스트 흡수 (수십 KB)</td>
+<td>보고 요약만 흡수 (수백 byte)</td>
+</tr>
+<tr>
+<td><strong>계층</strong></td>
+<td>1계층 (메인 → 분대원)</td>
+<td>2계층 가능 (팀메이트 → Subagent)</td>
+</tr>
+<tr>
+<td><strong>모델 지정</strong></td>
+<td>호출 시 (haiku/sonnet)</td>
+<td>팀 정의 시 (각 팀메이트별)</td>
+</tr>
+<tr>
+<td><strong>병렬성</strong></td>
+<td>가능 (Task 동시 호출)</td>
+<td>가능 + 팀메이트 간 직접 메시지</td>
+</tr>
+<tr>
+<td><strong>사용 시점</strong></td>
+<td>단순·반복·전문 위임</td>
+<td>장기 협업·Stage 인계·다관점 토론</td>
+</tr>
+</tbody>
+</table>
+<h3>Subagent — 분대원 모델</h3>
+<p><code>deploy-subagent-기본</code> 표 인용:</p>
+<table>
+<thead>
+<tr>
+<th>역할</th>
+<th>직접 수행</th>
+<th>서브에이전트 투입</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>소대장 (Claude Code 메인)</td>
+<td>X — 지휘/조율만</td>
+<td>분대장에게 임무 부여</td>
+</tr>
+<tr>
+<td>분대장 (Teammate)</td>
+<td><strong>O — 직접 일함</strong></td>
+<td>필요시 서브에이전트/용병 소환</td>
+</tr>
+<tr>
+<td>분대원 (Subagent)</td>
+<td>O — 위임받은 일</td>
+<td>X</td>
+</tr>
+<tr>
+<td>용병 (외부 AI)</td>
+<td>O — 전문 분야</td>
+<td>X</td>
+</tr>
+</tbody>
+</table>
+<p>분대원(Subagent)은 <em>능력 확장 수단</em>. 분대장 대체가 아니다. 본인 분대원 호출 시점은 <strong>3가지</strong> 로 좁혀져 있다:
+1. <strong>전문성 부족</strong> — Rust 최적화·DB 튜닝 등 자기가 못 하는 분야
+2. <strong>병렬 처리</strong> — 코딩하면서 동시에 테스트
+3. <strong>대량 반복</strong> — 100개 파일 포맷 변환</p>
+<p>이 3가지 외에는 분대장이 직접 한다.</p>
+<h3>Agent Teams — 팀 편제 모델</h3>
+<p>백호 스킬의 44명 편제 골격 인용:</p>
+<pre><code>소대장(team-lead, opus) — 지휘·조율, 직접 코딩 최소화
+  ├─ 1분대장 Alpha (sonnet, 임무 시 역할 배정)
+  ├─ 2분대장 Bravo (sonnet)
+  ├─ 3분대장 Charlie (sonnet)
+  ├─ 4분대장 Delta (sonnet)  ← B형 추가
+  ├─ 5분대장 Echo (sonnet)   ← B형 추가
+  └─ 6분대장+ Foxtrot~ (sonnet) ← C형 지정 시
++ 외부 용병 4명 (Codex / Gemini / Grok / Perplexity — #22)
++ 21 Skills (분대장이 호출 가능)
+</code></pre>
+<p>각 분대장은 <strong>독립 컨텍스트 윈도우</strong> 를 가지므로 <em>5개 분대 = 5×200K = 1M 토큰</em> 의 작업 공간이 동시 가동. 메인은 보고만 받으니 메인 컨텍스트는 거의 안 차오른다.</p>
+<p>분대장 간 직접 통신이 Agent Teams 의 결정적 가치 — Bravo 가 Charlie 에게 직접 <em>"내가 만든 API 스펙 확인해 줘"</em> 라고 메시지를 보낼 수 있다. 메인 경유가 아니라 팀메이트 간 SendMessage. 이 경로가 없으면 모든 통신이 메인을 거쳐 컨텍스트가 폭발.</p>
+<h3>어떤 작업에 어느 모델</h3>
+<table>
+<thead>
+<tr>
+<th>작업 성격</th>
+<th>Subagent</th>
+<th>Agent Teams</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>한 함수 리팩터링</td>
+<td>O</td>
+<td>과잉</td>
+</tr>
+<tr>
+<td>100개 파일 포맷 변환</td>
+<td>O</td>
+<td>과잉</td>
+</tr>
+<tr>
+<td>5단계 SAL Grid 프로젝트</td>
+<td>부족</td>
+<td><strong>O</strong></td>
+</tr>
+<tr>
+<td>다관점 페르소나 토론 (#1)</td>
+<td>부족</td>
+<td><strong>O</strong> (각 페르소나가 팀메이트)</td>
+</tr>
+<tr>
+<td>단순 조사 1건</td>
+<td>O (haiku)</td>
+<td>과잉</td>
+</tr>
+<tr>
+<td>풀스택 24시간 작업</td>
+<td>부족</td>
+<td><strong>O</strong></td>
+</tr>
+<tr>
+<td>Stage 간 인계 보장</td>
+<td>약함</td>
+<td><strong>O</strong></td>
+</tr>
+<tr>
+<td>30개 동시 운용 분산</td>
+<td>분담 가능</td>
+<td><strong>O</strong> (체계화)</td>
+</tr>
+</tbody>
+</table>
+<p>판단 기준은 단순하다 — <em>"세션 끝나도 살아 있어야 하는가"</em> 가 YES 면 Agent Teams, NO 면 Subagent.</p>
+<h3>자기 검증 금지 — 양쪽 공통</h3>
+<p>Subagent 든 팀메이트든 <strong>자기 산출물을 자기가 검증하면 안 된다</strong>. Bravo 가 만든 UI 는 Charlie 가 Playwright 로 클릭 검증, Alpha 가 만든 API 는 Bravo 가 호출 검증. <em>Task Agent ≠ Verification Agent</em> 원칙은 Agent Teams 에서 더 엄격하게 강제된다 (백호 스킬에 박혀 있음).</p>
+<h2>실전 사용법</h2>
+<h3>1단계 — 환경변수 활성화 확인</h3>
+<pre><code class="language-bash">grep AGENT_TEAMS ~/.claude/settings.json
+# → &quot;CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS&quot;: &quot;1&quot; 가 있어야 함
+</code></pre>
+<p>없으면 Agent Teams 호출 자체가 안 되거나 Subagent 모드로 다운그레이드. 본인 글로벌 settings.json 에 박혀 있어 모든 프로젝트에서 자동.</p>
+<h3>2단계 — 의사결정 — Subagent 또는 Agent Teams</h3>
+<table>
+<thead>
+<tr>
+<th>질문</th>
+<th>YES → Subagent</th>
+<th>YES → Agent Teams</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>응답 1회로 끝나는가?</td>
+<td>O</td>
+<td>—</td>
+</tr>
+<tr>
+<td>메인 컨텍스트 200K 중 절반 이하 사용 중인가?</td>
+<td>O</td>
+<td>—</td>
+</tr>
+<tr>
+<td>작업이 4시간 이상 지속되는가?</td>
+<td>—</td>
+<td>O</td>
+</tr>
+<tr>
+<td>Stage 간 인계가 필요한가?</td>
+<td>—</td>
+<td>O</td>
+</tr>
+<tr>
+<td>팀메이트 간 직접 통신이 필요한가?</td>
+<td>—</td>
+<td>O</td>
+</tr>
+<tr>
+<td>30개 동시 운용 중인가?</td>
+<td>—</td>
+<td>O</td>
+</tr>
+</tbody>
+</table>
+<h3>3단계 — Subagent 호출 시 필수 주입</h3>
+<p><code>deploy-subagent-기본</code> 8대 철칙 8번 — <strong>저장 위치 규칙</strong> 을 프롬프트에 박지 않으면 투입 금지:</p>
+<pre><code>## 저장 위치 규칙 (필수)
+1. Stage 폴더 (원본): SAL_Grid_Dev_Suite/Process/S{N}_스테이지명/{Area폴더}/
+2. 루트 디렉토리 (배포용): app/, components/, lib/ 등
+- Stage 폴더 저장 누락 시 Verification 에서 FAIL
+</code></pre>
+<p>이 블록 없으면 본인이 S1 Batch 에서 겪은 <em>"5개 Task 중 4개 Stage 폴더 누락"</em> 사고 재발.</p>
+<h3>4단계 — Agent Teams 호출 — 백호 스킬</h3>
+<p>본인 백호 스킬(<code>백호-platoon-formation</code>) 한 줄 호출:</p>
+<pre><code>/백호-platoon-formation A형 — Alpha/Bravo/Charlie 3분대 즉시 스폰
+</code></pre>
+<p>A형(3분대 기본) → B형(5분대) → C형(지휘관 지정 N분대) 단계적 확장. 분대장 스폰 후 소대장이 AskUserQuestion 으로 임무 + 분대 수 질문, 그 다음 작업 분해(TaskCreate) + 통합 배정(SendMessage) 으로 각 분대장에게 <em>업무 + 모델 등급 + 도구 권한</em> 일괄 지정.</p>
+<h3>5단계 — 검증 분리</h3>
+<table>
+<thead>
+<tr>
+<th>산출물</th>
+<th>검증자</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alpha 산출 코드</td>
+<td>Bravo (다른 팀메이트)</td>
+</tr>
+<tr>
+<td>Bravo 산출 UI</td>
+<td>Charlie (Playwright 클릭 검증)</td>
+</tr>
+<tr>
+<td>Charlie 산출 문서</td>
+<td>review-evaluate-코어1 스킬</td>
+</tr>
+<tr>
+<td>외부 용병(Codex) 산출</td>
+<td>메인 Claude Code 또는 Bravo</td>
+</tr>
+</tbody>
+</table>
+<p>자기 검증 절대 금지. 별도 Verification Agent 가 클릭/실행/측정으로 통과시켜야 <em>Verified</em>.</p>
+<h3>본인 운용 패턴</h3>
+<p>본인은 <strong>3시간 미만 작업 = Subagent, 3시간 이상 = Agent Teams</strong> 로 단순화해 운용. 5개 컴퓨터 × 6개 인스턴스 = 30 인스턴스 운용 시 각 컴퓨터가 1개 소대(소대장 1 + 분대장 N) 단위로 묶여 컴퓨터 간에는 메인 채팅으로만 인계 — 컴퓨터 안에서는 Agent Teams 의 팀메이트 간 직통 통신 활용.</p>
+<p>장기 SAL Grid 프로젝트에서는 Stage 1~5 를 분대장 5명에게 분배하고 인계는 직통 메시지로 처리. 메인은 Stage Gate 통과 보고만 받음. 누적 운용에서 가장 큰 컨텍스트 효율 향상이 이 변경에서 나왔다 — <em>메인 컨텍스트가 8시간 작업 후에도 30% 미만</em> 유지.</p>
+<p>미달성 사례 — 단순 작업에 Agent Teams 를 무리하게 적용하면 팀 스폰 오버헤드(약 30~60초)가 작업 시간보다 큰 역전 현상 발생. <em>오버킬 금지</em> 원칙. 본인 운용 첫 1개월에 이 실수를 가장 많이 했다.</p>
+<blockquote>
+<p>Vault 사례: <code>ax-practical-project/wiki/2026_05_03_21.05_import_2026_04_01__PHASE_Bravo_S5S6_instruction_rework.md</code> 는 <em>Bravo (2분대장)</em> 가 S5DS·S5SC·S5MD·S6 등 30개 Task의 instruction + verification 한 쌍을 1일 안에 전면 재작성한 노트다. Phase 1~30이 모두 <code>[x]</code> 로 닫혀 있고, 분대장 한 명이 자기 관할 영역 30개를 완결한 <em>Agent Teams 운용의 정상 사례</em> — 메인 컨텍스트는 <em>"Bravo, S5/S6 30개 재작성 시작 → 완료 보고만 받음"</em> 으로 끝난다. 27번 본 항목의 <em>"Stage 1~5를 분대장 5명에게 분배하면 메인 컨텍스트가 8시간 작업 후에도 30% 미만"</em> 명제의 실측 증거.</p>
+</blockquote>
+<h2>관련 항목</h2>
+<ul>
+<li><strong>#31 5컴퓨터 30개 운용</strong> — Agent Teams 가 30개 분산의 골격</li>
+<li><strong>#14 군대 소대 편제</strong> — 백호 스킬과 직접 짝</li>
+<li><strong>#1 전문가 페르소나 토론</strong> — 페르소나 = 팀메이트</li>
+<li><strong>#22 오케스트레이터 + 멀티 CLI</strong> — 17번이 외부 용병, 27번이 내부 팀</li>
+<li><strong>#32 CLAUDE.md 활용</strong> — 환경변수·스킬 규칙을 글로벌 CLAUDE.md 에 박기</li>
+<li><strong>#14 1개 AI Multi Role</strong> — 단일 인스턴스 다역할 vs 27번 다인스턴스</li>
+<li><strong>#15 컨텍스트 관리</strong> — Agent Teams 가 메인 컨텍스트 보호 도구</li>
+<li><strong>#49 스크린샷 자율 검증</strong> — Verification Agent 자리에 들어가는 도구</li>
+</ul>
+</section>
+
+<div class="footer">
+  <a href="../index.html">← SUNNY AI MAGIC 50</a>
+  <div style="margin-top:10px;color:#5a6c7c;font-size:12px;letter-spacing:0.3px">© 2026 SUN WOONGKYU · SUNNY AI MAGIC 50 · CC BY-NC-ND 4.0 · 특허 별도 보유</div>
+</div>
+</body>
+</html>

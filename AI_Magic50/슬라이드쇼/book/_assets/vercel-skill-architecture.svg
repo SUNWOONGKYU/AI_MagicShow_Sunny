@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 1080" font-family="'Segoe UI','Malgun Gothic',sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0F1629"/>
+      <stop offset="100%" stop-color="#1A1A2E"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1A56DB"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E2B04A"/>
+      <stop offset="100%" stop-color="#F5D78E"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#DC2626"/>
+      <stop offset="100%" stop-color="#EF4444"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3B82F6"/>
+    </marker>
+    <marker id="arrowGold" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#E2B04A"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#10B981"/>
+    </marker>
+    <marker id="arrowPurple" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#A78BFA"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#EF4444"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="1080" fill="url(#bgGrad)" rx="16"/>
+
+  <!-- Title -->
+  <text x="550" y="42" text-anchor="middle" fill="#E2B04A" font-size="20" font-weight="800" letter-spacing="2">/vercel-private-url-배포</text>
+  <text x="550" y="65" text-anchor="middle" fill="#A0A0BC" font-size="13">3줄 입력으로 비공개 URL 발급까지 — 7단계 자동 배포 아키텍처</text>
+
+  <!-- ═══════════ PHASE 0: 사용자 입력 ═══════════ -->
+  <rect x="30" y="90" width="1040" height="110" rx="12" fill="#16213E" stroke="#2A2A4A" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="30" y="90" width="1040" height="4" rx="2" fill="url(#goldGrad)"/>
+  <text x="55" y="115" fill="#E2B04A" font-size="13" font-weight="700">PHASE 0</text>
+  <text x="130" y="115" fill="#E8E8F0" font-size="13" font-weight="600">사용자 입력 (3줄로 끝)</text>
+
+  <rect x="55" y="130" width="320" height="55" rx="8" fill="#0F3460" stroke="#1A56DB" stroke-width="1"/>
+  <text x="215" y="152" text-anchor="middle" fill="#3B82F6" font-size="11" font-weight="700">파일</text>
+  <text x="215" y="172" text-anchor="middle" fill="#A0A0BC" font-size="10">G:/.../my-report/index.html</text>
+
+  <rect x="395" y="130" width="320" height="55" rx="8" fill="#0F3460" stroke="#1A56DB" stroke-width="1"/>
+  <text x="555" y="152" text-anchor="middle" fill="#3B82F6" font-size="11" font-weight="700">프로젝트명 (영문)</text>
+  <text x="555" y="172" text-anchor="middle" fill="#A0A0BC" font-size="10">my-report-2026</text>
+
+  <rect x="735" y="130" width="310" height="55" rx="8" fill="#0F3460" stroke="#1A56DB" stroke-width="1"/>
+  <text x="890" y="152" text-anchor="middle" fill="#3B82F6" font-size="11" font-weight="700">비밀번호 옵션</text>
+  <text x="890" y="172" text-anchor="middle" fill="#A0A0BC" font-size="10">없음 / 고정 / supabase</text>
+
+  <!-- Arrow Phase 0 → Phase 1 -->
+  <line x1="550" y1="200" x2="550" y2="225" stroke="#E2B04A" stroke-width="2" marker-end="url(#arrowGold)"/>
+
+  <!-- ═══════════ PHASE 1: 사전 점검 ═══════════ -->
+  <rect x="30" y="228" width="1040" height="110" rx="12" fill="#16213E" stroke="#2A2A4A" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="30" y="228" width="1040" height="4" rx="2" fill="url(#blueGrad)"/>
+  <text x="55" y="253" fill="#3B82F6" font-size="13" font-weight="700">PHASE 1</text>
+  <text x="130" y="253" fill="#E8E8F0" font-size="13" font-weight="600">사전 점검 — Step 1</text>
+
+  <rect x="55" y="268" width="490" height="55" rx="8" fill="#0F3460" stroke="#3B82F6" stroke-width="1"/>
+  <text x="300" y="288" text-anchor="middle" fill="#3B82F6" font-size="11" font-weight="700">.vercel/ 폴더 탐색</text>
+  <text x="300" y="306" text-anchor="middle" fill="#A0A0BC" font-size="10">있으면 → 재배포 모드 (--name 무시)</text>
+
+  <rect x="555" y="268" width="490" height="55" rx="8" fill="#0F3460" stroke="#3B82F6" stroke-width="1"/>
+  <text x="800" y="288" text-anchor="middle" fill="#3B82F6" font-size="11" font-weight="700">한글 폴더 감지 → 영문 --name 자동 적용</text>
+  <text x="800" y="306" text-anchor="middle" fill="#A0A0BC" font-size="10">소문자 + 하이픈 규칙, 특수문자 금지</text>
+
+  <!-- Arrow Phase 1 → Phase 2 -->
+  <line x1="550" y1="338" x2="550" y2="363" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ═══════════ PHASE 2: 보호 장치 ═══════════ -->
+  <rect x="30" y="366" width="1040" height="170" rx="12" fill="#16213E" stroke="#2A2A4A" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="30" y="366" width="1040" height="4" rx="2" fill="url(#purpleGrad)"/>
+  <text x="55" y="391" fill="#A78BFA" font-size="13" font-weight="700">PHASE 2</text>
+  <text x="130" y="391" fill="#E8E8F0" font-size="13" font-weight="600">보호 장치 자동 삽입 — Step 2 + Step 3</text>
+
+  <!-- Search engine block (left) -->
+  <rect x="55" y="406" width="490" height="115" rx="8" fill="#1A1A2E" stroke="#A78BFA" stroke-width="1"/>
+  <text x="300" y="428" text-anchor="middle" fill="#A78BFA" font-size="12" font-weight="700">검색엔진 차단 (Step 3)</text>
+  <rect x="75" y="440" width="450" height="32" rx="6" fill="#0F3460" stroke="#7C3AED" stroke-width="1"/>
+  <text x="300" y="461" text-anchor="middle" fill="#E8E8F0" font-size="11">&lt;meta name="robots" content="noindex, nofollow"&gt;</text>
+  <rect x="75" y="478" width="450" height="32" rx="6" fill="#0F3460" stroke="#7C3AED" stroke-width="1"/>
+  <text x="300" y="499" text-anchor="middle" fill="#E8E8F0" font-size="11">robots.txt — Disallow: /</text>
+
+  <!-- Password gate (right) -->
+  <rect x="555" y="406" width="490" height="115" rx="8" fill="#1A1A2E" stroke="#A78BFA" stroke-width="1"/>
+  <text x="800" y="428" text-anchor="middle" fill="#A78BFA" font-size="12" font-weight="700">비밀번호 게이트 분기 (Step 2)</text>
+  <rect x="575" y="440" width="140" height="65" rx="6" fill="#0F3460" stroke="#7C3AED" stroke-width="1"/>
+  <text x="645" y="460" text-anchor="middle" fill="#A78BFA" font-size="11" font-weight="700">없음</text>
+  <text x="645" y="478" text-anchor="middle" fill="#A0A0BC" font-size="9">정적 HTML 직접</text>
+  <text x="645" y="494" text-anchor="middle" fill="#6B6B88" font-size="9">URL만 가리면 끝</text>
+
+  <rect x="725" y="440" width="140" height="65" rx="6" fill="#0F3460" stroke="#7C3AED" stroke-width="1"/>
+  <text x="795" y="460" text-anchor="middle" fill="#A78BFA" font-size="11" font-weight="700">고정</text>
+  <text x="795" y="478" text-anchor="middle" fill="#A0A0BC" font-size="9">Next.js + env</text>
+  <text x="795" y="494" text-anchor="middle" fill="#6B6B88" font-size="9">PASSWORD 단일값</text>
+
+  <rect x="875" y="440" width="155" height="65" rx="6" fill="#0F3460" stroke="#7C3AED" stroke-width="1"/>
+  <text x="952" y="460" text-anchor="middle" fill="#A78BFA" font-size="11" font-weight="700">supabase</text>
+  <text x="952" y="478" text-anchor="middle" fill="#A0A0BC" font-size="9">Next.js + DB 검증</text>
+  <text x="952" y="494" text-anchor="middle" fill="#6B6B88" font-size="9">생년월일 등 필드</text>
+
+  <!-- Arrow Phase 2 → Phase 3 -->
+  <line x1="550" y1="536" x2="550" y2="561" stroke="#A78BFA" stroke-width="2" marker-end="url(#arrowPurple)"/>
+
+  <!-- ═══════════ PHASE 3: 배포 + 인증 해제 ═══════════ -->
+  <rect x="30" y="564" width="1040" height="170" rx="12" fill="#16213E" stroke="#2A2A4A" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="30" y="564" width="1040" height="4" rx="2" fill="url(#blueGrad)"/>
+  <text x="55" y="589" fill="#3B82F6" font-size="13" font-weight="700">PHASE 3</text>
+  <text x="130" y="589" fill="#E8E8F0" font-size="13" font-weight="600">배포 실행 — Step 4 + Step 5</text>
+
+  <!-- Vercel deploy command -->
+  <rect x="55" y="604" width="490" height="115" rx="8" fill="#1A1A2E" stroke="#3B82F6" stroke-width="1"/>
+  <text x="300" y="626" text-anchor="middle" fill="#3B82F6" font-size="12" font-weight="700">Vercel CLI 배포 (Step 4)</text>
+  <rect x="75" y="640" width="450" height="36" rx="6" fill="#0B1929" stroke="#1A56DB" stroke-width="1"/>
+  <text x="300" y="663" text-anchor="middle" fill="#10B981" font-size="12" font-family="'Courier New',monospace">$ vercel --prod --yes --name &lt;name&gt;</text>
+  <text x="300" y="697" text-anchor="middle" fill="#A0A0BC" font-size="10">한글 경로 시 영문 폴더로 복사 후 빌드</text>
+  <text x="300" y="712" text-anchor="middle" fill="#6B6B88" font-size="9">결과 URL: https://&lt;name&gt;-&lt;hash&gt;.vercel.app</text>
+
+  <!-- 401 recovery -->
+  <rect x="555" y="604" width="490" height="115" rx="8" fill="#1A1A2E" stroke="#3B82F6" stroke-width="1"/>
+  <text x="800" y="626" text-anchor="middle" fill="#3B82F6" font-size="12" font-weight="700">401 자동 복구 (Step 5)</text>
+  <rect x="575" y="640" width="450" height="36" rx="6" fill="#0B1929" stroke="#1A56DB" stroke-width="1"/>
+  <text x="800" y="663" text-anchor="middle" fill="#FBBF24" font-size="11" font-family="'Courier New',monospace">PATCH /v9/projects/{id} → ssoProtection: null</text>
+  <text x="800" y="697" text-anchor="middle" fill="#A0A0BC" font-size="10">auth.json에서 토큰 추출 → Vercel API 호출</text>
+  <text x="800" y="712" text-anchor="middle" fill="#6B6B88" font-size="9">vercel.json 인증키 금지 — API로만 해제</text>
+
+  <!-- Arrow Phase 3 → Phase 4 -->
+  <line x1="550" y1="734" x2="550" y2="759" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ═══════════ PHASE 4: 검증 ═══════════ -->
+  <rect x="30" y="762" width="1040" height="110" rx="12" fill="#16213E" stroke="#10B981" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="30" y="762" width="1040" height="4" rx="2" fill="url(#greenGrad)"/>
+  <text x="55" y="787" fill="#10B981" font-size="13" font-weight="700">PHASE 4</text>
+  <text x="130" y="787" fill="#E8E8F0" font-size="13" font-weight="600">검증 — Step 6 + Step 7 ("curl 200 ≠ 동작함")</text>
+
+  <rect x="55" y="802" width="490" height="55" rx="8" fill="#0F3460" stroke="#10B981" stroke-width="1"/>
+  <text x="300" y="822" text-anchor="middle" fill="#10B981" font-size="11" font-weight="700">curl -I → HTTP 200 + noindex 응답 헤더</text>
+  <text x="300" y="840" text-anchor="middle" fill="#A0A0BC" font-size="10">서버 응답 레벨 확인 — 통과해도 안 끝남</text>
+
+  <rect x="555" y="802" width="490" height="55" rx="8" fill="#0F3460" stroke="#10B981" stroke-width="1"/>
+  <text x="800" y="822" text-anchor="middle" fill="#10B981" font-size="11" font-weight="700">Playwright 브라우저 클릭 검증</text>
+  <text x="800" y="840" text-anchor="middle" fill="#A0A0BC" font-size="10">주요 버튼 4개 이상 정상 라우트 / dead-link 0</text>
+
+  <!-- Arrow Phase 4 → Phase 5 -->
+  <line x1="550" y1="872" x2="550" y2="897" stroke="#10B981" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+  <!-- ═══════════ PHASE 5: 결과 전달 ═══════════ -->
+  <rect x="30" y="900" width="1040" height="120" rx="12" fill="#16213E" stroke="#EF4444" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="30" y="900" width="1040" height="4" rx="2" fill="url(#redGrad)"/>
+  <text x="55" y="925" fill="#EF4444" font-size="13" font-weight="700">PHASE 5</text>
+  <text x="130" y="925" fill="#E8E8F0" font-size="13" font-weight="600">결과물 전달 — URL이 폰까지 닿는다</text>
+
+  <rect x="55" y="940" width="305" height="65" rx="8" fill="#0F3460" stroke="#EF4444" stroke-width="1"/>
+  <text x="207" y="962" text-anchor="middle" fill="#EF4444" font-size="11" font-weight="700">① 비공개 URL 발급</text>
+  <text x="207" y="980" text-anchor="middle" fill="#A0A0BC" font-size="10">https://&lt;name&gt;.vercel.app</text>
+  <text x="207" y="996" text-anchor="middle" fill="#6B6B88" font-size="9">검색엔진 노출 0</text>
+
+  <text x="380" y="975" fill="#EF4444" font-size="20">→</text>
+
+  <rect x="395" y="940" width="305" height="65" rx="8" fill="#0F3460" stroke="#EF4444" stroke-width="1"/>
+  <text x="547" y="962" text-anchor="middle" fill="#EF4444" font-size="11" font-weight="700">② G드라이브 .txt 저장</text>
+  <text x="547" y="980" text-anchor="middle" fill="#A0A0BC" font-size="10">G:\내 드라이브\...\URL.txt</text>
+  <text x="547" y="996" text-anchor="middle" fill="#6B6B88" font-size="9">날짜·용도 포함 파일명</text>
+
+  <text x="720" y="975" fill="#EF4444" font-size="20">→</text>
+
+  <rect x="735" y="940" width="310" height="65" rx="8" fill="#0F3460" stroke="#EF4444" stroke-width="1"/>
+  <text x="890" y="962" text-anchor="middle" fill="#EF4444" font-size="11" font-weight="700">③ 폰 Google 드라이브 앱</text>
+  <text x="890" y="980" text-anchor="middle" fill="#A0A0BC" font-size="10">받을 사람만 본다</text>
+  <text x="890" y="996" text-anchor="middle" fill="#6B6B88" font-size="9">원격접속 복사 한계 해소</text>
+
+  <!-- Footer -->
+  <text x="550" y="1052" text-anchor="middle" fill="#4A4A6A" font-size="10">/vercel-private-url-배포 · Claude Code Skill · ~/.claude/skills/vercel-private-url-배포/SKILL.md</text>
+</svg>

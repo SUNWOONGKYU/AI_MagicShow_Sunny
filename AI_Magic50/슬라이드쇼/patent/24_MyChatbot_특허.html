@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>#24 지능형 챗봇 (MyChatbot) — 특허</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#000814;color:#fff;line-height:1.6}
+.hero{background:radial-gradient(circle at 30% 30%,#002d5c 0%,#000814 70%);padding:60px 24px 50px;text-align:center;border-bottom:3px solid #FF8C00}
+.hero .tag{color:#FF8C00;font-size:14px;font-weight:900;letter-spacing:6px;margin-bottom:14px}
+.hero h1{font-size:clamp(24px,4.5vw,46px);font-weight:900;line-height:1.2;margin-bottom:14px;color:#fff;text-shadow:0 4px 24px rgba(255,140,0,0.4)}
+.hero .sub{font-size:clamp(14px,1.8vw,18px);color:#bcd;max-width:880px;margin:0 auto;font-weight:500}
+.hero .patent-badge{display:inline-block;background:#3498DB;color:#fff;padding:6px 18px;border-radius:20px;font-size:13px;font-weight:900;letter-spacing:1px;margin-top:18px}
+.back{position:absolute;top:24px;left:24px;color:#FF8C00;text-decoration:none;font-size:14px;font-weight:700;padding:8px 16px;border:2px solid #FF8C00;border-radius:20px}
+.back:hover{background:#FF8C00;color:#001020}
+.section{max-width:1100px;margin:0 auto;padding:50px 24px}
+.section h2{font-size:clamp(22px,3vw,32px);font-weight:900;color:#FF8C00;margin-bottom:24px;letter-spacing:1px;border-left:5px solid #FF8C00;padding-left:14px}
+.section p{font-size:15px;color:#dde;margin-bottom:14px}
+.section .lead{font-size:16px;color:#fff;background:rgba(255,140,0,0.08);border:1.5px solid rgba(255,140,0,0.35);border-radius:10px;padding:20px 24px;margin-bottom:24px}
+.types{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+@media(max-width:760px){.types{grid-template-columns:1fr}}
+.type{border-radius:10px;padding:18px}
+.type.t1{background:rgba(52,152,219,0.08);border:1.5px solid rgba(52,152,219,0.4)}
+.type.t2{background:rgba(155,89,182,0.08);border:1.5px solid rgba(155,89,182,0.4)}
+.type .badge{display:inline-block;font-size:11px;font-weight:900;padding:3px 10px;border-radius:12px;margin-bottom:8px;letter-spacing:1px}
+.type.t1 .badge{background:#3498DB;color:#fff}
+.type.t2 .badge{background:#9b59b6;color:#fff}
+.type h3{font-size:16px;font-weight:900;color:#fff;margin-bottom:8px}
+.type ul{list-style:none;padding-left:0}
+.type li{font-size:13px;color:#bcd;line-height:1.7;padding-left:18px;position:relative;margin-bottom:4px}
+.type li::before{content:'▸';position:absolute;left:0;color:#FF8C00}
+.mechs{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px}
+@media(max-width:760px){.mechs{grid-template-columns:1fr}}
+.mech{background:rgba(63,185,80,0.08);border:1.5px solid rgba(63,185,80,0.35);border-radius:10px;padding:18px}
+.mech .clause{color:#3fb950;font-size:12px;font-weight:900;letter-spacing:0.5px;margin-bottom:6px}
+.mech h4{font-size:15px;font-weight:900;color:#fff;margin-bottom:8px}
+.mech p{font-size:13px;color:#bcd;line-height:1.6}
+table{width:100%;border-collapse:collapse;margin-top:18px;background:rgba(255,255,255,0.03);border-radius:8px;overflow:hidden}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08);font-size:14px}
+th{background:rgba(255,140,0,0.15);color:#FF8C00;font-weight:900}
+td{color:#dde}
+tr:last-child td{border-bottom:none}
+.footer{background:#001020;border-top:1px solid #1a2a3a;padding:30px 24px;text-align:center;color:#7a8c9c;font-size:13px}
+.footer a{color:#FF8C00;text-decoration:none;margin:0 10px}
+</style>
+</head>
+<body>
+<a href="../index.html" class="back">← 슬라이드쇼로</a>
+<section class="hero">
+  <div class="tag">SUNNY AI MAGIC · #24</div>
+  <h1>개인 맞춤형 지능형 챗봇 — 아바타·도우미 분리형<br>점진적 학습·성장 시스템</h1>
+  <div class="sub">전문지식·특기를 가진 아바타형 + 업무·일상을 보조하는 도우미형 — 두 축으로 분리해서 "키우는" 방식으로 운용되는 개인 챗봇 특허</div>
+  <div class="patent-badge">📜 특허 출원 · MyChatbot</div>
+</section>
+
+<section class="section">
+  <h2>📌 발명의 핵심</h2>
+  <div class="lead">
+    기존 범용 챗봇과 달리 <strong>"내가 키우는" 개인 챗봇</strong>으로 설계. 두 가지 역할 축(아바타형 / 도우미형)을 분리하여 각각 다른 학습 경로·메모리 영역·페르소나를 갖게 한다. 사용자와의 상호작용·문서·취향이 누적될수록 점진적으로 성장하며, 학습된 챗봇은 다른 사람에게 <strong>지식 전수·특기 전수</strong> 채널로도 활용 가능.
+  </div>
+</section>
+
+<section class="section">
+  <h2>🎯 2-Axis 분리형 구조</h2>
+  <div class="types">
+    <div class="type t1">
+      <span class="badge">AVATAR · 아바타형</span>
+      <h3>전문지식·특기 전수 채널</h3>
+      <ul>
+        <li>본인의 전문지식·노하우를 축적한 챗봇</li>
+        <li>제3자에게 본인 대신 답변 가능 (지식 전수)</li>
+        <li>특기 전수형 — 요리·운전·코딩 등 실기 스킬</li>
+        <li>아바타 페르소나 일관성 유지 (말투·관점)</li>
+      </ul>
+    </div>
+    <div class="type t2">
+      <span class="badge">ASSISTANT · 도우미형</span>
+      <h3>업무·일상 보조 채널</h3>
+      <ul>
+        <li>업무용 — 일정·메일·문서·미팅 보조</li>
+        <li>일상용 — 가계부·건강·취미·여행 보조</li>
+        <li>도우미 페르소나 — 사용자에 맞춰 톤 조정</li>
+        <li>아바타와는 메모리 영역 분리 (혼선 방지)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>🛠 핵심 차별화 메커니즘</h2>
+  <div class="mechs">
+    <div class="mech"><div class="clause">(a) 역할 분리 메모리</div><h4>Avatar Memory · Assistant Memory</h4><p>두 역할은 별도의 메모리 영역과 RAG 인덱스를 갖는다. 도우미 학습이 아바타 지식을 오염시키지 않음</p></div>
+    <div class="mech"><div class="clause">(b) 점진적 성장</div><h4>"키우기" 메타포</h4><p>상호작용·피드백·문서 추가가 누적될수록 인덱스·페르소나가 강화. 사용자가 챗봇의 성장도를 시각적으로 확인 가능</p></div>
+    <div class="mech"><div class="clause">(c) 전수 가능성</div><h4>아바타형의 외부 공유</h4><p>학습된 아바타를 가족·동료·후배에게 공유. 본인이 직접 답변하지 않아도 본인 노하우 전수 가능</p></div>
+    <div class="mech"><div class="clause">(d) 페르소나 일관성</div><h4>말투·관점·취향 고정 시드</h4><p>초기 시드 정보(자기소개·취향)에서 페르소나 핵심 파라미터 추출, 응답 생성 시마다 일관성 검증</p></div>
+    <div class="mech"><div class="clause">(e) 자동 학습 트리거</div><h4>대화 → 인덱스 자동 갱신</h4><p>중요한 정보가 대화에 포함되면 자동 추출하여 RAG 인덱스에 추가. 사용자가 명시적으로 "기억해줘" 안 해도 됨</p></div>
+    <div class="mech"><div class="clause">(f) 프라이버시 게이트</div><h4>공유 시 민감 정보 자동 필터</h4><p>아바타형 공유 시 비밀번호·계좌·일정·연락처 등 민감 정보 자동 제외, 공유 가능 영역만 노출</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>⚡ 기존 챗봇 서비스와의 차별점</h2>
+  <table>
+    <thead><tr><th>항목</th><th>기존 (ChatGPT · Custom GPT · Character.AI)</th><th>본 발명 (MyChatbot)</th></tr></thead>
+    <tbody>
+      <tr><td>역할 구분</td><td>단일 페르소나</td><td>아바타·도우미 2-Axis 분리</td></tr>
+      <tr><td>학습 방식</td><td>대화 세션 내 임시 메모리</td><td>점진적 누적 — "키우기" 메타포</td></tr>
+      <tr><td>지식 전수</td><td>없음 (본인만 사용)</td><td>아바타형 외부 공유 가능</td></tr>
+      <tr><td>메모리 격리</td><td>전역 단일 메모리</td><td>역할별 분리 인덱스</td></tr>
+      <tr><td>프라이버시</td><td>전체 공개 또는 전체 비공개</td><td>공유 시 민감 정보 자동 필터</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section">
+  <h2>📂 관련 항목</h2>
+  <table>
+    <tbody>
+      <tr><td><strong>#33</strong> CLAUDE.md 활용</td><td>챗봇 페르소나·메모리 정의의 사상적 출발</td></tr>
+      <tr><td><strong>#48</strong> WiKi_LLM + Obsidian</td><td>아바타형의 지식베이스 백엔드로 활용 가능</td></tr>
+      <tr><td><strong>#50</strong> 사내 AI 에이전트 하우스</td><td>도우미형이 사내 9칸 에이전트로 확장</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="footer">
+  <a href="../index.html">← Sunny AI Magic 50</a><span>·</span><a href="https://www.ax-on.net/">AX 전문가 풀</a>
+</div>
+</body>
+</html>

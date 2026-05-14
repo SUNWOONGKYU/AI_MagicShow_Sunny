@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>AI 이미지 비교 파이프라인 — Claude 앱과 Code의 차이 — 사고는 앱, 실행은 Code. 같은</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0b1020; color: #e6e9f2;
+    font-family: -apple-system, "Segoe UI", "Apple SD Gothic Neo", Roboto, sans-serif;
+    padding: 32px; max-width: 1400px; margin: 0 auto; }
+
+  /* Header */
+  .header h1 { font-size: 26px; margin-bottom: 6px; color: #fff; }
+  .header .lede { color: #8c95b3; font-size: 14px; margin-bottom: 18px; }
+
+  /* Prompt box */
+  .prompt { background: #131a31; border: 1px solid #2a3458; border-radius: 10px;
+    padding: 16px 20px; margin-bottom: 20px; font-size: 14px; color: #c8d0ee; line-height: 1.6; }
+  .prompt strong { color: #ffd270; display: block; margin-bottom: 6px; font-size: 12px;
+    text-transform: uppercase; letter-spacing: 1px; }
+
+  /* Stats bar */
+  .stats { display: flex; gap: 24px; margin-bottom: 32px; padding: 14px 20px;
+    background: #0f1530; border-radius: 8px; font-size: 13px; color: #aeb8e0; flex-wrap: wrap; }
+  .stats span { color: #fff; font-weight: 600; }
+
+  /* Step container */
+  .step { margin-bottom: 36px; }
+  .step-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px;
+    padding-bottom: 10px; border-bottom: 2px solid #1f2740; }
+  .step-num { background: #ffd270; color: #0b1020; font-weight: 800; font-size: 16px;
+    width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; flex-shrink: 0; }
+  .step-title { font-size: 18px; color: #fff; font-weight: 700; }
+  .step-desc { color: #8c95b3; font-size: 12px; margin-left: auto; }
+
+  /* Step body grid */
+  .grid5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  @media (max-width: 1100px) { .grid5 { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 700px) { .grid5 { grid-template-columns: repeat(2, 1fr); } }
+
+  /* Card */
+  .card { background: #131a31; border: 1px solid #1f2740; border-radius: 10px;
+    overflow: hidden; transition: transform .15s, border-color .15s; }
+  .card:hover { transform: translateY(-3px); border-color: #ffd270; }
+  .card.fail { border-color: #5a2a2a; opacity: 0.6; }
+  .card-thumb { background: #000; aspect-ratio: 16/9; overflow: hidden; }
+  .card-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .meta { padding: 10px 12px; }
+  .meta h3 { font-size: 13px; color: #ffd270; margin-bottom: 2px; line-height: 1.3; }
+  .meta .sub { color: #8c95b3; font-size: 11px; margin-bottom: 6px; line-height: 1.3; }
+  .badge { display: inline-block; background: #1d3a2a; color: #7ed8a4;
+    font-size: 10px; padding: 2px 6px; border-radius: 3px; }
+  .placeholder { padding: 30px 16px; text-align: center; background: #1a0e0e; color: #ff8888;
+    aspect-ratio: 16/9; display: flex; flex-direction: column; justify-content: center; }
+  .placeholder h4 { font-size: 13px; margin-bottom: 4px; }
+  .placeholder p { font-size: 10px; color: #aa6666; word-break: break-word; }
+
+  /* Arrow between steps */
+  .arrow { text-align: center; color: #ffd270; font-size: 28px; margin: -20px 0 20px;
+    line-height: 1; opacity: 0.6; }
+
+  /* Collage final */
+  .collage-wrap { background: #131a31; border: 2px solid #ffd270; border-radius: 12px;
+    overflow: hidden; }
+  .collage-wrap img { width: 100%; display: block; }
+  .collage-meta { padding: 16px 20px; background: #0f1530; }
+  .collage-meta h3 { font-size: 15px; color: #ffd270; margin-bottom: 4px; font-family: monospace; }
+  .collage-meta p { color: #c8d0ee; font-size: 13px; line-height: 1.5; }
+
+  .pp-skip { padding: 16px; background: #2a1f0e; border: 1px dashed #5a4a2a;
+    border-radius: 8px; color: #ffb870; font-size: 13px; }
+  .pp-skip code { background: #0b1020; padding: 2px 6px; border-radius: 3px; }
+
+  /* TOP PICK 섹션 */
+  .top-section { background: linear-gradient(135deg, #1a1530 0%, #131a31 100%);
+    border: 2px solid #ffd270; border-radius: 14px; padding: 24px; margin-bottom: 32px;
+    box-shadow: 0 0 30px rgba(255, 210, 112, 0.15); }
+  .top-header h2 { font-size: 22px; color: #ffd270; margin-bottom: 6px; }
+  .top-header p { color: #c8d0ee; font-size: 13px; margin-bottom: 18px; }
+  .top-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .top-card { background: #0b1020; border: 1px solid #2a3458; border-radius: 10px;
+    overflow: hidden; position: relative; }
+  .top-card.grade-gold { border-color: #ffd270; }
+  .top-card.grade-silver { border-color: #c0c8e0; }
+  .top-medal { position: absolute; top: 10px; left: 10px; font-size: 28px; z-index: 2;
+    background: rgba(0,0,0,.6); width: 44px; height: 44px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; }
+  .top-thumb { aspect-ratio: 16/9; background: #000; }
+  .top-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .top-meta { padding: 14px 16px; }
+  .top-rank { font-size: 11px; color: #8c95b3; text-transform: uppercase;
+    letter-spacing: 1px; margin-bottom: 4px; }
+  .top-meta h3 { font-size: 16px; color: #fff; margin-bottom: 2px; }
+  .top-meta .sub { color: #8c95b3; font-size: 11px; margin-bottom: 8px; }
+  .top-meta .strength { color: #c8d0ee; font-size: 12px; line-height: 1.5;
+    background: #131a31; padding: 8px 10px; border-radius: 6px;
+    border-left: 3px solid #ffd270; }
+  .g-gold { color: #ffd270; font-weight: 700; }
+  .g-silver { color: #c0c8e0; font-weight: 700; }
+  .g-bronze { color: #cd7f32; font-weight: 700; }
+  .g-cut { color: #ff6b6b; font-weight: 700; }
+
+  /* 평가표 */
+  .eval-table { width: 100%; border-collapse: collapse; background: #131a31;
+    border: 1px solid #2a3458; border-radius: 8px; overflow: hidden; }
+  .eval-table th { background: #1f2740; color: #ffd270; font-size: 12px;
+    text-align: left; padding: 10px 12px; text-transform: uppercase; letter-spacing: .5px; }
+  .eval-table td { padding: 10px 12px; font-size: 13px; color: #c8d0ee;
+    border-top: 1px solid #1f2740; }
+  .eval-table .r-rank { font-weight: 700; color: #ffd270; width: 40px; }
+  .eval-table .r-model { font-weight: 600; color: #fff; }
+  .eval-table .r-score { font-weight: 700; font-size: 16px; color: #ffd270; width: 60px; }
+  .eval-table .r-grade { width: 70px; }
+  .eval-table .r-detail { font-size: 11px; color: #8c95b3; font-family: monospace; }
+  .eval-table .r-comment { font-size: 12px; color: #aeb8e0; }
+
+  .footer { margin-top: 36px; padding-top: 20px; border-top: 1px solid #1f2740;
+    color: #6b7393; font-size: 11px; text-align: center; }
+  .footer code { color: #ffd270; }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>🎨 AI 이미지 비교 파이프라인</h1>
+    <p class="lede">하나의 프롬프트가 5개 모델을 거쳐 1장의 콜라주로 완성되는 과정.</p>
+  </div>
+
+  <div class="prompt">
+    <strong>📝 입력 프롬프트</strong>
+    Claude 앱과 Code의 차이 — 사고는 앱, 실행은 Code. 같은 Claude라도 앱(claude.ai)은 사고·문구·창의, Code(터미널)는 실행·자동화·파일 시스템 접근이라는 도구별 특성을 의식적으로 분리해 운용하는 원칙. 한국인이 컴퓨터 작업을 하는 장면. 모던 미니멀 일러스트, 따뜻한 조명, 16:9, 화면 속 텍스트는 추상 기호로만 표현, 한글 텍스트 없음
+  </div>
+
+  <div class="stats">
+    <div>생성 시각 <span>2026-05-11 04:25:13</span></div>
+    <div>모델 호출 <span>5/5 성공</span></div>
+    <div>출력 폴더 <span style="font-family:monospace;font-size:12px;">C:\Users\home\AppData\Local\Temp\img_batch\item_33</span></div>
+  </div>
+
+  
+  <div class="top-section">
+    <div class="top-header">
+      <h2>🏆 PO 추천 — TOP 2</h2>
+      <p>평가 에이전트가 정밀 채점해 골드/실버 등급에 도달한 결과만 선별. 이 중 1장만 고르면 됩니다.</p>
+    </div>
+    <div class="top-grid">
+      <div class="top-card grade-gold">
+        <div class="top-medal">🥇</div>
+        <div class="top-thumb"><img src="labeled/gemini-2_5-flash-image.png" loading="lazy"></div>
+        <div class="top-meta">
+          <div class="top-rank">#1 · <span class="g-gold">GOLD</span> 96점</div>
+          <h3>Gemini 2.5 Flash Image</h3>
+          <p class="sub">Google · 구버전</p>
+          <p class="strength">✨ 프롬프트의 핵심 의도인 '사고(앱)'와 '실행(코드)'의 차이를 추상적인 기호로 명확하게 시각화했으며, 따뜻한 조명과 모던 미니멀 일러스트 스타일을 완벽하게 구현했습니다.</p>
+        </div>
+      </div>
+      <div class="top-card grade-gold">
+        <div class="top-medal">🥈</div>
+        <div class="top-thumb"><img src="labeled/gpt-image-1.png" loading="lazy"></div>
+        <div class="top-meta">
+          <div class="top-rank">#2 · <span class="g-gold">GOLD</span> 88점</div>
+          <h3>GPT Image 1</h3>
+          <p class="sub">OpenAI · 사진묘사+마스킹</p>
+          <p class="strength">✨ 현대적인 미니멀리스트 스타일과 따뜻한 색감, 추상 기호 화면 등 시각적 요청사항을 완벽하게 구현했습니다.</p>
+        </div>
+      </div></div>
+  </div>
+
+  <!-- ───── Step 1: 5개 모델 병렬 생성 ───── -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">1</div>
+      <div class="step-title">5개 모델 병렬 생성</div>
+      <div class="step-desc">ThreadPoolExecutor · 동시 호출 · AI 원본 출력</div>
+    </div>
+    <div class="grid5">
+      <div class="card">
+        <div class="card-thumb"><img src="gemini-3-pro-image.png" loading="lazy"></div>
+        <div class="meta">
+          <h3>Gemini 3 Pro Image</h3>
+          <p class="sub">Google · 최신 최고품질</p>
+          <span class="badge">원본</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-thumb"><img src="gemini-3_1-flash-image.png" loading="lazy"></div>
+        <div class="meta">
+          <h3>Gemini 3.1 Flash Image</h3>
+          <p class="sub">Google · 빠름·저비용</p>
+          <span class="badge">원본</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-thumb"><img src="gemini-2_5-flash-image.png" loading="lazy"></div>
+        <div class="meta">
+          <h3>Gemini 2.5 Flash Image</h3>
+          <p class="sub">Google · 구버전</p>
+          <span class="badge">원본</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-thumb"><img src="gpt-image-1.png" loading="lazy"></div>
+        <div class="meta">
+          <h3>GPT Image 1</h3>
+          <p class="sub">OpenAI · 사진묘사+마스킹</p>
+          <span class="badge">원본</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-thumb"><img src="dall-e-3.png" loading="lazy"></div>
+        <div class="meta">
+          <h3>DALL·E 3</h3>
+          <p class="sub">OpenAI · 예술적해석</p>
+          <span class="badge">원본</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow">▼</div>
+
+  <!-- ───── Step 2: Pillow 후처리 ───── -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">2</div>
+      <div class="step-title">Pillow 후처리</div>
+      <div class="step-desc">비율 통일(16:9) · 워터마크 · 모델명 라벨 · EXIF 메타</div>
+    </div>
+    <div class="grid5">
+      <div class="card">
+        <div class="card-thumb"><img src="labeled/gemini-3-pro-image.png" loading="lazy"></div>
+        <div class="meta">
+          <h3>Gemini 3 Pro Image</h3>
+          <p class="sub">Google · 최신 최고품질</p>
+          <span class="badge">라벨+워터마크+EXIF</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-thumb"><img src="labeled/gemini-3_1-flash-image.png" loading="lazy"></div>
+        <div class="meta">
+          <h3>Gemini 3.1 Flash Image</h3>
+          <p class="sub">Google · 빠름·저비용</p>
+          <span class="badge">라벨+워터마크+EXIF</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-thumb"><img src="labeled/gemini-2_5-flash-image.png" loading="lazy"></div>
+        <div class="meta">
+          <h3>Gemini 2.5 Flash Image</h3>
+          <p class="sub">Google · 구버전</p>
+          <span class="badge">라벨+워터마크+EXIF</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-thumb"><img src="labeled/gpt-image-1.png" loading="lazy"></div>
+        <div class="meta">
+          <h3>GPT Image 1</h3>
+          <p class="sub">OpenAI · 사진묘사+마스킹</p>
+          <span class="badge">라벨+워터마크+EXIF</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-thumb"><img src="labeled/dall-e-3.png" loading="lazy"></div>
+        <div class="meta">
+          <h3>DALL·E 3</h3>
+          <p class="sub">OpenAI · 예술적해석</p>
+          <span class="badge">라벨+워터마크+EXIF</span>
+        </div>
+      </div></div>
+  </div>
+
+  <div class="arrow">▼</div>
+
+  <!-- ───── Step 3: 콜라주 합성 ───── -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">3</div>
+      <div class="step-title">콜라주 합성</div>
+      <div class="step-desc">2열 격자 · 페북/트위터 1장 업로드용</div>
+    </div>
+    
+      <div class="collage-wrap">
+        <img src="collage_facebook.png" loading="lazy">
+        <div class="collage-meta">
+          <h3>collage_facebook.png</h3>
+          <p>5개 모델 결과를 2열 격자로 합성한 단일 PNG. 페이스북·트위터·블로그에 1장으로 업로드 가능.</p>
+        </div>
+      </div>
+  </div>
+
+  <div class="arrow">▼</div>
+
+  <!-- ───── Step 4: 평가 에이전트 정밀 채점 ───── -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">4</div>
+      <div class="step-title">평가 에이전트 정밀 채점</div>
+      <div class="step-desc">Vision API · 가중 100점 · 골드/실버/브론즈/컷 분류</div>
+    </div>
+    
+      <table class="eval-table">
+        <thead>
+          <tr><th>순위</th><th>모델</th><th>점수</th><th>등급</th><th>세부 (가중)</th><th>강점</th></tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="r-rank">1</td>
+          <td class="r-model">Gemini 2.5 Flash Image</td>
+          <td class="r-score">96</td>
+          <td class="r-grade g-gold">GOLD</td>
+          <td class="r-detail">의도 28 · 텍스트 20 · 시각 19 · 명확 14 · 정렬 15</td>
+          <td class="r-comment">프롬프트의 핵심 의도인 '사고(앱)'와 '실행(코드)'의 차이를 추상적인 기호로 명확하게 시각화했으며, 따뜻한 조명과 모던 미니멀 일러스트 스타</td>
+        </tr>
+        <tr>
+          <td class="r-rank">2</td>
+          <td class="r-model">GPT Image 1</td>
+          <td class="r-score">88</td>
+          <td class="r-grade g-gold">GOLD</td>
+          <td class="r-detail">의도 25 · 텍스트 20 · 시각 20 · 명확 8 · 정렬 15</td>
+          <td class="r-comment">현대적인 미니멀리스트 스타일과 따뜻한 색감, 추상 기호 화면 등 시각적 요청사항을 완벽하게 구현했습니다.</td>
+        </tr>
+        <tr>
+          <td class="r-rank">3</td>
+          <td class="r-model">Gemini 3.1 Flash Image</td>
+          <td class="r-score">68</td>
+          <td class="r-grade g-bronze">BRONZE</td>
+          <td class="r-detail">의도 20 · 텍스트 0 · 시각 19 · 명확 14 · 정렬 15</td>
+          <td class="r-comment">명확한 앱/코드 기능 분리 표현, 요청된 모던 미니멀 스타일과 따뜻한 색감이 돋보이며 시각적 완성도가 매우 높음.</td>
+        </tr>
+        <tr>
+          <td class="r-rank">4</td>
+          <td class="r-model">DALL·E 3</td>
+          <td class="r-score">50</td>
+          <td class="r-grade g-bronze">BRONZE</td>
+          <td class="r-detail">의도 10 · 텍스트 0 · 시각 19 · 명확 7 · 정렬 14</td>
+          <td class="r-comment">현대적이고 미니멀한 일러스트 스타일과 따뜻한 색감이 돋보이며, 두 가지 작업 환경의 구도가 명확합니다.</td>
+        </tr>
+        <tr>
+          <td class="r-rank">5</td>
+          <td class="r-model">Gemini 3 Pro Image</td>
+          <td class="r-score">43</td>
+          <td class="r-grade g-cut">CUT</td>
+          <td class="r-detail">의도 5 · 텍스트 0 · 시각 18 · 명확 5 · 정렬 15</td>
+          <td class="r-comment">시각적 디자인이 뛰어나고, 사고와 실행이라는 두 가지 개념적 분리를 명확하게 전달합니다.</td>
+        </tr>
+        </tbody>
+      </table>
+  </div>
+
+  <div class="footer">
+    /ai-image-기본 · <code>compare_models.py</code> + <code>post_process.py</code> + <code>final_eval.py</code>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>#02 전문가 페르소나 토론 (BuzzLab) — 특허</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#000814;color:#fff;line-height:1.6}
+.hero{background:radial-gradient(circle at 30% 30%,#002d5c 0%,#000814 70%);padding:60px 24px 50px;text-align:center;border-bottom:3px solid #FF8C00}
+.hero .tag{color:#FF8C00;font-size:14px;font-weight:900;letter-spacing:6px;margin-bottom:14px}
+.hero h1{font-size:clamp(24px,4.5vw,46px);font-weight:900;line-height:1.2;margin-bottom:14px;color:#fff;text-shadow:0 4px 24px rgba(255,140,0,0.4)}
+.hero .sub{font-size:clamp(14px,1.8vw,18px);color:#bcd;max-width:880px;margin:0 auto;font-weight:500}
+.hero .patent-badge{display:inline-block;background:#3498DB;color:#fff;padding:6px 18px;border-radius:20px;font-size:13px;font-weight:900;letter-spacing:1px;margin-top:18px}
+.back{position:absolute;top:24px;left:24px;color:#FF8C00;text-decoration:none;font-size:14px;font-weight:700;padding:8px 16px;border:2px solid #FF8C00;border-radius:20px}
+.back:hover{background:#FF8C00;color:#001020}
+.section{max-width:1100px;margin:0 auto;padding:50px 24px}
+.section h2{font-size:clamp(22px,3vw,32px);font-weight:900;color:#FF8C00;margin-bottom:24px;letter-spacing:1px;border-left:5px solid #FF8C00;padding-left:14px}
+.section p{font-size:15px;color:#dde;margin-bottom:14px}
+.section .lead{font-size:16px;color:#fff;background:rgba(255,140,0,0.08);border:1.5px solid rgba(255,140,0,0.35);border-radius:10px;padding:20px 24px;margin-bottom:24px}
+.phases{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:20px}
+@media(max-width:860px){.phases{grid-template-columns:repeat(2,1fr)}}
+.phase{background:rgba(52,152,219,0.08);border:1.5px solid rgba(52,152,219,0.4);border-radius:10px;padding:14px;text-align:center}
+.phase .ph-num{display:inline-block;background:#3498DB;color:#fff;width:32px;height:32px;border-radius:50%;text-align:center;line-height:32px;font-weight:900;margin-bottom:6px}
+.phase h3{font-size:13px;font-weight:900;color:#fff;margin-bottom:4px}
+.phase p{font-size:11px;color:#bcd;line-height:1.4}
+.mechs{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px}
+@media(max-width:760px){.mechs{grid-template-columns:1fr}}
+.mech{background:rgba(155,89,182,0.08);border:1.5px solid rgba(155,89,182,0.35);border-radius:10px;padding:18px}
+.mech .clause{color:#9b59b6;font-size:12px;font-weight:900;letter-spacing:0.5px;margin-bottom:6px}
+.mech h4{font-size:15px;font-weight:900;color:#fff;margin-bottom:8px}
+.mech p{font-size:13px;color:#bcd;line-height:1.6}
+table{width:100%;border-collapse:collapse;margin-top:18px;background:rgba(255,255,255,0.03);border-radius:8px;overflow:hidden}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08);font-size:14px}
+th{background:rgba(255,140,0,0.15);color:#FF8C00;font-weight:900}
+td{color:#dde}
+tr:last-child td{border-bottom:none}
+.footer{background:#001020;border-top:1px solid #1a2a3a;padding:30px 24px;text-align:center;color:#7a8c9c;font-size:13px}
+.footer a{color:#FF8C00;text-decoration:none;margin:0 10px}
+</style>
+</head>
+<body>
+<a href="../index.html" class="back">← 슬라이드쇼로</a>
+<section class="hero">
+  <div class="tag">SUNNY AI MAGIC · #02</div>
+  <h1>다중 LLM 다차원 발언 ID 기반<br>전문가 페르소나 토론 시스템</h1>
+  <div class="sub">3개 이상의 분야별 전문가 페르소나 AI가 참여(반드시 Devil's Advocate 포함)하여 5단계 토론으로 방안 제시 — 이를 시스템화한 특허</div>
+  <div class="patent-badge">📜 특허 출원 · BuzzLab</div>
+</section>
+
+<section class="section">
+  <h2>📌 발명의 핵심</h2>
+  <div class="lead">
+    단일 LLM 응답의 <strong>편향·환각·일면적 판단</strong>을 다관점 토론으로 보정한다. 3+ 전문가 페르소나 + <strong>Devil's Advocate(반대측 옹호자) 필수 참여</strong> 구조에서 5단계 토론을 수행하고, 각 발언에 <strong>다차원 발언 ID</strong>(페르소나·차수·발화유형·근거단계)를 부여하여 토론 과정의 재현성·감사가능성을 확보한다. rubric_score 100점 도달까지 최대 5 Cycle 수정 루프로 자기 수렴.
+  </div>
+</section>
+
+<section class="section">
+  <h2>🎯 5단계 토론 Phase</h2>
+  <div class="phases">
+    <div class="phase"><div class="ph-num">1</div><h3>입장 표명</h3><p>각 페르소나 초기 입장</p></div>
+    <div class="phase"><div class="ph-num">2</div><h3>상호 반박</h3><p>DA 주도 반대 논거</p></div>
+    <div class="phase"><div class="ph-num">3</div><h3>증거 제시</h3><p>외부 게이트 통과 자료</p></div>
+    <div class="phase"><div class="ph-num">4</div><h3>합의 도출</h3><p>Judge 평가 + 가중 종합</p></div>
+    <div class="phase"><div class="ph-num">5</div><h3>최종 권고</h3><p>BPI + DA_penalty 반영</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>🛠 핵심 차별화 메커니즘</h2>
+  <div class="mechs">
+    <div class="mech"><div class="clause">(a) 다차원 발언 ID</div><h4>Persona×Cycle×Type×Evidence</h4><p>모든 발언에 4차원 ID 부여로 토론 흐름·결정 근거를 사후 감사 가능하게 함</p></div>
+    <div class="mech"><div class="clause">(b) DA 필수 참여</div><h4>Devil's Advocate 무력화 방지</h4><p>BPI 공식에 DA_penalty 항 도입 — DA가 동조하거나 형식적 반대만 하면 점수 자동 차감</p></div>
+    <div class="mech"><div class="clause">(c) Judge 분리</div><h4>Self-Grading 폐쇄 루프 차단</h4><p>토론 참여 페르소나와 평가 Judge를 별도 Subagent로 분리, 자기 평가 편향 차단</p></div>
+    <div class="mech"><div class="clause">(d) 외부 게이트</div><h4>rubric 100 ≠ 종료 보증</h4><p>도메인별 외부 표준(KIPO·빌드·접근성·재무 일관성 등) 통과를 필수 종료 조건으로 추가</p></div>
+    <div class="mech"><div class="clause">(e) 의미 일관성 게이트</div><h4>명칭↔요약서↔본문 3중 검증</h4><p>약자 정의·발명 명칭·요약 핵심 키워드 3중 의미 일관성 자동 검증 (DID 특허 v2.0 결함 사례 반영)</p></div>
+    <div class="mech"><div class="clause">(f) 창발 이벤트 포착</div><h4>5종 강제 액션 매핑</h4><p>예상 못한 합의·갈등·재정의·근거 역전·관점 융합 5종 이벤트를 감지하여 강제 액션으로 활용</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>⚡ 기존 멀티 LLM 시스템과의 차별점</h2>
+  <table>
+    <thead><tr><th>항목</th><th>기존 (Ensemble · CoT · Self-Consistency)</th><th>본 발명 (BuzzLab)</th></tr></thead>
+    <tbody>
+      <tr><td>관점 다양성</td><td>동일 모델·동일 프롬프트 N회 샘플링</td><td>분야별 전문가 페르소나 3+ + DA 필수</td></tr>
+      <tr><td>반대 의견 보장</td><td>없음 (유사 응답 다수결)</td><td>DA_penalty로 형식적 반대 차단</td></tr>
+      <tr><td>발언 추적</td><td>응답 텍스트만</td><td>다차원 발언 ID (감사 가능)</td></tr>
+      <tr><td>평가 주체</td><td>자기 평가 (Self-Grading)</td><td>Judge Subagent 분리</td></tr>
+      <tr><td>종료 조건</td><td>샘플 일치율</td><td>rubric 100 + 외부 게이트 통과</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section">
+  <h2>📂 관련 항목</h2>
+  <table>
+    <tbody>
+      <tr><td><strong>#28</strong> 4종 품질관리 (SDA 추천)</td><td>본 토론이 QC 평가 3종 중 "중간" 위계 도구로 통합됨</td></tr>
+      <tr><td><strong>#03·13</strong> SAL Grid</td><td>토론 결과를 3D 좌표로 분해·실행 연결</td></tr>
+      <tr><td><strong>#08</strong> 3대안 + 권고안</td><td>토론을 거치지 않는 가벼운 다관점 의사결정</td></tr>
+      <tr><td><strong>#30</strong> AI 오류 인정 + 창발</td><td>다단계 검증의 사상적 근거</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="footer">
+  <a href="../index.html">← Sunny AI Magic 50</a><span>·</span><a href="https://www.ax-on.net/">AX 전문가 풀</a>
+</div>
+</body>
+</html>

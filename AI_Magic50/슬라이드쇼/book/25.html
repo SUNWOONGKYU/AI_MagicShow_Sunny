@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>SUNNY AI MAGIC 50 · #25 미니 풀스택 5시간 이내 제작</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#000814;color:#fff;line-height:1.7}
+.hero{background:radial-gradient(circle at 30% 30%,#002d5c 0%,#000814 70%);padding:50px 24px 40px;text-align:center;border-bottom:3px solid #FF8C00}
+.hero .tag{color:#FF8C00;font-size:13px;font-weight:900;letter-spacing:5px;margin-bottom:12px}
+.hero h1{font-size:clamp(22px,4vw,40px);font-weight:900;line-height:1.25;margin-bottom:8px;color:#fff;text-shadow:0 4px 24px rgba(255,140,0,0.35)}
+.hero .subtitle{font-size:clamp(13px,1.6vw,17px);color:#FF8C00;font-weight:600;letter-spacing:0.3px;margin-bottom:14px;opacity:0.92}
+.hero .meta{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.hero .badge{background:rgba(255,140,0,0.15);color:#FF8C00;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:900;letter-spacing:1px;border:1px solid rgba(255,140,0,0.4)}
+.hero .badge.type-a{background:rgba(231,76,60,0.15);color:#e74c3c;border-color:rgba(231,76,60,0.4)}
+.hero .badge.type-b{background:rgba(52,152,219,0.15);color:#3498DB;border-color:rgba(52,152,219,0.4)}
+.hero .badge.type-c{background:rgba(63,185,80,0.15);color:#3fb950;border-color:rgba(63,185,80,0.4)}
+.back{position:absolute;top:20px;left:20px;color:#FF8C00;text-decoration:none;font-size:13px;font-weight:700;padding:7px 14px;border:2px solid #FF8C00;border-radius:18px}
+.back:hover{background:#FF8C00;color:#001020}
+.content{max-width:900px;margin:0 auto;padding:40px 24px 60px}
+.content h1{display:none}
+.content h2{font-size:clamp(20px,2.8vw,28px);font-weight:900;color:#FF8C00;margin:32px 0 16px;letter-spacing:0.5px;border-left:5px solid #FF8C00;padding-left:14px}
+.content h2:first-child{margin-top:0}
+.content h3{font-size:18px;font-weight:900;color:#fff;margin:24px 0 12px}
+.content h4{font-size:16px;font-weight:700;color:#FF8C00;margin:18px 0 10px}
+.content p{font-size:15px;color:#dde;margin-bottom:14px}
+.content ul,.content ol{margin:0 0 16px 24px;color:#dde}
+.content li{font-size:15px;margin-bottom:6px;line-height:1.7}
+.content strong{color:#fff;font-weight:900}
+.content em{color:#FF8C00;font-style:normal;font-weight:600}
+.content code{background:rgba(255,140,0,0.12);color:#FF8C00;padding:2px 6px;border-radius:4px;font-size:13px;font-family:'D2Coding','Consolas',monospace}
+.content pre{background:rgba(0,0,0,0.4);border:1px solid rgba(255,140,0,0.25);border-radius:8px;padding:16px;overflow-x:auto;margin:16px 0}
+.content pre code{background:none;color:#bcd;padding:0;font-size:13px}
+.content blockquote{border-left:4px solid #FF8C00;background:rgba(255,140,0,0.05);padding:14px 20px;margin:16px 0;border-radius:0 8px 8px 0;color:#bcd}
+.content table{width:100%;border-collapse:collapse;margin:18px 0;background:rgba(255,255,255,0.03);border-radius:8px;overflow:hidden;font-size:14px}
+.content th,.content td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08)}
+.content th{background:rgba(255,140,0,0.15);color:#FF8C00;font-weight:900}
+.content td{color:#dde}
+.content tr:last-child td{border-bottom:none}
+.content hr{border:none;border-top:1px solid rgba(255,140,0,0.2);margin:30px 0}
+.content a{color:#FF8C00;text-decoration:none;border-bottom:1px dashed rgba(255,140,0,0.4)}
+.content a:hover{border-bottom-style:solid}
+.footer{background:#001020;border-top:1px solid #1a2a3a;padding:24px;text-align:center;color:#7a8c9c;font-size:13px}
+.footer a{color:#FF8C00;text-decoration:none;margin:0 10px}
+</style>
+</head>
+<body>
+<a href="../index.html" class="back">← 슬라이드쇼로</a>
+<section class="hero">
+  <div class="tag">SUNNY AI MAGIC 50 · #25</div>
+  <h1>미니 풀스택 5시간 이내 제작</h1>
+  <div class="subtitle">DB → API → UI/UX → E2E → Vercel 배포까지 5시간 안에 끝내기</div>
+  <div class="meta">
+    <span class="badge">G4 · 결과물 및 품질관리</span>
+    <span class="badge type-a">A타입</span>
+    
+  </div>
+</section>
+
+<section class="content">
+<h2>한 줄 정의</h2>
+<p>DB 스키마 → API 라우트 → UI/UX → E2E 테스트 → Vercel 배포까지 <strong>5시간 안에 끝내는</strong> 1인 풀스택 단위 작업. 이건 단순 속도전이 아니라 본인이 #10에서 정의한 <em>"포크레인·트랙터 운전"</em> 능력 — AI를 운전하는 자가 풀스택 종합 능력자임을 입증하는 시간 척도다. 4시간 미만이면 신호기·UI 정합성·검증이 깨지고, 6시간을 넘기면 운전이 아닌 노가다가 된다. 5시간 ±10%가 본인 4,000시간 누적에서 도출된 풀스택 단위 시간 벤치마크다.</p>
+<h2>왜 이 노하우가 중요한가</h2>
+<p>"AI 시대에 개발자는 무엇을 잘해야 하는가" 라는 질문에 본인은 단 하나로 답한다 — <strong>풀스택을 5시간 안에 묶는 능력</strong>. 이게 #10 트랙터 운전 비유의 정량적 증명이다. 트랙터 운전자는 트랙터의 동력을 알고, 흙의 점성을 알고, 작물의 깊이를 안다. 마찬가지로 1인 풀스택 운전자는 DB의 인덱스를 알고, API의 응답 형식을 알고, UI의 접근성 기준을 알고, E2E의 클릭 시나리오를 안다. 이 넷을 머릿속 한 좌표계에 동시에 띄울 수 있는 사람만이 5시간 안에 묶는다.</p>
+<p>기존 회사 조직에선 이 5시간이 5주가 됐다. 백엔드 1주, 프론트 1주, QA 1주, 배포 1주, 회의·재작업 1주. 본인이 누적 운용에서 검증한 사실은 — <em>"5주가 5시간이 되는 순간, 사업 모델 자체가 바뀐다."</em> 아이디어 → 동작하는 MVP까지 5시간이면, 하루 8시간 작업으로 1.5개의 MVP를 매일 찍어낼 수 있다. 본인이 운영 중인 다수 동시 프로젝트 중 절반 이상이 이 5시간 단위로 잉태됐다.</p>
+<p>5시간이 가능한 이유는 도구의 혁신이 아니라 <strong>스킬의 묶음</strong>이다. 본인은 헌법(#32)에서 자동 발동되는 4개 스킬을 묶어 놓았다.</p>
+<table>
+<thead>
+<tr>
+<th>스킬</th>
+<th>담당 영역</th>
+<th>예상 시간</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>db-schema-기본</code></td>
+<td>Supabase 스키마·마이그레이션·RLS</td>
+<td>30~60분</td>
+</tr>
+<tr>
+<td><code>api-builder-기본</code></td>
+<td>RESTful 라우트·검증·에러 핸들링</td>
+<td>60~90분</td>
+</tr>
+<tr>
+<td><code>ui-ux-builder-기본</code></td>
+<td>67 styles·96 palettes·접근성</td>
+<td>90~120분</td>
+</tr>
+<tr>
+<td><code>e2e-test-기본</code></td>
+<td>Playwright 5브라우저 회귀</td>
+<td>30~60분</td>
+</tr>
+</tbody>
+</table>
+<p>이 네 스킬 + #18(Vercel 신속 배포) + #49(스크린샷 자율 검증) + #25(챗봇 통합)까지 일곱 무기가 한 손에 들어오면, 5시간은 더 이상 도전이 아니라 <strong>표준 단위</strong>가 된다.</p>
+<h2>핵심 개념</h2>
+<h3>5시간의 분배 — 1:2:1.5:0.5 비율</h3>
+<p>본인 누적 운용에서 도출된 시간 분배.</p>
+<pre><code>0:00 ─────────────────────────────────── 5:00
+│ DB    │       API        │   UI/UX    │ E2E │
+│ 0.5h  │       1.5h        │   2.0h    │ 1.0h│
+└───────┴──────────────────┴─────────────┴─────┘
+</code></pre>
+<p>DB가 30분 안에 안 끝나면 그날 5시간은 망한다. ERD가 막히면 API·UI도 막힌다. 반대로 DB가 30분에 끝나면 나머지 4.5시간은 폭발적 가속이 시작된다 — API와 UI가 같은 데이터 모델 위에서 자동 생성되기 때문이다. <strong>DB 30분 룰</strong>이 미니 풀스택의 첫 게이트다.</p>
+<h3>4 스킬 결합 패턴</h3>
+<h4>결합 1 — <code>db-schema-기본</code> (30~60분)</h4>
+<p><code>db-schema-기본</code>은 Supabase(PostgreSQL) 전문 스킬이다. AI-only 원칙이 강제된다.</p>
+<blockquote>
+<p><strong>허용</strong>: <code>supabase db push</code>, <code>supabase/migrations/*.sql</code>, <code>supabase start</code>
+<strong>금지</strong>: Supabase Dashboard에서 수동 테이블 생성, SQL Editor 직접 실행, GUI로 RLS 정책 생성</p>
+</blockquote>
+<p>이 금지 조항이 핵심이다. 30개 동시 프로젝트에서 GUI 클릭으로 만든 테이블은 추적 불가능하다. 마이그레이션 파일로만 관리해야 다른 환경에 재현된다. 본인은 빈 폴더에서 시작해 30분 안에 5~7개 테이블 + RLS 정책 + 인덱스를 마이그레이션 파일로 떨어뜨린다.</p>
+<h4>결합 2 — <code>api-builder-기본</code> (60~90분)</h4>
+<p><code>api-builder-기본</code>은 RESTful 표준 7동사를 자동 적용한다.</p>
+<pre><code>GET    /api/items        # 목록
+GET    /api/items/[id]   # 단일
+POST   /api/items        # 생성
+PUT    /api/items/[id]   # 전체 수정
+PATCH  /api/items/[id]   # 부분 수정
+DELETE /api/items/[id]   # 삭제
+</code></pre>
+<p>응답 형식도 표준화돼 있다.</p>
+<pre><code class="language-typescript">// 성공
+{ &quot;data&quot;: { ... }, &quot;pagination&quot;: { ... } }
+
+// 에러
+{ &quot;error&quot;: { &quot;code&quot;: &quot;VALIDATION_ERROR&quot;, &quot;message&quot;: &quot;...&quot;, &quot;details&quot;: { ... } } }
+</code></pre>
+<p>이 표준이 박혀 있으니, 5개 테이블 × 5개 라우트 = 25개 엔드포인트를 90분 안에 짠다. 그것도 Zod 검증 + 에러 핸들링 + 페이지네이션까지 갖춰서. 표준이 없으면 라우트마다 5분씩 고민하다가 90분이 5시간이 된다.</p>
+<h4>결합 3 — <code>ui-ux-builder-기본</code> (90~120분)</h4>
+<p>UI/UX 스킬은 67 styles · 96 palettes · 57 font pairings · 25 charts · 13 stacks를 색인하고 있다. 핵심은 <strong>CRITICAL 우선순위 8단계</strong>다.</p>
+<table>
+<thead>
+<tr>
+<th>우선순위</th>
+<th>카테고리</th>
+<th>영향도</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Accessibility</td>
+<td>CRITICAL</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Touch &amp; Interaction</td>
+<td>CRITICAL</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Performance</td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Layout &amp; Responsive</td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Typography &amp; Color</td>
+<td>MEDIUM</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Animation</td>
+<td>MEDIUM</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Style Selection</td>
+<td>MEDIUM</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Charts &amp; Data</td>
+<td>LOW</td>
+</tr>
+</tbody>
+</table>
+<p>CRITICAL 1·2가 통과 못 하면 #29 스크린샷 검증에서 자동 차단된다. 색대비 4.5:1 미만, 터치 타겟 44×44px 미만, <code>cursor-pointer</code> 누락, <code>&lt;div&gt;</code>로 만든 클릭 영역 — 이게 본인이 <em>"curl 200 ≠ 동작함"</em> 사건에서 직접 겪은 원인이었다(#32 UI 검증 철칙 참조). UI 스킬의 8단계 우선순위는 그 사건을 헌법에 박은 결과물이다.</p>
+<h4>결합 4 — <code>e2e-test-기본</code> (30~60분)</h4>
+<p><code>e2e-test-기본</code>은 Playwright 기반이며, 5브라우저 매트릭스가 기본이다.</p>
+<pre><code class="language-typescript">// playwright.config.ts
+projects: [
+  { name: 'chromium',     use: devices['Desktop Chrome']  },
+  { name: 'firefox',      use: devices['Desktop Firefox'] },
+  { name: 'webkit',       use: devices['Desktop Safari']  },
+  { name: 'mobile-chrome',use: devices['Pixel 5']         },
+  { name: 'mobile-safari',use: devices['iPhone 12']       },
+]
+</code></pre>
+<p>5브라우저 × 회귀 시나리오가 30~60분 안에 돈다. <strong><code>curl</code> 금지</strong> — 헌법 가드 3 직접 적용. <em>"브라우저 수동 테스트, GUI 도구 수동 사용, 사용자에게 수동 시나리오 요청"</em> 모두 금지. 자기 검증 금지(Task Agent ≠ Verification Agent). E2E 결과 12/12 통과해야 비로소 Verified.</p>
+<h3>#18 · #25 · #49과의 결합 — 7무기 합산</h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>역할</th>
+<th>결합 효과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>#18 HTML+Vercel 신속 배포</strong></td>
+<td><code>vercel-private-url-배포</code>로 URL 아는 사람만 접근</td>
+<td>5시간 안 마지막 30분 압축</td>
+</tr>
+<tr>
+<td><strong>#25 지능형 챗봇</strong></td>
+<td>도우미형 챗봇 1개 자동 임베드</td>
+<td>UI 본문에 즉시 합류</td>
+</tr>
+<tr>
+<td><strong>#49 스크린샷 자율 검증</strong></td>
+<td>E2E 통과 후 시각적 회귀 1회 더</td>
+<td>UI 변형 회귀 0건 보증</td>
+</tr>
+</tbody>
+</table>
+<p>이 셋이 4 스킬에 더해지면 5시간 단위가 <strong>단발 MVP</strong>가 아니라 <strong>재현 가능한 발사대</strong>가 된다. 본인이 30개 프로젝트를 동시 운용하면서 같은 7무기 패턴을 30번 재실행한다. 매번 5시간 ±10%.</p>
+<h3>5시간 KPI — 사용자 여정 + 데이터 레이어 양면</h3>
+<p>5시간 안에 다음 KPI가 동시에 충족돼야 한다(<em>"데이터 레이어 KPI만으론 부족"</em> 원칙).</p>
+<p><strong>사용자 여정 KPI</strong>
+- 랜딩 페이지 주요 버튼 4개 이상 클릭 시 각각 올바른 라우트
+- 폼 제출 → 성공/에러 메시지 적절한 위치 노출
+- 모바일 뷰 가로 스크롤 0건
+- 키보드 Tab 순서가 시각 순서와 일치</p>
+<p><strong>데이터 레이어 KPI</strong>
+- DB 마이그레이션 멱등성 보장(2회 실행도 안전)
+- API 응답 시간 P95 &lt; 500ms (Vercel Edge 기준)
+- E2E 12/12 통과 (Chrome·Firefox·Safari·iPhone·Pixel)
+- Lighthouse Performance 80 → 95 향상 (목표값 ≥ 90)</p>
+<p>양면 KPI가 동시 충족돼야 5시간 단위가 "운전(#10)" 자격을 얻는다. 한쪽만 충족되면 그건 트랙터가 아니라 자전거다.</p>
+<h2>실전 사용법</h2>
+<h3>1단계 — 30분 ERD 스프린트 (DB)</h3>
+<p>빈 폴더에서 시작.</p>
+<pre><code>📁 supabase/migrations/
+📄 20260506_001_create_items.sql
+📄 20260506_002_rls_policies.sql
+📄 20260506_003_indexes.sql
+</code></pre>
+<p><code>db-schema-기본</code> 스킬을 호출 — <em>"이 프로젝트는 X 도메인. ERD를 5~7테이블로 그리고 마이그레이션 파일 떨어뜨려"</em>. 30분 안에 끝나지 않으면 도메인이 너무 크다는 신호 — 즉시 분할.</p>
+<h3>2단계 — 90분 API 일괄 생성 (Backend)</h3>
+<p><code>api-builder-기본</code> 스킬 호출 — <em>"DB 스키마 5개 테이블 기반으로 RESTful 7동사 라우트 25개 생성. Zod 검증 포함. 페이지네이션 표준 적용."</em> 라우트 25개를 90분 안에 일괄 작성. 이 단계의 핵심은 <strong>표준 응답 형식 강제</strong>.</p>
+<h3>3단계 — 120분 UI/UX 빌드 (Frontend)</h3>
+<p><code>ui-ux-builder-기본</code> 스킬 호출 — <em>"이 도메인에 어울리는 스타일 1개 추천(67 styles 중), palette 1개(96 중), font pair 1개(57 중). CRITICAL 1·2(접근성·터치)는 무조건 통과. 페이지 5개 빌드."</em> shadcn/ui MCP가 컴포넌트 검색을 자동화하므로 120분 안에 5페이지가 떨어진다.</p>
+<h3>4단계 — 60분 E2E + 시각 회귀 (Verification)</h3>
+<p><code>e2e-test-기본</code> + #49 스크린샷 자율 검증 동시 호출.</p>
+<pre><code class="language-bash">npx playwright test
+# 5브라우저 × 회귀 시나리오 자동 실행
+</code></pre>
+<p>12/12 통과 + 스크린샷 베이스라인 일치. 미통과 시 <code>5times-debug-loop-코어3</code>로 자동 재진입(최대 5회). <strong>여기서 자기 검증 금지</strong> — 이전 단계를 만든 에이전트와 다른 에이전트가 검증한다(헌법 가드 3, 청룡 §7.1).</p>
+<h3>5단계 — 30분 Vercel 배포 (#18과 결합)</h3>
+<p><code>vercel-private-url-배포</code> 스킬 호출.</p>
+<pre><code class="language-bash">vercel --prod
+# 한글 폴더명 자동 처리, 비밀번호 보호 옵션 적용
+</code></pre>
+<p>URL 발급 즉시 G드라이브 <code>.txt</code>로 떨어뜨려 폰에서 확인(헌법 가드 6). <strong>배포 후 첫 액션은 <code>curl</code>이 아니라 브라우저 클릭 테스트</strong> — 헌법 가드 3 재확인.</p>
+<h3>6단계 — 결과 종합 보고</h3>
+<p>5시간 타이머 마감 5분 전, MBO 결과보고서 자동 생성. 양면 KPI 표 + Lighthouse 점수 + E2E 결과 + 배포 URL. 통과 못 한 항목은 다음 5시간 사이클로 이월. <strong>이월은 실패가 아니다 — 5시간 단위가 깨지는 게 실패다.</strong></p>
+<h3>7단계 — SAL Grid 기록 (필수)</h3>
+<p>5시간 사이클이 끝나면 반드시 SAL Grid에 기록. <code>grid_records/{TaskID}.json</code>에 22속성 갱신. <code>node scripts/build-progress.js</code> 실행. 헌법의 <em>"SAL Grid 반영 의무 — 예외 없음"</em> 가드(#32)가 강제. 기록 없으면 미완료 간주.</p>
+<h2>본인 운용 패턴</h2>
+<h1>10에서 <em>"포크레인·트랙터 운전"</em> 능력을 비유로 정의했다면, 이 #6는 그 비유의 <strong>정량적 증명서</strong>다. 5시간 안에 풀스택 1개를 묶지 못하는 사람은 트랙터를 운전한다고 주장할 수 없다. 반대로 5시간 안에 묶는 사람은, 풀스택 종합 능력 + AI 운용 능력 + 헌법 운용 능력을 동시에 입증한 것이다. 본인이 채용·외주·협업에서 단 하나의 시간 척도로 이 5시간을 본다.</h1>
+<p>추가 확장 — 본인은 <strong>5시간 × 6사이클 = 30시간 = 1주일 1프로젝트</strong> 패턴으로도 운용한다. 첫 5시간은 MVP, 두 번째는 결제·인증, 세 번째는 챗봇 통합(#25), 네 번째는 데이터 분석 대시보드, 다섯 번째는 SEO·접근성 풀튜닝, 여섯 번째는 운영자 대시보드. 30시간 끝에 상용 가능한 SaaS 1개가 떨어진다. 이게 30개 동시 운용의 시간 단위 증명이다 — 5시간이라는 원자가 있어야 30시간·150시간·900시간이 의미를 갖는다.</p>
+<blockquote>
+<p>Vault 사례: <code>ax-practical-project/wiki/2026_05_03_21.04_import_TASK_PLAN.md</code> 는 BuzzLab Task Plan v4.8 — Next.js 16 App Router + TypeScript + Tailwind 4 + shadcn/ui + Supabase PostgreSQL 스택의 <strong>136 Task / 6 Stage</strong> 풀스택을 5×11 매트릭스로 박아둔 노트다. 5시간 1사이클을 <em>원자</em>로 본다면 이 노트는 <em>분자 수십 개를 결합한 SaaS급 전체 청사진</em>이다 — 첫 5시간 MVP가 서야 그 위로 5시간 사이클이 6번 이어지는 <em>6사이클 = 1주일 1프로젝트</em> 패턴이 가능해진다는 것이 BuzzLab S0~S9 진행 기록으로 입증된다. 5시간 풀스택은 <em>큰 프로젝트의 첫 한 사이클</em> 이라는 본 항목 명제가 그 노트에서 정량 증명된다.</p>
+</blockquote>
+<h2>관련 항목</h2>
+<ul>
+<li><strong>#10 포크레인·트랙터 운전</strong> — 본 항목의 비유적 모태(이 항목과 짝)</li>
+<li><strong>#18 HTML + Vercel 신속 배포</strong> — 5시간 마지막 30분 압축의 무기</li>
+<li><strong>#25 지능형 챗봇 만들기</strong> — 5시간 후 6시간차 챗봇 통합 사이클</li>
+<li><strong>#49 스크린샷 자율 검증</strong> — 헌법 가드 3(curl 200 ≠ 동작함)의 Playwright 구현</li>
+<li><strong>#32 CLAUDE.md 활용</strong> — 4 스킬 자동 발동을 보장하는 헌법</li>
+<li><strong>#2 SAL Grid 개발방법론</strong> — 5시간 사이클을 grid_records에 기록하는 골격</li>
+<li><strong>#8 MBO</strong> — 5시간 시작 전 목표 정의·완료 후 결과 보고</li>
+<li><strong>#28 4종 품질관리 스킬</strong> — <code>5times-debug-loop</code> 자동 재진입 메커니즘</li>
+<li><strong><code>~/.claude/skills/api-builder-기본/SKILL.md</code></strong> — 90분 API 일괄 생성</li>
+<li><strong><code>~/.claude/skills/db-schema-기본/SKILL.md</code></strong> — 30분 ERD 스프린트</li>
+<li><strong><code>~/.claude/skills/ui-ux-builder-기본/SKILL.md</code></strong> — 120분 UI/UX 빌드</li>
+<li><strong><code>~/.claude/skills/e2e-test-기본/SKILL.md</code></strong> — 60분 5브라우저 회귀</li>
+<li><strong><code>~/.claude/skills/vercel-private-url-배포/SKILL.md</code></strong> — 30분 비공개 URL 배포</li>
+</ul>
+</section>
+
+<div class="footer">
+  <a href="../index.html">← SUNNY AI MAGIC 50</a>
+  <div style="margin-top:10px;color:#5a6c7c;font-size:12px;letter-spacing:0.3px">© 2026 SUN WOONGKYU · SUNNY AI MAGIC 50 · CC BY-NC-ND 4.0 · 특허 별도 보유</div>
+</div>
+</body>
+</html>

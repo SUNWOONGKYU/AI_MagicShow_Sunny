@@ -1,0 +1,97 @@
+{
+  "ranking": [
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_48_v2\\labeled\\gemini-3_1-flash-image.png",
+      "score": 86,
+      "grade": "GOLD",
+      "intent": 24,
+      "text": 15,
+      "visual": 18,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "프롬프트의 시각적 및 구조적 설명에 대한 매우 높은 충실도로, 특정 색상, 글꼴 및 레이아웃을 정확하게 구현했습니다.",
+      "weakness": "'한국어 텍스트 없음, 영어 라벨만'이라는 지시사항을 위반하여 하단에 원치 않는 한국어 텍스트를 포함하고 있습니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_48_v2\\labeled\\gemini-3-pro-image.png",
+      "score": 85,
+      "grade": "GOLD",
+      "intent": 20,
+      "text": 15,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "터미널 UI 미학, 네온 글로우, 그리고 요청된 모든 영문 텍스트 및 시각적 요소의 정확한 구현이 탁월합니다.",
+      "weakness": "명시적으로 요청된 '한국어 텍스트 없음' 및 '요청된 영문 라벨만 포함'이라는 부정적 제약을 준수하지 않아 하단에 요청되지 않은 한국어 텍스트가 포함되었습니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_48_v2\\labeled\\gpt-image-1.png",
+      "score": 82,
+      "grade": "SILVER",
+      "intent": 18,
+      "text": 16,
+      "visual": 19,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "Excellent visual design, highly consistent aesthetic, and perfect layout/alignment, creating a very polished and readable terminal HUD widget.",
+      "weakness": "Several specific textual elements (\"main clean\", \"Write×2\") and one entire progress bar (\"7d 94% 34h49m\" red bar) are omitted from the generated image, deviating from the detailed prompt."
+    },
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_48_v2\\labeled\\gemini-2_5-flash-image.png",
+      "score": 78,
+      "grade": "SILVER",
+      "intent": 20,
+      "text": 10,
+      "visual": 18,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "복잡한 HUD 위젯의 구조, 요소, 색상, 그리고 전반적인 시각적 스타일을 매우 높은 정확도로 구현했습니다.",
+      "weakness": "명시적으로 '한국어 텍스트 없음'을 요청했음에도 불구하고, 하단에 의도하지 않은 한국어 텍스트가 포함되어 프롬프트의 핵심 제약 조건을 위반했습니다."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_48_v2\\labeled\\dall-e-3.png",
+      "score": 39,
+      "grade": "CUT",
+      "intent": 5,
+      "text": 0,
+      "visual": 18,
+      "clarity": 3,
+      "layout": 13,
+      "strength": "현대적인 플랫 일러스트레이션 스타일, 네온 색상 팔레트, 깔끔한 시각적 디자인 품질이 매우 우수합니다.",
+      "weakness": "프롬프트에 명시된 거의 모든 텍스트 라벨과 구체적인 정보가 부정확하거나 완전히 누락되어 정보 전달력이 전무합니다."
+    }
+  ],
+  "top_picks": [
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_48_v2\\labeled\\gemini-3_1-flash-image.png",
+      "score": 86,
+      "grade": "GOLD",
+      "intent": 24,
+      "text": 15,
+      "visual": 18,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "프롬프트의 시각적 및 구조적 설명에 대한 매우 높은 충실도로, 특정 색상, 글꼴 및 레이아웃을 정확하게 구현했습니다.",
+      "weakness": "'한국어 텍스트 없음, 영어 라벨만'이라는 지시사항을 위반하여 하단에 원치 않는 한국어 텍스트를 포함하고 있습니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_48_v2\\labeled\\gemini-3-pro-image.png",
+      "score": 85,
+      "grade": "GOLD",
+      "intent": 20,
+      "text": 15,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "터미널 UI 미학, 네온 글로우, 그리고 요청된 모든 영문 텍스트 및 시각적 요소의 정확한 구현이 탁월합니다.",
+      "weakness": "명시적으로 요청된 '한국어 텍스트 없음' 및 '요청된 영문 라벨만 포함'이라는 부정적 제약을 준수하지 않아 하단에 요청되지 않은 한국어 텍스트가 포함되었습니다."
+    }
+  ]
+}

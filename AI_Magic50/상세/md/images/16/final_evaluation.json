@@ -1,0 +1,97 @@
+{
+  "ranking": [
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_16\\labeled\\gemini-2_5-flash-image.png",
+      "score": 97,
+      "grade": "GOLD",
+      "intent": 30,
+      "text": 17,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "HTML+Vercel 신속 배포의 핵심 의도를 명확히 전달하며, 요청된 시각적 스타일과 구체적인 요소들을 탁월하게 구현했습니다.",
+      "weakness": "화면에 표시된 'vercel' 명령어의 플래그('-') 기호가 일부 '.'으로 잘못 표현되어 정확한 명령어 구문에 약간의 오차가 있습니다."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_16\\labeled\\dall-e-3.png",
+      "score": 85,
+      "grade": "GOLD",
+      "intent": 24,
+      "text": 20,
+      "visual": 19,
+      "clarity": 8,
+      "layout": 14,
+      "strength": "요청된 모던 미니멀 일러스트 스타일, 따뜻한 조명, 16:9 비율, 화면 속 추상 기호 표현 등 시각적/미학적 요구사항을 완벽하게 구현했습니다.",
+      "weakness": "특정 Vercel 배포 과정, URL 접근 제어, 검색 엔진 노출 여부 등 추상적인 기술 정보를 시각 자료만으로는 명확히 전달하지 못합니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_16\\labeled\\gemini-3-pro-image.png",
+      "score": 73,
+      "grade": "SILVER",
+      "intent": 20,
+      "text": 5,
+      "visual": 19,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "Vercel을 통한 HTML 신속 배포 및 공유라는 복합적인 시나리오를 모던하고 따뜻한 일러스트로 명확하게 시각화하여 정보 전달력이 우수합니다.",
+      "weakness": "화면 속 텍스트는 추상 기호로만 표현하라는 지시를 지키지 못하고 터미널과 URL에 영문 텍스트가 포함되었으며, 하단 브랜딩에 한글 텍스트가 삽입되어 텍스트 관련 제약 조건을 명확하게 위반했습니다."
+    },
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_16\\labeled\\gemini-3_1-flash-image.png",
+      "score": 68,
+      "grade": "BRONZE",
+      "intent": 10,
+      "text": 20,
+      "visual": 20,
+      "clarity": 3,
+      "layout": 15,
+      "strength": "모던 미니멀 일러스트 스타일, 따뜻한 조명, 색상 균형이 매우 뛰어나 시각적으로 높은 완성도를 보입니다. 화면 속 텍스트를 추상 기호로 표현하라는 요청도 잘 지켰습니다.",
+      "weakness": "HTML + Vercel 신속 배포, 특정 명령어, URL 접근 제한 등의 핵심적인 기술적 의도가 시각적으로 전혀 표현되지 않아, 프롬프트의 가장 중요한 요구사항을 충족하지 못했습니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_16\\labeled\\gpt-image-1.png",
+      "score": 67,
+      "grade": "BRONZE",
+      "intent": 24,
+      "text": 0,
+      "visual": 20,
+      "clarity": 8,
+      "layout": 15,
+      "strength": "전반적인 모던 미니멀 일러스트 스타일, 따뜻한 조명, 구도 및 한국인 작업 장면 표현이 프롬프트에 매우 잘 부합하며 시각적 완성도가 뛰어납니다.",
+      "weakness": "화면 속 텍스트를 '추상 기호로만 표현'하라는 지시를 따르지 않고 실제 단어가 사용되었으며, 요청된 Vercel 명령어의 핵심 요소(--yes --name <영문> 부분과 '한 줄')가 부정확하게 구현되었습니다."
+    }
+  ],
+  "top_picks": [
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_16\\labeled\\gemini-2_5-flash-image.png",
+      "score": 97,
+      "grade": "GOLD",
+      "intent": 30,
+      "text": 17,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "HTML+Vercel 신속 배포의 핵심 의도를 명확히 전달하며, 요청된 시각적 스타일과 구체적인 요소들을 탁월하게 구현했습니다.",
+      "weakness": "화면에 표시된 'vercel' 명령어의 플래그('-') 기호가 일부 '.'으로 잘못 표현되어 정확한 명령어 구문에 약간의 오차가 있습니다."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_16\\labeled\\dall-e-3.png",
+      "score": 85,
+      "grade": "GOLD",
+      "intent": 24,
+      "text": 20,
+      "visual": 19,
+      "clarity": 8,
+      "layout": 14,
+      "strength": "요청된 모던 미니멀 일러스트 스타일, 따뜻한 조명, 16:9 비율, 화면 속 추상 기호 표현 등 시각적/미학적 요구사항을 완벽하게 구현했습니다.",
+      "weakness": "특정 Vercel 배포 과정, URL 접근 제어, 검색 엔진 노출 여부 등 추상적인 기술 정보를 시각 자료만으로는 명확히 전달하지 못합니다."
+    }
+  ]
+}

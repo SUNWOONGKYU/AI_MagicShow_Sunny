@@ -1,0 +1,97 @@
+{
+  "ranking": [
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_19\\labeled\\gemini-2_5-flash-image.png",
+      "score": 93,
+      "grade": "GOLD",
+      "intent": 25,
+      "text": 20,
+      "visual": 20,
+      "clarity": 13,
+      "layout": 15,
+      "strength": "낡은 도구 개선 대신 새롭고 차원 높은 도구로의 전환이라는 핵심 메시지를 시각적으로 명확하게 전달하며, 요청된 스타일과 장면을 완벽하게 구현했습니다.",
+      "weakness": "패러다임 전환을 나타내는 추상 기호가 다소 일반적이며, 삽/포크레인과 함께 언급된 낫/트랙터 중 낫과 트랙터는 명시적으로 표현되지 않았습니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_19\\labeled\\gpt-image-1.png",
+      "score": 93,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 18,
+      "visual": 19,
+      "clarity": 13,
+      "layout": 15,
+      "strength": "차원 높은 도구로의 패러다임 전환이라는 핵심 메시지를 현대적이고 미니멀한 일러스트 스타일과 따뜻한 색감으로 매우 효과적으로 시각화했습니다.",
+      "weakness": "화면 내 텍스트는 추상 기호로만 표현되었지만, 이미지 하단의 메타데이터에 한국어 텍스트가 포함되어 '한글 텍스트 없음' 요청을 완전히 충족하지 못했습니다."
+    },
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_19\\labeled\\gemini-3_1-flash-image.png",
+      "score": 81,
+      "grade": "SILVER",
+      "intent": 27,
+      "text": 5,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "현대적 미니멀리즘 스타일로 시각적 완성도가 높으며, 패러다임 전환이라는 추상적인 핵심 메시지를 은유적으로 효과적으로 전달합니다.",
+      "weakness": "프롬프트에 '한글 텍스트 없음'이라고 명시했음에도 불구하고, 이미지 하단에 한국어 메타 정보(BuzzLab AI, Google 빠름·저비용)가 포함되어 있습니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_19\\labeled\\gemini-3-pro-image.png",
+      "score": 77,
+      "grade": "SILVER",
+      "intent": 25,
+      "text": 2,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "공사용 삽질/낫질의 개선이 아닌 포크레인/트랙터로의 패러다임 전환이라는 핵심 메시지를 매우 효과적이고 시각적으로 명확하게 전달하며, 모던 미니멀 스타일과 따뜻한 조명 요청을 완벽하게 구현했습니다.",
+      "weakness": "명시적으로 요청된 '한글 텍스트 없음' 지시를 위반하여 이미지 하단에 한국어 워터마크가 포함되었습니다."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_19\\labeled\\dall-e-3.png",
+      "score": 69,
+      "grade": "BRONZE",
+      "intent": 20,
+      "text": 3,
+      "visual": 19,
+      "clarity": 13,
+      "layout": 14,
+      "strength": "핵심 메시지인 패러다임 전환을 시각적으로 훌륭하게 표현했으며, 모던한 미니멀 스타일과 따뜻한 조명, 구성이 매우 뛰어남.",
+      "weakness": "인포그래픽 화면 내 텍스트가 추상 기호가 아닌 의미 없는 영문으로 표현되어 텍스트 지시사항을 심각하게 위반했으며, 이미지 하단에 한글 텍스트가 포함됨."
+    }
+  ],
+  "top_picks": [
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_19\\labeled\\gemini-2_5-flash-image.png",
+      "score": 93,
+      "grade": "GOLD",
+      "intent": 25,
+      "text": 20,
+      "visual": 20,
+      "clarity": 13,
+      "layout": 15,
+      "strength": "낡은 도구 개선 대신 새롭고 차원 높은 도구로의 전환이라는 핵심 메시지를 시각적으로 명확하게 전달하며, 요청된 스타일과 장면을 완벽하게 구현했습니다.",
+      "weakness": "패러다임 전환을 나타내는 추상 기호가 다소 일반적이며, 삽/포크레인과 함께 언급된 낫/트랙터 중 낫과 트랙터는 명시적으로 표현되지 않았습니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_19\\labeled\\gpt-image-1.png",
+      "score": 93,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 18,
+      "visual": 19,
+      "clarity": 13,
+      "layout": 15,
+      "strength": "차원 높은 도구로의 패러다임 전환이라는 핵심 메시지를 현대적이고 미니멀한 일러스트 스타일과 따뜻한 색감으로 매우 효과적으로 시각화했습니다.",
+      "weakness": "화면 내 텍스트는 추상 기호로만 표현되었지만, 이미지 하단의 메타데이터에 한국어 텍스트가 포함되어 '한글 텍스트 없음' 요청을 완전히 충족하지 못했습니다."
+    }
+  ]
+}

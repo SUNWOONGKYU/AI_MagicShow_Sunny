@@ -1,0 +1,84 @@
+{
+  "ranking": [
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_27\\labeled\\gemini-3-pro-image.png",
+      "score": 97,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "계층적 하위 에이전트와 분산형 에이전트 팀의 핵심적인 개념 차이를 시각적으로 매우 효과적으로 표현했으며, 스타일 및 텍스트 제약 조건을 훌륭하게 준수했습니다.",
+      "weakness": "왼쪽 화면의 하위 에이전트 개념이 명확한 단방향 지시-보고 구조로 표현되기보다는 단순한 양방향 통신으로 해석될 여지가 아주 미미하게 있습니다."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_27\\labeled\\dall-e-3.png",
+      "score": 73,
+      "grade": "SILVER",
+      "intent": 24,
+      "text": 5,
+      "visual": 19,
+      "clarity": 11,
+      "layout": 14,
+      "strength": "모던 미니멀 스타일, 따뜻한 조명, 16:9 비율 등 시각적 요청사항과 두 개념(Subagent/Agent Teams)의 고수준 시각적 구분이 매우 잘 구현되었습니다.",
+      "weakness": "화면 속 텍스트를 추상 기호로만 표현하라는 명시적 지시에도 불구하고 'AGENT Teams'라는 명확한 영문 텍스트가 표시되어 프롬프트 준수도가 크게 떨어집니다."
+    },
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_27\\labeled\\gemini-2_5-flash-image.png",
+      "score": 72,
+      "grade": "SILVER",
+      "intent": 25,
+      "text": 0,
+      "visual": 19,
+      "clarity": 13,
+      "layout": 15,
+      "strength": "복잡한 Subagent와 Agent Teams 개념을 모던하고 미니멀한 스타일로 시각적으로 명확하게 구분하여 전달하며, 높은 미적 완성도를 보여줍니다.",
+      "weakness": "텍스트 관련 프롬프트 요청('화면 속 텍스트는 추상 기호로만 표현', '한글 텍스트 없음')을 엄격하게 지키지 못해, 헤더가 영문 단어이며 하단에 한글 텍스트가 포함되어 있습니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_27\\labeled\\gpt-image-1.png",
+      "score": 63,
+      "grade": "BRONZE",
+      "intent": 10,
+      "text": 20,
+      "visual": 19,
+      "clarity": 0,
+      "layout": 14,
+      "strength": "요청된 모던 미니멀 일러스트 스타일과 따뜻한 색감, 그리고 한국인이 컴퓨터 작업을 하는 기본적인 구도를 충실히 구현했으며, 화면 속 텍스트를 추상 기호로만 표현하라는 지시를 완벽하게 따랐습니다.",
+      "weakness": "가장 핵심적인 요청 사항인 'Subagent와 Agent Teams의 차이'를 시각적으로 전혀 표현하지 못해 정보 전달력이 극도로 낮으며, 인포그래픽/시각자료로서의 본래 의도에 부합하지 않습니다."
+    },
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_27\\labeled\\gemini-3_1-flash-image.png",
+      "score": 61,
+      "grade": "BRONZE",
+      "intent": 19,
+      "text": 0,
+      "visual": 19,
+      "clarity": 9,
+      "layout": 14,
+      "strength": "전반적인 시각적 디자인 품질, 모던 미니멀리스트 미학, 따뜻한 조명 처리가 훌륭하여 매력적이고 전문적인 분위기를 잘 구현했습니다.",
+      "weakness": "화면 내 텍스트를 추상 기호로만 표현하라는 명시적인 지시를 어기고 'Settings'라는 실제 텍스트를 사용했으며, Subagent와 Agent Teams 간의 핵심 개념적 차이를 너무 추상적으로 표현하여 정보 전달력이 약합니다."
+    }
+  ],
+  "top_picks": [
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_27\\labeled\\gemini-3-pro-image.png",
+      "score": 97,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "계층적 하위 에이전트와 분산형 에이전트 팀의 핵심적인 개념 차이를 시각적으로 매우 효과적으로 표현했으며, 스타일 및 텍스트 제약 조건을 훌륭하게 준수했습니다.",
+      "weakness": "왼쪽 화면의 하위 에이전트 개념이 명확한 단방향 지시-보고 구조로 표현되기보다는 단순한 양방향 통신으로 해석될 여지가 아주 미미하게 있습니다."
+    }
+  ]
+}

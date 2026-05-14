@@ -1,0 +1,110 @@
+{
+  "ranking": [
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_06\\labeled\\gemini-3_1-flash-image.png",
+      "score": 100,
+      "grade": "GOLD",
+      "intent": 30,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "프롬프트의 모든 세부 요청사항(구도, 요소, 스타일, 조명, 텍스트 추상화, 100점 목표 등)을 완벽하게 시각적으로 구현하여 정보 전달력과 예술적 완성도가 매우 높습니다.",
+      "weakness": "주어진 프롬프트 요구사항 내에서 특별히 발견되는 약점은 없습니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_06\\labeled\\gemini-3-pro-image.png",
+      "score": 95,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 19,
+      "clarity": 13,
+      "layout": 15,
+      "strength": "프롬프트의 복잡한 요구사항(구체적인 QC 스킬 이름, 'Task Agent ≠ Verification Agent' 원칙, 사다리식 진행 등)을 모던 미니멀 스타일로 매우 충실하고 정확하게 시각화하여 높은 완성도를 보인다.",
+      "weakness": "일부 추상적인 개념(누적 운용 시간, 산출물 무게와 스킬 전환의 명확한 연결)은 시각적으로 직접 표현하기 어려워 다소 간접적으로만 전달된다."
+    },
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_06\\labeled\\gemini-2_5-flash-image.png",
+      "score": 91,
+      "grade": "GOLD",
+      "intent": 27,
+      "text": 18,
+      "visual": 19,
+      "clarity": 13,
+      "layout": 14,
+      "strength": "복잡한 품질 관리 프로세스와 특정 수치 목표(100%, 4000h)를 미니멀한 일러스트와 추상 기호로 명확하고 심미적으로 표현했습니다.",
+      "weakness": "4가지 품질 관리 스킬의 개별적이고 명확한 구분은 추상 기호만으로는 완전히 전달되지 않아 일부 해석이 필요합니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_06\\labeled\\gpt-image-1.png",
+      "score": 78,
+      "grade": "SILVER",
+      "intent": 18,
+      "text": 20,
+      "visual": 19,
+      "clarity": 7,
+      "layout": 14,
+      "strength": "요청된 모던 미니멀 스타일과 따뜻한 조명, 구도는 훌륭하게 구현되었으며 화면 내 텍스트 없음 조건도 완벽히 지켰습니다.",
+      "weakness": "4가지 품질 관리 스킬의 종류와 각 스킬의 '무게(가벼움/중간/무거움/디버깅)'가 추상 기호만으로는 명확하게 구분되어 시각적으로 전달되지 못했습니다."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_06\\labeled\\dall-e-3.png",
+      "score": 46,
+      "grade": "CUT",
+      "intent": 10,
+      "text": 0,
+      "visual": 18,
+      "clarity": 4,
+      "layout": 14,
+      "strength": "현대적 미니멀리즘 스타일, 따뜻한 조명, 균형 잡힌 구도와 깔끔한 레이아웃 등 시각적 완성도가 뛰어납니다.",
+      "weakness": "텍스트 관련 지시(한글 텍스트 없음, 추상 기호만 사용)를 완전히 무시하여 의미 없는 한글 및 오탈자가 포함된 영어 텍스트를 생성했으며, 요청한 4가지 품질관리 스킬의 종류와 구조를 정확히 구현하지 못했습니다."
+    }
+  ],
+  "top_picks": [
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_06\\labeled\\gemini-3_1-flash-image.png",
+      "score": 100,
+      "grade": "GOLD",
+      "intent": 30,
+      "text": 20,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "프롬프트의 모든 세부 요청사항(구도, 요소, 스타일, 조명, 텍스트 추상화, 100점 목표 등)을 완벽하게 시각적으로 구현하여 정보 전달력과 예술적 완성도가 매우 높습니다.",
+      "weakness": "주어진 프롬프트 요구사항 내에서 특별히 발견되는 약점은 없습니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_06\\labeled\\gemini-3-pro-image.png",
+      "score": 95,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 19,
+      "clarity": 13,
+      "layout": 15,
+      "strength": "프롬프트의 복잡한 요구사항(구체적인 QC 스킬 이름, 'Task Agent ≠ Verification Agent' 원칙, 사다리식 진행 등)을 모던 미니멀 스타일로 매우 충실하고 정확하게 시각화하여 높은 완성도를 보인다.",
+      "weakness": "일부 추상적인 개념(누적 운용 시간, 산출물 무게와 스킬 전환의 명확한 연결)은 시각적으로 직접 표현하기 어려워 다소 간접적으로만 전달된다."
+    },
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_06\\labeled\\gemini-2_5-flash-image.png",
+      "score": 91,
+      "grade": "GOLD",
+      "intent": 27,
+      "text": 18,
+      "visual": 19,
+      "clarity": 13,
+      "layout": 14,
+      "strength": "복잡한 품질 관리 프로세스와 특정 수치 목표(100%, 4000h)를 미니멀한 일러스트와 추상 기호로 명확하고 심미적으로 표현했습니다.",
+      "weakness": "4가지 품질 관리 스킬의 개별적이고 명확한 구분은 추상 기호만으로는 완전히 전달되지 않아 일부 해석이 필요합니다."
+    }
+  ]
+}

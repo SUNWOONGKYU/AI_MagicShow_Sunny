@@ -1,0 +1,110 @@
+{
+  "ranking": [
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_08\\labeled\\gemini-2_5-flash-image.png",
+      "score": 98,
+      "grade": "GOLD",
+      "intent": 29,
+      "text": 20,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "요청된 모던 미니멀 일러스트 스타일, 따뜻한 조명, 화면 내 추상 기호 표현 등 시각적 프롬프트 지시사항을 완벽하게 구현하여 매우 높은 완성도를 보인다.",
+      "weakness": "생성된 이미지 자체에는 약점을 찾기 어려울 정도로 프롬프트 의도에 충실하다."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_08\\labeled\\dall-e-3.png",
+      "score": 97,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "요청된 모던 미니멀 일러스트 스타일, 따뜻한 조명, 추상적인 화면 콘텐츠 등 모든 시각적 요구사항을 완벽하게 충족하며, 집중된 디지털 작업을 훌륭하게 표현했습니다.",
+      "weakness": "인물의 '한국인' 특성은 명시적으로 나타나기보다는 일반적인 동양인으로 표현되었으나, 미니멀리스트 스타일의 한계와 AI의 특성을 고려할 때 큰 단점은 아닙니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_08\\labeled\\gpt-image-1.png",
+      "score": 96,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 19,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "요청된 모던 미니멀 스타일, 따뜻한 조명, 16:9 구도, 화면 속 추상 기호 및 한글 텍스트 없음 등 모든 시각적 요청을 완벽하게 구현했습니다.",
+      "weakness": "이미지 프레임 바깥의 메타 정보에 한글이 포함되어 있으나, 이는 프롬프트의 시각적 생성 요청 범위 밖으로 보입니다."
+    },
+    {
+      "model": "gemini-3-pro-image-preview",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_08\\labeled\\gemini-3-pro-image.png",
+      "score": 75,
+      "grade": "SILVER",
+      "intent": 25,
+      "text": 0,
+      "visual": 20,
+      "clarity": 15,
+      "layout": 15,
+      "strength": "요청된 '모던 미니멀 일러스트' 스타일, '따뜻한 조명', '16:9 화면비', '추상 기호로만 표현된 화면 텍스트' 등 시각적 의도를 완벽하게 구현했습니다.",
+      "weakness": "가장 중요한 부정적 제약 조건인 '한글 텍스트 없음'을 지키지 못하고 이미지 내에 한글 텍스트가 포함되어 있어 프롬프트 부합도가 크게 떨어집니다."
+    },
+    {
+      "model": "gemini-3.1-flash-image-preview",
+      "path": "flash-image-preview\n[Gemini] 프롬프트: 엔비디아 NeMoTron 100만 한국인 합성 데이터셋 활용하기. NVIDIA가 2026년 공개한 합성 한국인 페르소나 100만 명 데이터셋(N...\n[Gemini] 등록된 키: 29개 (자동 로테이션)\n[키 #29 AIzaSyC3...Dg1I] quota 초과 → 다음 키\n[키 #8 AIzaSyAh...kb7U] quota 초과 → 다음 키\n[성공] 키 #14 (AIzaSyBz...2HM0) 사용\n[경고] 응답에 이미지가 없습니다. 프롬프트가 정책 위반일 수 있습니다.",
+      "score": 0,
+      "grade": "CUT",
+      "intent": 0,
+      "text": 0,
+      "visual": 0,
+      "clarity": 0,
+      "layout": 0,
+      "strength": "",
+      "weakness": "생성 실패 또는 파일 없음"
+    }
+  ],
+  "top_picks": [
+    {
+      "model": "gemini-2.5-flash-image",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_08\\labeled\\gemini-2_5-flash-image.png",
+      "score": 98,
+      "grade": "GOLD",
+      "intent": 29,
+      "text": 20,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "요청된 모던 미니멀 일러스트 스타일, 따뜻한 조명, 화면 내 추상 기호 표현 등 시각적 프롬프트 지시사항을 완벽하게 구현하여 매우 높은 완성도를 보인다.",
+      "weakness": "생성된 이미지 자체에는 약점을 찾기 어려울 정도로 프롬프트 의도에 충실하다."
+    },
+    {
+      "model": "dall-e-3",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_08\\labeled\\dall-e-3.png",
+      "score": 97,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 20,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "요청된 모던 미니멀 일러스트 스타일, 따뜻한 조명, 추상적인 화면 콘텐츠 등 모든 시각적 요구사항을 완벽하게 충족하며, 집중된 디지털 작업을 훌륭하게 표현했습니다.",
+      "weakness": "인물의 '한국인' 특성은 명시적으로 나타나기보다는 일반적인 동양인으로 표현되었으나, 미니멀리스트 스타일의 한계와 AI의 특성을 고려할 때 큰 단점은 아닙니다."
+    },
+    {
+      "model": "gpt-image-1",
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_08\\labeled\\gpt-image-1.png",
+      "score": 96,
+      "grade": "GOLD",
+      "intent": 28,
+      "text": 20,
+      "visual": 19,
+      "clarity": 14,
+      "layout": 15,
+      "strength": "요청된 모던 미니멀 스타일, 따뜻한 조명, 16:9 구도, 화면 속 추상 기호 및 한글 텍스트 없음 등 모든 시각적 요청을 완벽하게 구현했습니다.",
+      "weakness": "이미지 프레임 바깥의 메타 정보에 한글이 포함되어 있으나, 이는 프롬프트의 시각적 생성 요청 범위 밖으로 보입니다."
+    }
+  ]
+}

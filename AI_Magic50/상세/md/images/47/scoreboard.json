@@ -1,0 +1,102 @@
+{
+  "gemini-2.5-flash-image": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_47\\_variants\\gemini-2_5-flash-image_v1.png",
+      "ok": true,
+      "score": 89,
+      "reason": "깔때기형 워크플로우와 모던 미니멀 스타일 등 시각적 의도를 완벽하게 구현했으나, '한글 텍스트 없음'과 모델 개수(5개 vs 7개) 조건 미준수 및 'Inage' 오타가 감점 요인입니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_47\\_variants\\gemini-2_5-flash-image_v2.png",
+      "ok": true,
+      "score": 98,
+      "reason": "프롬프트의 모든 핵심 요소를 완벽하게 구현했으며, 특히 깔때기형 워크플로우와 '1/15' 인지 부하 축소 표현이 매우 명확하고, 시각적 완성도 또한 뛰어납니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_47\\_variants\\gemini-2_5-flash-image_v3.png",
+      "ok": true,
+      "score": 82,
+      "reason": "복잡한 멀티 모델 워크플로우를 시각적으로 훌륭하게 구현했으나, 한글 텍스트 사용 금지 지침 위반 및 오타가 감점 요인입니다."
+    }
+  ],
+  "dall-e-3": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_47\\_variants\\dall-e-3_v3.png",
+      "ok": true,
+      "score": 69,
+      "reason": "이미지는 요청된 스타일, 구도, 따뜻한 조명, 16:9 비율을 훌륭하게 구현했으나, 모델 이름과 세부 설명 텍스트가 심하게 왜곡되어 가독성과 정보 명확성을 크게 저해했습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_47\\_variants\\dall-e-3_v2.png",
+      "ok": true,
+      "score": 67,
+      "reason": "요청된 워크플로우 구조, 스타일, 따뜻한 조명은 잘 구현되었으나, 텍스트를 추상 기호로만 표현하라는 핵심 지시를 따르지 못해 점수가 낮아졌습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_47\\_variants\\dall-e-3_v1.png",
+      "ok": true,
+      "score": 48,
+      "reason": "전반적인 워크플로우와 스타일은 잘 구현되었으나, 텍스트가 추상 기호가 아닌 판독 불가능한 영어 유사 문자로 표현되어 프롬프트의 핵심 요구사항을 충족하지 못했습니다."
+    }
+  ],
+  "gpt-image-1": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_47\\_variants\\gpt-image-1_v3.png",
+      "ok": true,
+      "score": 97,
+      "reason": "프롬프트의 모든 시각적 요구사항(모던 미니멀 일러스트, 따뜻한 조명, 16:9 비율, 추상 기호 화면, 한글 텍스트 없음)을 완벽하게 구현하여 의도 부합도와 시각적 완성도가 매우 높습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_47\\_variants\\gpt-image-1_v1.png",
+      "ok": true,
+      "score": 100,
+      "reason": "프롬프트의 모든 요구사항(모던 미니멀 일러스트, 따뜻한 조명, 16:9, 추상 기호 화면 텍스트)이 완벽하게 구현되어 시각적 완성도와 의도 부합도가 매우 높습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_47\\_variants\\gpt-image-1_v2.png",
+      "ok": true,
+      "score": 85,
+      "reason": "모던 미니멀 스타일, 따뜻한 조명, 추상 기호 화면 등 프롬프트의 핵심 시각적 요구사항을 훌륭하게 반영했으나, 16:9 화면 비율 요청을 준수하지 못했습니다."
+    }
+  ],
+  "gemini-3.1-flash-image-preview": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_47\\_variants\\gemini-3_1-flash-image_v2.png",
+      "ok": true,
+      "score": 97,
+      "reason": "프롬프트의 모든 핵심 요소(깔때기형 멀티모델 워크플로우, 1/15 인지 부하 감소, 한국인, 모던 미니멀 일러스트, 따뜻한 조명, 화면 내 추상/영어 텍스트)가 매우 정확하고 시각적으로 완벽하게 구현되었습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_47\\_variants\\gemini-3_1-flash-image_v1.png",
+      "ok": true,
+      "score": 68,
+      "reason": "대부분의 요청을 충족하며 시각적 완성도가 높고 워크플로우를 명확히 표현했지만, 화면 내 텍스트가 추상 기호가 아닌 영어로 표현되어 프롬프트의 중요한 요구사항을 충족하지 못했습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_47\\_variants\\gemini-3_1-flash-image_v3.png",
+      "ok": true,
+      "score": 68,
+      "reason": "프롬프트의 대부분 핵심 요소(멀티 모델 워크플로우, 사용자, 스타일, 따뜻한 조명, 16:9 비율)는 훌륭하게 구현되었으나, 화면 내 텍스트를 추상 기호로 표현하라는 핵심 지시를 명백히 따르지 않고 영문 텍스트를 사용한 점이 큰 감점 요인입니다."
+    }
+  ],
+  "gemini-3-pro-image-preview": [
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_47\\_variants\\gemini-3-pro-image_v1.png",
+      "ok": true,
+      "score": 36,
+      "reason": "화면 내 텍스트를 추상 기호가 아닌 실제 한글로 표현하여 프롬프트의 핵심 요구사항을 크게 위반했으며, 이미지 개수 등 세부사항도 불일치합니다. 하지만 전반적인 구도, 스타일, 분위기는 잘 구현되었습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_47\\_variants\\gemini-3-pro-image_v2.png",
+      "ok": true,
+      "score": 98,
+      "reason": "멀티 모델 이미지 생성 및 선별 프로세스를 깔때기형 워크플로우로 완벽하게 시각화했으며, 요청된 모든 스타일과 텍스트 제한을 훌륭히 준수하여 정보 전달력이 매우 높습니다."
+    },
+    {
+      "path": "C:\\Users\\home\\AppData\\Local\\Temp\\img_batch\\item_47\\_variants\\gemini-3-pro-image_v3.png",
+      "ok": true,
+      "score": 80,
+      "reason": "복잡한 워크플로우를 명확하고 모던한 일러스트로 잘 표현했으나, '한글 텍스트 없음' 및 '추상 기호로만 표현'이라는 텍스트 지시를 전면적으로 위반하여 감점."
+    }
+  ]
+}
