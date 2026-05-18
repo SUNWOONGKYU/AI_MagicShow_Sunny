@@ -5,45 +5,53 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>SUNNY AI MAGIC 50 · #49 HWP/HWPX 파일 처리</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#000814;color:#fff;line-height:1.7}
-.hero{background:radial-gradient(circle at 30% 30%,#002d5c 0%,#000814 70%);padding:50px 24px 40px;text-align:center;border-bottom:3px solid #FF8C00}
-.hero .tag{color:#FF8C00;font-size:13px;font-weight:900;letter-spacing:5px;margin-bottom:12px}
-.hero h1{font-size:clamp(22px,4vw,40px);font-weight:900;line-height:1.25;margin-bottom:8px;color:#fff;text-shadow:0 4px 24px rgba(255,140,0,0.35)}
-.hero .subtitle{font-size:clamp(13px,1.6vw,17px);color:#FF8C00;font-weight:600;letter-spacing:0.3px;margin-bottom:14px;opacity:0.92}
+:root{
+  --c-dark:#0A1F14;--c-forest:#2D6A4F;--c-sage:#9FC7AF;
+  --c-gold:#C9A961;--c-gold-deep:#A88A4A;--c-gold-soft:#E3CB8C;
+  --c-alert:#8B2635;
+  --c-bg:#FAFAF7;--c-surface:#FFFFFF;--c-border:#E6E2D6;
+  --c-text:#1a2332;--c-body:#3a4558;--c-muted:#5f6b7a;
+}
+html,body{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;background:var(--c-bg);color:var(--c-body);line-height:1.7}
+.hero{background:linear-gradient(135deg,#0A1F14 0%,#2D6A4F 100%);padding:50px 24px 40px;text-align:center;border-bottom:3px solid var(--c-gold)}
+.hero .tag{color:var(--c-gold-soft);font-size:13px;font-weight:900;letter-spacing:5px;margin-bottom:12px}
+.hero h1{font-size:clamp(22px,4vw,40px);font-weight:900;line-height:1.25;margin-bottom:8px;color:#fff;text-shadow:0 4px 24px rgba(0,0,0,0.4)}
+.hero .subtitle{font-size:clamp(13px,1.6vw,17px);color:var(--c-sage);font-weight:600;letter-spacing:0.3px;margin-bottom:14px}
 .hero .meta{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px}
-.hero .badge{background:rgba(255,140,0,0.15);color:#FF8C00;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:900;letter-spacing:1px;border:1px solid rgba(255,140,0,0.4)}
-.hero .badge.type-a{background:rgba(231,76,60,0.15);color:#e74c3c;border-color:rgba(231,76,60,0.4)}
-.hero .badge.type-b{background:rgba(52,152,219,0.15);color:#3498DB;border-color:rgba(52,152,219,0.4)}
-.hero .badge.type-c{background:rgba(63,185,80,0.15);color:#3fb950;border-color:rgba(63,185,80,0.4)}
-.back{position:absolute;top:20px;left:20px;color:#FF8C00;text-decoration:none;font-size:13px;font-weight:700;padding:7px 14px;border:2px solid #FF8C00;border-radius:18px}
-.back:hover{background:#FF8C00;color:#001020}
+.hero .badge{background:rgba(201,169,97,0.18);color:var(--c-gold-soft);padding:5px 14px;border-radius:20px;font-size:12px;font-weight:900;letter-spacing:1px;border:1px solid rgba(201,169,97,0.45)}
+.hero .badge.type-a{background:rgba(139,38,53,0.25);color:#e8b4bd;border-color:rgba(139,38,53,0.55)}
+.hero .badge.type-b{background:rgba(159,199,175,0.2);color:var(--c-sage);border-color:rgba(159,199,175,0.5)}
+.hero .badge.type-c{background:rgba(255,255,255,0.14);color:#fff;border-color:rgba(255,255,255,0.35)}
+.back{position:absolute;top:20px;left:20px;color:#fff;text-decoration:none;font-size:13px;font-weight:700;padding:7px 14px;border:2px solid rgba(255,255,255,0.55);border-radius:18px}
+.back:hover{background:#fff;color:var(--c-forest)}
 .content{max-width:900px;margin:0 auto;padding:40px 24px 60px}
 .content h1{display:none}
-.content h2{font-size:clamp(20px,2.8vw,28px);font-weight:900;color:#FF8C00;margin:32px 0 16px;letter-spacing:0.5px;border-left:5px solid #FF8C00;padding-left:14px}
+.content h2{font-size:clamp(20px,2.8vw,28px);font-weight:900;color:var(--c-forest);margin:32px 0 16px;letter-spacing:0.5px;border-left:5px solid var(--c-gold);padding-left:14px}
 .content h2:first-child{margin-top:0}
-.content h3{font-size:18px;font-weight:900;color:#fff;margin:24px 0 12px}
-.content h4{font-size:16px;font-weight:700;color:#FF8C00;margin:18px 0 10px}
-.content p{font-size:15px;color:#dde;margin-bottom:14px}
-.content ul,.content ol{margin:0 0 16px 24px;color:#dde}
+.content h3{font-size:18px;font-weight:900;color:var(--c-text);margin:24px 0 12px}
+.content h4{font-size:16px;font-weight:700;color:var(--c-gold-deep);margin:18px 0 10px}
+.content p{font-size:15px;color:var(--c-body);margin-bottom:14px}
+.content ul,.content ol{margin:0 0 16px 24px;color:var(--c-body)}
 .content li{font-size:15px;margin-bottom:6px;line-height:1.7}
-.content strong{color:#fff;font-weight:900}
-.content em{color:#FF8C00;font-style:normal;font-weight:600}
-.content code{background:rgba(255,140,0,0.12);color:#FF8C00;padding:2px 6px;border-radius:4px;font-size:13px;font-family:'D2Coding','Consolas',monospace}
-.content pre{background:rgba(0,0,0,0.4);border:1px solid rgba(255,140,0,0.25);border-radius:8px;padding:16px;overflow-x:auto;margin:16px 0}
-.content pre code{background:none;color:#bcd;padding:0;font-size:13px}
-.content blockquote{border-left:4px solid #FF8C00;background:rgba(255,140,0,0.05);padding:14px 20px;margin:16px 0;border-radius:0 8px 8px 0;color:#bcd}
-.content table{width:100%;border-collapse:collapse;margin:18px 0;background:rgba(255,255,255,0.03);border-radius:8px;overflow:hidden;font-size:14px}
-.content th,.content td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08)}
-.content th{background:rgba(255,140,0,0.15);color:#FF8C00;font-weight:900}
-.content td{color:#dde}
+.content strong{color:var(--c-text);font-weight:900}
+.content em{color:var(--c-gold-deep);font-style:normal;font-weight:600}
+.content code{background:rgba(201,169,97,0.16);color:var(--c-gold-deep);padding:2px 6px;border-radius:4px;font-size:13px;font-family:'JetBrains Mono','D2Coding','Consolas',monospace}
+.content pre{background:#F4F2EA;border:1px solid var(--c-border);border-radius:8px;padding:16px;overflow-x:auto;margin:16px 0}
+.content pre code{background:none;color:var(--c-body);padding:0;font-size:13px}
+.content blockquote{border-left:4px solid var(--c-gold);background:#F4F2EA;padding:14px 20px;margin:16px 0;border-radius:0 8px 8px 0;color:var(--c-body)}
+.content table{width:100%;border-collapse:collapse;margin:18px 0;background:var(--c-surface);border:1px solid var(--c-border);border-radius:8px;overflow:hidden;font-size:14px}
+.content th,.content td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--c-border)}
+.content th{background:var(--c-forest);color:#fff;font-weight:900}
+.content td{color:var(--c-body)}
 .content tr:last-child td{border-bottom:none}
-.content hr{border:none;border-top:1px solid rgba(255,140,0,0.2);margin:30px 0}
-.content a{color:#FF8C00;text-decoration:none;border-bottom:1px dashed rgba(255,140,0,0.4)}
+.content hr{border:none;border-top:1px solid var(--c-border);margin:30px 0}
+.content a{color:var(--c-gold-deep);text-decoration:none;border-bottom:1px dashed rgba(168,138,74,0.5)}
 .content a:hover{border-bottom-style:solid}
-.footer{background:#001020;border-top:1px solid #1a2a3a;padding:24px;text-align:center;color:#7a8c9c;font-size:13px}
-.footer a{color:#FF8C00;text-decoration:none;margin:0 10px}
+.footer{background:var(--c-dark);border-top:3px solid var(--c-gold);padding:24px;text-align:center;color:var(--c-sage);font-size:13px}
+.footer a{color:var(--c-gold-soft);text-decoration:none;margin:0 10px}
 </style>
 </head>
 <body>
@@ -61,12 +69,12 @@ html,body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;backgroun
 
 <section class="content">
 <h2>한 줄 정의</h2>
-<p><strong>HWP(바이너리)·HWPX(XML) 양 포맷을 읽기·변환·표준양식 생성까지 자유자재로 처리</strong>하고, 한국 공공기관 표준 양식(기안문·검토보고서·공문·회의록)을 <strong>재사용 가능한 스킬 자산</strong>으로 박아놓는 것. doc-generator-기본 스킬 Phase 5(HWP) 의 모든 경로를 본인 공공 AX 사업 흐름에 맞춰 단축·재구성한 운용 패턴.</p>
+<p><strong>HWP(바이너리)·HWPX(XML) 양 포맷을 읽기·변환·표준양식 생성까지 자유자재로 처리</strong>하고, 한국 공공기관 표준 양식(기안문·검토보고서·공문·회의록)을 <strong>재사용 가능한 스킬 자산</strong>으로 박아놓는 것. doc-generator-기본 스킬 Phase 5(HWP)의 모든 경로를 한국형 문서 워크플로우에 맞춰 단축·재구성한 운용 패턴.</p>
 <h2>왜 이 노하우가 중요한가</h2>
-<p>본인 본업이 <strong>공공 AX(공공 인공지능 전환)</strong> 다. 공공기관 사업의 모든 산출물은 결국 HWP/HWPX 한 폴더로 귀결된다. 사업계획서·기안문·결재문서·검토보고서·공문·회의록 — 전부 아래한글이다. 한컴오피스 라이선스가 없거나, 모바일에서 원격으로 작업할 때, 30개 동시 운용에서 본인이 직접 한컴을 못 띄울 때, <strong>HWP를 못 다루는 AI는 공공 사업장에서는 무용지물</strong>이다.</p>
-<p>문제는 HWP가 <strong>DOCX와 다르다</strong>는 점이다. DOCX는 ZIP 기반 XML이라 unzip 해서 XML 한 줄 고치면 끝인데, HWP는 OLE 복합문서(바이너리) — pyhwp·olefile 같은 전용 파서 없이는 텍스트 한 글자도 못 읽는다. 그 위에 HWPX(XML 신형식)가 추가되면서 두 갈래로 갈라졌다. <strong>두 포맷을 한 입구로 통일해서 다루는 능력</strong>이 공공 AX의 진입 장벽이다.</p>
-<p>본인이 누적 운용 동안 부딪힌 가장 흔한 시나리오 세 가지: (1) 발주처가 HWP로 보낸 RFP를 분석해 제안서 초안 작성, (2) 본인이 만든 분석 결과를 발주처가 받아볼 HWP 양식으로 출력, (3) 매년 반복되는 100건 이상의 표준 기안문·공문 일괄 생성. 이 세 가지를 매번 손으로 하면 사람이 죽는다. 스킬화하면 <em>"기안문 100개 만들어"</em> 한 줄로 끝난다.</p>
-<p>본인 사고가 여기에 박힌다 — <em>"한국 공공 양식은 외부 자산이 아니라 본인 노하우다"</em>. 한 번 만들 때 양식 자산화까지 같이 박아놓아야, 다음 사업·다음 발주처에서도 그 자산이 자동으로 호출된다. SAL Grid 프로젝트 자동 감지 원리와 같다 — 환경(공공기관 발주처)이 감지되면 양식이 자동 적용되어야 한다.</p>
+<p>한국에서 문서 업무를 하다 보면 결국 HWP/HWPX 폴더로 귀결되는 경우가 많다. 사업계획서·기안문·결재문서·검토보고서·공문·회의록 — 공공·준공공·교육·연구 환경에서는 대체로 아래한글이다. 한컴오피스 라이선스가 없거나, 모바일에서 원격으로 작업할 때, 다중 인스턴스 운용에서 한컴을 직접 띄우지 못할 때, <strong>HWP를 못 다루는 AI는 한국형 문서 환경에서는 무용지물</strong>이 된다.</p>
+<p>문제는 HWP가 <strong>DOCX와 다르다</strong>는 점이다. DOCX는 ZIP 기반 XML이라 unzip 해서 XML 한 줄 고치면 끝인데, HWP는 OLE 복합문서(바이너리) — pyhwp·olefile 같은 전용 파서 없이는 텍스트 한 글자도 못 읽는다. 그 위에 HWPX(XML 신형식)가 추가되면서 두 갈래로 갈라졌다. <strong>두 포맷을 한 입구로 통일해서 다루는 능력</strong>이 한국형 문서 자동화의 진입 장벽이다.</p>
+<p>자주 마주치는 시나리오 세 가지: (1) 상대방이 HWP로 보낸 RFP·요청 문서를 분석해 답안·제안서 초안 작성, (2) 작성한 분석 결과를 수신측이 받아볼 HWP 양식으로 출력, (3) 매년 반복되는 100건 이상의 표준 기안문·공문 일괄 생성. 이 세 가지를 매번 손으로 하면 사람이 죽는다. 스킬화하면 <em>"기안문 100개 만들어"</em> 한 줄로 끝난다.</p>
+<p>핵심 사고는 — <em>"한국 공공 양식은 외부 자산이 아니라 내 노하우 자산이다"</em>. 한 번 만들 때 양식 자산화까지 같이 박아놓아야, 다음 프로젝트·다음 수신처에서도 그 자산이 자동으로 호출된다. SAL Grid 프로젝트 자동 감지 원리와 같다 — 환경(공공/준공공 문서 컨텍스트)이 감지되면 양식이 자동 적용되어야 한다.</p>
 <h2>핵심 개념</h2>
 <h3>HWP vs HWPX 포맷 차이</h3>
 <table>
@@ -105,7 +113,7 @@ html,body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;backgroun
 </tr>
 </tbody>
 </table>
-<p>본인 운용은 단순하다 — <strong>읽을 때는 둘 다 받고, 쓸 때는 HWPX로 만든 뒤 발주처가 원하면 한컴에서 HWP로 저장</strong>.</p>
+<p>운용 원칙은 단순하다 — <strong>읽을 때는 둘 다 받고, 쓸 때는 HWPX(또는 DOCX)로 만든 뒤 수신측이 원하면 한컴에서 HWP로 저장</strong>.</p>
 <h3>두 갈래 처리 경로</h3>
 <p><strong>경로 A — 읽기·변환 (자동화 가능)</strong></p>
 <pre><code class="language-bash"># HWP → 텍스트 (pyhwp)
@@ -124,9 +132,9 @@ soffice --headless --convert-to docx 발주서.hwpx
 <blockquote>
 <p><em>"HWP 생성은 한컴오피스(유료)만 가능"</em> — doc-generator-기본 §5-4</p>
 </blockquote>
-<p>본인 우회 패턴: <strong>DOCX로 docx-js 생성 → 발주처가 한컴에서 열어 다른 이름으로 HWP 저장</strong>. 생성 단계에서 한글 폰트(Malgun Gothic)·여백·표 폭(WidthType.DXA)을 공공 표준에 맞춰두면 한컴에서 열어도 거의 그대로 나온다.</p>
+<p>우회 패턴: <strong>DOCX로 python-docx 생성 → 수신측(또는 본인 한컴 PC)에서 한컴으로 열어 다른 이름으로 HWP 저장</strong>. 생성 단계에서 한글 폰트(맑은 고딕)·여백(좌우 2.5cm/상하 2.0cm)·표 스타일(Table Grid)을 공공 표준에 맞춰두면 한컴에서 열어도 거의 그대로 나온다. 본 스킬의 <code>generate_templates.py</code>가 이 표준을 코드로 박아둔 결과물이다.</p>
 <h3>한국 공공 표준 양식 자산화</h3>
-<p>본인이 스킬로 박아놓은 양식 4종:</p>
+<p><code>공공양식-기본</code> 스킬로 박아놓은 양식 4종:</p>
 <table>
 <thead>
 <tr>
@@ -139,40 +147,40 @@ soffice --headless --convert-to docx 발주서.hwpx
 <tr>
 <td><strong>기안문</strong></td>
 <td>내부 결재</td>
-<td>제목·기안자·결재선·시행일·붙임</td>
+<td>제목·기안자·결재선·시행일·붙임 (메타 6 + 본문 6)</td>
 </tr>
 <tr>
 <td><strong>검토보고서</strong></td>
 <td>사업 검토</td>
-<td>사업명·검토배경·현황·검토의견·결론</td>
+<td>사업명·검토배경·현황·필요성·기대효과·소요예산·추진일정·리스크·결론 (8섹션)</td>
 </tr>
 <tr>
 <td><strong>공문(시행문)</strong></td>
 <td>외부 발송</td>
-<td>수신·참조·제목·본문·발신명의·시행번호</td>
+<td>수신·경유·제목·본문 3문장·발신명의·시행번호·접수 등 (16필드)</td>
 </tr>
 <tr>
 <td><strong>회의록</strong></td>
 <td>회의 결과</td>
-<td>일시·장소·참석자·안건·결정사항·후속조치</td>
+<td>일시·장소·참석자·안건·논의·결정사항(표 3행)·후속조치·차기회의</td>
 </tr>
 </tbody>
 </table>
-<p>각 양식은 <code>~/.claude/skills/공공양식-기본/templates/{기안문,검토보고서,공문,회의록}.docx</code> 로 박아둔다(템플릿 자체는 DOCX, 발송 시 HWP로 변환). 한 번 박아두면 <em>"이번 사업 검토보고서 작성"</em> → 자동으로 검토보고서 템플릿이 호출되고, 사업명·일자만 채워 넣으면 끝난다.</p>
-<h3>변환 매트릭스 (본인 자주 쓰는 것만)</h3>
+<p>각 양식은 <code>~/.claude/skills/공공양식-기본/templates/{기안문,검토보고서,공문,회의록}.docx</code> 로 박아둔다(템플릿 자체는 DOCX, 발송 시 HWP로 변환). 한 번 박아두면 <em>"이번 사업 검토보고서 작성"</em> → 자동으로 검토보고서 템플릿이 호출되고, 사업명·일자만 채워 넣으면 끝난다. 표준 포맷은 <strong>맑은 고딕 10pt 본문 / 16~20pt Bold 제목 / 섹션 헤더 RGB(0x00,0x33,0x66) / 좌우 2.5cm·상하 2.0cm 여백 / 1.15 줄간격 / Table Grid + 헤더 셀 #DDEBF7 음영 / 치환 마커 <code>{{필드명}}</code></strong>.</p>
+<h3>변환 매트릭스 (자주 쓰는 것만)</h3>
 <table>
 <thead>
 <tr>
 <th>From → To</th>
 <th>명령</th>
-<th>본인 사용 빈도</th>
+<th>사용 빈도</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>HWP → TXT</td>
 <td><code>hwp5txt input.hwp &gt; out.txt</code></td>
-<td>매주 (RFP 분석)</td>
+<td>매주 (RFP·요청문 분석)</td>
 </tr>
 <tr>
 <td>HWP → PDF</td>
@@ -192,7 +200,7 @@ soffice --headless --convert-to docx 발주서.hwpx
 <tr>
 <td>DOCX → HWP</td>
 <td>(한컴 수동)</td>
-<td>발주 시</td>
+<td>제출 시</td>
 </tr>
 <tr>
 <td>MD → HWP</td>
@@ -202,20 +210,20 @@ soffice --headless --convert-to docx 발주서.hwpx
 </tbody>
 </table>
 <h2>실전 사용법</h2>
-<h3>시나리오 A — 발주처 RFP 분석 (5분 안에)</h3>
+<h3>시나리오 A — HWP RFP·요청문 분석 (5분 안에)</h3>
 <pre><code class="language-bash"># Step 1: HWP를 텍스트로 추출
 hwp5txt RFP_2026_공공AI사업.hwp &gt; rfp.txt
 
 # Step 2: Claude Code에 분석 의뢰
 # &quot;rfp.txt 읽고 사업 범위·기간·예산·핵심 요구사항 4표로 정리&quot;
 
-# Step 3: 산출물은 MD로 받아서 본인 Wiki에 적재
+# Step 3: 산출물은 MD로 받아 Wiki/자료 폴더에 적재
 </code></pre>
-<p>이 단계까지 가면 <strong>3시간 걸리던 RFP 1차 분석이 30분으로 단축</strong>된다. 본인 사례에서 검증. <em>(측정: 본인 공공 AX RFP 분석 작업 종래 평균 소요 vs AI 도입 후 평균 소요 비교)</em></p>
+<p>이 단계까지 가면 <strong>3시간 걸리던 RFP 1차 분석이 30분으로 단축</strong>된다. <em>(측정 근거: 사람 손 작업 — RFP 본문 읽기 1.5시간 + 범위·기간·예산·요구사항 4표 정리 1.5시간 ≈ 3시간 / AI 도입 후 — hwp5txt 변환 1분 + Claude Code 4표 산출 약 25분 + 검토 5분 ≈ 30분)</em></p>
 <h3>시나리오 B — 검토보고서 템플릿 호출 (한 줄)</h3>
 <pre><code>사용자: &quot;이 사업 검토보고서 작성해. 사업명: 'AI 챗봇 도입', 발주처: 'XX청'&quot;
 </code></pre>
-<p>스킬이 <code>templates/검토보고서.docx</code> 를 자동 로드 → 8섹션(검토배경·현황·필요성·기대효과·소요예산·추진일정·리스크·결론) 골격에 본인 분석 내용 자동 채움 → DOCX 산출 → 한컴에서 열어 HWP 저장.</p>
+<p>스킬이 <code>templates/검토보고서.docx</code>를 자동 로드 → 8섹션(검토배경·현황·필요성·기대효과·소요예산·추진일정·리스크·결론) 골격에 분석 내용 자동 채움 → DOCX 산출 → 필요 시 한컴에서 열어 HWP로 저장.</p>
 <h3>시나리오 C — 공문 100개 일괄 생성</h3>
 <pre><code class="language-python"># CSV: 수신처·제목·본문 100행
 # 헤드리스 모드(#10)로 일괄 처리
@@ -230,7 +238,7 @@ for i, row in df.iterrows():
     # ... (Malgun Gothic 폰트 유지)
     doc.save(f&quot;공문_{i:03d}_{row['수신']}.docx&quot;)
 </code></pre>
-<p>100개 공문이 5분 안에 만들어진다. 한 건당 5분 걸리던 작업(8시간)이 5분으로 줄어든다.</p>
+<p>100개 공문이 5분 안에 만들어진다. 한 건당 5분 걸리던 작업(8시간)이 5분으로 줄어든다. <em>(측정 근거: 사람이 양식 열기·복사·치환·저장 1건당 평균 5분 — 100건 ≈ 8시간 / 스크립트 일괄 실행 ≈ 5분, 실측치는 환경에 따라 ±30%)</em></p>
 <h3>자주 만나는 함정</h3>
 <table>
 <thead>
@@ -264,31 +272,32 @@ for i, row in df.iterrows():
 </tbody>
 </table>
 <h3>KPI 강제</h3>
-<p>본인 스킬에 박아둔 검증 KPI:
-- <strong>데이터 레이어</strong>: 텍스트 추출 시 RFP 본문 글자 수 ≥ 95% 보존
+<p>스킬에 박아둔 검증 KPI:
+- <strong>데이터 레이어</strong>: 텍스트 추출 시 본문 글자 수 ≥ 95% 보존
   <em>(측정: pyhwp/LibreOffice 추출 결과 글자 수 / 원본 한컴 본문 글자 수 비율)</em>
-- <strong>사용자 여정</strong>: 발주처 담당자가 한컴에서 열었을 때 (1) 폰트 유지 (2) 표 깨짐 없음 (3) 결재선 자동 표시 — 3개 모두 통과해야 Verified</p>
-<p><em>"파일이 만들어졌다"</em> 는 데이터 레이어 KPI일 뿐. 발주처가 실제로 열어서 결재 진행할 수 있어야 한다 — <em>curl 200 ≠ 동작함</em> 원칙이 여기에도 박혀 있다.</p>
-<h2>본인 운용 패턴</h2>
-<p>본인은 공공 사업 1건당 평균 HWP 30~50개를 다룬다. 30개 동시 운용에서 한 슬롯은 항상 <em>"공공 양식 자산화 슬롯"</em>. 그 슬롯이 발주처에서 받은 새 양식을 자동으로 templates/ 폴더에 박아 넣고, 다음 사업에서 자동 호출되도록 SKILL.md에 반영한다.</p>
-<p>ax-on.net 본인 사이트 가이드의 <em>"공공 AX 진입 가이드"</em> 페이지 핵심 자료가 바로 이 양식 자산. 누적 운용의 가장 단단한 자산 중 하나다.</p>
+- <strong>사용자 여정</strong>: 수신측 담당자가 한컴에서 열었을 때 (1) 폰트 유지 (2) 표 깨짐 없음 (3) 결재선 자동 표시 — 3개 모두 통과해야 Verified
+- <strong>치환 완결 + 사양 정합</strong>: 산출 DOCX에 남아있는 <code>{{}}</code> 마커 = 0개 + 4종 양식의 placeholder 집합이 SKILL.md 명세와 1:1 일치 (<code>_verify.py</code> exit 0 / <code>_test_fill.py</code> exit 0 — CI 자동 차단 지원)</p>
+<p><em>"파일이 만들어졌다"</em>는 데이터 레이어 KPI일 뿐. 수신측이 실제로 열어서 결재·검토를 진행할 수 있어야 한다 — <em>curl 200 ≠ 동작함</em> 원칙이 여기에도 박혀 있다.</p>
+<h2>운용 패턴</h2>
+<p>한국형 문서 프로젝트 1건당 평균 HWP 30~50개를 다루게 된다. 다중 인스턴스 운용에서 한 슬롯은 항상 <em>"공공 양식 자산화 슬롯"</em>으로 배정한다. 그 슬롯이 새로 받은 양식을 자동으로 <code>templates/</code> 폴더에 박아 넣고, 다음 프로젝트에서 자동 호출되도록 SKILL.md에 반영한다.</p>
+<p>한 번 자산화된 양식은 다음 프로젝트·다음 수신처에서도 그대로 재사용된다. 누적 운용에서 가장 단단해지는 자산 중 하나다.</p>
 <h2>관련 항목</h2>
 <ul>
 <li><strong>#33 CLAUDE.md</strong> — 공공 양식 자동 호출 규칙을 글로벌 CLAUDE.md에 박음</li>
 <li><strong>#10 헤드리스 모드</strong> — 공문 100개 일괄 생성의 실행 인프라</li>
-<li><strong>#29 스크린샷 자율 검증</strong> — 발주처가 열기 전에 한컴 시뮬레이션</li>
+<li><strong>#29 스크린샷 자율 검증</strong> — 수신측이 열기 전에 한컴 시뮬레이션</li>
 <li><strong>#22 SVG 자산화</strong> — 양식 자산화의 시각화 버전</li>
 <li><strong>#38 외부 스킬 발굴</strong> — pyhwp / hwp5proc 외부 도구 통합</li>
 <li><strong>#28 4종 품질관리</strong> — 보고서 품질 검증 루프</li>
 </ul>
 <blockquote>
-<p>Vault 사례: <code>mychatbot-world/wiki/HANDOVER_DOCX_TO_HWP.md</code> 는 <em>"재도전성공패키지 사업계획서 DOCX → HWP 변환"</em> 작업의 인수인계서다. 작성자는 <em>"Claude Code (개발 PC, 한글 미설치)"</em> 이고 수행자는 <em>"Claude Code (한글 설치 PC)"</em> — 즉 한 인스턴스가 다른 인스턴스에 작업을 넘긴 실전 기록. <em>"정부지원사업 제출 양식이 HWP이므로 한글이 설치된 PC에서 변환해야 한다"</em> 라는 문장이 본 항목 §실전 사용법의 정부 사업 환경 제약을 그대로 증언한다. 30개 인스턴스 운용에서 한 슬롯이 한글 라이선스 PC에 묶여 있는 이유, 그리고 인스턴스 간 인수인계 양식까지 자산화하는 운용 패턴이 이 노트에 박혀 있다.</p>
+<p>운용 노트: 인수인계 양식 <code>HANDOVER_DOCX_TO_HWP.md</code> 는 사업계획서 <em>DOCX → HWP 변환</em> 작업을 한 인스턴스(한글 미설치 PC)에서 다른 인스턴스(한글 설치 PC)로 넘긴 실전 기록이다. <em>"제출 양식이 HWP이므로 한글이 설치된 PC에서 변환해야 한다"</em> 라는 한 줄이 본 항목 §실전 사용법의 환경 제약을 그대로 증언한다. 다중 인스턴스 운용에서 한 슬롯이 한글 라이선스 PC에 묶이는 이유, 그리고 인스턴스 간 인수인계 양식 자체를 자산화해 다음 프로젝트로 굴리는 운용 패턴이 여기서 도출된다.</p>
 </blockquote>
 </section>
 
 <div class="footer">
   <a href="../index.html">← SUNNY AI MAGIC 50</a>
-  <div style="margin-top:10px;color:#5a6c7c;font-size:12px;letter-spacing:0.3px">© 2026 SUN WOONGKYU · SUNNY AI MAGIC 50 · CC BY-NC-ND 4.0 · 특허 별도 보유</div>
+  <div style="margin-top:10px;color:rgba(159,199,175,0.65);font-size:12px;letter-spacing:0.3px">© 2026 SUN WOONGKYU · SUNNY AI MAGIC 50 · CC BY-NC-ND 4.0 · 특허 별도 보유</div>
 </div>
 </body>
 </html>

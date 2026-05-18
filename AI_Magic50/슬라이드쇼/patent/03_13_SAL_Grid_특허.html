@@ -1,47 +1,39 @@
 <!DOCTYPE html>
-<html lang="ko" class="dark">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SAL Grid 특허 — 3차원 좌표계 기반 멀티태스크 오케스트레이션</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; overflow: hidden; font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; }
+    html, body { height: 100%; overflow: hidden; font-family: 'Pretendard Variable', 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; }
 
     :root {
-      --bg: #f8fafc;
-      --surface: #ffffff;
-      --text: #1e293b;
-      --muted: #475569;
-      --accent: #2563eb;
-      --accent2: #7c3aed;
-      --accent3: #059669;
-      --warn: #d97706;
-      --code-bg: #f1f5f9;
+      --c-dark: #0A1F14;
+      --c-forest: #2D6A4F;
+      --c-sage: #9FC7AF;
+      --c-gold: #C9A961;
+      --c-gold-deep: #A88A4A;
+      --c-gold-soft: #E3CB8C;
+      --c-alert: #8B2635;
+
+      --bg: #FAFAF7;
+      --surface: #FFFFFF;
+      --text: #1a2332;
+      --muted: #5f6b7a;
+      --accent: #2D6A4F;
+      --accent2: #A88A4A;
+      --accent3: #2D6A4F;
+      --warn: #8B2635;
+      --code-bg: #F4F2EA;
       --slide-max-w: 1100px;
-      --border: rgba(100,116,139,0.15);
-      --hl-accent: rgba(37,99,235,0.08);
-      --hl-warn: rgba(217,119,6,0.08);
-      --hl-green: rgba(5,150,105,0.08);
-      --hl-purple: rgba(124,58,237,0.08);
-      --hover-bg: rgba(37,99,235,0.05);
-    }
-    :root.dark {
-      --bg: #002451;
-      --surface: #00346e;
-      --text: #ffffff;
-      --muted: #7285b7;
-      --accent: #bbdaff;
-      --accent2: #ebbbff;
-      --accent3: #d1f1a9;
-      --warn: #ffeead;
-      --code-bg: #003f8e;
-      --border: rgba(187,218,255,0.15);
-      --hl-accent: rgba(187,218,255,0.08);
-      --hl-warn: rgba(255,238,173,0.08);
-      --hl-green: rgba(209,241,169,0.08);
-      --hl-purple: rgba(235,187,255,0.08);
-      --hover-bg: rgba(187,218,255,0.08);
+      --border: #E6E2D6;
+      --hl-accent: rgba(45,106,79,0.07);
+      --hl-warn: rgba(139,38,53,0.07);
+      --hl-green: rgba(45,106,79,0.07);
+      --hl-purple: rgba(201,169,97,0.10);
+      --hover-bg: rgba(45,106,79,0.05);
     }
 
     body { background: var(--bg); color: var(--text); }
@@ -74,8 +66,9 @@
     .slide li::marker { color: var(--accent); }
     .slide strong { color: var(--accent); font-weight: 700; }
     .slide em strong { color: var(--accent2); }
-    .slide code { background: var(--code-bg); padding: 2px 8px; border-radius: 4px; font-size: 0.92em; color: var(--text); font-weight: 600; }
-    .slide pre { background: var(--code-bg); border-radius: 12px; padding: 18px 22px; overflow-x: auto; margin: 14px 0; font-size: 0.88rem; line-height: 1.6; border: 1px solid var(--border); }
+    .slide code { background: rgba(201,169,97,0.16); padding: 2px 8px; border-radius: 4px; font-size: 0.92em; color: var(--c-gold-deep); font-weight: 600; }
+    .slide pre { background: var(--code-bg); border-radius: 12px; padding: 18px 22px; overflow-x: auto; margin: 14px 0; font-size: 0.88rem; line-height: 1.6; border: 1px solid var(--border); color: var(--c-body, #3a4558); }
+    .slide pre code { background: none; color: var(--muted); }
     .slide pre code { font-weight: 400; }
     .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 14px 0; position: relative; }
     .table-wrap::after { content: '→ 스크롤'; position: absolute; top: 8px; right: 8px; font-size: 0.75rem; color: var(--muted); opacity: 0.6; display: none; }
