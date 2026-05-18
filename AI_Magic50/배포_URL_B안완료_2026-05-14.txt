@@ -1,0 +1,40 @@
+SUNNY AI MAGIC 50 — B안(잔존 이슈 정리) 완료 + 배포 (2026-05-14)
+
+Production:
+https://sunny-ai-magic-50-ef1upvj97-finder-world.vercel.app
+
+Inspect:
+https://vercel.com/finder-world/sunny-ai-magic-50/EdB9dSmRFuzkFCi1gUw8AAa4tVwj
+
+작업 요약:
+1. #13 SAL Grid 재생성 v2
+   - 우측 22 Task 체크리스트 패널 → 4개 컴팩트 속성 칩으로 축소
+   - 큐브 격자 내부 텍스트 빽빽 → 노드 4~5개로 정리
+   - 인물을 우측 끝으로 이동해 좌상단 헤더 영역과 분리
+
+2. _overlay_headers.py wrap_text 함수 보강
+   - 기존: 한글/영문 구분 없이 글자 단위 줄바꿈 → "Compact" 단어가 "C/ompact"로 분절
+   - 개선: 토큰 기반 줄바꿈 (한글 = 글자 토큰, 영문/숫자 연속 = 단어 토큰)
+   - 영문 단어는 가운데서 끊지 않고 통째로 다음 줄로 이동
+   - #17 "수동 Compact" 등 영문 단어 깨짐 해결
+
+3. #17 헤더 재합성 (개선된 wrap_text 적용)
+   - 기존 #17 이미지는 v2 BCD 재생성 결과 재활용
+   - 새 wrap_text로 좌상단 헤더 재합성
+
+확인 URL:
+- 전체: https://sunny-ai-magic-50-ef1upvj97-finder-world.vercel.app
+- #13: https://sunny-ai-magic-50-ef1upvj97-finder-world.vercel.app/covers/13.png
+- #17: https://sunny-ai-magic-50-ef1upvj97-finder-world.vercel.app/covers/17.png
+
+백업:
+- covers/covers_backup_2026-05-14_v3/13.png, 17.png (이전 BCD 버전)
+
+기대 효과:
+- #13 B(24) → A 이상 (체크리스트 패널 축소 + 큐브 정리로 구도 +3 예상)
+- #17 A(25) → A+ (Compact 분절 해결로 헤더가독성 +2 예상)
+- 50장 전체 100% A이상 달성 예상
+
+스크립트:
+- 표지 재생성: _regen_13_v2.py, _batch_regen_BCD_2026-05-14.py (재실행 17)
+- 헤더 오버레이: _overlay_headers.py (wrap_text 토큰 기반으로 개선)

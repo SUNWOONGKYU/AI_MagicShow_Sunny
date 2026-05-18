@@ -1,0 +1,46 @@
+SUNNY AI MAGIC 50 — B+C+D 등급 11장 재작업 + 배포 (2026-05-14)
+
+Production:
+https://sunny-ai-magic-50-1u0ochpd2-finder-world.vercel.app
+
+Inspect:
+https://vercel.com/finder-world/sunny-ai-magic-50/H2aisp8AZ7Yr6NDCEjyv3BauwyiZ
+
+작업 요약:
+- 평가표(표지_디자인_평가_2026-05-14.md) 기반 11장 재생성
+  · D(1): #45 DID Loop — 해상도/얼굴/노란단색 톤 → 4단계 사이클(Data→Info→Decision→Action) 따뜻한 톤
+  · C(3): #03 SAL 3D좌표, #19 /resume, #23 멀티모델 이미지
+  · B(7): #04 Plan Mode, #13 SAL Grid, #14 소대편제, #17 컨텍스트관리, #32 앱vsCode, #42 포크레인, #50 AI하우스
+- 공통 신규 제약: "좌상단 30% 비우기" (헤더 오버레이 충돌 방지) 프롬프트에 명시
+- 해부학 강화: full face/head, 5 fingers, symmetric glasses 강제
+- 영문 라벨 제거: 한글 캡션만 사용 (#04 PLAN MODE, #50 HOUSE OF AI AGENTS 등)
+- 색감: 베이지 무채색(#03), 노란 단색(#45), 청록(#50) → 따뜻한 amber/orange/teal/cream로 통일
+- Gemini 3 Pro Image (28-key rotation), 16:9 / 2K
+- 평균 53초/장, 평균 2.1MB
+- 11장 모두 OK (0 실패)
+
+후처리:
+- _overlay_headers.py로 좌상단 헤더(#NN/Title/Subtitle) 합성
+- 원본 11장 백업 → covers/covers_backup_2026-05-14_BCD/
+
+확인 URL (재작업 11장 직접 링크):
+- #03: https://sunny-ai-magic-50-1u0ochpd2-finder-world.vercel.app/covers/03.png
+- #04: https://sunny-ai-magic-50-1u0ochpd2-finder-world.vercel.app/covers/04.png
+- #13: https://sunny-ai-magic-50-1u0ochpd2-finder-world.vercel.app/covers/13.png
+- #14: https://sunny-ai-magic-50-1u0ochpd2-finder-world.vercel.app/covers/14.png
+- #17: https://sunny-ai-magic-50-1u0ochpd2-finder-world.vercel.app/covers/17.png
+- #19: https://sunny-ai-magic-50-1u0ochpd2-finder-world.vercel.app/covers/19.png
+- #23: https://sunny-ai-magic-50-1u0ochpd2-finder-world.vercel.app/covers/23.png
+- #32: https://sunny-ai-magic-50-1u0ochpd2-finder-world.vercel.app/covers/32.png
+- #42: https://sunny-ai-magic-50-1u0ochpd2-finder-world.vercel.app/covers/42.png
+- #45: https://sunny-ai-magic-50-1u0ochpd2-finder-world.vercel.app/covers/45.png
+- #50: https://sunny-ai-magic-50-1u0ochpd2-finder-world.vercel.app/covers/50.png
+
+전체 슬라이드쇼:
+https://sunny-ai-magic-50-1u0ochpd2-finder-world.vercel.app
+
+예상 효과:
+- D 등급 0장 (목표 달성)
+- C 등급 0장 (목표 달성)
+- B 등급 0장 (목표 달성, 재평가 시 모두 A 이상 예상)
+- 평균 점수 26.0 → 27.2 추정

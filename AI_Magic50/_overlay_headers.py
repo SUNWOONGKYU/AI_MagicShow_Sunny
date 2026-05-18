@@ -36,19 +36,46 @@ def parse_frontmatter(md_path: Path):
             out[k] = v
     return out
 
+def tokenize(text):
+    """한글/공백/구두점은 단일 토큰, 영문/숫자 연속은 단어 단위 토큰."""
+    tokens = []
+    i = 0
+    while i < len(text):
+        if re.match(r'[A-Za-z0-9]', text[i]):
+            j = i
+            while j < len(text) and re.match(r'[A-Za-z0-9]', text[j]):
+                j += 1
+            tokens.append(text[i:j])
+            i = j
+        else:
+            tokens.append(text[i])
+            i += 1
+    return tokens
+
 def wrap_text(draw, text, font, max_w):
-    """Pixel-based word wrap (Korean too — split per char if needed)."""
+    """토큰 기반 줄바꿈. 영문 단어는 가운데서 끊지 않음. 한글은 글자 단위."""
     if not text: return []
+    tokens = tokenize(text)
     lines = []
     cur = ""
-    for ch in text:
-        test = cur + ch
-        w = draw.textlength(test, font=font)
-        if w > max_w and cur:
-            lines.append(cur); cur = ch
+    for tok in tokens:
+        # 토큰 자체가 max_w 초과 → 강제 글자 단위 분할
+        if draw.textlength(tok, font=font) > max_w:
+            for ch in tok:
+                test = cur + ch
+                if draw.textlength(test, font=font) > max_w and cur.strip():
+                    lines.append(cur.rstrip()); cur = ch
+                else:
+                    cur = test
+            continue
+        test = cur + tok
+        if draw.textlength(test, font=font) > max_w and cur.strip():
+            lines.append(cur.rstrip())
+            # 새 줄 시작은 공백 토큰 스킵
+            cur = "" if tok.isspace() else tok
         else:
             cur = test
-    if cur: lines.append(cur)
+    if cur.strip(): lines.append(cur.rstrip())
     return lines
 
 def overlay(cover_path: Path, num: str, title: str, subtitle: str, out_path: Path):
