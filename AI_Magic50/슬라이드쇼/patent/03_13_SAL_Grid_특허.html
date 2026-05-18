@@ -112,11 +112,10 @@
     .nav-btn:disabled { border-color: var(--border); color: var(--muted); opacity: 0.4; cursor: default; background: none; }
     .counter { color: var(--muted); font-size: 15px; min-width: 70px; text-align: center; font-weight: 700; font-variant-numeric: tabular-nums; }
 
-    .theme-toggle { position: fixed; top: 12px; right: 12px; z-index: 100; background: var(--surface); border: 1px solid var(--border); color: var(--text); border-radius: 8px; padding: 6px 12px; cursor: pointer; font-size: 13px; }
-    .fs-toggle { position: fixed; top: 12px; right: 80px; z-index: 100; background: var(--surface); border: 1px solid var(--border); color: var(--text); border-radius: 8px; padding: 6px 12px; cursor: pointer; font-size: 13px; }
+    .fs-toggle { position: fixed; top: 12px; right: 12px; z-index: 100; background: var(--surface); border: 1px solid var(--border); color: var(--text); border-radius: 8px; padding: 6px 12px; cursor: pointer; font-size: 13px; }
 
     @media print {
-      .nav-bar, .progress, .theme-toggle, .fs-toggle { display: none !important; }
+      .nav-bar, .progress, .fs-toggle { display: none !important; }
       .slides { position: static; height: auto; }
       .slide { position: static; opacity: 1 !important; transform: none !important; pointer-events: auto !important; page-break-after: always; height: 100vh; padding: 40px; }
       .slide:last-child { page-break-after: avoid; }
@@ -137,8 +136,7 @@
       .nav-bar { padding: 8px 12px; gap: 12px; }
       .nav-btn { padding: 5px 16px; font-size: 13px; }
       .counter { font-size: 13px; min-width: 56px; }
-      .theme-toggle, .fs-toggle { font-size: 11px; padding: 4px 8px; }
-      .fs-toggle { right: 64px; }
+      .fs-toggle { font-size: 11px; padding: 4px 8px; right: 12px; }
       .viewer-btn { padding: 9px 20px; font-size: 0.95rem; }
       .mini-grid { font-size: 0.7rem; }
       .mini-grid th { font-size: 0.65rem; padding: 4px 4px; }
@@ -176,7 +174,6 @@
 
 <div class="progress" id="progress"></div>
 <button class="fs-toggle" id="fsToggle" title="전체화면 (F)" aria-label="전체화면 토글">⛶</button>
-<button class="theme-toggle" id="themeToggle" aria-label="테마 전환">Light</button>
 
 <div class="slides" id="slides">
 
@@ -783,10 +780,6 @@ document.addEventListener('keydown', e => {
 let tx = 0, ty = 0;
 document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; });
 document.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - tx; const dy = e.changedTouches[0].clientY - ty; if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) { dx < 0 ? next() : prev(); } });
-document.getElementById('themeToggle').addEventListener('click', () => {
-  document.documentElement.classList.toggle('dark');
-  document.getElementById('themeToggle').textContent = document.documentElement.classList.contains('dark') ? 'Light' : 'Dark';
-});
 document.getElementById('fsToggle').addEventListener('click', toggleFS);
 updateSlide(0);
 </script>
