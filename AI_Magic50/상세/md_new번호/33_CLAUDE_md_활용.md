@@ -13,6 +13,7 @@ sources:
   - "~/.claude/skills/mbo-코어5/SKILL.md"
   - "AI_Magic50/Sunny_AI_Magic_48개_종합정리.md (#22, #23, #38, #39)"
   - "AX-On_Platform/guides/claude-code-guide.html"
+  - "위키독스 「하네스 엔지니어링 백과사전」 제7장 Claude에서 하네스 구축하기 — https://wikidocs.net/346799 (참고자료)"
 ---
 
 # 33. CLAUDE.md 잘 활용하기
@@ -237,3 +238,9 @@ CLAUDE.md가 종이호랑이가 되지 않는 마지막 방어선. 사람이 잊
 - **다큐킹앱 57개 스킬** — CLAUDE.md 안에 색인된 도구 무기고
 - **`~/.claude/skills/청룡-sal-grid-dev/SKILL.md`** — CLAUDE.md 자동 발동 1순위 스킬
 - **`~/.claude/skills/mbo-코어5/SKILL.md`** — CLAUDE.md 자동 발동 2순위 스킬
+
+## 참고자료
+
+**「하네스 엔지니어링 백과사전」 제7장 — Claude에서 하네스 구축하기** (위키독스). Claude Code·Claude Agent SDK를 *코드 작업 하네스*로 보는 관점에서 **CLAUDE.md와 프로젝트 메모리**, Claude Skills, subagent, hooks, permissions가 작업 안정성을 어떻게 끌어올리는지 — 그리고 읽기 전용 리뷰·탐색→계획→실행·검증 루프를 어떻게 적용하는지를 정리한 장이다. 본 챕터가 *CLAUDE.md를 어떻게 쓰는가* 라면, 이 자료는 CLAUDE.md를 hooks·permissions·skills와 함께 *하네스 전체의 한 부품*으로 조망하는 시야를 더해 준다.
+
+🔗 [하네스 엔지니어링 백과사전 · 제7장 (wikidocs.net/346799)](https://wikidocs.net/346799)
