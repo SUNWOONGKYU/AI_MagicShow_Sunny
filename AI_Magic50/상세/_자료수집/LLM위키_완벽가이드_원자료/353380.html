@@ -1,0 +1,589 @@
+
+            
+            
+
+
+
+
+
+
+
+
+<div class="btn-group pull-right menu-group" role="group">
+    
+</div>
+<div class="menu-wikidocs"></div>
+
+
+
+<div class="clearfix page-depth">
+    <ol class="breadcrumb pull-left">
+        <li>
+            <small><a href="https://wikidocs.net/book/19830"><i class="glyphicon glyphicon-book"></i> <strong>LLM위키 완벽 가이드</strong></a></small>
+        </li>
+        
+            <li>
+                <small><a href="https://wikidocs.net/353377">1장. LLM위키가 필요한 이유</a></small>
+            </li>
+        
+            <li>
+                <small><a href="https://wikidocs.net/353380">1.3 이 책에서 만들 결과물</a></small>
+            </li>
+        
+    </ol>
+    
+        <ol class="breadcrumb pull-right">
+            
+
+            
+
+            <li>
+                <a href="https://wikidocs.net/"><small class="logo"><i class="glyphicon glyphicon-home"></i> 위키독스</small></a>
+            </li>
+        </ol>
+    
+</div>
+
+<div class="page-header-wrapper">
+    <h1 class="page-subject">
+        <span class="page-subject-text">1.3 이 책에서 만들 결과물</span>
+        <span class="page-subject-actions">
+            
+                <a href="#top" class="btn btn-default btn-sm page-back-to-top" style="display: none" title="맨위로"><i class="glyphicon glyphicon-arrow-up"></i></a>
+            
+            <a href="javascript:togglePageToc();" class="btn btn-default btn-sm" title="목차 보기"><i class="glyphicon glyphicon-list"></i></a>
+            
+                
+            
+        </span>
+    </h1>
+    <!-- 스크롤 진행 표시기 -->
+    <div class="scroll-progress-container" id="scrollProgressContainer">
+        <div class="scroll-progress-bar" id="scrollProgressBar" style="width: 0%;"></div>
+    </div>
+    <div id="page-toc-container" class="page-toc-container" style="display: none">
+        <div class="page-toc-content"><ul><li><a href="#13">1.3 이 책에서 만들 결과물</a><ul><li><a href="#_1">라이트 사용자를 위한 최소 구성</a><ul><li><a href="#_2">실습 미리보기: 빈 구조만 만들어 보기</a></li></ul></li><li><a href="#_3">자료 수집에서 산출물 작성까지의 흐름</a><ul><li><a href="#_4">작은 예제로 보는 입력과 출력</a></li></ul></li><li><a href="#_5">각 장 실습 결과 미리 보기</a><ul><li><a href="#_6">책을 마치면 할 수 있는 일</a></li></ul></li><li><a href="#_7">정리와 검증 포인트</a></li><li><a href="#_8">근거와 추가 확인</a></li></ul></li></ul></div>
+    </div>
+</div>
+<!-- google adsense -->
+
+    <!-- PC -->
+
+    
+        
+            <div style="margin:30px 0;"><div class="clearfix ad-container" style="display: flex;
+            justify-content: flex-start">
+    <div class="first-ad ad-container" style="margin-right: 30px;">
+        
+            <div class="ad-wrapper adv_wikidocs_top">
+                <div class="ad-placeholder">광고가 출력될 위치입니다.</div>
+                
+                <!-- 페이지상단임시 -->
+                <ins class="adsbygoogle wikidocs-ad" style="display:inline-block;
+                            width:336px;
+                            height:280px" data-ad-client="ca-pub-9470517771012578" data-ad-slot="7169354980" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_2_host" style="border: none; height: 280px; width: 336px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"></div></ins>
+                
+            </div>
+        
+    </div>
+    <div class="second-ad ad-container" style="display: block;">
+        
+            <div class="ad-wrapper adv_wikidocs_top">
+                <div class="ad-placeholder">광고가 출력될 위치입니다.</div>
+                
+                <!-- 페이지상단임시 -->
+                <ins class="adsbygoogle wikidocs-ad" style="display:inline-block;
+                            width:336px;
+                            height:280px" data-ad-client="ca-pub-9470517771012578" data-ad-slot="7169354980" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_3_host" style="border: none; height: 280px; width: 336px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"></div></ins>
+                
+            </div>
+        
+    </div>
+</div>
+</div>
+        
+    
+
+<!-- Mobile -->
+
+
+
+<!-- google adsense -->
+<div class="page-content tex2jax_process">
+    
+    
+        
+        <h1 id="13">1.3 이 책에서 만들 결과물</h1>
+<p><img alt="1.3 이 책에서 만들 결과물 삽화" decoding="async" loading="lazy" src="https://static.wikidocs.net/images/page/353380/1.3-%EC%9D%B4-%EC%B1%85%EC%97%90%EC%84%9C-%EB%A7%8C%EB%93%A4-%EA%B2%B0%EA%B3%BC%EB%AC%BC.jpg"></p>
+<p>LLM위키는 설명만 읽으면 조금 추상적으로 느껴질 수 있습니다. 그래서 먼저 끝에 무엇이 남는지 봅니다. 이 책을 따라가면 작은 업무 주제 하나를 정하고, 원천 자료를 모으고, 위키 문서로 정리하고, 질문하고, 보고서나 실행 계획 같은 산출물까지 만듭니다.</p>
+<p>이 절의 목표는 설치법을 외우는 것이 아닙니다. Claude, OpenAI Codex 같은 LLM 도구를 가볍게 써 본 독자가 “내 업무에 붙이면 어떤 결과물이 생기는가”를 먼저 그려 보는 것입니다.</p>
+<h2 id="_1">라이트 사용자를 위한 최소 구성</h2>
+<p>처음부터 거대한 지식 관리 시스템을 만들 필요는 없습니다. 첫 LLM위키는 작아야 합니다. 중요한 목표는 하나입니다. 다음에도 다시 쓸 업무 맥락을 남기는 것입니다.</p>
+<p>예를 들어 매주 회의록을 정리한다고 해 보겠습니다. 매번 LLM에게 “실행 항목은 담당자, 기한, 확인 방법으로 정리해 줘”라고 말한다면, 그 설명은 위키에 남길 가치가 있습니다. 반복되는 업무 기준, 자주 쓰는 출력 형식, 주의해야 할 정보가 첫 위키의 재료입니다.</p>
+<p>이 책에서는 예제 주제로 <code>work-automation</code>을 사용합니다. 반복 업무 자동화를 뜻합니다. 회의록 정리, 고객 문의 분류, 주간 보고서 초안 작성처럼 자주 반복되는 일을 다룹니다.</p>
+<p><strong>학습자료: 최소 LLM위키 구조</strong></p>
+<pre><code class="language-text hljs language-plaintext md-csc-wrap">work-automation/
+├─ raw/
+│  └─ 원천 자료
+├─ wiki/
+│  └─ 정리된 위키 문서
+├─ output/
+│  └─ 보고서, 요약문, 실행 계획
+├─ inbox/
+│  └─ 아직 정리하지 않은 메모
+├─ index.md
+│  └─ 위키 전체의 입구
+├─ log.md
+│  └─ 자료를 넣고 고친 기록
+└─ AGENTS.md 또는 CLAUDE.md
+   └─ LLM 도구가 따라야 할 작업 규칙
+</code></pre>
+<p>이 구조에서 가장 중요한 원칙은 원본과 정리본을 섞지 않는 것입니다. <code>raw/</code>에는 원천 자료를 둡니다. <code>wiki/</code>에는 LLM이 다시 읽기 좋게 정리한 문서를 둡니다. <code>output/</code>에는 실제 업무에 쓸 결과물을 둡니다.</p>
+<p><code>AGENTS.md</code>와 <code>CLAUDE.md</code>는 작업 규칙을 담는 파일입니다. Codex를 쓴다면 <code>AGENTS.md</code>가 기준이 될 수 있습니다. Claude Code를 쓴다면 <code>CLAUDE.md</code>가 기준이 될 수 있습니다. 도구별 지원 방식은 다르므로, 이 책에서는 먼저 “작업 규칙 문서”라는 개념을 익힙니다.</p>
+<div class="table-scroll-wrapper"><table>
+<thead>
+<tr>
+<th>구성 요소</th>
+<th>역할</th>
+<th>확인할 것</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>raw/</code></td>
+<td>원천 자료 보관</td>
+<td>원본이 임의로 바뀌지 않았는가</td>
+</tr>
+<tr>
+<td><code>wiki/</code></td>
+<td>다시 읽고 질문하기 좋은 문서</td>
+<td>출처와 핵심 개념이 남아 있는가</td>
+</tr>
+<tr>
+<td><code>output/</code></td>
+<td>업무 산출물</td>
+<td>보고서나 실행 계획으로 쓸 수 있는가</td>
+</tr>
+<tr>
+<td><code>inbox/</code></td>
+<td>임시 입력 공간</td>
+<td>정리 전 자료가 구분되어 있는가</td>
+</tr>
+<tr>
+<td><code>index.md</code></td>
+<td>위키 입구</td>
+<td>전체 문서 위치를 찾을 수 있는가</td>
+</tr>
+<tr>
+<td><code>log.md</code></td>
+<td>처리 기록</td>
+<td>언제 무엇을 넣고 고쳤는지 남아 있는가</td>
+</tr>
+<tr>
+<td>작업 규칙 문서</td>
+<td>LLM의 작업 기준</td>
+<td>출처, 최신성, 확인 필요 규칙이 있는가</td>
+</tr>
+</tbody>
+</table></div>
+<p>이 표는 첫 LLM위키에 필요한 최소 구성을 보여 줍니다. 폴더 이름 자체보다 역할이 더 중요합니다. 도구에 따라 실제 저장 위치는 달라질 수 있습니다. 그러나 원천 자료, 정리된 위키, 업무 산출물, 작업 규칙을 구분하는 원칙은 유지됩니다.</p>
+<h3 id="_2">실습 미리보기: 빈 구조만 만들어 보기</h3>
+<p><strong>목표</strong><br>
+책에서 만들 결과물의 뼈대를 로컬 폴더로 확인합니다.</p>
+<p><strong>실행 전제</strong><br>
+macOS, Linux, WSL, Git Bash처럼 Bash/Zsh 계열 셸을 사용할 수 있어야 합니다. 같은 경로에 파일이 있으면 <code>index.md</code>, <code>log.md</code>, <code>AGENTS.md</code>가 덮어써질 수 있습니다.</p>
+<p><strong>성공 기준</strong><br>
+<code>raw/</code>, <code>wiki/</code>, <code>output/</code>, <code>inbox/</code>가 분리되어 보이면 됩니다.</p>
+<pre><code class="language-bash hljs md-csc-wrap">BASE=<span class="hljs-string">"<span class="hljs-variable">$HOME</span>/llm-wiki-preview/work-automation"</span>
+
+<span class="hljs-built_in">mkdir</span> -p <span class="hljs-string">"<span class="hljs-variable">$BASE</span>/raw"</span> <span class="hljs-string">"<span class="hljs-variable">$BASE</span>/wiki/concepts"</span> <span class="hljs-string">"<span class="hljs-variable">$BASE</span>/output"</span> <span class="hljs-string">"<span class="hljs-variable">$BASE</span>/inbox"</span>
+
+<span class="hljs-built_in">printf</span> <span class="hljs-string">'%s\n'</span> \
+<span class="hljs-string">'# 업무 자동화 위키'</span> \
+<span class="hljs-string">''</span> \
+<span class="hljs-string">'## 이 위키의 질문'</span> \
+<span class="hljs-string">''</span> \
+<span class="hljs-string">'반복 업무를 LLM으로 줄이려면 무엇부터 해야 할까?'</span> \
+&gt; <span class="hljs-string">"<span class="hljs-variable">$BASE</span>/index.md"</span>
+
+<span class="hljs-built_in">printf</span> <span class="hljs-string">'%s\n'</span> \
+<span class="hljs-string">'# 처리 이력'</span> \
+<span class="hljs-string">''</span> \
+<span class="hljs-string">'| 날짜 | 작업 | 결과 |'</span> \
+<span class="hljs-string">'|---|---|---|'</span> \
+<span class="hljs-string">'| 2026-05-16 | 위키 초기 구조 생성 | raw, wiki, output, inbox 생성 |'</span> \
+&gt; <span class="hljs-string">"<span class="hljs-variable">$BASE</span>/log.md"</span>
+
+<span class="hljs-built_in">printf</span> <span class="hljs-string">'%s\n'</span> \
+<span class="hljs-string">'# LLM위키 작업 규칙'</span> \
+<span class="hljs-string">''</span> \
+<span class="hljs-string">'- raw/의 원천 자료는 임의로 고치지 않는다.'</span> \
+<span class="hljs-string">'- wiki/ 문서에는 가능한 한 출처를 남긴다.'</span> \
+<span class="hljs-string">'- 확인하지 못한 내용은 확인 필요로 표시한다.'</span> \
+&gt; <span class="hljs-string">"<span class="hljs-variable">$BASE</span>/AGENTS.md"</span>
+
+find <span class="hljs-string">"<span class="hljs-variable">$BASE</span>"</span> -maxdepth 2 -<span class="hljs-built_in">print</span> | <span class="hljs-built_in">sort</span>
+</code></pre>
+<p>예상 결과는 다음과 비슷합니다.</p>
+<pre><code class="language-text hljs language-plaintext md-csc-wrap">/Users/사용자명/llm-wiki-preview/work-automation
+/Users/사용자명/llm-wiki-preview/work-automation/AGENTS.md
+/Users/사용자명/llm-wiki-preview/work-automation/inbox
+/Users/사용자명/llm-wiki-preview/work-automation/index.md
+/Users/사용자명/llm-wiki-preview/work-automation/log.md
+/Users/사용자명/llm-wiki-preview/work-automation/output
+/Users/사용자명/llm-wiki-preview/work-automation/raw
+/Users/사용자명/llm-wiki-preview/work-automation/wiki
+/Users/사용자명/llm-wiki-preview/work-automation/wiki/concepts
+</code></pre>
+<p>이 실습은 아직 완성된 LLM위키를 만드는 단계가 아닙니다. 결과물의 모양을 미리 보는 단계입니다. 이후 장에서는 이 빈 구조에 실제 자료를 넣고, 위키 문서를 만들고, 산출물까지 연결합니다.</p>
+<h2 id="_3">자료 수집에서 산출물 작성까지의 흐름</h2>
+<p>LLM위키는 한 번에 완성하는 문서 묶음이 아닙니다. 자료를 넣고, 정리하고, 질문하고, 결과물을 만들고, 다시 고치는 순환 구조입니다.</p>
+<p>이 책에서는 흐름을 <code>수집 → 보관 → 정리 → 질문 → 산출 → 검증 → 갱신</code>으로 설명합니다. 일부 구현체는 이를 <code>ingest</code>, <code>compile</code>, <code>query</code>, <code>lint</code>, <code>audit</code> 같은 명령으로 나눕니다. 이 절에서는 명령어보다 각 단계의 역할을 먼저 이해합니다.</p>
+<div class="ad-wrapper markdown_tags">
+
+<!-- markdown_tags -->
+<ins class="adsbygoogle" data-ad-client="ca-pub-9470517771012578" data-ad-format="false" data-ad-slot="4124294444" data-full-width-responsive="false" style="display:inline-block;width:300px;height:250px" data-adsbygoogle-status="done"><div id="aswift_4_host" style="border: none; height: 250px; width: 300px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"></div></ins>
+
+</div>
+<p><strong>학습자료: LLM위키 작업 흐름</strong></p>
+<div class="mermaid" data-processed="true"><svg id="mermaid-1779150811988" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="flowchart" style="max-width: 1267.8125px;" viewBox="0 0 1267.8125 99" role="graphics-document document" aria-roledescription="flowchart-v2"><g><marker id="mermaid-1779150811988_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1779150811988_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1779150811988_flowchart-v2-pointEnd-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="11.5" refY="7" markerUnits="userSpaceOnUse" markerWidth="10.5" markerHeight="14" orient="auto"><path d="M 0 0 L 11.5 7 L 0 14 z" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1779150811988_flowchart-v2-pointStart-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="1" refY="7" markerUnits="userSpaceOnUse" markerWidth="11.5" markerHeight="14" orient="auto"><polygon points="0,7 11.5,14 11.5,0" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></polygon></marker><marker id="mermaid-1779150811988_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1779150811988_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1779150811988_flowchart-v2-circleEnd-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refY="5" refX="12.25" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1779150811988_flowchart-v2-circleStart-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-2" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1779150811988_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1779150811988_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1779150811988_flowchart-v2-crossEnd-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="17.7" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5;"></path></marker><marker id="mermaid-1779150811988_flowchart-v2-crossStart-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="-3.5" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M119.625,61.5L123.792,61.5C127.958,61.5,136.292,61.5,143.958,61.5C151.625,61.5,158.625,61.5,162.125,61.5L165.625,61.5" id="mermaid-1779150811988-L_A_B_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_A_B_0" data-points="W3sieCI6MTE5LjYyNSwieSI6NjEuNX0seyJ4IjoxNDQuNjI1LCJ5Ijo2MS41fSx7IngiOjE2OS42MjUsInkiOjYxLjV9XQ==" data-look="classic" marker-end="url(#mermaid-1779150811988_flowchart-v2-pointEnd)"></path><path d="M308.859,61.5L313.026,61.5C317.193,61.5,325.526,61.5,333.193,61.5C340.859,61.5,347.859,61.5,351.359,61.5L354.859,61.5" id="mermaid-1779150811988-L_B_C_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_B_C_0" data-points="W3sieCI6MzA4Ljg1OTM3NSwieSI6NjEuNX0seyJ4IjozMzMuODU5Mzc1LCJ5Ijo2MS41fSx7IngiOjM1OC44NTkzNzUsInkiOjYxLjV9XQ==" data-look="classic" marker-end="url(#mermaid-1779150811988_flowchart-v2-pointEnd)"></path><path d="M510.094,39.33L514.26,38.108C518.427,36.887,526.76,34.443,534.427,33.222C542.094,32,549.094,32,552.594,32L556.094,32" id="mermaid-1779150811988-L_C_D_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_C_D_0" data-points="W3sieCI6NTEwLjA5Mzc1LCJ5IjozOS4zMjk3NjE2Mjc0NTU1NX0seyJ4Ijo1MzUuMDkzNzUsInkiOjMyfSx7IngiOjU2MC4wOTM3NSwieSI6MzJ9XQ==" data-look="classic" marker-end="url(#mermaid-1779150811988_flowchart-v2-pointEnd)"></path><path d="M683.719,32L687.885,32C692.052,32,700.385,32,708.052,32C715.719,32,722.719,32,726.219,32L729.719,32" id="mermaid-1779150811988-L_D_E_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_D_E_0" data-points="W3sieCI6NjgzLjcxODc1LCJ5IjozMn0seyJ4Ijo3MDguNzE4NzUsInkiOjMyfSx7IngiOjczMy43MTg3NSwieSI6MzJ9XQ==" data-look="classic" marker-end="url(#mermaid-1779150811988_flowchart-v2-pointEnd)"></path><path d="M884.953,32L889.12,32C893.286,32,901.62,32,909.286,32C916.953,32,923.953,32,927.453,32L930.953,32" id="mermaid-1779150811988-L_E_F_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_E_F_0" data-points="W3sieCI6ODg0Ljk1MzEyNSwieSI6MzJ9LHsieCI6OTA5Ljk1MzEyNSwieSI6MzJ9LHsieCI6OTM0Ljk1MzEyNSwieSI6MzJ9XQ==" data-look="classic" marker-end="url(#mermaid-1779150811988_flowchart-v2-pointEnd)"></path><path d="M1098.188,32L1102.354,32C1106.521,32,1114.854,32,1122.561,33.292C1130.268,34.585,1137.349,37.17,1140.89,38.462L1144.43,39.754" id="mermaid-1779150811988-L_F_G_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_F_G_0" data-points="W3sieCI6MTA5OC4xODc1LCJ5IjozMn0seyJ4IjoxMTIzLjE4NzUsInkiOjMyfSx7IngiOjExNDguMTg3NSwieSI6NDEuMTI2MDYzNDE4NDA2OH1d" data-look="classic" marker-end="url(#mermaid-1779150811988_flowchart-v2-pointEnd)"></path><path d="M1148.188,81.874L1144.021,83.395C1139.854,84.916,1131.521,87.958,1109.585,89.479C1087.648,91,1052.109,91,1016.57,91C981.031,91,945.492,91,910.953,91C876.414,91,842.875,91,809.336,91C775.797,91,742.258,91,711.02,91C679.781,91,650.844,91,621.906,91C592.969,91,564.031,91,546.036,89.966C528.04,88.932,520.986,86.864,517.459,85.83L513.932,84.796" id="mermaid-1779150811988-L_G_C_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_G_C_0" data-points="W3sieCI6MTE0OC4xODc1LCJ5Ijo4MS44NzM5MzY1ODE1OTMyfSx7IngiOjExMjMuMTg3NSwieSI6OTF9LHsieCI6MTAxNi41NzAzMTI1LCJ5Ijo5MX0seyJ4Ijo5MDkuOTUzMTI1LCJ5Ijo5MX0seyJ4Ijo4MDkuMzM1OTM3NSwieSI6OTF9LHsieCI6NzA4LjcxODc1LCJ5Ijo5MX0seyJ4Ijo2MjEuOTA2MjUsInkiOjkxfSx7IngiOjUzNS4wOTM3NSwieSI6OTF9LHsieCI6NTEwLjA5Mzc1LCJ5Ijo4My42NzAyMzgzNzI1NDQ0NX1d" data-look="classic" marker-end="url(#mermaid-1779150811988_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" data-id="L_A_B_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" data-id="L_B_C_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" data-id="L_C_D_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" data-id="L_D_E_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" data-id="L_E_F_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" data-id="L_F_G_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" data-id="L_G_C_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default" id="mermaid-1779150811988-flowchart-A-0" data-look="classic" transform="translate(63.8125, 61.5)"><rect class="basic label-container" style="" x="-55.8125" y="-24" width="111.625" height="48"></rect><g class="label" style="" transform="translate(-25.8125, -9)"><rect></rect><foreignObject width="51.625" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>자료 수집</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150811988-flowchart-B-1" data-look="classic" transform="translate(239.2421875, 61.5)"><rect class="basic label-container" style="" x="-69.6171875" y="-24" width="139.234375" height="48"></rect><g class="label" style="" transform="translate(-39.6171875, -9)"><rect></rect><foreignObject width="79.234375" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>원천 자료 보관</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150811988-flowchart-C-3" data-look="classic" transform="translate(434.4765625, 61.5)"><rect class="basic label-container" style="" x="-75.6171875" y="-24" width="151.234375" height="48"></rect><g class="label" style="" transform="translate(-45.6171875, -9)"><rect></rect><foreignObject width="91.234375" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>위키 문서로 정리</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150811988-flowchart-D-5" data-look="classic" transform="translate(621.90625, 32)"><rect class="basic label-container" style="" x="-61.8125" y="-24" width="123.625" height="48"></rect><g class="label" style="" transform="translate(-31.8125, -9)"><rect></rect><foreignObject width="63.625" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>위키에 질문</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150811988-flowchart-E-7" data-look="classic" transform="translate(809.3359375, 32)"><rect class="basic label-container" style="" x="-75.6171875" y="-24" width="151.234375" height="48"></rect><g class="label" style="" transform="translate(-45.6171875, -9)"><rect></rect><foreignObject width="91.234375" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>업무 산출물 작성</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150811988-flowchart-F-9" data-look="classic" transform="translate(1016.5703125, 32)"><rect class="basic label-container" style="" x="-81.6171875" y="-24" width="163.234375" height="48"></rect><g class="label" style="" transform="translate(-51.6171875, -9)"><rect></rect><foreignObject width="103.234375" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>근거와 최신성 검증</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150811988-flowchart-G-11" data-look="classic" transform="translate(1204, 61.5)"><rect class="basic label-container" style="" x="-55.8125" y="-24" width="111.625" height="48"></rect><g class="label" style="" transform="translate(-25.8125, -9)"><rect></rect><foreignObject width="51.625" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>위키 갱신</p></span></div></foreignObject></g></g></g></g></g><defs><filter id="mermaid-1779150811988-drop-shadow" height="130%" width="130%"><feDropShadow dx="4" dy="4" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"></feDropShadow></filter></defs><defs><filter id="mermaid-1779150811988-drop-shadow-small" height="150%" width="150%"><feDropShadow dx="2" dy="2" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"></feDropShadow></filter></defs></svg></div>
+<p>마지막 화살표가 핵심입니다. 산출물을 만든 뒤에도 작업은 끝나지 않습니다. 검증 결과와 새로 알게 된 내용을 다시 위키에 반영합니다. 그래야 다음 질문에서 같은 맥락을 다시 설명하지 않아도 됩니다.</p>
+<div class="table-scroll-wrapper"><table>
+<thead>
+<tr>
+<th>단계</th>
+<th>하는 일</th>
+<th>남는 결과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>수집</td>
+<td>회의록, 업무 메모, 웹 문서, 기존 양식을 모읍니다</td>
+<td><code>inbox/</code>의 임시 자료</td>
+</tr>
+<tr>
+<td>보관</td>
+<td>원본을 가능한 한 그대로 둡니다</td>
+<td><code>raw/</code>의 원천 자료</td>
+</tr>
+<tr>
+<td>정리</td>
+<td>자료를 주제별 위키 문서로 바꿉니다</td>
+<td><code>wiki/</code>의 개념 문서와 요약</td>
+</tr>
+<tr>
+<td>질문</td>
+<td>위키를 기준으로 업무 질문을 던집니다</td>
+<td>근거가 붙은 답변 초안</td>
+</tr>
+<tr>
+<td>산출</td>
+<td>답변을 보고서나 실행 계획으로 바꿉니다</td>
+<td><code>output/</code>의 산출물</td>
+</tr>
+<tr>
+<td>검증</td>
+<td>출처, 누락, 추정, 최신성을 점검합니다</td>
+<td>수정 요청과 확인 필요 표시</td>
+</tr>
+<tr>
+<td>갱신</td>
+<td>검증 결과와 결정 사항을 반영합니다</td>
+<td>다음 작업에 쓸 수 있는 위키</td>
+</tr>
+</tbody>
+</table></div>
+<p>일반적인 파일 업로드나 RAG 기반 사용에서는 질문할 때마다 관련 자료 조각을 다시 찾는 경험이 많습니다. LLM위키는 자료를 읽을 때 정리된 위키 문서를 남기는 쪽에 더 가깝습니다. 다만 둘 중 하나가 항상 더 낫다고 볼 수는 없습니다. 자료가 부정확하거나 검증이 빠지면 LLM위키도 잘못된 지식을 누적할 수 있습니다.</p>
+<h3 id="_4">작은 예제로 보는 입력과 출력</h3>
+<p>다음은 이 책에서 반복해서 사용할 예시 메모입니다. 실제 실습에서는 자신의 업무 메모로 바꿔도 됩니다.</p>
+<pre><code class="language-markdown hljs md-csc-wrap"><span class="hljs-section"># 팀 반복 업무 메모</span>
+
+<span class="hljs-section">## 관찰</span>
+<span class="hljs-bullet">-</span> 매주 월요일 회의록에서 실행 항목을 다시 정리한다.
+<span class="hljs-bullet">-</span> 고객 문의를 유형별로 나눈 뒤 담당자에게 전달한다.
+<span class="hljs-bullet">-</span> 릴리스 노트를 쓸 때 변경 사항, 영향 범위, 확인 방법을 매번 다시 묻는다.
+
+<span class="hljs-section">## 자동화 후보</span>
+<span class="hljs-bullet">-</span> 회의록에서 실행 항목 초안 뽑기
+<span class="hljs-bullet">-</span> 고객 문의 유형 추천하기
+<span class="hljs-bullet">-</span> 릴리스 노트 초안 만들기
+
+<span class="hljs-section">## 주의할 점</span>
+<span class="hljs-bullet">-</span> 고객명, 계약 조건, 장애 원인은 외부 도구에 그대로 넣으면 안 된다.
+<span class="hljs-bullet">-</span> 최종 발송 문구는 담당자가 확인해야 한다.
+</code></pre>
+<p>이 메모가 <code>raw/team-repeat-tasks.md</code>에 보관되면, <code>wiki/</code>에는 다음과 같은 정리 문서가 생기는 것을 목표로 합니다.</p>
+<pre><code class="language-markdown hljs md-csc-wrap"><span class="hljs-section"># 반복 업무 자동화 후보</span>
+
+<span class="hljs-section">## 한 문장 요약</span>
+
+팀에서 반복되는 업무는 회의록 정리, 고객 문의 분류, 릴리스 노트 작성이다.
+
+<span class="hljs-section">## 자동화 후보</span>
+
+| 후보 | 기대 효과 | 주의할 점 |
+|---|---|---|
+| 회의록 실행 항목 추출 | 회의 후 정리 시간을 줄인다 | 결정 사항과 할 일을 구분해야 한다 |
+| 고객 문의 유형 추천 | 1차 분류 시간을 줄인다 | 개인정보와 오분류 위험을 검토해야 한다 |
+| 릴리스 노트 초안 작성 | 반복되는 문서 작성 시간을 줄인다 | 변경 영향 범위는 담당자가 확인해야 한다 |
+
+<span class="hljs-section">## 출처</span>
+
+<span class="hljs-bullet">-</span> raw/team-repeat-tasks.md
+
+<span class="hljs-section">## 확인 필요</span>
+
+<span class="hljs-bullet">-</span> 실제로 가장 시간이 오래 걸리는 업무가 무엇인지는 추가 확인이 필요하다.
+</code></pre>
+<p>이 예시는 LLM위키가 하는 일을 보여 줍니다. 원본 메모를 없애지 않습니다. 대신 다시 쓰기 좋은 문서로 바꿉니다. 그리고 문서 끝에 출처와 확인 필요 항목을 남깁니다. 나중에 보고서를 만들 때도 “이 주장이 어디서 나왔는가?”를 확인할 수 있습니다.</p>
+<h2 id="_5">각 장 실습 결과 미리 보기</h2>
+<p>이 책은 한 장씩 읽을 때마다 작은 결과물이 남도록 구성되어 있습니다. 1장에서는 왜 필요한지 이해합니다. 2장에서는 구조를 익힙니다. 3장 이후에는 실제로 위키를 만들고 자료를 넣고 산출물을 만듭니다.</p>
+<p><strong>학습자료: 장별로 남는 결과물</strong></p>
+<div class="table-scroll-wrapper"><table>
+<thead>
+<tr>
+<th>장</th>
+<th>배우는 내용</th>
+<th>남는 결과물</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1장</td>
+<td>LLM위키가 필요한 이유</td>
+<td>만들 결과물의 전체 그림</td>
+</tr>
+<tr>
+<td>2장</td>
+<td>기본 구조</td>
+<td><code>raw/</code>, <code>wiki/</code>, <code>output/</code>, 작업 규칙의 역할 이해</td>
+</tr>
+<tr>
+<td>3장</td>
+<td>시작 방식 고르기</td>
+<td>내 환경에 맞는 LLM위키 방식 선택</td>
+</tr>
+<tr>
+<td>4장</td>
+<td>첫 주제 위키 만들기</td>
+<td><code>work-automation</code> 위키 초안</td>
+</tr>
+<tr>
+<td>5장</td>
+<td>자료를 지식으로 바꾸기</td>
+<td>회의록, 메모, 웹 문서에서 정리된 위키 문서 생성</td>
+</tr>
+<tr>
+<td>6장</td>
+<td>위키에 질문하고 검증하기</td>
+<td>근거가 붙은 답변과 확인 필요 항목</td>
+</tr>
+<tr>
+<td>7장</td>
+<td>업무 산출물 만들기</td>
+<td>보고서, 요약문, 실행 계획 초안</td>
+</tr>
+<tr>
+<td>8장</td>
+<td>오래 쓰는 운영법</td>
+<td>점검 체크리스트와 갱신 루틴</td>
+</tr>
+</tbody>
+</table></div>
+<p>이 표는 목차를 결과물의 흐름으로 다시 보여 줍니다. 독자는 각 장을 읽은 뒤 “무엇을 알게 되었는가”뿐 아니라 “무엇이 남았는가”를 확인할 수 있어야 합니다.</p>
+<p>책을 끝까지 따라가면 다음과 같은 상태를 목표로 합니다.</p>
+<pre><code class="language-text hljs language-plaintext md-csc-wrap">work-automation/
+├─ raw/
+│  ├─ team-repeat-tasks.md
+│  ├─ meeting-notes-2026-05.md
+│  └─ release-note-process.md
+├─ wiki/
+│  ├─ index.md
+│  ├─ repetitive-task-candidates.md
+│  ├─ meeting-action-items.md
+│  ├─ customer-inquiry-labeling.md
+│  └─ release-note-drafting.md
+├─ output/
+│  ├─ automation-candidate-summary.md
+│  └─ two-week-action-plan.md
+├─ inbox/
+├─ log.md
+└─ AGENTS.md
+</code></pre>
+<p>이 구조는 예시입니다. 실제 도구와 설정에 따라 파일이나 폴더가 달라질 수 있습니다. 이 책의 수동 실습에서는 이해하기 쉬운 공통 구조로 <code>raw/</code>, <code>wiki/</code>, <code>output/</code>을 사용합니다. 특정 구현체를 사용할 때는 해당 도구의 README와 도움말에서 실제 저장 위치를 확인해야 합니다.</p>
+<p><strong>학습자료: 최종 산출물의 연결 관계</strong></p>
+<div class="mermaid" data-processed="true"><svg id="mermaid-1779150812449" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="flowchart" style="max-width: 612.953125px;" viewBox="0 0 612.953125 554" role="graphics-document document" aria-roledescription="flowchart-v2"><g><marker id="mermaid-1779150812449_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1779150812449_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1779150812449_flowchart-v2-pointEnd-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="11.5" refY="7" markerUnits="userSpaceOnUse" markerWidth="10.5" markerHeight="14" orient="auto"><path d="M 0 0 L 11.5 7 L 0 14 z" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1779150812449_flowchart-v2-pointStart-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="1" refY="7" markerUnits="userSpaceOnUse" markerWidth="11.5" markerHeight="14" orient="auto"><polygon points="0,7 11.5,14 11.5,0" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></polygon></marker><marker id="mermaid-1779150812449_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1779150812449_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1779150812449_flowchart-v2-circleEnd-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refY="5" refX="12.25" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1779150812449_flowchart-v2-circleStart-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-2" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1779150812449_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1779150812449_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1779150812449_flowchart-v2-crossEnd-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="17.7" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5;"></path></marker><marker id="mermaid-1779150812449_flowchart-v2-crossStart-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="-3.5" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M91.43,56L91.43,60.167C91.43,64.333,91.43,72.667,91.43,80.333C91.43,88,91.43,95,91.43,98.5L91.43,102" id="mermaid-1779150812449-L_R1_W1_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_R1_W1_0" data-points="W3sieCI6OTEuNDI5Njg3NSwieSI6NTZ9LHsieCI6OTEuNDI5Njg3NSwieSI6ODF9LHsieCI6OTEuNDI5Njg3NSwieSI6MTA2fV0=" data-look="classic" marker-end="url(#mermaid-1779150812449_flowchart-v2-pointEnd)"></path><path d="M300.477,56L300.477,60.167C300.477,64.333,300.477,72.667,300.477,80.333C300.477,88,300.477,95,300.477,98.5L300.477,102" id="mermaid-1779150812449-L_R2_W2_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_R2_W2_0" data-points="W3sieCI6MzAwLjQ3NjU2MjUsInkiOjU2fSx7IngiOjMwMC40NzY1NjI1LCJ5Ijo4MX0seyJ4IjozMDAuNDc2NTYyNSwieSI6MTA2fV0=" data-look="classic" marker-end="url(#mermaid-1779150812449_flowchart-v2-pointEnd)"></path><path d="M515.523,56L515.523,60.167C515.523,64.333,515.523,72.667,515.523,80.333C515.523,88,515.523,95,515.523,98.5L515.523,102" id="mermaid-1779150812449-L_R3_W3_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_R3_W3_0" data-points="W3sieCI6NTE1LjUyMzQzNzUsInkiOjU2fSx7IngiOjUxNS41MjM0Mzc1LCJ5Ijo4MX0seyJ4Ijo1MTUuNTIzNDM3NSwieSI6MTA2fV0=" data-look="classic" marker-end="url(#mermaid-1779150812449_flowchart-v2-pointEnd)"></path><path d="M91.43,154L91.43,158.167C91.43,162.333,91.43,170.667,114.019,180.128C136.608,189.59,181.787,200.179,204.376,205.474L226.965,210.769" id="mermaid-1779150812449-L_W1_Q_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_W1_Q_0" data-points="W3sieCI6OTEuNDI5Njg3NSwieSI6MTU0fSx7IngiOjkxLjQyOTY4NzUsInkiOjE3OX0seyJ4IjoyMzAuODU5Mzc1LCJ5IjoyMTEuNjgxOTI2OTAwMzY2MjV9XQ==" data-look="classic" marker-end="url(#mermaid-1779150812449_flowchart-v2-pointEnd)"></path><path d="M300.477,154L300.477,158.167C300.477,162.333,300.477,170.667,300.477,178.333C300.477,186,300.477,193,300.477,196.5L300.477,200" id="mermaid-1779150812449-L_W2_Q_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_W2_Q_0" data-points="W3sieCI6MzAwLjQ3NjU2MjUsInkiOjE1NH0seyJ4IjozMDAuNDc2NTYyNSwieSI6MTc5fSx7IngiOjMwMC40NzY1NjI1LCJ5IjoyMDR9XQ==" data-look="classic" marker-end="url(#mermaid-1779150812449_flowchart-v2-pointEnd)"></path><path d="M515.523,154L515.523,158.167C515.523,162.333,515.523,170.667,491.935,180.208C468.347,189.75,421.17,200.499,397.582,205.874L373.994,211.249" id="mermaid-1779150812449-L_W3_Q_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_W3_Q_0" data-points="W3sieCI6NTE1LjUyMzQzNzUsInkiOjE1NH0seyJ4Ijo1MTUuNTIzNDM3NSwieSI6MTc5fSx7IngiOjM3MC4wOTM3NSwieSI6MjEyLjEzNzIxNTcyMzMxNjEzfV0=" data-look="classic" marker-end="url(#mermaid-1779150812449_flowchart-v2-pointEnd)"></path><path d="M251.803,252L243.353,256.167C234.903,260.333,218.002,268.667,209.552,276.333C201.102,284,201.102,291,201.102,294.5L201.102,298" id="mermaid-1779150812449-L_Q_O1_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_Q_O1_0" data-points="W3sieCI6MjUxLjgwMzA5MzExMjI0NDg4LCJ5IjoyNTJ9LHsieCI6MjAxLjEwMTU2MjUsInkiOjI3N30seyJ4IjoyMDEuMTAxNTYyNSwieSI6MzAyfV0=" data-look="classic" marker-end="url(#mermaid-1779150812449_flowchart-v2-pointEnd)"></path><path d="M349.15,252L357.6,256.167C366.051,260.333,382.951,268.667,391.401,276.333C399.852,284,399.852,291,399.852,294.5L399.852,298" id="mermaid-1779150812449-L_Q_O2_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_Q_O2_0" data-points="W3sieCI6MzQ5LjE1MDAzMTg4Nzc1NTEsInkiOjI1Mn0seyJ4IjozOTkuODUxNTYyNSwieSI6Mjc3fSx7IngiOjM5OS44NTE1NjI1LCJ5IjozMDJ9XQ==" data-look="classic" marker-end="url(#mermaid-1779150812449_flowchart-v2-pointEnd)"></path><path d="M201.102,350L201.102,354.167C201.102,358.333,201.102,366.667,208.954,374.705C216.806,382.744,232.511,390.487,240.363,394.359L248.216,398.231" id="mermaid-1779150812449-L_O1_V_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_O1_V_0" data-points="W3sieCI6MjAxLjEwMTU2MjUsInkiOjM1MH0seyJ4IjoyMDEuMTAxNTYyNSwieSI6Mzc1fSx7IngiOjI1MS44MDMwOTMxMTIyNDQ4OCwieSI6NDAwfV0=" data-look="classic" marker-end="url(#mermaid-1779150812449_flowchart-v2-pointEnd)"></path><path d="M399.852,350L399.852,354.167C399.852,358.333,399.852,366.667,391.999,374.705C384.147,382.744,368.442,390.487,360.59,394.359L352.738,398.231" id="mermaid-1779150812449-L_O2_V_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_O2_V_0" data-points="W3sieCI6Mzk5Ljg1MTU2MjUsInkiOjM1MH0seyJ4IjozOTkuODUxNTYyNSwieSI6Mzc1fSx7IngiOjM0OS4xNTAwMzE4ODc3NTUxLCJ5Ijo0MDB9XQ==" data-look="classic" marker-end="url(#mermaid-1779150812449_flowchart-v2-pointEnd)"></path><path d="M300.477,448L300.477,452.167C300.477,456.333,300.477,464.667,300.477,472.333C300.477,480,300.477,487,300.477,490.5L300.477,494" id="mermaid-1779150812449-L_V_U_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_V_U_0" data-points="W3sieCI6MzAwLjQ3NjU2MjUsInkiOjQ0OH0seyJ4IjozMDAuNDc2NTYyNSwieSI6NDczfSx7IngiOjMwMC40NzY1NjI1LCJ5Ijo0OTh9XQ==" data-look="classic" marker-end="url(#mermaid-1779150812449_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" data-id="L_R1_W1_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" data-id="L_R2_W2_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" data-id="L_R3_W3_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" data-id="L_W1_Q_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" data-id="L_W2_Q_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" data-id="L_W3_Q_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" data-id="L_Q_O1_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" data-id="L_Q_O2_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" data-id="L_O1_V_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" data-id="L_O2_V_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" data-id="L_V_U_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default" id="mermaid-1779150812449-flowchart-R1-0" data-look="classic" transform="translate(91.4296875, 32)"><rect class="basic label-container" style="" x="-61.8125" y="-24" width="123.625" height="48"></rect><g class="label" style="" transform="translate(-31.8125, -9)"><rect></rect><foreignObject width="63.625" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>회의록 원문</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150812449-flowchart-W1-1" data-look="classic" transform="translate(91.4296875, 130)"><rect class="basic label-container" style="" x="-83.4296875" y="-24" width="166.859375" height="48"></rect><g class="label" style="" transform="translate(-53.4296875, -9)"><rect></rect><foreignObject width="106.859375" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>회의 실행 항목 위키</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150812449-flowchart-R2-2" data-look="classic" transform="translate(300.4765625, 32)"><rect class="basic label-container" style="" x="-69.6171875" y="-24" width="139.234375" height="48"></rect><g class="label" style="" transform="translate(-39.6171875, -9)"><rect></rect><foreignObject width="79.234375" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>반복 업무 메모</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150812449-flowchart-W2-3" data-look="classic" transform="translate(300.4765625, 130)"><rect class="basic label-container" style="" x="-75.6171875" y="-24" width="151.234375" height="48"></rect><g class="label" style="" transform="translate(-45.6171875, -9)"><rect></rect><foreignObject width="91.234375" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>자동화 후보 위키</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150812449-flowchart-R3-4" data-look="classic" transform="translate(515.5234375, 32)"><rect class="basic label-container" style="" x="-75.6171875" y="-24" width="151.234375" height="48"></rect><g class="label" style="" transform="translate(-45.6171875, -9)"><rect></rect><foreignObject width="91.234375" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>릴리스 노트 절차</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150812449-flowchart-W3-5" data-look="classic" transform="translate(515.5234375, 130)"><rect class="basic label-container" style="" x="-89.4296875" y="-24" width="178.859375" height="48"></rect><g class="label" style="" transform="translate(-59.4296875, -9)"><rect></rect><foreignObject width="118.859375" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>릴리스 노트 작성 위키</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150812449-flowchart-Q-7" data-look="classic" transform="translate(300.4765625, 228)"><rect class="basic label-container" style="" x="-69.6171875" y="-24" width="139.234375" height="48"></rect><g class="label" style="" transform="translate(-39.6171875, -9)"><rect></rect><foreignObject width="79.234375" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>위키 기반 질문</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150812449-flowchart-O1-13" data-look="classic" transform="translate(201.1015625, 326)"><rect class="basic label-container" style="" x="-81.6171875" y="-24" width="163.234375" height="48"></rect><g class="label" style="" transform="translate(-51.6171875, -9)"><rect></rect><foreignObject width="103.234375" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>자동화 후보 요약문</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150812449-flowchart-O2-15" data-look="classic" transform="translate(399.8515625, 326)"><rect class="basic label-container" style="" x="-67.1328125" y="-24" width="134.265625" height="48"></rect><g class="label" style="" transform="translate(-37.1328125, -9)"><rect></rect><foreignObject width="74.265625" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>2주 실행 계획</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150812449-flowchart-V-17" data-look="classic" transform="translate(300.4765625, 424)"><rect class="basic label-container" style="" x="-55.8125" y="-24" width="111.625" height="48"></rect><g class="label" style="" transform="translate(-25.8125, -9)"><rect></rect><foreignObject width="51.625" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>근거 검증</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150812449-flowchart-U-21" data-look="classic" transform="translate(300.4765625, 522)"><rect class="basic label-container" style="" x="-55.8125" y="-24" width="111.625" height="48"></rect><g class="label" style="" transform="translate(-25.8125, -9)"><rect></rect><foreignObject width="51.625" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>위키 갱신</p></span></div></foreignObject></g></g></g></g></g><defs><filter id="mermaid-1779150812449-drop-shadow" height="130%" width="130%"><feDropShadow dx="4" dy="4" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"></feDropShadow></filter></defs><defs><filter id="mermaid-1779150812449-drop-shadow-small" height="150%" width="150%"><feDropShadow dx="2" dy="2" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"></feDropShadow></filter></defs></svg></div>
+<p>이 그림은 원천 자료가 바로 보고서로 바뀌지 않는다는 점을 보여 줍니다. 중간에 위키 문서가 있습니다. 위키 문서는 자료를 다시 읽기 좋은 형태로 정리한 중간 결과물입니다. 이 중간 결과물이 있어야 질문의 맥락이 안정됩니다. 산출물의 근거도 따라갈 수 있습니다.</p>
+<h3 id="_6">책을 마치면 할 수 있는 일</h3>
+<p>이 책의 마지막 목표는 “LLM위키를 설치했다”가 아닙니다. 목표는 자신의 업무에서 반복되는 지식 작업을 더 체계적으로 처리하는 것입니다.</p>
+<p>책을 마치면 다음 일을 할 수 있어야 합니다.</p>
+<ul>
+<li>새 업무 주제를 LLM위키로 만들 수 있습니다.</li>
+<li>원천 자료와 LLM이 정리한 문서를 구분할 수 있습니다.</li>
+<li>위키에 질문하고 답변의 근거를 확인할 수 있습니다.</li>
+<li>보고서, 요약문, 실행 계획 같은 산출물을 만들 수 있습니다.</li>
+<li>출처가 약한 주장과 확인이 필요한 내용을 표시할 수 있습니다.</li>
+<li>위키를 한 번 만들고 버려두지 않고 계속 갱신할 수 있습니다.</li>
+</ul>
+<p>이 능력은 특정 도구 하나에만 묶이지 않습니다. Claude Code, OpenAI Codex, CLI 도구, 데스크톱 도구처럼 구현 방식은 달라질 수 있습니다. 하지만 자료를 모으고, 위키로 정리하고, 질문하고, 검증하고, 다시 반영하는 흐름은 계속 유지됩니다.</p>
+<h2 id="_7">정리와 검증 포인트</h2>
+<p>이 절에서는 책 전체의 결과물을 먼저 확인했습니다. 아직 세부 도구를 다루지는 않았습니다. 대신 LLM위키가 어떤 형태로 남아야 하는지 살펴보았습니다.</p>
+<div class="table-scroll-wrapper"><table>
+<thead>
+<tr>
+<th>검증 질문</th>
+<th>확인 기준</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>이 책에서 만들 최종 결과물은 무엇인가?</td>
+<td><code>work-automation</code> 같은 작은 업무 주제 위키와 업무 산출물</td>
+</tr>
+<tr>
+<td>최소 구성은 무엇인가?</td>
+<td>원천 자료, 위키 문서, 산출물, 작업 규칙 문서</td>
+</tr>
+<tr>
+<td><code>raw/</code>와 <code>wiki/</code>를 왜 나누는가?</td>
+<td>원본 보존과 정리본 활용을 구분하기 위해</td>
+</tr>
+<tr>
+<td>LLM위키의 기본 흐름은 무엇인가?</td>
+<td>수집, 보관, 정리, 질문, 산출, 검증, 갱신</td>
+</tr>
+<tr>
+<td>왜 검증이 필요한가?</td>
+<td>LLM이 만든 요약에는 누락, 추정, 오래된 정보가 섞일 수 있기 때문에</td>
+</tr>
+</tbody>
+</table></div>
+<p>다음 절부터는 이 그림을 더 구체화합니다. 먼저 LLM위키가 지식을 어떤 층으로 쌓는지 살펴봅니다.</p>
+<h2 id="_8">근거와 추가 확인</h2>
+<ul>
+<li>Andrej Karpathy, <code>llm-wiki.md</code> Gist, https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f, 확인일: 2026-05-16. LLM위키를 원천 자료, 위키, 스키마로 나누는 개념 근거로 사용했습니다.</li>
+<li>OpenAI Codex <code>AGENTS.md</code> 문서, https://developers.openai.com/codex/guides/agents-md, 확인일: 2026-05-16. Codex에서 <code>AGENTS.md</code>가 프로젝트 지침 역할을 할 수 있다는 설명의 근거로 사용했습니다.</li>
+<li>Anthropic Claude Code memory 문서, https://docs.claude.com/en/docs/claude-code/memory, 확인일: 2026-05-16. Claude Code에서 <code>CLAUDE.md</code>가 프로젝트 메모리로 쓰일 수 있다는 설명의 근거로 사용했습니다.</li>
+<li><code>nvk/llm-wiki</code> README, https://github.com/nvk/llm-wiki, 확인일: 2026-05-16. <code>ingest</code>, <code>compile</code>, <code>query</code>, <code>lint</code>, <code>audit</code> 같은 구현체 흐름을 확인하는 근거로 사용했습니다.</li>
+<li><code>nvk/llm-wiki</code> Releases, https://github.com/nvk/llm-wiki/releases, 확인일: 2026-05-16. 2026년 5월 기준 구현체가 빠르게 바뀌므로 명령어와 버전은 실습 전 재확인이 필요합니다.</li>
+<li>WiCER: Wiki-memory Compile, Evaluate, Refine, https://arxiv.org/abs/2605.07068, 확인일: 2026-05-16. 검증 없는 위키 컴파일이 사실 누락과 품질 저하를 만들 수 있다는 제한된 근거로 참고했습니다. 이 자료는 arXiv 프리프린트이므로 단정적 결론으로 사용하지 않습니다.</li>
+</ul>
+    
+</div>
+<div class="muted text-right" style="font-size: 0.9em;margin:10px 0;">
+    
+        마지막 편집일시 : 2026년 5월 16일 1:06 오후
+    
+</div>
+
+<!-- google adsense -->
+
+    <!-- PC -->
+
+    
+        
+            <div style="margin:30px 0;"><div class="clearfix ad-container" style="display: flex;
+            justify-content: flex-start">
+    <div class="first-ad ad-container" style="margin-right: 30px;">
+        
+            <div class="ad-wrapper">
+                <div class="ad-placeholder">광고가 출력될 위치입니다.</div>
+                
+                <ins class="adsbygoogle wikidocs-ad" style="display:inline-block;
+                            width:336px;
+                            height:280px" data-ad-client="ca-pub-9470517771012578" data-full-width-responsive="false" data-ad-format="false" data-ad-slot="6452842464" data-adsbygoogle-status="done"><div id="aswift_5_host" style="border: none; height: 280px; width: 336px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"></div></ins>
+                
+            </div>
+        
+    </div>
+    <div class="second-ad ad-container" style="display: block;">
+        
+            <div class="ad-wrapper">
+                <div class="ad-placeholder">광고가 출력될 위치입니다.</div>
+                
+                <ins class="adsbygoogle wikidocs-ad" style="display:inline-block;
+                            width:336px;
+                            height:280px" data-ad-client="ca-pub-9470517771012578" data-full-width-responsive="false" data-ad-format="false" data-ad-slot="6452842464" data-adsbygoogle-status="done"><div id="aswift_6_host" style="border: none; height: 280px; width: 336px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"></div></ins>
+                
+            </div>
+        
+    </div>
+</div>
+</div>
+        
+    
+
+<!-- Mobile -->
+
+
+
+<!-- google adsense -->
+<div class="clearfix">
+    <a href="javascript:show_comments();" class="label label-info">댓글 0</a>
+    <a href="#myModal" data-toggle="modal" title="피드백을 남겨주세요" class="label label-info">피드백</a>
+</div>
+<div class="user_comments" style="display:none">
+    <div class="comments" id="page_all_comments">
+
+    
+
+</div>
+    
+        <a href="https://wikidocs.net/loginForm" class="text-info" style="font-size:12px">※ 댓글 작성은 로그인이 필요합니다.</a>
+        <a href="#myModal" data-toggle="modal" style="font-size:12px">(또는 피드백을 이용해 주세요.)</a>
+    
+</div>
+<div class="page-prev-next">
+<div class="clearfix">
+    <div class="pull-left">
+        <ul>
+            
+                <li>
+                    <strong>이전글</strong> : <a class="prev_page_link" href="javascript:page(353379)">1.2 LLM위키는 무엇인가</a>
+                </li>
+            
+            
+                <li>
+                    <strong>다음글</strong> : <a class="next_page_link" href="javascript:page(353381)">2장. LLM위키의 기본 구조</a>
+                </li>
+            
+        </ul>
+    </div>
+</div>
+</div>
+
+
+
+    
+    <a href="https://wikidocs.net/" class="label label-default wikidocs-home" data-toggle="popover" data-placement="left" data-content="위키독스 홈" data-original-title="" title="">
+        <span class="glyphicon glyphicon-home"></span>
+    </a>
+    <a class="label label-default dark_btn toggle-theme" data-toggle="popover" data-placement="left" data-content="다크모드" data-original-title="" title="">
+        <span class="glyphicon glyphicon-adjust"></span>
+    </a>
+    <a href="#top" class="label label-default back-to-top" data-toggle="popover" data-placement="left" data-content="맨위로" data-original-title="" title="">
+        <span class="glyphicon glyphicon-arrow-up"></span>
+    </a>
+
+<!-- 책갈피 모달 -->
+<div class="modal fade" id="bookmarkModal" tabindex="-1" role="dialog" aria-labelledby="bookmarkModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <h4 class="modal-title" id="bookmarkModalLabel">책갈피</h4>
+            </div>
+            <div class="modal-body bookmark-body">
+                <!-- 여기에 동적 데이터가 로드됩니다 -->
+            </div>
+            <div class="modal-footer">
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        

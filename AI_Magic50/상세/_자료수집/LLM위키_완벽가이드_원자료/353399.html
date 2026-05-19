@@ -1,0 +1,563 @@
+
+            
+            
+
+
+
+
+
+
+
+
+<div class="btn-group pull-right menu-group" role="group">
+    
+</div>
+<div class="menu-wikidocs"></div>
+
+
+
+<div class="clearfix page-depth">
+    <ol class="breadcrumb pull-left">
+        <li>
+            <small><a href="https://wikidocs.net/book/19830"><i class="glyphicon glyphicon-book"></i> <strong>LLM위키 완벽 가이드</strong></a></small>
+        </li>
+        
+            <li>
+                <small><a href="https://wikidocs.net/353397">6장. 위키에 질문하고 답을 검증하기</a></small>
+            </li>
+        
+            <li>
+                <small><a href="https://wikidocs.net/353399">6.2 답변의 근거 확인하기</a></small>
+            </li>
+        
+    </ol>
+    
+        <ol class="breadcrumb pull-right">
+            
+
+            
+
+            <li>
+                <a href="https://wikidocs.net/"><small class="logo"><i class="glyphicon glyphicon-home"></i> 위키독스</small></a>
+            </li>
+        </ol>
+    
+</div>
+
+<div class="page-header-wrapper">
+    <h1 class="page-subject">
+        <span class="page-subject-text">6.2 답변의 근거 확인하기</span>
+        <span class="page-subject-actions">
+            
+                <a href="#top" class="btn btn-default btn-sm page-back-to-top" style="display: none" title="맨위로"><i class="glyphicon glyphicon-arrow-up"></i></a>
+            
+            <a href="javascript:togglePageToc();" class="btn btn-default btn-sm" title="목차 보기"><i class="glyphicon glyphicon-list"></i></a>
+            
+                
+            
+        </span>
+    </h1>
+    <!-- 스크롤 진행 표시기 -->
+    <div class="scroll-progress-container" id="scrollProgressContainer">
+        <div class="scroll-progress-bar" id="scrollProgressBar" style="width: 0%;"></div>
+    </div>
+    <div id="page-toc-container" class="page-toc-container" style="display: none">
+        <div class="page-toc-content"><ul><li><a href="#62">6.2 답변의 근거 확인하기</a><ul><li><a href="#_1">출처가 있는 답과 없는 답 구분하기</a><ul><li><a href="#_2">실습: 답변에 근거 라벨 붙이기</a></li><li><a href="#_3">출처 요청 프롬프트</a></li></ul></li><li><a href="#_4">확실한 내용과 추정 구분하기</a><ul><li><a href="#_5">확실성 등급 붙이기</a></li><li><a href="#_6">실습: 답변을 검토용 문장으로 바꾸기</a></li><li><a href="#_7">추정 표현을 숨기지 않기</a></li></ul></li><li><a href="#_8">최신성이 필요한 주장 표시하기</a><ul><li><a href="#_9">최신성 라벨 만들기</a></li><li><a href="#_10">실습: 최신성 표시가 들어간 답변 만들기</a></li><li><a href="#_11">최신성 확인 질문 예시</a></li></ul></li><li><a href="#62_1">6.2의 검증 포인트</a></li><li><a href="#_12">근거와 추가 확인</a></li></ul></li></ul></div>
+    </div>
+</div>
+<!-- google adsense -->
+
+    <!-- PC -->
+
+    
+        
+            <div style="margin:30px 0;"><div class="clearfix ad-container" style="display: flex;
+            justify-content: flex-start">
+    <div class="first-ad ad-container" style="margin-right: 30px;">
+        
+            <div class="ad-wrapper adv_wikidocs_top">
+                <div class="ad-placeholder">광고가 출력될 위치입니다.</div>
+                
+                <!-- 페이지상단임시 -->
+                <ins class="adsbygoogle wikidocs-ad" style="display:inline-block;
+                            width:336px;
+                            height:280px" data-ad-client="ca-pub-9470517771012578" data-ad-slot="7169354980" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_2_host" style="border: none; height: 280px; width: 336px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"></div></ins>
+                
+            </div>
+        
+    </div>
+    <div class="second-ad ad-container" style="display: block;">
+        
+            <div class="ad-wrapper adv_wikidocs_top">
+                <div class="ad-placeholder">광고가 출력될 위치입니다.</div>
+                
+                <!-- 페이지상단임시 -->
+                <ins class="adsbygoogle wikidocs-ad" style="display:inline-block;
+                            width:336px;
+                            height:280px" data-ad-client="ca-pub-9470517771012578" data-ad-slot="7169354980" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_3_host" style="border: none; height: 280px; width: 336px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"></div></ins>
+                
+            </div>
+        
+    </div>
+</div>
+</div>
+        
+    
+
+<!-- Mobile -->
+
+
+
+<!-- google adsense -->
+<div class="page-content tex2jax_process">
+    
+    
+        
+        <h1 id="62">6.2 답변의 근거 확인하기</h1>
+<p><img alt="6.2 답변의 근거 확인하기 삽화" decoding="async" loading="lazy" src="https://static.wikidocs.net/images/page/353399/6.2-%EB%8B%B5%EB%B3%80%EC%9D%98-%EA%B7%BC%EA%B1%B0-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0.jpg"></p>
+<p>LLM위키에 질문하면 답은 빠르게 나옵니다. 문제는 그 답이 <strong>무엇을 근거로 했는지</strong>, <strong>어디까지 확실한지</strong>, <strong>지금도 유효한지</strong>입니다. 위키에 정리된 문장은 원본이 아닙니다. 원본 자료를 바탕으로 만든 파생 지식입니다.</p>
+<p>이 절에서는 답변을 그대로 믿기 전에 세 가지를 확인합니다. 첫째, 출처가 있는 답과 없는 답을 구분합니다. 둘째, 확인된 내용과 추정을 나눕니다. 셋째, 최신성이 필요한 주장에는 표시를 남깁니다. 이 습관이 있어야 LLM위키를 보고서, 회의 준비, 실행 계획에 안전하게 쓸 수 있습니다.</p>
+<h2 id="_1">출처가 있는 답과 없는 답 구분하기</h2>
+<p>LLM위키에서 나온 답변은 보통 세 종류의 문장으로 섞여 있습니다. 원천 자료에 근거한 문장, 위키 문서에는 있지만 원본 연결이 약한 문장, 그리고 LLM이 문맥상 보충한 문장입니다. 이 셋을 구분하지 않으면 “위키에 있으니 사실”이라는 착각이 생깁니다.</p>
+<p>Karpathy의 LLM Wiki 아이디어 문서와 <code>nvk/llm-wiki</code> 문서는 공통적으로 원천 자료와 정리된 위키를 나눕니다. 이 구분은 단순한 폴더 정리가 아닙니다. 답변을 검증할 때 돌아갈 기준점을 남기는 장치입니다.</p>
+<p><strong>학습자료: 답변 문장의 근거 상태 구분표</strong></p>
+<div class="table-scroll-wrapper"><table>
+<thead>
+<tr>
+<th>답변 문장 유형</th>
+<th>판단 기준</th>
+<th>원고나 보고서에 쓸 때</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>출처가 있는 답</td>
+<td>원천 자료 경로, URL, 회의록 날짜, 문서명이 함께 제시됨</td>
+<td>단정 가능. 단, 출처의 날짜와 범위를 함께 남김</td>
+</tr>
+<tr>
+<td>위키 근거만 있는 답</td>
+<td><code>wiki/</code> 문서에는 있으나 <code>raw/</code>나 외부 URL 연결이 없음</td>
+<td>“위키 정리 기준”으로 제한해 표현</td>
+</tr>
+<tr>
+<td>출처가 없는 답</td>
+<td>답변에는 나오지만 근거 파일이나 링크가 없음</td>
+<td>단정 금지. 확인 필요로 표시</td>
+</tr>
+<tr>
+<td>추정 답</td>
+<td>“아마”, “가능성이 높다”, “보통” 같은 표현이 붙음</td>
+<td>추정으로 분리하고 후속 확인 질문을 남김</td>
+</tr>
+</tbody>
+</table></div>
+<p>이 표의 핵심은 답변의 문장마다 <strong>근거의 깊이</strong>가 다르다는 점입니다. 출처가 있는 문장은 원본으로 돌아가 확인할 수 있습니다. 출처가 없는 문장은 당장 버릴 필요는 없지만, 업무 결정의 근거로 쓰면 위험합니다.</p>
+<h3 id="_2">실습: 답변에 근거 라벨 붙이기</h3>
+<p>다음 답변은 업무 자동화 위키에 질문했을 때 나온 예시입니다.</p>
+<pre><code class="language-markdown hljs md-csc-wrap">질문: 고객 문의 분류 자동화를 먼저 해야 할까?
+
+답변:
+<span class="hljs-bullet">1.</span> 고객 문의 중 반복 문의가 많아 자동화 우선순위가 높습니다.
+<span class="hljs-bullet">2.</span> 회의록에 따르면 2026-05-10 회의에서 "배송 지연", "환불 절차", "계정 잠김"이 반복 문의로 언급되었습니다.
+<span class="hljs-bullet">3.</span> 자동 분류를 도입하면 응답 시간이 크게 줄어들 것입니다.
+<span class="hljs-bullet">4.</span> 다만 현재 위키에는 최근 3개월 문의량 통계가 없습니다.
+<span class="hljs-bullet">5.</span> 따라서 먼저 문의 유형별 건수를 확인한 뒤 자동화 대상을 정하는 것이 좋습니다.
+</code></pre>
+<p>이 답변을 바로 믿지 말고 문장마다 라벨을 붙입니다.</p>
+<pre><code class="language-markdown hljs md-csc-wrap">| 번호 | 문장 요약 | 라벨 | 이유 |
+|---|---|---|---|
+| 1 | 반복 문의가 많아 자동화 우선순위가 높다 | 추정 포함 | 반복 문의 근거는 있으나 우선순위 판단 기준이 부족함 |
+| 2 | 특정 회의에서 반복 문의 3종이 언급됨 | 출처 있음 | 회의 날짜와 항목이 제시됨 |
+| 3 | 응답 시간이 크게 줄어들 것 | 출처 없음 | 효과 수치나 이전 사례가 없음 |
+| 4 | 최근 3개월 통계가 없음 | 위키 상태 확인 | 위키에 자료가 없다는 범위 안에서만 유효 |
+| 5 | 건수 확인 뒤 대상을 정하자 | 실행 제안 | 앞의 한계를 반영한 다음 행동 |
+</code></pre>
+<p>이 실습에서 가장 중요한 문장은 3번입니다. “응답 시간이 크게 줄어들 것”은 그럴듯하지만 근거가 없습니다. 이런 문장은 보고서에 그대로 넣지 않습니다. “응답 시간 개선 가능성은 있으나, 현재 위키에는 정량 근거가 없다”처럼 바꿔야 합니다.</p>
+<h3 id="_3">출처 요청 프롬프트</h3>
+<p>LLM위키에 질문할 때는 처음부터 근거를 함께 요구하는 편이 좋습니다.</p>
+<pre><code class="language-text hljs language-plaintext md-csc-wrap">다음 질문에 답하세요.
+
+질문: 고객 문의 분류 자동화를 먼저 해야 할까?
+
+답변 형식:
+- 결론
+- 결론의 근거
+- 근거가 있는 문장과 출처
+- 출처가 없는 문장
+- 확인이 필요한 내용
+- 다음 확인 질문
+
+주의:
+출처가 없는 내용은 단정하지 말고 "확인 필요"로 표시하세요.
+</code></pre>
+<p>이 프롬프트는 답을 더 길게 만들기 위한 것이 아닙니다. 답변을 업무에 쓰기 전에 검토할 수 있는 모양으로 받기 위한 요청입니다.</p>
+<h2 id="_4">확실한 내용과 추정 구분하기</h2>
+<p>출처가 있다고 해서 모든 문장이 같은 수준으로 확실한 것은 아닙니다. 회의록에 “고객 문의가 늘었다”는 말이 있어도 실제 문의량이 얼마나 늘었는지는 별도 통계가 필요합니다. 공식 문서에 기능이 있다고 적혀 있어도, 내가 쓰는 버전에서 동작하는지는 다시 확인해야 합니다.</p>
+<p>확실한 내용은 원본에 직접 적힌 내용입니다. 추정은 그 내용을 바탕으로 해석하거나 앞으로의 결과를 예상한 내용입니다. LLM은 이 둘을 자연스럽게 이어서 말합니다. 독자는 그 연결부를 끊어 봐야 합니다.</p>
+<div class="mermaid" data-processed="true"><svg id="mermaid-1779150973739" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="flowchart" style="max-width: 555.1171875px;" viewBox="0 0 555.1171875 1198.34375" role="graphics-document document" aria-roledescription="flowchart-v2"><g><marker id="mermaid-1779150973739_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1779150973739_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1779150973739_flowchart-v2-pointEnd-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="11.5" refY="7" markerUnits="userSpaceOnUse" markerWidth="10.5" markerHeight="14" orient="auto"><path d="M 0 0 L 11.5 7 L 0 14 z" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1779150973739_flowchart-v2-pointStart-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="1" refY="7" markerUnits="userSpaceOnUse" markerWidth="11.5" markerHeight="14" orient="auto"><polygon points="0,7 11.5,14 11.5,0" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></polygon></marker><marker id="mermaid-1779150973739_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1779150973739_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1779150973739_flowchart-v2-circleEnd-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refY="5" refX="12.25" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1779150973739_flowchart-v2-circleStart-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-2" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1779150973739_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1779150973739_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1779150973739_flowchart-v2-crossEnd-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="17.7" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5;"></path></marker><marker id="mermaid-1779150973739_flowchart-v2-crossStart-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="-3.5" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M293.07,56L293.07,60.167C293.07,64.333,293.07,72.667,293.07,80.333C293.07,88,293.07,95,293.07,98.5L293.07,102" id="mermaid-1779150973739-L_A_B_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_A_B_0" data-points="W3sieCI6MjkzLjA3MDMxMjUsInkiOjU2fSx7IngiOjI5My4wNzAzMTI1LCJ5Ijo4MX0seyJ4IjoyOTMuMDcwMzEyNSwieSI6MTA2fV0=" data-look="classic" marker-end="url(#mermaid-1779150973739_flowchart-v2-pointEnd)"></path><path d="M293.07,241.625L293.07,245.792C293.07,249.958,293.07,258.292,293.07,265.958C293.07,273.625,293.07,280.625,293.07,284.125L293.07,287.625" id="mermaid-1779150973739-L_B_C_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_B_C_0" data-points="W3sieCI6MjkzLjA3MDMxMjUsInkiOjI0MS42MjV9LHsieCI6MjkzLjA3MDMxMjUsInkiOjI2Ni42MjV9LHsieCI6MjkzLjA3MDMxMjUsInkiOjI5MS42MjV9XQ==" data-look="classic" marker-end="url(#mermaid-1779150973739_flowchart-v2-pointEnd)"></path><path d="M236.328,418.992L212.027,434.116C187.725,449.24,139.122,479.487,114.821,514.319C90.52,549.151,90.52,588.568,90.52,627.984C90.52,667.401,90.52,706.818,90.52,731.526C90.52,756.234,90.52,766.234,90.52,771.234L90.52,776.234" id="mermaid-1779150973739-L_C_D_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_C_D_0" data-points="W3sieCI6MjM2LjMyODI1OTY2MTQ0ODEzLCJ5Ijo0MTguOTkyMzIyMTYxNDQ4MX0seyJ4Ijo5MC41MTk1MzEyNSwieSI6NTA5LjczNDM3NX0seyJ4Ijo5MC41MTk1MzEyNSwieSI6NjI3Ljk4NDM3NX0seyJ4Ijo5MC41MTk1MzEyNSwieSI6NzQ2LjIzNDM3NX0seyJ4Ijo5MC41MTk1MzEyNSwieSI6NzgwLjIzNDM3NX1d" data-look="classic" marker-end="url(#mermaid-1779150973739_flowchart-v2-pointEnd)"></path><path d="M331.594,437.211L340.292,449.298C348.991,461.385,366.388,485.56,375.087,502.647C383.785,519.734,383.785,529.734,383.785,534.734L383.785,539.734" id="mermaid-1779150973739-L_C_E_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_C_E_0" data-points="W3sieCI6MzMxLjU5MzgzODEzMDQ4NDksInkiOjQzNy4yMTA4NDkzNjk1MTUxfSx7IngiOjM4My43ODUxNTYyNSwieSI6NTA5LjczNDM3NX0seyJ4IjozODMuNzg1MTU2MjUsInkiOjU0My43MzQzNzV9XQ==" data-look="classic" marker-end="url(#mermaid-1779150973739_flowchart-v2-pointEnd)"></path><path d="M342.834,671.284L331.02,683.775C319.206,696.267,295.578,721.251,283.763,738.743C271.949,756.234,271.949,766.234,271.949,771.234L271.949,776.234" id="mermaid-1779150973739-L_E_F_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_E_F_0" data-points="W3sieCI6MzQyLjgzNDQ2Njk2OTUwMDE3LCJ5Ijo2NzEuMjgzNjg1NzE5NTAwMn0seyJ4IjoyNzEuOTQ5MjE4NzUsInkiOjc0Ni4yMzQzNzV9LHsieCI6MjcxLjk0OTIxODc1LCJ5Ijo3ODAuMjM0Mzc1fV0=" data-look="classic" marker-end="url(#mermaid-1779150973739_flowchart-v2-pointEnd)"></path><path d="M419.665,676.355L428.304,688.001C436.943,699.648,454.222,722.941,462.861,739.588C471.5,756.234,471.5,766.234,471.5,771.234L471.5,776.234" id="mermaid-1779150973739-L_E_G_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_E_G_0" data-points="W3sieCI6NDE5LjY2NDk0NzQzODU3NTEsInkiOjY3Ni4zNTQ1ODM4MTE0MjQ4fSx7IngiOjQ3MS41LCJ5Ijo3NDYuMjM0Mzc1fSx7IngiOjQ3MS41LCJ5Ijo3ODAuMjM0Mzc1fV0=" data-look="classic" marker-end="url(#mermaid-1779150973739_flowchart-v2-pointEnd)"></path><path d="M90.52,828.234L90.52,832.401C90.52,836.568,90.52,844.901,98.308,859.633C106.097,874.365,121.674,895.495,129.462,906.06L137.251,916.625" id="mermaid-1779150973739-L_D_H_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_D_H_0" data-points="W3sieCI6OTAuNTE5NTMxMjUsInkiOjgyOC4yMzQzNzV9LHsieCI6OTAuNTE5NTMxMjUsInkiOjg1My4yMzQzNzV9LHsieCI6MTM5LjYyNDA2ODc4MTQwNzAzLCJ5Ijo5MTkuODQ0NjgxMjE4NTkzfV0=" data-look="classic" marker-end="url(#mermaid-1779150973739_flowchart-v2-pointEnd)"></path><path d="M271.949,828.234L271.949,832.401C271.949,836.568,271.949,844.901,264.161,859.633C256.372,874.365,240.795,895.495,233.007,906.06L225.218,916.625" id="mermaid-1779150973739-L_F_H_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_F_H_0" data-points="W3sieCI6MjcxLjk0OTIxODc1LCJ5Ijo4MjguMjM0Mzc1fSx7IngiOjI3MS45NDkyMTg3NSwieSI6ODUzLjIzNDM3NX0seyJ4IjoyMjIuODQ0NjgxMjE4NTkyOTcsInkiOjkxOS44NDQ2ODEyMTg1OTN9XQ==" data-look="classic" marker-end="url(#mermaid-1779150973739_flowchart-v2-pointEnd)"></path><path d="M471.5,828.234L471.5,832.401C471.5,836.568,471.5,844.901,471.5,864.91C471.5,884.919,471.5,916.604,471.5,932.447L471.5,948.289" id="mermaid-1779150973739-L_G_I_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_G_I_0" data-points="W3sieCI6NDcxLjUsInkiOjgyOC4yMzQzNzV9LHsieCI6NDcxLjUsInkiOjg1My4yMzQzNzV9LHsieCI6NDcxLjUsInkiOjk1Mi4yODkwNjI1fV0=" data-look="classic" marker-end="url(#mermaid-1779150973739_flowchart-v2-pointEnd)"></path><path d="M139.558,1032.668L130.235,1045.28C120.911,1057.893,102.264,1083.118,92.941,1100.731C83.617,1118.344,83.617,1128.344,83.617,1133.344L83.617,1138.344" id="mermaid-1779150973739-L_H_J_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_H_J_0" data-points="W3sieCI6MTM5LjU1ODI5NzcwNTIwMTAzLCJ5IjoxMDMyLjY2NzY3MjcwNTIwMX0seyJ4Ijo4My42MTcxODc1LCJ5IjoxMTA4LjM0Mzc1fSx7IngiOjgzLjYxNzE4NzUsInkiOjExNDIuMzQzNzV9XQ==" data-look="classic" marker-end="url(#mermaid-1779150973739_flowchart-v2-pointEnd)"></path><path d="M222.91,1032.668L232.234,1045.28C241.557,1057.893,260.205,1083.118,269.528,1100.731C278.852,1118.344,278.852,1128.344,278.852,1133.344L278.852,1138.344" id="mermaid-1779150973739-L_H_K_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_H_K_0" data-points="W3sieCI6MjIyLjkxMDQ1MjI5NDc5ODk3LCJ5IjoxMDMyLjY2NzY3MjcwNTIwMX0seyJ4IjoyNzguODUxNTYyNSwieSI6MTEwOC4zNDM3NX0seyJ4IjoyNzguODUxNTYyNSwieSI6MTE0Mi4zNDM3NX1d" data-look="classic" marker-end="url(#mermaid-1779150973739_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" data-id="L_A_B_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" data-id="L_B_C_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(90.51953125, 627.984375)"><g class="label" data-id="L_C_D_0" transform="translate(-6, -9)"><foreignObject width="12" height="18"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>예</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(383.78515625, 509.734375)"><g class="label" data-id="L_C_E_0" transform="translate(-18, -9)"><foreignObject width="36" height="18"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>아니오</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(271.94921875, 746.234375)"><g class="label" data-id="L_E_F_0" transform="translate(-6, -9)"><foreignObject width="12" height="18"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>예</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(471.5, 746.234375)"><g class="label" data-id="L_E_G_0" transform="translate(-18, -9)"><foreignObject width="36" height="18"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>아니오</p></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" data-id="L_D_H_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" data-id="L_F_H_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" data-id="L_G_I_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(83.6171875, 1108.34375)"><g class="label" data-id="L_H_J_0" transform="translate(-6, -9)"><foreignObject width="12" height="18"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>예</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(278.8515625, 1108.34375)"><g class="label" data-id="L_H_K_0" transform="translate(-18, -9)"><foreignObject width="36" height="18"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>아니오</p></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default" id="mermaid-1779150973739-flowchart-A-0" data-look="classic" transform="translate(293.0703125, 32)"><rect class="basic label-container" style="" x="-66.9140625" y="-24" width="133.828125" height="48"></rect><g class="label" style="" transform="translate(-36.9140625, -9)"><rect></rect><foreignObject width="73.828125" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>LLM위키 답변</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150973739-flowchart-B-1" data-look="classic" transform="translate(293.0703125, 173.8125)"><polygon points="67.8125,0 135.625,-67.8125 67.8125,-135.625 0,-67.8125" class="label-container" transform="translate(-67.3125, 67.8125)"></polygon><g class="label" style="" transform="translate(-43.8125, -9)"><rect></rect><foreignObject width="87.625" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>문장별로 나누기</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150973739-flowchart-C-3" data-look="classic" transform="translate(293.0703125, 383.6796875)"><polygon points="92.0546875,0 184.109375,-92.0546875 92.0546875,-184.109375 0,-92.0546875" class="label-container" transform="translate(-91.5546875, 92.0546875)"></polygon><g class="label" style="" transform="translate(-68.0546875, -9)"><rect></rect><foreignObject width="136.109375" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>원천 자료에 직접 있는가?</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150973739-flowchart-D-5" data-look="classic" transform="translate(90.51953125, 804.234375)"><rect class="basic label-container" style="" x="-61.8125" y="-24" width="123.625" height="48"></rect><g class="label" style="" transform="translate(-31.8125, -9)"><rect></rect><foreignObject width="63.625" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>확인된 내용</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150973739-flowchart-E-7" data-look="classic" transform="translate(383.78515625, 627.984375)"><polygon points="84.25,0 168.5,-84.25 84.25,-168.5 0,-84.25" class="label-container" transform="translate(-83.75, 84.25)"></polygon><g class="label" style="" transform="translate(-60.25, -9)"><rect></rect><foreignObject width="120.5" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>위키 문서의 해석인가?</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150973739-flowchart-F-9" data-look="classic" transform="translate(271.94921875, 804.234375)"><rect class="basic label-container" style="" x="-69.6171875" y="-24" width="139.234375" height="48"></rect><g class="label" style="" transform="translate(-39.6171875, -9)"><rect></rect><foreignObject width="79.234375" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>해석 또는 요약</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150973739-flowchart-G-11" data-look="classic" transform="translate(471.5, 804.234375)"><rect class="basic label-container" style="" x="-55.8125" y="-24" width="111.625" height="48"></rect><g class="label" style="" transform="translate(-25.8125, -9)"><rect></rect><foreignObject width="51.625" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>출처 없음</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150973739-flowchart-H-13" data-look="classic" transform="translate(181.234375, 976.2890625)"><polygon points="98.0546875,0 196.109375,-98.0546875 98.0546875,-196.109375 0,-98.0546875" class="label-container" transform="translate(-97.5546875, 98.0546875)"></polygon><g class="label" style="" transform="translate(-74.0546875, -9)"><rect></rect><foreignObject width="148.109375" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>현재 업무 결정에 충분한가?</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150973739-flowchart-I-17" data-look="classic" transform="translate(471.5, 976.2890625)"><rect class="basic label-container" style="" x="-75.6171875" y="-24" width="151.234375" height="48"></rect><g class="label" style="" transform="translate(-45.6171875, -9)"><rect></rect><foreignObject width="91.234375" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>확인 필요로 표시</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150973739-flowchart-J-19" data-look="classic" transform="translate(83.6171875, 1166.34375)"><rect class="basic label-container" style="" x="-75.6171875" y="-24" width="151.234375" height="48"></rect><g class="label" style="" transform="translate(-45.6171875, -9)"><rect></rect><foreignObject width="91.234375" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>근거와 함께 사용</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150973739-flowchart-K-21" data-look="classic" transform="translate(278.8515625, 1166.34375)"><rect class="basic label-container" style="" x="-69.6171875" y="-24" width="139.234375" height="48"></rect><g class="label" style="" transform="translate(-39.6171875, -9)"><rect></rect><foreignObject width="79.234375" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>추가 자료 요청</p></span></div></foreignObject></g></g></g></g></g><defs><filter id="mermaid-1779150973739-drop-shadow" height="130%" width="130%"><feDropShadow dx="4" dy="4" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"></feDropShadow></filter></defs><defs><filter id="mermaid-1779150973739-drop-shadow-small" height="150%" width="150%"><feDropShadow dx="2" dy="2" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"></feDropShadow></filter></defs></svg></div>
+<p>이 흐름은 답변 전체를 평가하지 않습니다. 문장 단위로 나눠 봅니다. 한 답변 안에서도 어떤 문장은 확실하고, 어떤 문장은 추정이며, 어떤 문장은 확인이 필요할 수 있습니다.</p>
+<h3 id="_5">확실성 등급 붙이기</h3>
+<div class="ad-wrapper markdown_tags">
+
+<!-- markdown_tags -->
+<ins class="adsbygoogle" data-ad-client="ca-pub-9470517771012578" data-ad-format="false" data-ad-slot="4124294444" data-full-width-responsive="false" style="display:inline-block;width:300px;height:250px" data-adsbygoogle-status="done"><div id="aswift_4_host" style="border: none; height: 250px; width: 300px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"></div></ins>
+
+</div>
+<p>다음처럼 세 단계로 나누면 충분합니다.</p>
+<div class="table-scroll-wrapper"><table>
+<thead>
+<tr>
+<th>등급</th>
+<th>의미</th>
+<th>예시 표현</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>확인됨</td>
+<td>원천 자료에 직접 근거가 있음</td>
+<td>“2026-05-10 회의록에는 배송 지연 문의가 반복 항목으로 기록되어 있다.”</td>
+</tr>
+<tr>
+<td>제한적 확인</td>
+<td>일부 근거는 있으나 범위가 좁음</td>
+<td>“회의록 기준으로는 배송 지연 문의가 반복적으로 언급되었다.”</td>
+</tr>
+<tr>
+<td>추정</td>
+<td>직접 근거 없이 가능성을 말함</td>
+<td>“배송 지연 문의 자동화가 응답 시간을 줄일 가능성이 있다.”</td>
+</tr>
+<tr>
+<td>확인 필요</td>
+<td>근거가 없거나 최신 확인이 필요함</td>
+<td>“자동화 도입 후 응답 시간이 30% 줄어든다.”</td>
+</tr>
+</tbody>
+</table></div>
+<p>등급을 붙이면 문장이 자연스럽게 조심스러워집니다. “자동화가 효과적이다”라는 문장은 강합니다. “회의록 기준으로 반복 문의가 확인되므로 자동화 후보로 검토할 수 있다”는 문장은 더 안전합니다.</p>
+<h3 id="_6">실습: 답변을 검토용 문장으로 바꾸기</h3>
+<p>아래 문장을 검토용으로 바꿔 보겠습니다.</p>
+<pre><code class="language-markdown hljs md-csc-wrap">원문:
+고객 문의 자동 분류를 도입하면 응답 시간이 크게 줄어듭니다.
+
+검토 후:
+현재 위키에는 응답 시간 감소를 입증할 정량 근거가 없습니다.
+다만 2026-05-10 회의록에 반복 문의 유형이 기록되어 있으므로,
+고객 문의 자동 분류는 자동화 후보로 검토할 수 있습니다.
+</code></pre>
+<p>바뀐 문장은 덜 화려합니다. 대신 안전합니다. 검토자는 어떤 근거가 있고, 무엇이 부족한지 바로 알 수 있습니다.</p>
+<h3 id="_7">추정 표현을 숨기지 않기</h3>
+<p>LLM 답변에서 추정은 나쁜 것이 아닙니다. 업무에서는 추정이 필요합니다. 문제는 추정을 사실처럼 쓰는 것입니다. 따라서 추정은 다음처럼 표시합니다.</p>
+<pre><code class="language-markdown hljs md-csc-wrap"><span class="hljs-section">## 확인된 내용</span>
+
+<span class="hljs-bullet">-</span> 2026-05-10 회의록에는 반복 문의로 "배송 지연", "환불 절차", "계정 잠김"이 기록되어 있다.
+<span class="hljs-bullet">-</span> 현재 위키에는 최근 3개월 문의량 통계가 없다.
+
+<span class="hljs-section">## 추정</span>
+
+<span class="hljs-bullet">-</span> 반복 문의가 많은 항목은 자동화 효과가 있을 가능성이 있다.
+<span class="hljs-bullet">-</span> 단, 효과 크기는 문의량, 현재 처리 시간, 자동 분류 정확도에 따라 달라진다.
+
+<span class="hljs-section">## 확인 필요</span>
+
+<span class="hljs-bullet">-</span> 문의 유형별 최근 3개월 건수
+<span class="hljs-bullet">-</span> 유형별 평균 처리 시간
+<span class="hljs-bullet">-</span> 자동 분류 결과를 사람이 재검토해야 하는 비율
+</code></pre>
+<p>이 형식은 회의 준비에도 좋습니다. 회의에서 논쟁할 대상을 분명히 나눌 수 있기 때문입니다. 확인된 내용은 합의의 출발점으로 두고, 추정은 실험 계획으로 바꿉니다.</p>
+<h2 id="_8">최신성이 필요한 주장 표시하기</h2>
+<p>일부 주장은 시간이 지나도 크게 바뀌지 않습니다. “LLM위키는 원천 자료와 정리된 위키를 구분한다”는 개념 설명은 비교적 안정적입니다. 반면 설치 명령, 플러그인 기능, 최신 릴리스, 가격, 정책, API 동작, 보안 설정은 빠르게 바뀔 수 있습니다.</p>
+<p>리서치 결과에 따르면 <code>nvk/llm-wiki</code>는 2026년 5월 기준 릴리스가 빠르게 이어졌고, <code>Pratiyush/llm-wiki</code>의 변경 로그에는 제거된 명령어가 문서에 남아 있던 사례도 있었습니다. 따라서 도구 명령과 버전 정보는 본문에서 단정하더라도 반드시 확인 날짜와 기준 버전을 함께 둬야 합니다.</p>
+<p><strong>학습자료: 최신성 표시가 필요한 주장</strong></p>
+<div class="table-scroll-wrapper"><table>
+<thead>
+<tr>
+<th>주장 유형</th>
+<th style="text-align: right;">최신성 필요도</th>
+<th>표시 방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>개념 정의</td>
+<td style="text-align: right;">낮음</td>
+<td>출처와 원문 기준만 표시</td>
+</tr>
+<tr>
+<td>폴더 구조 원칙</td>
+<td style="text-align: right;">낮음</td>
+<td>구현체별 차이가 있으면 조건 표시</td>
+</tr>
+<tr>
+<td>설치 명령</td>
+<td style="text-align: right;">높음</td>
+<td>확인 날짜, 도구명, 버전 또는 README 기준 표시</td>
+</tr>
+<tr>
+<td>플러그인 기능</td>
+<td style="text-align: right;">높음</td>
+<td>“2026-05-16 확인 기준”처럼 날짜 표시</td>
+</tr>
+<tr>
+<td>릴리스 번호</td>
+<td style="text-align: right;">높음</td>
+<td>최신 여부를 단정하기 전에 릴리스 페이지 확인</td>
+</tr>
+<tr>
+<td>보안·권한 정책</td>
+<td style="text-align: right;">높음</td>
+<td>공식 문서 기준, 조직 정책 확인 필요 표시</td>
+</tr>
+<tr>
+<td>성능 개선 효과</td>
+<td style="text-align: right;">높음</td>
+<td>측정 환경과 데이터 범위 표시</td>
+</tr>
+</tbody>
+</table></div>
+<p>이 표는 “무엇을 의심해야 하는가”를 알려 줍니다. 최신성이 필요한 주장은 틀리면 독자의 실행이 막히거나 보안 문제가 생길 수 있습니다.</p>
+<h3 id="_9">최신성 라벨 만들기</h3>
+<p>위키 문서와 답변에 다음 라벨을 붙이면 관리가 쉬워집니다.</p>
+<div class="table-scroll-wrapper"><table>
+<thead>
+<tr>
+<th>라벨</th>
+<th>뜻</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>확인됨</code></td>
+<td>원천 자료로 확인함</td>
+<td>회의록, 공식 문서, 내부 정책 문서</td>
+</tr>
+<tr>
+<td><code>확인 필요</code></td>
+<td>아직 근거가 부족함</td>
+<td>수치, 효과, 원인 분석</td>
+</tr>
+<tr>
+<td><code>최신성 확인 필요</code></td>
+<td>시간이 지나면 바뀔 수 있음</td>
+<td>설치 명령, 버전, 가격, 정책</td>
+</tr>
+<tr>
+<td><code>제한된 근거</code></td>
+<td>근거는 있으나 범위가 좁음</td>
+<td>단일 회의록, 소수 인터뷰, 초기 연구</td>
+</tr>
+<tr>
+<td><code>추정</code></td>
+<td>가능성을 제시함</td>
+<td>예상 효과, 우선순위 판단</td>
+</tr>
+</tbody>
+</table></div>
+<p>라벨은 복잡할 필요가 없습니다. 중요한 것은 답변이 “검토 가능한 상태”로 남는 것입니다.</p>
+<div class="mermaid" data-processed="true"><svg id="mermaid-1779150974281" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="flowchart" style="max-width: 1040.75px;" viewBox="0 0 1040.75 346.625" role="graphics-document document" aria-roledescription="flowchart-v2"><g><marker id="mermaid-1779150974281_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1779150974281_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1779150974281_flowchart-v2-pointEnd-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="11.5" refY="7" markerUnits="userSpaceOnUse" markerWidth="10.5" markerHeight="14" orient="auto"><path d="M 0 0 L 11.5 7 L 0 14 z" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1779150974281_flowchart-v2-pointStart-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="1" refY="7" markerUnits="userSpaceOnUse" markerWidth="11.5" markerHeight="14" orient="auto"><polygon points="0,7 11.5,14 11.5,0" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></polygon></marker><marker id="mermaid-1779150974281_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1779150974281_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1779150974281_flowchart-v2-circleEnd-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refY="5" refX="12.25" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1779150974281_flowchart-v2-circleStart-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-2" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1779150974281_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1779150974281_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1779150974281_flowchart-v2-crossEnd-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="17.7" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5;"></path></marker><marker id="mermaid-1779150974281_flowchart-v2-crossStart-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="-3.5" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M119.625,108.125L123.792,108.125C127.958,108.125,136.292,108.125,143.958,108.125C151.625,108.125,158.625,108.125,162.125,108.125L165.625,108.125" id="mermaid-1779150974281-L_A_B_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_A_B_0" data-points="W3sieCI6MTE5LjYyNSwieSI6MTA4LjEyNX0seyJ4IjoxNDQuNjI1LCJ5IjoxMDguMTI1fSx7IngiOjE2OS42MjUsInkiOjEwOC4xMjV9XQ==" data-look="classic" marker-end="url(#mermaid-1779150974281_flowchart-v2-pointEnd)"></path><path d="M317.312,75.312L329.947,68.093C342.583,60.874,367.854,46.437,387.428,39.219C407.003,32,420.88,32,427.819,32L434.758,32" id="mermaid-1779150974281-L_B_C_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_B_C_0" data-points="W3sieCI6MzE3LjMxMTcxNjQxNzkxMDUsInkiOjc1LjMxMTcxNjQxNzkxMDQ1fSx7IngiOjM5My4xMjUsInkiOjMyfSx7IngiOjQzOC43NTc4MTI1LCJ5IjozMn1d" data-look="classic" marker-end="url(#mermaid-1779150974281_flowchart-v2-pointEnd)"></path><path d="M317.312,140.938L329.947,148.157C342.583,155.376,367.854,169.813,386.989,177.031C406.125,184.25,419.125,184.25,425.625,184.25L432.125,184.25" id="mermaid-1779150974281-L_B_D_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_B_D_0" data-points="W3sieCI6MzE3LjMxMTcxNjQxNzkxMDUsInkiOjE0MC45MzgyODM1ODIwODk1NX0seyJ4IjozOTMuMTI1LCJ5IjoxODQuMjV9LHsieCI6NDM2LjEyNSwieSI6MTg0LjI1fV0=" data-look="classic" marker-end="url(#mermaid-1779150974281_flowchart-v2-pointEnd)"></path><path d="M562.445,154.07L574.642,146.412C586.838,138.755,611.232,123.44,634.97,115.782C658.708,108.125,681.792,108.125,693.333,108.125L704.875,108.125" id="mermaid-1779150974281-L_D_E_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_D_E_0" data-points="W3sieCI6NTYyLjQ0NDk4MTAwMDYzMzMsInkiOjE1NC4wNjk5ODEwMDA2MzMzfSx7IngiOjYzNS42MjUsInkiOjEwOC4xMjV9LHsieCI6NzA4Ljg3NSwieSI6MTA4LjEyNX1d" data-look="classic" marker-end="url(#mermaid-1779150974281_flowchart-v2-pointEnd)"></path><path d="M562.445,214.43L574.642,222.088C586.838,229.745,611.232,245.06,629.928,252.718C648.625,260.375,661.625,260.375,668.125,260.375L674.625,260.375" id="mermaid-1779150974281-L_D_F_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_D_F_0" data-points="W3sieCI6NTYyLjQ0NDk4MTAwMDYzMzMsInkiOjIxNC40MzAwMTg5OTkzNjY3fSx7IngiOjYzNS42MjUsInkiOjI2MC4zNzV9LHsieCI6Njc4LjYyNSwieSI6MjYwLjM3NX1d" data-look="classic" marker-end="url(#mermaid-1779150974281_flowchart-v2-pointEnd)"></path><path d="M812.604,237.854L823.524,233.441C834.444,229.027,856.285,220.201,876.007,215.788C895.729,211.375,913.333,211.375,922.135,211.375L930.938,211.375" id="mermaid-1779150974281-L_F_G_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_F_G_0" data-points="W3sieCI6ODEyLjYwMzcwNzc4MjY3MjYsInkiOjIzNy44NTM3MDc3ODI2NzI1M30seyJ4Ijo4NzguMTI1LCJ5IjoyMTEuMzc1fSx7IngiOjkzNC45Mzc1LCJ5IjoyMTEuMzc1fV0=" data-look="classic" marker-end="url(#mermaid-1779150974281_flowchart-v2-pointEnd)"></path><path d="M812.604,282.896L823.524,287.309C834.444,291.723,856.285,300.549,873.705,304.962C891.125,309.375,904.125,309.375,910.625,309.375L917.125,309.375" id="mermaid-1779150974281-L_F_H_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_F_H_0" data-points="W3sieCI6ODEyLjYwMzcwNzc4MjY3MjYsInkiOjI4Mi44OTYyOTIyMTczMjc0N30seyJ4Ijo4NzguMTI1LCJ5IjozMDkuMzc1fSx7IngiOjkyMS4xMjUsInkiOjMwOS4zNzV9XQ==" data-look="classic" marker-end="url(#mermaid-1779150974281_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" data-id="L_A_B_0" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(393.125, 32)"><g class="label" data-id="L_B_C_0" transform="translate(-6, -9)"><foreignObject width="12" height="18"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>예</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(393.125, 184.25)"><g class="label" data-id="L_B_D_0" transform="translate(-18, -9)"><foreignObject width="36" height="18"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>아니오</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(635.625, 108.125)"><g class="label" data-id="L_D_E_0" transform="translate(-6, -9)"><foreignObject width="12" height="18"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>예</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(635.625, 260.375)"><g class="label" data-id="L_D_F_0" transform="translate(-18, -9)"><foreignObject width="36" height="18"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>아니오</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(878.125, 211.375)"><g class="label" data-id="L_F_G_0" transform="translate(-6, -9)"><foreignObject width="12" height="18"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>예</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(878.125, 309.375)"><g class="label" data-id="L_F_H_0" transform="translate(-18, -9)"><foreignObject width="36" height="18"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>아니오</p></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default" id="mermaid-1779150974281-flowchart-A-0" data-look="classic" transform="translate(63.8125, 108.125)"><rect class="basic label-container" style="" x="-55.8125" y="-24" width="111.625" height="48"></rect><g class="label" style="" transform="translate(-25.8125, -9)"><rect></rect><foreignObject width="51.625" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>답변 문장</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150974281-flowchart-B-1" data-look="classic" transform="translate(259.875, 108.125)"><polygon points="90.25,0 180.5,-90.25 90.25,-180.5 0,-90.25" class="label-container" transform="translate(-89.75, 90.25)"></polygon><g class="label" style="" transform="translate(-66.25, -9)"><rect></rect><foreignObject width="132.5" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>시간이 지나면 바뀌는가?</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150974281-flowchart-C-3" data-look="classic" transform="translate(514.375, 32)"><rect class="basic label-container" style="" x="-75.6171875" y="-24" width="151.234375" height="48"></rect><g class="label" style="" transform="translate(-45.6171875, -9)"><rect></rect><foreignObject width="91.234375" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>최신성 확인 필요</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150974281-flowchart-D-5" data-look="classic" transform="translate(514.375, 184.25)"><polygon points="78.25,0 156.5,-78.25 78.25,-156.5 0,-78.25" class="label-container" transform="translate(-77.75, 78.25)"></polygon><g class="label" style="" transform="translate(-54.25, -9)"><rect></rect><foreignObject width="108.5" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>원천 자료가 있는가?</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150974281-flowchart-E-7" data-look="classic" transform="translate(756.875, 108.125)"><rect class="basic label-container" style="" x="-48" y="-24" width="96" height="48"></rect><g class="label" style="" transform="translate(-18, -9)"><rect></rect><foreignObject width="36" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>확인됨</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150974281-flowchart-F-9" data-look="classic" transform="translate(756.875, 260.375)"><polygon points="78.25,0 156.5,-78.25 78.25,-156.5 0,-78.25" class="label-container" transform="translate(-77.75, 78.25)"></polygon><g class="label" style="" transform="translate(-54.25, -9)"><rect></rect><foreignObject width="108.5" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>해석 또는 예상인가?</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150974281-flowchart-G-11" data-look="classic" transform="translate(976.9375, 211.375)"><rect class="basic label-container" style="" x="-42" y="-24" width="84" height="48"></rect><g class="label" style="" transform="translate(-12, -9)"><rect></rect><foreignObject width="24" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>추정</p></span></div></foreignObject></g></g><g class="node default" id="mermaid-1779150974281-flowchart-H-13" data-look="classic" transform="translate(976.9375, 309.375)"><rect class="basic label-container" style="" x="-55.8125" y="-24" width="111.625" height="48"></rect><g class="label" style="" transform="translate(-25.8125, -9)"><rect></rect><foreignObject width="51.625" height="18"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel"><p>확인 필요</p></span></div></foreignObject></g></g></g></g></g><defs><filter id="mermaid-1779150974281-drop-shadow" height="130%" width="130%"><feDropShadow dx="4" dy="4" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"></feDropShadow></filter></defs><defs><filter id="mermaid-1779150974281-drop-shadow-small" height="150%" width="150%"><feDropShadow dx="2" dy="2" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"></feDropShadow></filter></defs></svg></div>
+<p>이 도해를 실제로 적용하면 답변 검토 시간이 줄어듭니다. 문장을 읽을 때마다 “맞나?”라고 막연히 묻지 않고, “최신성 문제인가, 근거 문제인가, 추정 문제인가”로 나눠 볼 수 있습니다.</p>
+<h3 id="_10">실습: 최신성 표시가 들어간 답변 만들기</h3>
+<p>다음은 LLM위키 도구 설명을 위키 문서에 남길 때의 예시입니다.</p>
+<pre><code class="language-markdown hljs md-csc-wrap"><span class="hljs-section">## Codex에서 LLM위키 플러그인 사용</span>
+
+<span class="hljs-bullet">-</span> 상태: 최신성 확인 필요
+<span class="hljs-bullet">-</span> 확인 날짜: 2026-05-16
+<span class="hljs-bullet">-</span> 기준 자료: nvk/llm-wiki README, OpenAI Codex Plugins 문서
+
+2026-05-16 확인 기준, <span class="hljs-code">`nvk/llm-wiki`</span>는 Codex 플러그인 방식의 사용을 문서화하고 있다.
+설치와 활성화 흐름은 해당 저장소 README와 Codex 플러그인 문서를 함께 확인해야 한다.
+
+주의:
+<span class="hljs-bullet">-</span> 이 명령은 OpenAI의 기본 내장 명령이 아니라 <span class="hljs-code">`nvk/llm-wiki`</span> 구현체 문서 기준이다.
+<span class="hljs-bullet">-</span> 플러그인 설치, 네트워크 접근, 로컬 파일 접근 범위는 Codex와 플러그인 설정에 따라 달라질 수 있다.
+<span class="hljs-bullet">-</span> 실습 전 최신 README와 설치된 플러그인의 도움말을 다시 확인한다.
+</code></pre>
+<p>이 문서는 일부러 단정하지 않습니다. 도구 명령은 독자가 실행하는 순간의 환경에 영향을 받기 때문입니다. 대신 확인 날짜와 기준 자료를 남깁니다.</p>
+<div class="ad-wrapper markdown_tags">
+
+<!-- markdown_tags -->
+<ins class="adsbygoogle" data-ad-client="ca-pub-9470517771012578" data-ad-format="false" data-ad-slot="4124294444" data-full-width-responsive="false" style="display:inline-block;width:300px;height:250px" data-adsbygoogle-status="done"><div id="aswift_5_host" style="border: none; height: 250px; width: 300px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"></div></ins>
+
+</div>
+<h3 id="_11">최신성 확인 질문 예시</h3>
+<p>최신성이 필요한 주장을 발견하면 다음 질문으로 다시 확인합니다.</p>
+<pre><code class="language-text hljs language-plaintext md-csc-wrap">다음 답변에서 최신성 확인이 필요한 문장만 골라 주세요.
+
+각 문장에 대해 다음 형식으로 정리하세요.
+- 문장
+- 왜 최신성 확인이 필요한가
+- 확인해야 할 공식 자료
+- 확인하지 못하면 원고에서 어떻게 표현해야 하는가
+</code></pre>
+<p>예상 결과는 다음과 비슷해야 합니다.</p>
+<pre><code class="language-markdown hljs md-csc-wrap">| 문장 | 이유 | 확인 자료 | 원고 표현 |
+|---|---|---|---|
+| nvk/llm-wiki 최신 버전은 v0.9.0이다 | 릴리스는 바뀔 수 있음 | GitHub Releases | 2026-05-16 확인 기준으로 제한 |
+| Codex에서 플러그인은 @wiki로 호출한다 | 플러그인 동작이 바뀔 수 있음 | nvk README, Codex Plugins 문서 | 구현체 문서 기준으로 설명 |
+| 자동 분류를 도입하면 응답 시간이 줄어든다 | 성능 효과는 데이터에 따라 다름 | 내부 측정 자료 | 가능성으로 표현하고 확인 필요 표시 |
+</code></pre>
+<p>이 실습을 끝내면 “지금도 맞는 말인가?”를 따로 확인할 문장을 빠르게 찾을 수 있습니다.</p>
+<h2 id="62_1">6.2의 검증 포인트</h2>
+<p>답변을 검토할 때는 다음 순서로 확인합니다.</p>
+<div class="table-scroll-wrapper"><table>
+<thead>
+<tr>
+<th>점검 질문</th>
+<th>통과 기준</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>답변의 핵심 주장에 출처가 있는가?</td>
+<td>원천 자료 경로, URL, 회의록 날짜, 공식 문서명이 남아 있음</td>
+</tr>
+<tr>
+<td>출처가 없는 문장이 표시되어 있는가?</td>
+<td>“확인 필요” 또는 “출처 없음”으로 분리됨</td>
+</tr>
+<tr>
+<td>확인된 내용과 추정이 섞이지 않았는가?</td>
+<td><code>확인된 내용</code>, <code>추정</code>, <code>확인 필요</code>가 나뉘어 있음</td>
+</tr>
+<tr>
+<td>최신성이 필요한 주장이 표시되어 있는가?</td>
+<td>확인 날짜와 기준 자료가 함께 있음</td>
+</tr>
+<tr>
+<td>업무 결정에 써도 되는 문장인가?</td>
+<td>근거 범위와 한계를 함께 설명함</td>
+</tr>
+</tbody>
+</table></div>
+<p>가장 좋은 답변은 가장 자신 있게 말하는 답변이 아닙니다. 검토자가 어느 문장을 믿어도 되는지, 어느 문장을 다시 확인해야 하는지 바로 알 수 있는 답변입니다.</p>
+<h2 id="_12">근거와 추가 확인</h2>
+<ul>
+<li>Andrej Karpathy, LLM Wiki Gist, https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f, 확인일: 2026-05-16</li>
+<li><code>nvk/llm-wiki</code> README, https://github.com/nvk/llm-wiki, 확인일: 2026-05-16</li>
+<li><code>nvk/llm-wiki</code> Releases, https://github.com/nvk/llm-wiki/releases, 확인일: 2026-05-16</li>
+<li>OpenAI Codex <code>AGENTS.md</code> 문서, https://developers.openai.com/codex/guides/agents-md, 확인일: 2026-05-16</li>
+<li>OpenAI Codex Plugins 문서, https://developers.openai.com/codex/plugins, 확인일: 2026-05-16</li>
+<li>Anthropic Claude Code memory 문서, https://docs.anthropic.com/en/docs/claude-code/memory, 확인일: 2026-05-16</li>
+<li>WiCER: Iterative Knowledge Compilation for LLM Wiki Systems, https://arxiv.org/abs/2605.07068, 확인일: 2026-05-16. arXiv 프리프린트이므로 “초기 연구가 경고하는 위험”으로만 참고합니다.</li>
+</ul>
+    
+</div>
+<div class="muted text-right" style="font-size: 0.9em;margin:10px 0;">
+    
+        마지막 편집일시 : 2026년 5월 16일 1:06 오후
+    
+</div>
+
+<!-- google adsense -->
+
+    <!-- PC -->
+
+    
+        
+            <div style="margin:30px 0;"><div class="clearfix ad-container" style="display: flex;
+            justify-content: flex-start">
+    <div class="first-ad ad-container" style="margin-right: 30px;">
+        
+            <div class="ad-wrapper">
+                <div class="ad-placeholder">광고가 출력될 위치입니다.</div>
+                
+                <ins class="adsbygoogle wikidocs-ad" style="display:inline-block;
+                            width:336px;
+                            height:280px" data-ad-client="ca-pub-9470517771012578" data-full-width-responsive="false" data-ad-format="false" data-ad-slot="6452842464" data-adsbygoogle-status="done"><div id="aswift_6_host" style="border: none; height: 280px; width: 336px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"></div></ins>
+                
+            </div>
+        
+    </div>
+    <div class="second-ad ad-container" style="display: block;">
+        
+            <div class="ad-wrapper">
+                <div class="ad-placeholder">광고가 출력될 위치입니다.</div>
+                
+                <ins class="adsbygoogle wikidocs-ad" style="display:inline-block;
+                            width:336px;
+                            height:280px" data-ad-client="ca-pub-9470517771012578" data-full-width-responsive="false" data-ad-format="false" data-ad-slot="6452842464" data-adsbygoogle-status="done"><div id="aswift_7_host" style="border: none; height: 280px; width: 336px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"></div></ins>
+                
+            </div>
+        
+    </div>
+</div>
+</div>
+        
+    
+
+<!-- Mobile -->
+
+
+
+<!-- google adsense -->
+<div class="clearfix">
+    <a href="javascript:show_comments();" class="label label-info">댓글 0</a>
+    <a href="#myModal" data-toggle="modal" title="피드백을 남겨주세요" class="label label-info">피드백</a>
+</div>
+<div class="user_comments" style="display:none">
+    <div class="comments" id="page_all_comments">
+
+    
+
+</div>
+    
+        <a href="https://wikidocs.net/loginForm" class="text-info" style="font-size:12px">※ 댓글 작성은 로그인이 필요합니다.</a>
+        <a href="#myModal" data-toggle="modal" style="font-size:12px">(또는 피드백을 이용해 주세요.)</a>
+    
+</div>
+<div class="page-prev-next">
+<div class="clearfix">
+    <div class="pull-left">
+        <ul>
+            
+                <li>
+                    <strong>이전글</strong> : <a class="prev_page_link" href="javascript:page(353398)">6.1 좋은 질문 만들기</a>
+                </li>
+            
+            
+                <li>
+                    <strong>다음글</strong> : <a class="next_page_link" href="javascript:page(353400)">6.3 답변을 다시 위키에 반영하기</a>
+                </li>
+            
+        </ul>
+    </div>
+</div>
+</div>
+
+
+
+    
+    <a href="https://wikidocs.net/" class="label label-default wikidocs-home" data-toggle="popover" data-placement="left" data-content="위키독스 홈" data-original-title="" title="">
+        <span class="glyphicon glyphicon-home"></span>
+    </a>
+    <a class="label label-default dark_btn toggle-theme" data-toggle="popover" data-placement="left" data-content="다크모드" data-original-title="" title="">
+        <span class="glyphicon glyphicon-adjust"></span>
+    </a>
+    <a href="#top" class="label label-default back-to-top" data-toggle="popover" data-placement="left" data-content="맨위로" data-original-title="" title="">
+        <span class="glyphicon glyphicon-arrow-up"></span>
+    </a>
+
+<!-- 책갈피 모달 -->
+<div class="modal fade" id="bookmarkModal" tabindex="-1" role="dialog" aria-labelledby="bookmarkModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <h4 class="modal-title" id="bookmarkModalLabel">책갈피</h4>
+            </div>
+            <div class="modal-body bookmark-body">
+                <!-- 여기에 동적 데이터가 로드됩니다 -->
+            </div>
+            <div class="modal-footer">
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        
