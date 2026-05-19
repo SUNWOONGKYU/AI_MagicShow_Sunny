@@ -143,7 +143,7 @@ def convert(md_path):
         extensions=['tables', 'fenced_code', 'attr_list', 'sane_lists']
     )
 
-    type_badge = f'<span class="badge type-{type_letter.lower()}">{type_letter}타입</span>'
+    type_badge = ''  # A/B/C 타입은 내부 관리용 — 독자용 설명자료에 노출하지 않음
     patent_badge = f'<span class="badge">📜 특허 {patent}</span>' if patent else ''
     subtitle_html = f'<div class="subtitle">{subtitle}</div>' if subtitle else ''
 
