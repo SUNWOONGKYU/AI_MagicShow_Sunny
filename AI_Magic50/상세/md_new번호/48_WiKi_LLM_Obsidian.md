@@ -15,6 +15,7 @@ sources:
   - "Claude-Wiki/llmwiki-obsidian-guide/wiki/2026_05_03_15.30_research_wiki-llm-implementation.md (Karpathy LLM 위키 패턴 본인 Vault 적용 — RAG 한계 vs LLM 위키 장점 비교표)"
   - "Claude-Wiki/llmwiki-obsidian-guide/wiki/2026_05_03_16.00_session_wiki-llm-obsidian-integration-complete.md (Vault + Obsidian 통합 완료 세션 기록 — raw/wiki/index 3계층 + ingest.js/compile.js)"
   - "Claude-Wiki/llmwiki-obsidian-guide/wiki/2026_05_03_17.30_session_wiki-llm-integration-completion.md (최종 결론: 커맨드 인프라 폐기, '저장해' 한 마디로 충분)"
+  - "위키독스 전자책 「LLM위키 완벽 가이드」 — https://wikidocs.net/book/19830 (참고자료, 8장 25절 전문 수집)"
 ---
 
 # 48. WiKi_LLM과 Obsidian을 활용한 지식베이스 관리하기
@@ -199,3 +200,12 @@ compile.js는 wiki/ 안 모든 파일의 frontmatter를 읽어 *날짜·태그·
 - **#31 5컴퓨터 30개 동시 운용** — 다중 인스턴스가 한 Vault를 공유하는 구조
 - **#22 SVG 아키텍처 스킬화** — Vault에 누적된 패턴이 SVG·스킬로 결정화되는 흐름
 - **#44 문서화는 나중에** — 일단 만들고 사후 정리해서 Vault에 누적하는 운용
+
+## 참고자료
+
+**「LLM위키 완벽 가이드」** — 위키독스 전자책(8장 25절)으로, *LLM을 써도 지식이 남지 않는 이유* 부터 *raw → wiki → index 3계층 구조*, *자료를 다시 쓰기 좋은 지식으로 바꾸기*, *위키에 질문하고 답을 검증하기*, *오래 믿고 쓰는 운영법* 까지 본 챕터의 LLM 위키 패턴을 처음부터 끝까지 실습 단위로 풀어낸다. 본 챕터가 *왜·무엇을* 이라면, 이 가이드는 *어떻게* 의 단계별 안내서다.
+
+전체 25절을 한 페이지로 수집·정리한 참고자료 페이지를 함께 둔다 — 각 절 하단에 개별 출처 링크 표기.
+
+🔗 [LLM위키 완벽 가이드 — 전체 보기](llmwiki_guide.html)
+🔗 원문 출처 · [위키독스 「LLM위키 완벽 가이드」 (wikidocs.net/book/19830)](https://wikidocs.net/book/19830)
