@@ -107,25 +107,25 @@ PC5 ─ inst25, ..., inst30
 </tr>
 </tbody>
 </table>
-<p>핵심 인프라: <strong>#40 HUD</strong>(30개 상태 한 화면), <strong>#13 dangerously-skip-permissions</strong> + <strong>#26 Hooks</strong>(가드레일), <strong>#12 헤드리스 모드</strong>(자동 루프), <strong>#41 Git Worktree</strong>(병렬 브랜치). 모바일 결과 전달은 글로벌 헌법대로 <strong>클라우드 동기화 폴더</strong>(Google 드라이브/OneDrive 등)에 <code>.txt</code>로 저장 — 폰에서 동기화 앱으로 즉시 확인.</p>
+<p>핵심 인프라: <strong>#36 Statusline HUD</strong>(30개 상태 한 화면), <strong>#35 dangerously-skip-permissions</strong> + <strong>#11 Hooks</strong>(가드레일), <strong>#10 헤드리스 모드</strong>(자동 루프), <strong>#37 Git Worktree</strong>(병렬 브랜치). 모바일 결과 전달은 글로벌 헌법대로 <strong>클라우드 동기화 폴더</strong>(Google 드라이브/OneDrive 등)에 <code>.txt</code>로 저장 — 폰에서 동기화 앱으로 즉시 확인.</p>
 <h2>실전 사용법</h2>
 <p><strong>1단계</strong> — 5대 PC를 Tailscale + SSH 네트워크로 묶는다(<code>add-pc</code> 스킬). RDP는 보조 채널.</p>
-<p><strong>2단계</strong> — 각 PC에 Claude Code 6개를 폴더 분리로 띄운다. 같은 저장소면 <strong>#41 Git Worktree</strong>, 다른 저장소면 그냥 별 폴더.</p>
-<p><strong>3단계</strong> — <code>~/.claude/settings.json</code>에 statusLine·hooks·MCP 동일 세팅 동기화(<strong>#20 G드라이브 백업</strong> 활용).</p>
-<p><strong>4단계</strong> — 30개 운용 표준: 사고 6 + 실행 12 + 검증 6 + 자동화 헤드리스 6. Dual Mode(<strong>#5</strong>)를 PC 단위로 펼친 형태.</p>
+<p><strong>2단계</strong> — 각 PC에 Claude Code 6개를 폴더 분리로 띄운다. 같은 저장소면 <strong>#37 Git Worktree</strong>, 다른 저장소면 그냥 별 폴더.</p>
+<p><strong>3단계</strong> — <code>~/.claude/settings.json</code>에 statusLine·hooks·MCP 동일 세팅 동기화(<strong>#40 G드라이브 백업</strong> 활용).</p>
+<p><strong>4단계</strong> — 30개 운용 표준: 사고 6 + 실행 12 + 검증 6 + 자동화 헤드리스 6. Dual Mode(<strong>#05</strong>)를 PC 단위로 펼친 형태.</p>
 <p><strong>5단계</strong> — 모바일 운용은 <em>"읽고 짧게 개입"</em> 만. 긴 사고는 PC 앞에서. 휴대폰으로 던지는 메시지는 <em>"막힌 곳 한 줄 진단"</em> 수준으로 유지.</p>
 <p><strong>KPI</strong>: 30개 평균 가동률 ≥ 70%, Rate Limit 충돌로 30개 전부 멈추는 사건 ≤ 월 1회, 모바일 개입으로 풀린 막힘 ≥ 일 3건.</p>
-<p><strong>비용 통제</strong> — <strong>#23 API 비용 최적화</strong>, <strong>#37 피크타임 회피</strong>, <strong>#4 /model</strong>로 모델 배분.</p>
+<p><strong>비용 통제</strong> — <strong>#47 API 비용 최적화</strong>, <strong>#41 피크타임 회피</strong>, <strong>#34 /model</strong>로 모델 배분.</p>
 <blockquote>
 <p>Vault 사례: <code>claude-platoons-control/wiki/2026_05_03_21.07_import_CPC_ARCHITECTURE_OVERVIEW.md</code> 는 본인이 5개 프로젝트 × 3소대 + trader-bot 도합 16개 소대를 CPC(Supabase + Vercel)로 등록·라우팅한 실전 기록이다. 30개 인스턴스를 5컴퓨터로 늘리는 물리적 확장이 단발 PC에서는 동시에 풀리지 않는다 — <em>명령 라우팅·상태(IDLE/RUNNING/PAUSED/DONE) 일원화·오프라인 버퍼링</em> 같은 중앙 인프라 한 겹이 같이 깔려야 30개가 무너지지 않는다. 본 항목의 <em>"30개 = 5컴퓨터 인프라 + 인지 부하 분산 + 인계 자동화"</em> 등식의 첫 항이 그 노트에서 구현체로 굳었다.</p>
 </blockquote>
 <h2>관련 항목</h2>
 <ul>
 <li><strong>#14 군대 소대 편제</strong> — 30개의 조직론</li>
-<li><strong>#41 Git Worktree</strong> — 단일 PC 안의 세로 확장</li>
-<li><strong>#12 헤드리스 모드</strong> — PC5의 자동화 채널</li>
-<li><strong>#40 Statusline HUD</strong> — 30개 가시성 인프라</li>
-<li><strong>#13 --dangerously-skip-permissions</strong> — 30개 무중단의 전제</li>
+<li><strong>#37 Git Worktree</strong> — 단일 PC 안의 세로 확장</li>
+<li><strong>#10 헤드리스 모드</strong> — PC5의 자동화 채널</li>
+<li><strong>#36 Statusline HUD</strong> — 30개 가시성 인프라</li>
+<li><strong>#35 --dangerously-skip-permissions</strong> — 30개 무중단의 전제</li>
 </ul>
 </section>
 

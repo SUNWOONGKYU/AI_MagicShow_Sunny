@@ -71,7 +71,7 @@ html,body{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','
 <h2>한 줄 정의</h2>
 <p>공유할 결과물을 <strong>단일 HTML</strong>로 모아 <code>vercel --prod --yes --name &lt;영문&gt;</code> 한 줄로 띄워, <strong>URL 아는 사람만</strong> 접근 가능하고 검색엔진에는 노출되지 않게 즉시 배포하는 본인 표준 공유 채널.</p>
 <h2>왜 이 노하우가 중요한가</h2>
-<p>GitHub Pages는 공개 인덱싱이 기본이다. 본인 자료(특허 초안·고객 제안서·강의 슬라이드)는 <em>"받을 사람만 본다"</em> 가 원칙인데 검색에 뜨면 곤란하다. Vercel은 noindex 메타 + Disallow robots.txt 조합으로 검색엔진 차단이 깔끔하고, <strong>한글 폴더명 프로젝트도 <code>--name</code> 영문 지정으로 우회</strong>된다. 4,000시간 운용 중 <em>"보내야 할 자료가 즉시 URL 한 줄로 나간다"</em> 가 가장 잦은 요구였고, <strong>#6 미니 풀스택 5시간</strong>·<strong>#25 챗봇</strong>·<strong>#9 유튜브 자동화</strong>의 결과물도 결국 이 채널로 외부에 닿는다. <em>"curl 200 ≠ 동작함"</em> 헌법에 따라 배포 후엔 반드시 브라우저로 주요 버튼·링크를 클릭 검증한다.</p>
+<p>GitHub Pages는 공개 인덱싱이 기본이다. 본인 자료(특허 초안·고객 제안서·강의 슬라이드)는 <em>"받을 사람만 본다"</em> 가 원칙인데 검색에 뜨면 곤란하다. Vercel은 noindex 메타 + Disallow robots.txt 조합으로 검색엔진 차단이 깔끔하고, <strong>한글 폴더명 프로젝트도 <code>--name</code> 영문 지정으로 우회</strong>된다. 4,000시간 운용 중 <em>"보내야 할 자료가 즉시 URL 한 줄로 나간다"</em> 가 가장 잦은 요구였고, <strong>#25 미니 풀스택 5시간</strong>·<strong>#24 챗봇</strong>·<strong>#26 유튜브 자동화</strong>의 결과물도 결국 이 채널로 외부에 닿는다. <em>"curl 200 ≠ 동작함"</em> 헌법에 따라 배포 후엔 반드시 브라우저로 주요 버튼·링크를 클릭 검증한다.</p>
 <h2>핵심 개념</h2>
 <p style="text-align:center;margin:20px 0"><img src="_assets/vercel-skill-architecture.svg" alt="vercel-private-url-배포 스킬 아키텍처" style="max-width:100%;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.4)"></p>
 
@@ -137,11 +137,11 @@ html,body{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','
 <p><strong>자주 만나는 함정</strong> — <code>.vercel/project.json</code>이 있으면 <code>--name</code> 무시. 새 이름 쓰려면 <code>rm -rf .vercel/</code>. <code>vercel.json</code>에 <code>vercelAuthentication</code> 키 넣으면 오류, 인증 해제는 API로만.</p>
 <h2>관련 항목</h2>
 <ul>
-<li><strong>#6 미니 풀스택 5시간</strong> — 배포 채널의 주 사용처</li>
-<li><strong>#25 지능형 챗봇</strong> — 챗봇 결과물 외부 공유</li>
-<li><strong>#32 CLAUDE.md 활용</strong> — 배포 규칙 박아두기</li>
-<li><strong>#49 스크린샷 자율 검증</strong> — 배포 후 클릭 검증 자동화</li>
-<li><strong>#13 --dangerously-skip-permissions</strong> — <code>--yes</code>와 동일 사상의 자동화 가속</li>
+<li><strong>#25 미니 풀스택 5시간</strong> — 배포 채널의 주 사용처</li>
+<li><strong>#24 지능형 챗봇</strong> — 챗봇 결과물 외부 공유</li>
+<li><strong>#33 CLAUDE.md 활용</strong> — 배포 규칙 박아두기</li>
+<li><strong>#29 스크린샷 자율 검증</strong> — 배포 후 클릭 검증 자동화</li>
+<li><strong>#35 --dangerously-skip-permissions</strong> — <code>--yes</code>와 동일 사상의 자동화 가속</li>
 </ul>
 </section>
 

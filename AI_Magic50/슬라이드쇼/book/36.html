@@ -73,7 +73,7 @@ html,body{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','
 <h2>왜 이 노하우가 중요한가</h2>
 <p>Claude Code를 30개 동시 운용할 때 가장 먼저 필요한 것은 <strong>상태 파악 비용 0</strong>이다. 외부 플러그인(Claude HUD, ccusage)을 일주일 굴려본 결과 세 가지 한계가 드러났다.</p>
 <p>첫째, <strong>컨텍스트 % 부정확</strong> — 누적 토큰 기반이라 200%·300% 같은 숫자가 찍힌다. 둘째, <strong>7일 Rate Limit 누락</strong> — Anthropic은 5시간·7일 두 한도가 있는데 5시간만 보여주는 도구가 많다. 셋째, <strong>도구와 명령이 한 줄에 섞여</strong> 지금 Bash로 무슨 명령이 도는지 즉시 못 본다.</p>
-<p>직접 셸 스크립트로 statusline을 짜면 이 셋이 모두 해결되고, <strong>외부 플러그인 의존 0</strong>의 가시성 인프라가 완성된다.</p>
+<p>직접 셸 스크립트로 statusline을 짜면 이 셋이 모두 해결되고, <strong>외부 플러그인 의존 없는</strong> 가시성 인프라가 완성된다.</p>
 <h2>핵심 개념</h2>
 <p>Claude Code는 statusline을 그릴 때마다 셸 스크립트에 JSON을 stdin으로 흘려준다. 스크립트가 jq로 파싱해 출력하면 본체가 터미널에 그려준다. 즉 statusline은 <strong>단순 셸 명령</strong>이며, 어떤 데이터든 결합 가능하다.</p>
 <p>JSON 핵심 필드:
@@ -94,8 +94,8 @@ html,body{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','
 <h2>관련 항목</h2>
 <ul>
 <li><strong>#14 군대 소대 편제</strong> — 분대원/분대장 호칭 공유</li>
-<li><strong>#39 Subagent vs Agent Teams</strong> — LINE4·LINE5가 두 메커니즘 별도 추적</li>
-<li><strong>#26 Hooks</strong> — hook-logger.js가 LINE3B의 데이터 소스</li>
+<li><strong>#16 Subagent vs Agent Teams</strong> — LINE4·LINE5가 두 메커니즘 별도 추적</li>
+<li><strong>#11 Hooks</strong> — hook-logger.js가 LINE3B의 데이터 소스</li>
 <li><strong>#31 5컴퓨터 30개 운용</strong> — 본 HUD가 그 가시성 인프라</li>
 </ul>
 </section>

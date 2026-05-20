@@ -112,6 +112,6 @@ code .   # 또는 claude code
 
 - **#31 5컴퓨터 30개 동시 운용** — 저장소가 여러 개일 때의 확장. worktree는 한 저장소 안 협업
 - **#14 군대 소대 편제** — AI 분대원에게 브랜치 1개씩 배정하는 협업 단위
-- **#20 C드라이브 + G드라이브 백업** — worktree 폴더도 백업 대상
-- **#13 --dangerously-skip-permissions** — AI 인스턴스가 worktree 안에서 자동 작업할 때 가드와 결합
-- **#26 Hooks** — 브랜치 보호·PR 검증 hook과 결합
+- **#40 C드라이브 + G드라이브 백업** — worktree 폴더도 백업 대상
+- **#35 --dangerously-skip-permissions** — AI 인스턴스가 worktree 안에서 자동 작업할 때 가드와 결합
+- **#11 Hooks** — 브랜치 보호·PR 검증 hook과 결합

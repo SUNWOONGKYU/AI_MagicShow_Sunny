@@ -74,7 +74,7 @@ html,body{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','
 <p>이미지 생성 AI를 한 모델만 쓰는 건 <em>4,000시간 운용에서 가장 많이 본 비효율 중 하나</em>다. 이유는 단순하다 — 같은 프롬프트라도 모델별 결과 편차가 너무 크다. 어떤 모델은 한글 텍스트가 깨지고, 어떤 모델은 투명 배경을 못 만들고, 어떤 모델은 사실적 사진엔 강한데 일러스트엔 약하다. 그러니 <strong>사용자가 한 모델만 시도해서 "AI 이미지 별로네" 라고 결론 내리는 건 표본이 잘못된 것</strong>이지 AI가 못한 게 아니다.</p>
 <p>본인이 슬라이드 34번("스킬 5: 이미지 만들기")에서 강조하는 게 이 점이다. <em>모델 비교 → 선택 → 후처리</em> 가 한 묶음이어야 한다. 그런데 사람이 이 비교를 매번 직접 하면 5장 비교만 해도 인지 부하가 크고, 15장 비교는 사실상 불가능에 가깝다. 그래서 <strong>AI 자체가 비교·채점을 하고 사람은 마지막 한 장만 본다</strong>.</p>
 <p>이 깔때기는 <em>"데이터 레이어 KPI ≠ 사용자 여정 KPI"</em> 원칙을 이미지 분야에 적용한 결과다. <em>데이터 레이어 KPI</em>("모델별 응답 200 OK") 만 보면 5장이 다 "성공"이지만, <em>사용자 여정 KPI</em>("이 슬라이드에 쓸 만한 한 장")로 보면 5장 중 0장일 수도 있다. Vision 정밀 채점이 그 사용자 여정 KPI를 객관 점수로 고정한다 — 골드(85점 이상) 등급이 안 나오면 <em>"안 만든 것과 같다"</em> 가 본인 운용 원칙이다.</p>
-<p>또 하나 — 이 워크플로우는 <strong>#22 멀티 CLI</strong>와 <strong>#14 소대 편제</strong>와 <strong>#46 3대안 권고안</strong>과 <strong>#24 시각화 스킬 자산화</strong>의 이미지 분야 결합이다. 5개 모델은 #22의 멀티 모델 정신, 15장 → 5장 → 1장 깔때기는 #14 소대편제의 <em>팀 → 분대 → 개인</em> 위계, 모델별 베스트 추리기는 #46 3대안 중 권고안 표시 패턴, Pillow 후처리 라벨링은 #24 시각화 자산화. 본인이 <em>연결된 운용</em> 이라 부르는 핵심 사례.</p>
+<p>또 하나 — 이 워크플로우는 <strong>#15 멀티 CLI</strong>와 <strong>#14 소대 편제</strong>와 <strong>#8 3대안 권고안</strong>과 <strong>#22 시각화 스킬 자산화</strong>의 이미지 분야 결합이다. 5개 모델은 #15의 멀티 모델 정신, 15장 → 5장 → 1장 깔때기는 #14 소대편제의 <em>팀 → 분대 → 개인</em> 위계, 모델별 베스트 추리기는 #8 3대안 중 권고안 표시 패턴, Pillow 후처리 라벨링은 #22 시각화 자산화. 본인이 <em>연결된 운용</em> 이라 부르는 핵심 사례.</p>
 <h2>핵심 개념</h2>
 <h3>4단계 깔때기 (스킬 SKILL.md 인용)</h3>
 <pre><code>[1] 15장 생성    5모델 × 3변형  →  ThreadPool 병렬 + Gemini 29키 로테이션
@@ -237,7 +237,7 @@ html,body{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','
 </thead>
 <tbody>
 <tr>
-<td><strong>#22 멀티 CLI</strong></td>
+<td><strong>#15 멀티 CLI</strong></td>
 <td>5개 모델 동시 호출 = 이미지판 멀티 모델 운용</td>
 </tr>
 <tr>
@@ -245,11 +245,11 @@ html,body{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','
 <td>15→5→1 깔때기 = 분대→소대→소대장 위계</td>
 </tr>
 <tr>
-<td><strong>#46 3대안+권고안</strong></td>
+<td><strong>#8 3대안+권고안</strong></td>
 <td>모델별 베스트 5장 = 5대안, 골드 1~2장 = 권고안</td>
 </tr>
 <tr>
-<td><strong>#24 SVG 스킬 자산화</strong></td>
+<td><strong>#22 SVG 스킬 자산화</strong></td>
 <td>반복 패턴(라벨·워터마크·콜라주)을 Pillow 스크립트로 자산화</td>
 </tr>
 </tbody>
@@ -331,14 +331,14 @@ print(f&quot;크기: {img.size}, 포맷: {img.format}, 모드: {img.mode}&quot;)
 </blockquote>
 <h2>관련 항목</h2>
 <ul>
-<li><strong>#22 오케스트레이터 + 멀티 CLI</strong> — 5모델 동시 호출의 이미지 분야 적용</li>
+<li><strong>#15 오케스트레이터 + 멀티 CLI</strong> — 5모델 동시 호출의 이미지 분야 적용</li>
 <li><strong>#14 군대 소대 편제</strong> — 15→5→1 깔때기의 위계 구조</li>
-<li><strong>#46 3대안+권고안</strong> — 5장 비교 + 골드 추천 패턴의 이미지판</li>
-<li><strong>#24 SVG 스킬 자산화</strong> — Pillow 후처리 5종을 자산화한 결과물</li>
-<li><strong>#9 유튜브 1일 1영상 자동화</strong> — 이 깔때기 + #12 헤드리스로 영상 썸네일 일괄 생성</li>
-<li><strong>#49 스크린샷 자율 검증</strong> — 골드 1장이 실제 사용 맥락에 맞는지 검증</li>
-<li><strong>#23 API 비용 최적화</strong> — 탐색 low → 최종 high 2단계 가드레일</li>
-<li><strong>#4 /model 명령</strong> — 작업별 모델 선택 패턴의 이미지 모델 적용형</li>
+<li><strong>#8 3대안+권고안</strong> — 5장 비교 + 골드 추천 패턴의 이미지판</li>
+<li><strong>#22 SVG 스킬 자산화</strong> — Pillow 후처리 5종을 자산화한 결과물</li>
+<li><strong>#26 유튜브 1일 1영상 자동화</strong> — 이 깔때기 + #10 헤드리스로 영상 썸네일 일괄 생성</li>
+<li><strong>#29 스크린샷 자율 검증</strong> — 골드 1장이 실제 사용 맥락에 맞는지 검증</li>
+<li><strong>#47 API 비용 최적화</strong> — 탐색 low → 최종 high 2단계 가드레일</li>
+<li><strong>#34 /model 명령</strong> — 작업별 모델 선택 패턴의 이미지 모델 적용형</li>
 </ul>
 </section>
 

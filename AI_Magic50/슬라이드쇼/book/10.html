@@ -71,8 +71,8 @@ html,body{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','
 <h2>한 줄 정의</h2>
 <p>대화형 UI 없이 명령줄에서 한 번에 호출하는 Claude Code 헤드리스 모드 — <strong>셸 스크립트·크론·CI 파이프라인의 진짜 자동화 인프라</strong>.</p>
 <h2>왜 이 노하우가 중요한가</h2>
-<p>대화형 모드는 본인이 키보드 앞에 있어야 한다. #9 1일 1영상을 진짜로 굴리려면 새벽 3시 본인이 자고 있어도 영상이 만들어져야 한다. <code>claude -p</code>는 그것을 가능하게 한다.</p>
-<p>한 번 호출에 한 번 응답하고 종료한다. stdin/stdout이 표준 셸 파이프라인에 그대로 꽂힌다. 즉 Claude Code가 <strong><code>grep</code>·<code>jq</code>·<code>curl</code>과 같은 레벨의 CLI 도구</strong>가 된다. #31(30개 운용), #14(소대 편제), #9(1일 1영상)이 진짜 자동화로 격상되는 분기점이다.</p>
+<p>대화형 모드는 본인이 키보드 앞에 있어야 한다. #26 1일 1영상을 진짜로 굴리려면 새벽 3시 본인이 자고 있어도 영상이 만들어져야 한다. <code>claude -p</code>는 그것을 가능하게 한다.</p>
+<p>한 번 호출에 한 번 응답하고 종료한다. stdin/stdout이 표준 셸 파이프라인에 그대로 꽂힌다. 즉 Claude Code가 <strong><code>grep</code>·<code>jq</code>·<code>curl</code>과 같은 레벨의 CLI 도구</strong>가 된다. #31(30개 운용), #14(소대 편제), #26(1일 1영상)이 진짜 자동화로 격상되는 분기점이다.</p>
 <h2>핵심 개념</h2>
 <pre><code class="language-bash">claude -p &quot;프롬프트&quot; [--model sonnet] [--allowed-tools Read,Write,Bash]
 echo &quot;프롬프트&quot; | claude -p
@@ -81,9 +81,9 @@ claude -p --resume &lt;session-id&gt; &quot;...&quot;  # 세션 이어가기
 </code></pre>
 <p>핵심 옵션:
 - <code>-p</code> / <code>--print</code> : 헤드리스 호출, 응답만 stdout
-- <code>--model</code> : Opus/Sonnet/Haiku 명시 (#4와 짝)
+- <code>--model</code> : Opus/Sonnet/Haiku 명시 (#34와 짝)
 - <code>--allowed-tools</code> : 자동화에서 허용할 도구만 화이트리스트
-- <code>--dangerously-skip-permissions</code> : #13와 결합해 무인 실행
+- <code>--dangerously-skip-permissions</code> : #35와 결합해 무인 실행
 - <code>--output-format json</code> : 후속 파이프라인에서 파싱하기 쉬움</p>
 <p>대화형 vs 헤드리스:
 | 항목 | 대화형 | 헤드리스 <code>-p</code> |
@@ -91,7 +91,7 @@ claude -p --resume &lt;session-id&gt; &quot;...&quot;  # 세션 이어가기
 | 사용자 입력 | 필수 | 1회 |
 | 종료 조건 | 사용자 명시 | 응답 후 자동 |
 | 적합 작업 | 탐색·기획 | 반복·배치·CI |
-| 가시성 | TUI HUD(#40) | 로그 파일 |</p>
+| 가시성 | TUI HUD(#36) | 로그 파일 |</p>
 <h2>실전 사용법</h2>
 <p><strong>1단계</strong> — 새벽 자동 발행 크론 등록:</p>
 <pre><code class="language-bash">0 3 * * * cd ~/youtube-pipeline &amp;&amp; \
@@ -107,13 +107,13 @@ done
 </code></pre>
 <p><strong>3단계</strong> — GitHub Actions 통합. PR 열릴 때마다 <code>claude -p</code>로 코드 리뷰 자동 실행, 결과를 PR 코멘트로 게시.</p>
 <p><strong>4단계</strong> — 본인 ax-on.net 운영 자동화에 활용. 매일 새벽 사이트 크롤링 → <code>claude -p</code>로 변경점 분석 → Slack 발송.</p>
-<p><strong>주의 — UI 검증 철칙</strong>: 헤드리스로 빌드·배포까지 자동화했다고 해서 "동작한다"고 단정하면 안 된다. <strong>"curl 200 ≠ 동작함"</strong>. 별도 Verification Agent가 Playwright로 클릭 테스트(#49)하지 않으면 SKILL_ATLAS 사고처럼 dead-link가 새벽에 양산된다.</p>
+<p><strong>주의 — UI 검증 철칙</strong>: 헤드리스로 빌드·배포까지 자동화했다고 해서 "동작한다"고 단정하면 안 된다. <strong>"curl 200 ≠ 동작함"</strong>. 별도 Verification Agent가 Playwright로 클릭 테스트(#29)하지 않으면 SKILL_ATLAS 사고처럼 dead-link가 새벽에 양산된다.</p>
 <h2>관련 항목</h2>
 <ul>
-<li><strong>#9 유튜브 1일 1영상</strong> — 헤드리스 없이는 진짜 자동화 불가</li>
-<li><strong>#13 --dangerously-skip-permissions</strong> — 무인 실행의 짝</li>
-<li><strong>#4 /model 명령</strong> — 자동화에서도 모델 선택 의식</li>
-<li><strong>#49 스크린샷 자율 검증</strong> — 헤드리스 결과의 UI 검증</li>
+<li><strong>#26 유튜브 1일 1영상</strong> — 헤드리스 없이는 진짜 자동화 불가</li>
+<li><strong>#35 --dangerously-skip-permissions</strong> — 무인 실행의 짝</li>
+<li><strong>#34 /model 명령</strong> — 자동화에서도 모델 선택 의식</li>
+<li><strong>#29 스크린샷 자율 검증</strong> — 헤드리스 결과의 UI 검증</li>
 <li><strong>#31 5컴퓨터 30개 운용</strong> — 30개 중 절반 이상이 헤드리스로 굴러감</li>
 </ul>
 </section>

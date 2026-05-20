@@ -69,7 +69,7 @@ html,body{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','
 
 <section class="content">
 <h2>한 줄 정의</h2>
-<p>기획(Plan-A 벤치마크형 / Plan-B 원본형) 2트랙과 제작(Produce) 1엔진을 한 스킬(<code>/youtube-기본</code>) 아래로 통합하고, 헤드리스 모드(#12)와 멀티 모델 이미지 제작(#33)을 결합하여 사람의 손이 단 한 번도 GUI에 닿지 않는 채로 1일 1영상을 양산하는 본인의 영상 자동화 인프라.</p>
+<p>기획(Plan-A 벤치마크형 / Plan-B 원본형) 2트랙과 제작(Produce) 1엔진을 한 스킬(<code>/youtube-기본</code>) 아래로 통합하고, 헤드리스 모드(#10)와 멀티 모델 이미지 제작(#23)을 결합하여 사람의 손이 단 한 번도 GUI에 닿지 않는 채로 1일 1영상을 양산하는 본인의 영상 자동화 인프라.</p>
 <h2>왜 이 노하우가 중요한가</h2>
 <p>유튜브 1일 1영상은 사람을 갈아 넣어 푸는 문제가 아니다. 본인이 실제로 시도한 모든 <em>수동 GUI 도구</em> — Vrew·Whisk·나노바나나(수동 모드) — 는 50씬짜리 10분 영상에서 일관되게 같은 한계에 부딪혔다. 한 씬 수정에 5분, 50씬이면 250분, 한 편 만드는 데만 4시간이 사라진다. 거기에 컷 편집·BGM·자막 동기화까지 손으로 잡으면 1일 1영상은 물리적으로 불가능하다. 4,000시간 누적 운용에서 본인이 가장 먼저 폐기한 것이 <em>손으로 자르는 모든 단계</em>다.</p>
 <p>문제의 본질은 "AI가 영상을 만든다"가 아니라 <strong>"파이프라인이 사람 없이 끝까지 흐르는가"</strong> 다. 이미지 한 장만 사람이 채택해도, 자막 한 줄만 손으로 고쳐도, 컷 한 곳만 GUI로 잡아도 — 그 한 점에서 자동화는 끊어진다. 끊어진 자동화는 자동화가 아니라 <em>반자동 노동</em>이다. 본인이 만든 <code>youtube-기본</code> 스킬의 SSOT 한 줄 — <em>"사용자는 진입점 1개만 기억하면 된다: <code>/youtube-기본</code>"</em> — 은 이 절단점을 모두 봉합한 결과다.</p>
@@ -240,17 +240,17 @@ S6 YouTube 영문 SRT 4단계 업로드
 </code></pre>
 <p>여기까지 사람이 클릭하는 GUI는 <strong>0개</strong>. 한국어 SRT는 YouTube가 무한 실패하므로 <strong>영문 파일명 + BOM 제거 + LF</strong>가 강제된다 — 이거 하나 빠지면 업로드 자체가 실패한다.</p>
 <h3>4단계 — #12 헤드리스 모드 결합 (진짜 자동화 완성)</h3>
-<p>여기가 <em>1일 1영상</em>이 <em>실제로 1일 1영상이 되는</em> 지점이다. 종합정리 #12 그대로:</p>
+<p>여기가 <em>1일 1영상</em>이 <em>실제로 1일 1영상이 되는</em> 지점이다. 종합정리 #10 그대로:</p>
 <blockquote>
-<p>"<code>claude -p</code> 헤드리스 모드로 자동화하기 — 대화형 UI 없이 명령줄에서 한 번에 호출. 셸 스크립트·크론·CI 파이프라인에 통합 가능. 매일 새벽 자동 실행, 폴더 100개 파일 일괄 처리 등. 11번 1일 1영상의 진짜 자동화 인프라."</p>
+<p>"<code>claude -p</code> 헤드리스 모드로 자동화하기 — 대화형 UI 없이 명령줄에서 한 번에 호출. 셸 스크립트·크론·CI 파이프라인에 통합 가능. 매일 새벽 자동 실행, 폴더 100개 파일 일괄 처리 등. 26번 1일 1영상의 진짜 자동화 인프라."</p>
 </blockquote>
 <p>크론 한 줄로 묶는다.</p>
 <pre><code class="language-bash"># 매일 새벽 4시 — 어제 만든 소재 폴더로 영상 1편
 0 4 * * * cd ~/projects/daily-video &amp;&amp; claude -p &quot;/youtube-기본 daily_seed/$(date +%Y%m%d).md --track plan-b&quot; --dangerously-skip-permissions
 </code></pre>
-<p><code>--dangerously-skip-permissions</code>(#13)는 Hooks(#26)의 PreToolUse 가드와 <em>반드시</em> 짝으로 운용한다. 한쪽만 쓰면 사고, 양쪽을 짝으로 쓰면 1일 1영상이 <em>진짜로</em> 돌아간다.</p>
+<p><code>--dangerously-skip-permissions</code>(#35)는 Hooks(#11)의 PreToolUse 가드와 <em>반드시</em> 짝으로 운용한다. 한쪽만 쓰면 사고, 양쪽을 짝으로 쓰면 1일 1영상이 <em>진짜로</em> 돌아간다.</p>
 <h3>5단계 — #33 멀티 모델 이미지 제작 결합</h3>
-<p>이미지 자동화 절차 SSOT(<code>ai-image-기본/SKILL.md</code>)와 직결. 5모델 × 3장 = 15장 후보 → MLLM 채점 → 베스트 채택 → 일괄. 단일 모델 일괄 생성은 본인 운용에서 <em>결국 두 번 일하게 만든다</em>. Best-of-N는 비싸 보이지만 재작업을 막아 총비용이 더 낮다 — #23(API 비용 최적화)와 결합해 모델별 단가표로 매번 재계산.</p>
+<p>이미지 자동화 절차 SSOT(<code>ai-image-기본/SKILL.md</code>)와 직결. 5모델 × 3장 = 15장 후보 → MLLM 채점 → 베스트 채택 → 일괄. 단일 모델 일괄 생성은 본인 운용에서 <em>결국 두 번 일하게 만든다</em>. Best-of-N는 비싸 보이지만 재작업을 막아 총비용이 더 낮다 — #47(API 비용 최적화)와 결합해 모델별 단가표로 매번 재계산.</p>
 <h3>6단계 — 검증 사례 그대로 따라가기</h3>
 <p><code>/youtube-기본 SKILL.md</code> 검증 사례 표:</p>
 <table>
@@ -292,13 +292,13 @@ S6 YouTube 영문 SRT 4단계 업로드
 </blockquote>
 <h2>관련 항목</h2>
 <ul>
-<li><strong>#12 헤드리스 모드</strong> — <code>claude -p</code> + 크론으로 진짜 1일 1영상이 되는 인프라 (이 항목과 짝)</li>
-<li><strong>#33 멀티 모델 이미지 제작</strong> — Best-of-N 5모델 × 3장 → 베스트 채택 (이 항목과 짝)</li>
-<li><strong>#13 <code>--dangerously-skip-permissions</code></strong> — Hooks 가드와 짝으로 자동화 안전망</li>
-<li><strong>#26 Hooks</strong> — PreToolUse 가드로 #13 짝</li>
-<li><strong>#23 API 비용 최적화</strong> — Best-of-N 비용 모델별 단가 재계산</li>
-<li><strong>#25 지능형 챗봇</strong> — 챗봇이 보고서를 만들고 보고서가 영상이 되는 콘텐츠 체인</li>
-<li><strong>#11 외부 스킬·에이전트 발굴</strong> — 이미지 모델 신규 추가 시 즉시 라인업 갱신</li>
+<li><strong>#10 헤드리스 모드</strong> — <code>claude -p</code> + 크론으로 진짜 1일 1영상이 되는 인프라 (이 항목과 짝)</li>
+<li><strong>#23 멀티 모델 이미지 제작</strong> — Best-of-N 5모델 × 3장 → 베스트 채택 (이 항목과 짝)</li>
+<li><strong>#35 <code>--dangerously-skip-permissions</code></strong> — Hooks 가드와 짝으로 자동화 안전망</li>
+<li><strong>#11 Hooks</strong> — PreToolUse 가드로 #35 짝</li>
+<li><strong>#47 API 비용 최적화</strong> — Best-of-N 비용 모델별 단가 재계산</li>
+<li><strong>#24 지능형 챗봇</strong> — 챗봇이 보고서를 만들고 보고서가 영상이 되는 콘텐츠 체인</li>
+<li><strong>#38 외부 스킬·에이전트 발굴</strong> — 이미지 모델 신규 추가 시 즉시 라인업 갱신</li>
 <li><strong><code>youtube-기본 SKILL.md</code></strong> — Plan-A/Plan-B/Produce 마스터 디스패처 SSOT</li>
 <li><strong><code>video-frames-기본 SKILL.md</code></strong> — 1920×1080 PIL + ElevenLabs + FFmpeg CBR 2500k SSOT</li>
 <li><strong><code>ai-image-기본 SKILL.md</code></strong> — Multi-Source Best-of-N 이미지 SSOT</li>

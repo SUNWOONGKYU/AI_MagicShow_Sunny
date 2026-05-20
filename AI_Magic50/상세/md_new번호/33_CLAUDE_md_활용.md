@@ -144,7 +144,7 @@ CLAUDE.md가 "자동 감지" 가드에서 호출하는 두 스킬:
 | `청룡-sal-grid-dev` | Stage 실행 6단계, Verification 분리, Stage Gate 5단계 리포트 | `SAL_Grid_Dev_Suite/` 폴더 감지 |
 | `mbo-코어5` | Stage 진입 전 목표 정의·PO 승인 플로우·결과 보고 | "S{N} 실행" 등 키워드 감지 |
 
-CLAUDE.md가 두 스킬을 짝으로 묶는다. SAL Grid가 실행 골격, MBO가 합의 골격. 둘은 분리해 쓰지 않는다(#8·#2 참고).
+CLAUDE.md가 두 스킬을 짝으로 묶는다. SAL Grid가 실행 골격, MBO가 합의 골격. 둘은 분리해 쓰지 않는다(#12·#13 참고).
 
 ### 한국 공공 문서 양식 적용 응용
 
@@ -221,20 +221,20 @@ CLAUDE.md가 종이호랑이가 되지 않는 마지막 방어선. 사람이 잊
 
 ## 본인 운용 패턴
 
-본인 CLAUDE.md의 가장 큰 가치는 **"이 파일을 잃어버리면 본인 운영이 즉시 망가진다"** 라는 명제다. 그래서 CLAUDE.md는 클라우드 동기화 백업과 GitHub private repo 양쪽에 이중 동기화돼 있고, 새 컴퓨터 셋업 첫 30분이 정확히 이 CLAUDE.md를 복원하는 시간이다(#20 C드라이브+G드라이브 백업과 짝). CLAUDE.md 복원이 끝나는 순간, 새 컴퓨터에서도 "청룡 자동 발동, MBO 자동 발동, UI 클릭 검증 강제, 모바일 전달 자동화"가 즉시 살아난다.
+본인 CLAUDE.md의 가장 큰 가치는 **"이 파일을 잃어버리면 본인 운영이 즉시 망가진다"** 라는 명제다. 그래서 CLAUDE.md는 클라우드 동기화 백업과 GitHub private repo 양쪽에 이중 동기화돼 있고, 새 컴퓨터 셋업 첫 30분이 정확히 이 CLAUDE.md를 복원하는 시간이다(#40 C드라이브+G드라이브 백업과 짝). CLAUDE.md 복원이 끝나는 순간, 새 컴퓨터에서도 "청룡 자동 발동, MBO 자동 발동, UI 클릭 검증 강제, 모바일 전달 자동화"가 즉시 살아난다.
 
 또 하나 — 본인 CLAUDE.md는 **30개 동시 운용의 합의 골격**이다. 인스턴스마다 다른 답을 내지 않게 만드는 것은 모델의 결정론이 아니라, **모든 인스턴스가 같은 CLAUDE.md를 먼저 읽는다는 사실**이다. 같은 CLAUDE.md + 같은 폴더 구조 + 같은 SAL Grid → 같은 결정. 이 등식이 성립할 때 비로소 "1인 30군"이 작동한다.
 
 ## 관련 항목
 
-- **#25 지능형 챗봇 만들기** — 챗봇용 시스템 프롬프트가 CLAUDE.md의 응용 형태
-- **#2 SAL Grid 개발방법론** — CLAUDE.md의 자동 발동 가드가 가장 자주 호출하는 골격
-- **#8 MBO** — CLAUDE.md가 짝으로 호출하는 합의 스킬
-- **#20 C드라이브 + G드라이브 백업** — CLAUDE.md 이중 동기화의 인프라
-- **#26 Hooks** — CLAUDE.md 규칙을 settings.json hooks로 코드화
-- **#21 Slash Commands** — `.claude/commands/`에 CLAUDE.md 운용 명령어 등록
-- **#49 스크린샷 자율 검증** — UI 검증 철칙(curl 200 ≠ 동작함)의 Playwright 구현
-- **#43 HWP/HWPX 한국 공공 양식** — CLAUDE.md 모바일 전달 가드 + doc-generator의 합류 지점
+- **#24 지능형 챗봇 만들기** — 챗봇용 시스템 프롬프트가 CLAUDE.md의 응용 형태
+- **#13 SAL Grid 개발방법론** — CLAUDE.md의 자동 발동 가드가 가장 자주 호출하는 골격
+- **#12 MBO** — CLAUDE.md가 짝으로 호출하는 합의 스킬
+- **#40 C드라이브 + G드라이브 백업** — CLAUDE.md 이중 동기화의 인프라
+- **#11 Hooks** — CLAUDE.md 규칙을 settings.json hooks로 코드화
+- **#18 Slash Commands** — `.claude/commands/`에 CLAUDE.md 운용 명령어 등록
+- **#29 스크린샷 자율 검증** — UI 검증 철칙(curl 200 ≠ 동작함)의 Playwright 구현
+- **#49 HWP/HWPX 한국 공공 양식** — CLAUDE.md 모바일 전달 가드 + doc-generator의 합류 지점
 - **다큐킹앱 57개 스킬** — CLAUDE.md 안에 색인된 도구 무기고
 - **`~/.claude/skills/청룡-sal-grid-dev/SKILL.md`** — CLAUDE.md 자동 발동 1순위 스킬
 - **`~/.claude/skills/mbo-코어5/SKILL.md`** — CLAUDE.md 자동 발동 2순위 스킬

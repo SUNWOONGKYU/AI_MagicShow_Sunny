@@ -295,25 +295,25 @@ npx skills update   # 일괄 적용
 <p>3단계(SKILL.md Read 1차 필터)에서 후보가 전멸했거나, 4단계 트라이얼에서 본인 운용 충돌이 반복되면 — 거기서 멈추지 않고 제작으로 전환한다.</p>
 <ul>
 <li><strong>스킬이 필요하면</strong> <code>skill-create</code> 호출 → 스무고개 기획 → 공개 저장소·OSS에서 기존 절차 발굴·해부·안전성 진단 → 건강한 부품만 이식 → QC 출하검사한 SKILL.md 완성.</li>
-<li><strong>LLM 의존형 에이전트가 필요하면</strong> <code>llm-dependent-agent-create</code> 호출 → 동일 흐름 + 구동 방식 8종 자동 판별. (Claude Code 자체 기능에 종속된 서브에이전트 편성은 #39·#14의 영역이고, 여기서 만드는 것은 <em>LLM 두뇌에 의존하는 독립 에이전트</em>다.)</li>
+<li><strong>LLM 의존형 에이전트가 필요하면</strong> <code>llm-dependent-agent-create</code> 호출 → 동일 흐름 + 구동 방식 8종 자동 판별. (Claude Code 자체 기능에 종속된 서브에이전트 편성은 #16·#14의 영역이고, 여기서 만드는 것은 <em>LLM 두뇌에 의존하는 독립 에이전트</em>다.)</li>
 </ul>
 <p>제작 산출물도 발굴 산출물과 똑같이 검증 KPI 5지표 · Verification Agent 별도 투입 · <em>"curl 200 ≠ 동작함"</em> 원칙을 통과해야 글로벌 자산화된다. <strong>제작이라고 자기 검증이 면제되지 않는다</strong> — 오히려 본인이 만든 것일수록 자기 검증의 사각지대가 크다. 만든 주체와 검증 주체를 분리하는 원칙은 제작 경로에서 더 엄격히 적용한다.</p>
 <h2>본인 운용 패턴</h2>
 <p>본인 41개 글로벌 스킬은 <em>"발굴해서 끝"</em> 이 아니라 <em>"발굴 → 검증 → 본인 운용 톤으로 재단 → 자산화 → 정기 점검"</em> 의 5단 흐름이 한 번 이상 적용된 결과다. 외부에서 들여온 <code>frontend-design</code> 같은 스킬도 본인 글로벌 CLAUDE.md의 한국어 출력 규칙·보안 가드와 한 번 충돌 점검을 거친 뒤 등재됐다. 발굴은 시작이고, 자산화는 운용 끝까지 따라간다.</p>
-<p>또 하나 — 발굴은 본인이 <em>"필요해진 시점"</em> 이 아니라 <em>"필요할 가능성이 보이는 시점"</em> 에 한다. 30개 동시 운용에서 그날 그날 필요한 스킬을 그날 발굴하면 이미 늦다. 본인은 매주 1회 <code>npx skills check</code>와 함께 <em>"이번 주 작업 시계열에서 사용할 가능성 30% 이상의 스킬"</em> 을 미리 발굴한다. 이 선제 발굴 루틴이 5번 30개 운용 · 9번 소대 편제 · 17번 멀티 CLI를 끊김 없이 돌리는 숨은 골격이다.</p>
+<p>또 하나 — 발굴은 본인이 <em>"필요해진 시점"</em> 이 아니라 <em>"필요할 가능성이 보이는 시점"</em> 에 한다. 30개 동시 운용에서 그날 그날 필요한 스킬을 그날 발굴하면 이미 늦다. 본인은 매주 1회 <code>npx skills check</code>와 함께 <em>"이번 주 작업 시계열에서 사용할 가능성 30% 이상의 스킬"</em> 을 미리 발굴한다. 이 선제 발굴 루틴이 31번 30개 운용 · 14번 소대 편제 · 15번 멀티 CLI를 끊김 없이 돌리는 숨은 골격이다.</p>
 <blockquote>
-<p>Vault 사례: <code>333-knowledge-share/wiki/2026_05_03_21.00_import_SKILL_v3_pre_refactor.md</code> 같은 SKILL_v1 / v2 / v2_260306 / v3_pre_refactor 다중 스냅샷이 한 폴더에 누적돼 있다는 사실 자체가 <em>발굴 → 검증 → 본인 톤으로 재단 → 자산화 → 정기 점검</em>의 5단 흐름을 본인이 실제로 돌렸다는 흔적이다. 동일 스킬이 여러 버전으로 박혀 있고 <em>pre_refactor</em> 라벨이 붙은 것은 — 외부에서 들여온 원본을 본인 운용 톤(소대 편제 / Subagent 트리거 / Hooks 가드)에 맞춰 재단했다는 의미. 28번 본 항목의 <em>"발굴은 시작이고, 자산화는 운용 끝까지 따라간다"</em> 명제가 그 누적 스냅샷 자체로 증명된다.</p>
+<p>Vault 사례: <code>333-knowledge-share/wiki/2026_05_03_21.00_import_SKILL_v3_pre_refactor.md</code> 같은 SKILL_v1 / v2 / v2_260306 / v3_pre_refactor 다중 스냅샷이 한 폴더에 누적돼 있다는 사실 자체가 <em>발굴 → 검증 → 본인 톤으로 재단 → 자산화 → 정기 점검</em>의 5단 흐름을 본인이 실제로 돌렸다는 흔적이다. 동일 스킬이 여러 버전으로 박혀 있고 <em>pre_refactor</em> 라벨이 붙은 것은 — 외부에서 들여온 원본을 본인 운용 톤(소대 편제 / Subagent 트리거 / Hooks 가드)에 맞춰 재단했다는 의미. 38번 본 항목의 <em>"발굴은 시작이고, 자산화는 운용 끝까지 따라간다"</em> 명제가 그 누적 스냅샷 자체로 증명된다.</p>
 </blockquote>
 <h2>관련 항목</h2>
 <ul>
-<li><strong>#22 오케스트레이터·멀티 CLI</strong> — 발굴된 스킬을 다중 CLI(Codex/Gemini/Grok)와 결합해 운용</li>
-<li><strong>#25 지능형 챗봇 만들기</strong> — 발굴 능력이 챗봇 자산화의 전제</li>
-<li><strong>#24 SVG → 스킬 자산화</strong> — 본인이 만드는 자산화 흐름의 짝</li>
-<li><strong>#32 CLAUDE.md 활용</strong> — 자산화 후 헌법 등재 단계</li>
-<li><strong>#39 Subagent vs Agent Teams</strong> — 발굴된 에이전트의 편성 단계</li>
+<li><strong>#15 오케스트레이터·멀티 CLI</strong> — 발굴된 스킬을 다중 CLI(Codex/Gemini/Grok)와 결합해 운용</li>
+<li><strong>#24 지능형 챗봇 만들기</strong> — 발굴 능력이 챗봇 자산화의 전제</li>
+<li><strong>#22 SVG → 스킬 자산화</strong> — 본인이 만드는 자산화 흐름의 짝</li>
+<li><strong>#33 CLAUDE.md 활용</strong> — 자산화 후 헌법 등재 단계</li>
+<li><strong>#16 Subagent vs Agent Teams</strong> — 발굴된 에이전트의 편성 단계</li>
 <li><strong>#14 군대 소대 편제 + 백호 스킬</strong> — 발굴 후 편성 단계</li>
 <li><strong>#28 4종 품질관리</strong> — 발굴 검증 단계의 5기준 평가</li>
-<li><strong>#2 SAL Grid 개발방법론</strong> — 발굴 자체를 Task로 박는 골격</li>
+<li><strong>#13 SAL Grid 개발방법론</strong> — 발굴 자체를 Task로 박는 골격</li>
 <li><strong>find-skills-기본 (본인 글로벌)</strong> — 본 노하우의 <em>찾기</em> 경로가 코드화된 형태</li>
 <li><strong>skill-create / llm-dependent-agent-create (본인 글로벌)</strong> — 본 노하우의 <em>제작</em> 경로가 코드화된 형태. 발굴이 막힌 지점의 답.</li>
 <li><strong>deploy-skill-기본 / deploy-subagent-기본 (본인 글로벌)</strong> — 발굴·제작 결과를 편성·장착하는 메타 스킬</li>

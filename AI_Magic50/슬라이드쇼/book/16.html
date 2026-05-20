@@ -197,7 +197,7 @@ html,body{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','
   ├─ 4분대장 Delta (sonnet)  ← B형 추가
   ├─ 5분대장 Echo (sonnet)   ← B형 추가
   └─ 6분대장+ Foxtrot~ (sonnet) ← C형 지정 시
-+ 외부 용병 4명 (Codex / Gemini / Grok / Perplexity — #22)
++ 외부 용병 4명 (Codex / Gemini / Grok / Perplexity — #15)
 + 21 Skills (분대장이 호출 가능)
 </code></pre>
 <p>각 분대장은 <strong>독립 컨텍스트 윈도우</strong> 를 가지므로 <em>5개 분대 = 5×200K = 1M 토큰</em> 의 작업 공간이 동시 가동. 메인은 보고만 받으니 메인 컨텍스트는 거의 안 차오른다.</p>
@@ -228,7 +228,7 @@ html,body{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','
 <td><strong>O</strong></td>
 </tr>
 <tr>
-<td>다관점 페르소나 토론 (#1)</td>
+<td>다관점 페르소나 토론 (#2)</td>
 <td>부족</td>
 <td><strong>O</strong> (각 페르소나가 팀메이트)</td>
 </tr>
@@ -351,18 +351,18 @@ html,body{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','
 <p>장기 SAL Grid 프로젝트에서는 Stage 1~5 를 분대장 5명에게 분배하고 인계는 직통 메시지로 처리. 메인은 Stage Gate 통과 보고만 받음. 누적 운용에서 가장 큰 컨텍스트 효율 향상이 이 변경에서 나왔다 — <em>메인 컨텍스트가 8시간 작업 후에도 30% 미만</em> 유지.</p>
 <p>미달성 사례 — 단순 작업에 Agent Teams 를 무리하게 적용하면 팀 스폰 오버헤드(약 30~60초)가 작업 시간보다 큰 역전 현상 발생. <em>오버킬 금지</em> 원칙. 본인 운용 첫 1개월에 이 실수를 가장 많이 했다.</p>
 <blockquote>
-<p>Vault 사례: <code>ax-practical-project/wiki/2026_05_03_21.05_import_2026_04_01__PHASE_Bravo_S5S6_instruction_rework.md</code> 는 <em>Bravo (2분대장)</em> 가 S5DS·S5SC·S5MD·S6 등 30개 Task의 instruction + verification 한 쌍을 1일 안에 전면 재작성한 노트다. Phase 1~30이 모두 <code>[x]</code> 로 닫혀 있고, 분대장 한 명이 자기 관할 영역 30개를 완결한 <em>Agent Teams 운용의 정상 사례</em> — 메인 컨텍스트는 <em>"Bravo, S5/S6 30개 재작성 시작 → 완료 보고만 받음"</em> 으로 끝난다. 27번 본 항목의 <em>"Stage 1~5를 분대장 5명에게 분배하면 메인 컨텍스트가 8시간 작업 후에도 30% 미만"</em> 명제의 실측 증거.</p>
+<p>Vault 사례: <code>ax-practical-project/wiki/2026_05_03_21.05_import_2026_04_01__PHASE_Bravo_S5S6_instruction_rework.md</code> 는 <em>Bravo (2분대장)</em> 가 S5DS·S5SC·S5MD·S6 등 30개 Task의 instruction + verification 한 쌍을 1일 안에 전면 재작성한 노트다. Phase 1~30이 모두 <code>[x]</code> 로 닫혀 있고, 분대장 한 명이 자기 관할 영역 30개를 완결한 <em>Agent Teams 운용의 정상 사례</em> — 메인 컨텍스트는 <em>"Bravo, S5/S6 30개 재작성 시작 → 완료 보고만 받음"</em> 으로 끝난다. 16번 본 항목의 <em>"Stage 1~5를 분대장 5명에게 분배하면 메인 컨텍스트가 8시간 작업 후에도 30% 미만"</em> 명제의 실측 증거.</p>
 </blockquote>
 <h2>관련 항목</h2>
 <ul>
 <li><strong>#31 5컴퓨터 30개 운용</strong> — Agent Teams 가 30개 분산의 골격</li>
 <li><strong>#14 군대 소대 편제</strong> — 백호 스킬과 직접 짝</li>
-<li><strong>#1 전문가 페르소나 토론</strong> — 페르소나 = 팀메이트</li>
-<li><strong>#22 오케스트레이터 + 멀티 CLI</strong> — 17번이 외부 용병, 27번이 내부 팀</li>
-<li><strong>#32 CLAUDE.md 활용</strong> — 환경변수·스킬 규칙을 글로벌 CLAUDE.md 에 박기</li>
-<li><strong>#14 1개 AI Multi Role</strong> — 단일 인스턴스 다역할 vs 27번 다인스턴스</li>
-<li><strong>#15 컨텍스트 관리</strong> — Agent Teams 가 메인 컨텍스트 보호 도구</li>
-<li><strong>#49 스크린샷 자율 검증</strong> — Verification Agent 자리에 들어가는 도구</li>
+<li><strong>#2 전문가 페르소나 토론</strong> — 페르소나 = 팀메이트</li>
+<li><strong>#15 오케스트레이터 + 멀티 CLI</strong> — 15번이 외부 용병, 16번이 내부 팀</li>
+<li><strong>#33 CLAUDE.md 활용</strong> — 환경변수·스킬 규칙을 글로벌 CLAUDE.md 에 박기</li>
+<li><strong>#9 1개 AI Multi Role</strong> — 단일 인스턴스 다역할 vs 16번 다인스턴스</li>
+<li><strong>#17 컨텍스트 관리</strong> — Agent Teams 가 메인 컨텍스트 보호 도구</li>
+<li><strong>#29 스크린샷 자율 검증</strong> — Verification Agent 자리에 들어가는 도구</li>
 </ul>
 </section>
 

@@ -109,7 +109,7 @@ html,body{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','
 <p>역할은 효능에 따라 매번 다르게 캐스팅된다. 크로스 체킹이면 <em>생산자·검증자</em>, 관점 종합이면 <em>공격·수비</em>, 병렬 분담이면 <em>Variant a·Variant b</em>, 연속성이면 <em>주·예비</em>다. 고정된 역할 한 쌍을 박아 두지 않는 것이 본인 운용의 특징이다.</p>
 <h2>실전 사용법</h2>
 <p>먼저 작업 시작 전에 PHASE 파일을 만들어 양쪽이 같은 진실 소스를 본다 (<code>zz_KingFolder/_TalkTodoPlan/YYYY_MM_DD__HH.MM_PHASE_*.md</code>). 다음 그 작업에서 네 효능 중 어느 것이 가장 필요한지 한 번 정한다. 정하지 않으면 둘 다 같은 일을 두 번 하는 낭비가 된다.</p>
-<p>크로스 체킹이라면 A에 생산을 시키고 B에는 <em>A의 결과만 받아 검증</em> 지시를 따로 내린다. 관점 종합이라면 A와 B에 각자의 축을 부여한 뒤 산출물을 본인이 합치거나 셋째 인스턴스에 합치게 시킨다. 병렬 분담이라면 SAL Variant a·b를 그대로 한 쪽씩 던진다. 연속성이라면 한쪽이 컨텍스트 80%에 도달했을 때 즉시 다른 쪽으로 작업을 옮기는데, <strong>#40 HUD</strong>의 LINE2 막대가 그 시점을 미리 알려준다.</p>
+<p>크로스 체킹이라면 A에 생산을 시키고 B에는 <em>A의 결과만 받아 검증</em> 지시를 따로 내린다. 관점 종합이라면 A와 B에 각자의 축을 부여한 뒤 산출물을 본인이 합치거나 셋째 인스턴스에 합치게 시킨다. 병렬 분담이라면 SAL Variant a·b를 그대로 한 쪽씩 던진다. 연속성이라면 한쪽이 컨텍스트 80%에 도달했을 때 즉시 다른 쪽으로 작업을 옮기는데, <strong>#36 Statusline HUD</strong>의 LINE2 막대가 그 시점을 미리 알려준다.</p>
 <h2>비용과 가치</h2>
 <p>토큰 비용은 단순 계산으로는 두 배다. 그러나 본인 실측 기준 단절 1회 복구 비용·자기검증 폐쇄로 인한 버그 1건 비용·단일 관점 결정으로 인한 재작업 비용이 듀얼 1회 비용보다 거의 항상 크다. 페이스북 노트에 본인이 <em>상시 적용하기로 결정</em>이라고 못 박은 이유가 이 비교다. 작업 단위가 작을수록 듀얼 비용 비중이 커 보이지만, 큰 작업 한 건에서 막힘이 발생하는 순간 단일 운용은 듀얼보다 훨씬 비싸진다.</p>
 <h2>주의</h2>
@@ -117,11 +117,11 @@ html,body{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','
 <p>또 하나의 함정은 자기검증 폐쇄 루프다. 본인이 시간을 아끼려고 A에게 <em>네 결과 네가 검증해라</em>고 시키면 듀얼은 무너진다. Task Agent ≠ Verification Agent. 검증은 반드시 B 인스턴스가 받는다.</p>
 <h2>관련 항목</h2>
 <ul>
-<li><strong>#47 Claude 앱 vs Code</strong> — 사고·실행 분리 사상의 상위 버전</li>
+<li><strong>#32 Claude 앱 vs Code</strong> — 사고·실행 분리 사상의 상위 버전</li>
 <li><strong>#04 실행 전 학습·검토·계획</strong> — Plan Mode가 듀얼의 A 인스턴스 도구</li>
-<li><strong>#41 Git Worktree</strong> — 두 인스턴스의 작업 폴더 분리</li>
+<li><strong>#37 Git Worktree</strong> — 두 인스턴스의 작업 폴더 분리</li>
 <li><strong>#31 5컴퓨터 30개 운용</strong> — 듀얼을 가로 확장한 형태</li>
-<li><strong>#14 1개 AI Multi Role</strong> — 듀얼을 한 인스턴스 안에서 흉내내는 변형</li>
+<li><strong>#09 1개 AI Multi Role</strong> — 듀얼을 한 인스턴스 안에서 흉내내는 변형</li>
 </ul>
 </section>
 

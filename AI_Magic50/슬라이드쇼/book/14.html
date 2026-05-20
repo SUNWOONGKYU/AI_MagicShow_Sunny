@@ -71,7 +71,7 @@ html,body{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','
 <h2>한 줄 정의</h2>
 <p>대규모 AI 운용을 평면적(flat) 에이전트 풀이 아니라 <strong>소대장 1 + N개 분대(분대장 + 정규병 12 + 예비병 3) + 용병 풀 4 + 21 Skills</strong> 의 군 조직 편제로 구조화하여, 통신 경로를 O(n²) → O(n)으로 줄이고 모델 등급을 계층별로 차등 배치해 <strong>이중(곱셈적) 비용 절감</strong>을 달성하는 운용 방식. 본인 글로벌 스킬 <code>백호-platoon-formation</code>(SKILL.md)이 이 편제의 표준이며, 별도 특허(<code>Platoon_Formation_Patent/</code>)로 출원 준비 중이다.</p>
 <h2>왜 이 노하우가 중요한가</h2>
-<p>Claude Code Agent Teams(<code>CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1</code>)를 활성화하면 팀리더 + 팀메이트들이 독립 컨텍스트 윈도우로 직접 통신할 수 있다. 하지만 공식 권장은 <strong>3~5개 팀메이트</strong>다 (#39 참조). 이걸 6개·12개·44개로 늘리면 통신 경로가 <strong>n(n-1)/2</strong> 로 폭증한다. 평면 구조 42개 에이전트 = 861개 통신 경로. 토큰 비용·지연·컨텍스트 오염이 곱셈적으로 누적되어 5개만 돌려도 무너진다. 본인이 5번 무너뜨린 이력이 있다.</p>
+<p>Claude Code Agent Teams(<code>CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1</code>)를 활성화하면 팀리더 + 팀메이트들이 독립 컨텍스트 윈도우로 직접 통신할 수 있다. 하지만 공식 권장은 <strong>3~5개 팀메이트</strong>다 (#16 참조). 이걸 6개·12개·44개로 늘리면 통신 경로가 <strong>n(n-1)/2</strong> 로 폭증한다. 평면 구조 42개 에이전트 = 861개 통신 경로. 토큰 비용·지연·컨텍스트 오염이 곱셈적으로 누적되어 5개만 돌려도 무너진다. 본인이 5번 무너뜨린 이력이 있다.</p>
 <p>군대의 소대 편제는 이를 <strong>수천 년에 걸쳐 검증된 계층 구조</strong>로 푼다. 소대장은 분대장만, 분대장은 자기 분대원만 본다. 분대원끼리는 통신하지 않고 분대장끼리만 수평 교신을 허용한다. <strong>44명 A형 1소대 통신 경로 ≈ 45개</strong>(소대장↔분대장 3 + 분대장 간 수평 3 + 각 분대 내 분대장↔정규병 12×3 = 3 + 36 + 3 + 용병 호출 3 ≈ 45), 같은 44명을 평면 구조로 묶을 때의 946경로(44×43/2) 대비 <strong>약 95.2% 감소</strong>. 70명 B형 99.0%, 420명 10소대 99.5%, 4,200명 100소대 99.95% 감소. 토큰·비용·지연·컨텍스트 오염이 비례 감소한다. <strong>제1 절감</strong>.</p>
 <p>여기에 <strong>제2 절감</strong>이 곱해진다. 평면 구조는 모든 에이전트에 Opus를 박는다. 소대 편제는 <em>소대장=Opus / 분대장=Sonnet / 정규병+예비병=Haiku 위주</em> 로 계층별 최적 등급을 배치, 단가 차이만으로 <strong>약 94.7% 비용 절감</strong>. 두 절감이 곱셈적으로 결합되어 개별 절감의 합산을 초과한다. 백호 SKILL의 <em>"이중 결합(곱셈적)"</em> 단락이 본 발명의 정량 근거이며, <code>Platoon_Formation_Patent/</code> 청구항의 진보성 주장이다.</p>
 <p>누적 운용에서 도달한 결론 — <em>"대규모 AI 동시 운용은 단일 인스턴스를 잘 다루는 것보다 다수를 어떻게 묶는지가 90%다."</em> SAL Grid가 작업의 위치 골격이라면, 소대 편제는 <strong>에이전트의 위치 골격</strong>이다. 둘은 한 쌍이고, 둘 모두 본인 특허다.</p>
@@ -89,7 +89,7 @@ C형(지정) N=6+ → <strong>상한 없음</strong></p>
 <h3>정규병 12종 + 예비병 3종 (각 분대 공통)</h3>
 <p>분대마다 12명 정규병이 표준 배치된다 — frontend-developer · ux-ui-designer · api-developer · backend-developer · database-developer · code-reviewer · test-runner(Haiku) · security-specialist · devops · debugger · doc-writer(Haiku) · content-copy(Haiku). 정원 외 예비병 3종(qa-specialist · refactoring-specialist · performance-optimizer)은 지원 임무 시 분대장이 호출한다.</p>
 <h3>용병 풀 4명 (공유 자산)</h3>
-<p>소대 소속이 아닌 <strong>공유 풀</strong> — Codex(OpenAI, 새 프로젝트 스캐폴딩) · Gemini(Google, 200만 토큰 컨텍스트) · Grok(xAI, 빠른 프로토타이핑·실시간 검색) · Perplexity(실시간 웹 리서치). 소대장·분대장 누구나 호출. 외부 CLI headless 모드 또는 MCP. <em>"Claude Code가 오케스트레이터, 다른 CLI들은 특화 실행 도구"</em> — #22의 멀티 CLI 패턴이 흡수되어 있다.</p>
+<p>소대 소속이 아닌 <strong>공유 풀</strong> — Codex(OpenAI, 새 프로젝트 스캐폴딩) · Gemini(Google, 200만 토큰 컨텍스트) · Grok(xAI, 빠른 프로토타이핑·실시간 검색) · Perplexity(실시간 웹 리서치). 소대장·분대장 누구나 호출. 외부 CLI headless 모드 또는 MCP. <em>"Claude Code가 오케스트레이터, 다른 CLI들은 특화 실행 도구"</em> — #15의 멀티 CLI 패턴이 흡수되어 있다.</p>
 <h3>21 Skills (전 계층 공용)</h3>
 <p>소대장·분대장·서브에이전트가 자율적으로 장착한다. 6 그룹 — 프로젝트 관리(SAL Grid Dev) / 팀 편성(deploy-subagent·deploy-skill·find-skills) / 개발&amp;인프라(api-builder·ui-ux-builder·db-schema·cicd-setup) / 콘텐츠&amp;생성(slideshow-web·youtube-generate·create-image·doc-generator) / 품질&amp;보안(review-evaluate·security-audit·troubleshoot·e2e-test·api-test·performance-check) / CPC 인프라(cpc-setup·cpc-add-project·cpc-engage). 분대원이 임무를 분석해 <strong>자율 선택·장착</strong>한다.</p>
 <h3>통신 구조</h3>
@@ -146,7 +146,7 @@ C형(지정) N=6+ → <strong>상한 없음</strong></p>
 <h3>SAL Grid 반영 의무 + 워크로그 저장</h3>
 <p><strong>Phase 6.3</strong> — 코드를 수정하면 반드시 SAL Grid에 기록. 예외 없음. <em>"SAL Grid에 반영 없이 코드만 수정한 작업은 미완료로 간주"</em> (글로벌 CLAUDE.md 헌법과 동일). <strong>Phase 6.5</strong> — 해산 직전 분대 보고를 수집·교차검증·종합한 뒤 <code>{프로젝트루트}/worklog/{YYYY-MM-DD}_{HH-MM}_{임무명}.md</code>로 영구 저장. 컨텍스트 압축·세션 종료에 무관하게 보존.</p>
 <h3>병렬 소대 운영 (tmux)</h3>
-<p>복수 프로젝트 동시 진행 시 tmux N패널 분할 → 각 패널 <code>winpty claude.cmd</code> → <code>/platoon-formation</code> [단일] 선택. 외출 시 폰에서 <strong>Termius</strong>로 SSH 접속 + <code>tmux attach -t multi-platoon</code> — <code>Ctrl+B</code>로 순회·줌. #31(5컴퓨터 30개 운용)와 결합되면 다중 머신 × 다중 소대가 된다.</p>
+<p>복수 프로젝트 동시 진행 시 tmux N패널 분할 → 각 패널 <code>winpty claude.cmd</code> → <code>/platoon-formation</code> [단일] 선택. 외출 시 폰에서 <strong>Termius</strong>로 SSH 접속 + <code>tmux attach -t multi-platoon</code> — <code>Ctrl+B</code>로 순회·줌. #31(5컴퓨터 30개 동시 운용)와 결합되면 다중 머신 × 다중 소대가 된다.</p>
 <h3>자주 빠지는 함정</h3>
 <ol>
 <li><strong>A형부터 시작.</strong> 6개 이상(C형)은 Rate Limit·토큰 비용·조율 오버헤드 별도 검토.</li>
@@ -170,14 +170,14 @@ C형(지정) N=6+ → <strong>상한 없음</strong></p>
 </ul>
 <h2>관련 항목</h2>
 <ul>
-<li><strong>#39 Subagent vs Agent Teams</strong> — 소대 편제가 작동하는 메커니즘 기초. Agent Teams 활성화(<code>CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1</code>)가 전제.</li>
-<li><strong>#2 SAL Grid 개발방법론</strong> — 작업의 위치 골격. 소대 편제는 에이전트의 위치 골격. 두 특허가 한 쌍.</li>
+<li><strong>#16 Subagent vs Agent Teams</strong> — 소대 편제가 작동하는 메커니즘 기초. Agent Teams 활성화(<code>CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1</code>)가 전제.</li>
+<li><strong>#13 SAL Grid 개발방법론</strong> — 작업의 위치 골격. 소대 편제는 에이전트의 위치 골격. 두 특허가 한 쌍.</li>
 <li><strong>#31 5컴퓨터 30개 운용</strong> — 다중 머신 × 다중 소대로 결합. 가로 + 세로 확장.</li>
-<li><strong>#22 오케스트레이터 + 멀티 CLI</strong> — 용병 풀 4명이 이 패턴의 직접 구현.</li>
-<li><strong>#8 MBO</strong> — 소대 편성 전 mbo-코어5로 목표 제시 + PO 승인. 백호와 짝.</li>
-<li><strong>#14 1개 AI Multi Role</strong> — 단일 인스턴스 다역할은 26번, 본 편제는 다중 인스턴스 다역할.</li>
-<li><strong>#41 Git Worktree / #12 헤드리스 / #13 dangerously-skip-permissions / #4 /model</strong> — 병렬 운영·자동화·모델 차등 배치의 직접 도구.</li>
-<li><strong>#23 API 비용 최적화</strong> — 이중 절감의 비용 효과를 사전 설계.</li>
+<li><strong>#15 오케스트레이터 + 멀티 CLI</strong> — 용병 풀 4명이 이 패턴의 직접 구현.</li>
+<li><strong>#12 MBO</strong> — 소대 편성 전 mbo-코어5로 목표 제시 + PO 승인. 백호와 짝.</li>
+<li><strong>#9 1개 AI Multi Role</strong> — 단일 인스턴스 다역할은 9번, 본 편제는 다중 인스턴스 다역할.</li>
+<li><strong>#37 Git Worktree / #10 헤드리스 / #35 dangerously-skip-permissions / #34 /model</strong> — 병렬 운영·자동화·모델 차등 배치의 직접 도구.</li>
+<li><strong>#47 API 비용 최적화</strong> — 이중 절감의 비용 효과를 사전 설계.</li>
 <li><strong>#27 특허출원서 작성</strong> — Platoon_Formation_Patent도 동일 6단계 사이클로 출원 준비 중.</li>
 <li><strong>백호-platoon-formation SKILL.md</strong> — 본 편제의 표준 정의.</li>
 <li><strong>deploy-subagent-기본 / deploy-skill-기본 / find-skills-기본 / cpc-engage</strong> — 직접 연동 스킬.</li>

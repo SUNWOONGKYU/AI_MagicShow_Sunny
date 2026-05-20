@@ -72,7 +72,7 @@ html,body{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','
 <p>Auto Compact를 끄고 <strong>HUD 모니터링 + 수동 Compact + Compact 직전 자동 저장</strong> 세 가지를 묶어 운용하는 본인 표준 컨텍스트 관리법. 30개 동시 운용 시 정보 손실을 0으로 만드는 기본기.</p>
 <h2>왜 이 노하우가 중요한가</h2>
 <p>Auto Compact는 편한 대신 <strong>언제 어디서 무엇이 잘렸는지 사용자가 모른다</strong>. 누적 운용 결과, 자동으로 잘린 시점 직후의 응답이 갑자기 맥락을 잃는 사례가 반복됐다. 다인스턴스 운용 환경에서는 한 인스턴스의 정보 손실이 다른 분대원에게 잘못 인계되며 연쇄 오류로 번진다.</p>
-<p>수동 Compact + 사전 저장으로 바꾸면 (1) <strong>언제 잘릴지 사용자가 결정</strong>하고 (2) <strong>잘리기 직전 상태가 디스크에 남아</strong> /resume(#42)·다음 인스턴스로 깨끗하게 인계된다.</p>
+<p>수동 Compact + 사전 저장으로 바꾸면 (1) <strong>언제 잘릴지 사용자가 결정</strong>하고 (2) <strong>잘리기 직전 상태가 디스크에 남아</strong> /resume(#19)·다음 인스턴스로 깨끗하게 인계된다.</p>
 <h2>핵심 개념</h2>
 <p>3종 세트 구성:</p>
 <table>
@@ -86,7 +86,7 @@ html,body{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','
 <tbody>
 <tr>
 <td>모니터링</td>
-<td>#40 HUD LINE2 막대그래프</td>
+<td>#36 HUD LINE2 막대그래프</td>
 <td>컨텍스트 % 실시간 가시화</td>
 </tr>
 <tr>
@@ -107,19 +107,19 @@ html,body{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','
 - <strong>90%</strong>: 비상. 진행 중 도구 호출 1개만 더 받고 강제 정리</p>
 <h2>실전 사용법</h2>
 <p><strong>1단계</strong> — <code>~/.claude/settings.json</code>에서 Auto Compact 비활성화. 동시에 PreCompact hook 등록해 transcript JSONL과 마지막 요약을 <code>~/.claude/compacts/&lt;session&gt;_&lt;timestamp&gt;.md</code>로 저장.</p>
-<p><strong>2단계</strong> — #40 HUD LINE2 막대그래프 상시 확인. 30개 인스턴스 한 화면에 띄울 때 LINE2만 훑으면 어느 인스턴스를 우선 처리할지 즉시 보인다.</p>
+<p><strong>2단계</strong> — #36 HUD LINE2 막대그래프 상시 확인. 30개 인스턴스 한 화면에 띄울 때 LINE2만 훑으면 어느 인스턴스를 우선 처리할지 즉시 보인다.</p>
 <p><strong>3단계</strong> — 70% 도달 시 <strong>인계 노트</strong> 작성을 AI에 지시. "지금까지 한 일 / 다음에 할 일 / 미해결 이슈" 3블록.</p>
 <p><strong>4단계</strong> — <code>/compact &lt;추가 지시문&gt;</code> 실행. 이때 본인은 <em>"인계 노트 경로와 미해결 이슈 보존"</em> 같은 지시문을 함께 넣어 핵심 컨텍스트를 살린다.</p>
-<p><strong>5단계</strong> — 장기 작업은 <strong>세션 분할</strong>. SAL Grid Stage 단위로 인스턴스를 새로 띄우고 인계 노트로 이어받는다. /resume(#42)은 비상용일 뿐, 평상시 컨텍스트 운용은 30번에 의존.</p>
+<p><strong>5단계</strong> — 장기 작업은 <strong>세션 분할</strong>. SAL Grid Stage 단위로 인스턴스를 새로 띄우고 인계 노트로 이어받는다. /resume(#19)은 비상용일 뿐, 평상시 컨텍스트 운용은 #17에 의존.</p>
 <p><strong>금지 사항</strong>: 80% 넘긴 채 새 도구 호출 연발 — Task Agent ≠ Verification Agent 원칙이 무너진다. 검증은 새 인스턴스에 맡겨야 자기검증 함정을 피한다.</p>
 <blockquote>
-<p>Vault 사례: <code>skill-atlas/wiki/2026_05_06__06.29_세션내용_익스포트.md</code> 외 5건의 <em>세션내용_익스포트</em> 노트는 PreCompact hook이 발동했을 때 세션 메타(session_id / transcript_path / cwd / hook_event_name: PreCompact / trigger: manual)를 자동 저장한 실제 산출물이다. 30번 4단계 <em>"<code>/compact</code>에 인계 노트 경로와 미해결 이슈 보존 지시문 함께"</em> 가 사람의 의식적 행동이라면, 이 자동 export는 <em>3단계(자동 저장)</em>의 백그라운드 안전망 — 본인이 인계 노트 작성을 깜빡해도 transcript 자체는 무조건 Vault로 백업된다. PreCompact 훅(#26) + 세션 백업이 30번의 마지막 안전선임을 보여주는 노트군.</p>
+<p>Vault 사례: <code>skill-atlas/wiki/2026_05_06__06.29_세션내용_익스포트.md</code> 외 5건의 <em>세션내용_익스포트</em> 노트는 PreCompact hook이 발동했을 때 세션 메타(session_id / transcript_path / cwd / hook_event_name: PreCompact / trigger: manual)를 자동 저장한 실제 산출물이다. #17 4단계 <em>"<code>/compact</code>에 인계 노트 경로와 미해결 이슈 보존 지시문 함께"</em> 가 사람의 의식적 행동이라면, 이 자동 export는 <em>3단계(자동 저장)</em>의 백그라운드 안전망 — 본인이 인계 노트 작성을 깜빡해도 transcript 자체는 무조건 Vault로 백업된다. PreCompact 훅(#11) + 세션 백업이 #17의 마지막 안전선임을 보여주는 노트군.</p>
 </blockquote>
 <h2>관련 항목</h2>
 <ul>
-<li><strong>#40 Statusline HUD</strong> — LINE2 막대그래프가 30번의 모니터링 도구</li>
-<li><strong>#42 /resume 세션 재개</strong> — 비상용. 평상시 운용은 30번이 우선</li>
-<li><strong>#26 Hooks</strong> — PreCompact hook이 자동 저장의 실행 메커니즘</li>
+<li><strong>#36 Statusline HUD</strong> — LINE2 막대그래프가 #17의 모니터링 도구</li>
+<li><strong>#19 /resume 세션 재개</strong> — 비상용. 평상시 운용은 #17이 우선</li>
+<li><strong>#11 Hooks</strong> — PreCompact hook이 자동 저장의 실행 메커니즘</li>
 <li><strong>#31 5컴퓨터 30개 운용</strong> — 30개 인스턴스 정보 손실 방지의 기본기</li>
 <li><strong>#14 군대 소대 편제</strong> — 분대원 간 인계 노트 표준화</li>
 </ul>

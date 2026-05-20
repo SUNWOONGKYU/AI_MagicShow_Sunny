@@ -112,7 +112,7 @@ balanced = stratified_sample(filtered, by=["region", "education"], n=5000)
 
 또 하나, NeMoTron은 *합성*이라는 점을 잊지 않는다. 100% 신뢰하지 않고 별도 사실 검증(현무 BuzzLab 시뮬레이션 또는 pro-persona-debate)으로 *"이 합성 페르소나의 답변이 실제 그 직군 사람의 응답과 합치하는가"* 를 표본 검증한다. 100건 정도 표본 검증으로 합성 데이터의 신뢰 구간을 찍는다.
 
-> Vault 사례: `buzzlab-nemotron/wiki/2026_05_03_16.15_research_nemotron-personas-korea.md` 가 본인이 이 데이터셋을 처음 도입할 때 정리한 스터디 노트다. *"가상 한국인(record): 100만명 / 합성 페르소나(서술 텍스트): 700만개 — 1명당 7개 측면(professional·sports·arts·travel·culinary·family·persona)"* 라는 이중 단위 정의가 명시되어 있고, 26 필드 3계층 스키마(인구통계 12 / 라이프스타일 / 언어 스타일)와 CC BY 4.0 라이선스(상업 이용 허용) 가 그대로 박혀 있다. 본문의 *"100만 건 = 한국 인구의 약 50명 중 1명꼴"* 은 이 스터디 노트의 분포 분석에서 나온 결론이며, district 252개 / province 17개 같은 시·군·구 단위 다양성이 본인 챗봇 학습에 결정적이었던 이유도 동일 노트의 KOSIS·대법원·건보공단 출처 검증 단락에서 직접 도출됐다.
+> Vault 사례: `buzzlab-nemotron/wiki/2026_05_03_16.15_research_nemotron-personas-korea.md` 가 본인이 이 데이터셋을 처음 도입할 때 정리한 스터디 노트다. *"가상 한국인(record): 100만명 / 합성 페르소나(서술 텍스트): 700만개 — 1명당 7개 측면(professional·sports·arts·travel·culinary·family·persona)"* 라는 이중 단위 정의가 명시되어 있고, 25 필드 3계층 스키마(인구통계 12 / 페르소나 7 / 속성 6)와 CC BY 4.0 라이선스(상업 이용 허용) 가 그대로 박혀 있다. 본문의 *"100만 건 = 한국 인구의 약 50명 중 1명꼴"* 은 이 스터디 노트의 분포 분석에서 나온 결론이며, district 252개 / province 17개 같은 시·군·구 단위 다양성이 본인 챗봇 학습에 결정적이었던 이유도 동일 노트의 KOSIS·대법원·건보공단 출처 검증 단락에서 직접 도출됐다.
 
 ## 관련 항목
 

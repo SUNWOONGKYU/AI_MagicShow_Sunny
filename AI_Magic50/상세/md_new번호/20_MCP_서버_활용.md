@@ -19,7 +19,7 @@ sources:
 
 ## 한 줄 정의
 
-**MCP(Model Context Protocol) 서버를 Claude Code에 붙여서 외부 시스템(Notion·Slack·DB·파일시스템·OS·디자인툴)과 데이터·시스템 레벨에서 직접 통신**시키는 운용 방식. CLI 협업(#22 — Claude Code↔Codex/Gemini/Grok)이 *명령어 레벨*이라면 MCP는 *데이터 레벨*. 둘이 짝이다.
+**MCP(Model Context Protocol) 서버를 Claude Code에 붙여서 외부 시스템(Notion·Slack·DB·파일시스템·OS·디자인툴)과 데이터·시스템 레벨에서 직접 통신**시키는 운용 방식. CLI 협업(#15 — Claude Code↔Codex/Gemini/Grok)이 *명령어 레벨*이라면 MCP는 *데이터 레벨*. 둘이 짝이다.
 
 ## 왜 이 노하우가 중요한가
 
@@ -27,7 +27,7 @@ Claude Code는 강력하지만 **그 자체로는 "터미널 안에 갇힌 텍�
 
 MCP는 이 가운데 단계를 *프로토콜로 자동화*한다. Anthropic이 2024년 11월 공개한 오픈 프로토콜로, **"AI는 클라이언트(Host) — 외부 시스템은 서버 — 사이의 통신 규약 하나로 통일"** 한다는 단순한 발상이다. 한 번 서버를 띄워두면 Claude Code는 그 서버가 노출한 *Tools / Resources / Prompts* 를 자기 도구처럼 호출한다. 사용자 개입 없이.
 
-본인이 #22 멀티 CLI를 *수평적 협업*이라 부른다면 MCP는 *수직적 통합*이다. 같은 작업을 여러 AI에 분산하는 게 #22, 같은 AI를 여러 시스템에 연결하는 게 MCP. 30개 동시 운용에서 둘 다 빠지면 효율이 절반 이하로 떨어진다. 본인이 1인-AI로 ax-on.net·CPC·V50·SAL Grid를 동시에 굴릴 수 있는 기반의 절반은 MCP다.
+본인이 #15 멀티 CLI를 *수평적 협업*이라 부른다면 MCP는 *수직적 통합*이다. 같은 작업을 여러 AI에 분산하는 게 #15, 같은 AI를 여러 시스템에 연결하는 게 MCP. 30개 동시 운용에서 둘 다 빠지면 효율이 절반 이하로 떨어진다. 본인이 1인-AI로 ax-on.net·CPC·V50·SAL Grid를 동시에 굴릴 수 있는 기반의 절반은 MCP다.
 
 또 하나 중요한 건 **MCP가 "내가 만들 수도 있다"** 는 점이다. 기성 서버만 갖다 붙이는 게 아니라 본인 도메인(예: SAL Grid 진행률 조회·CPC 에이전트 통신)을 위해 *전용 서버*를 직접 짜서 붙일 수 있다. 본인은 이미 cpc-channel을 자작 MCP 서버로 운용 중이다.
 
@@ -35,7 +35,7 @@ MCP는 이 가운데 단계를 *프로토콜로 자동화*한다. Anthropic이 2
 
 ### CLI 협업 vs MCP 협업 (가장 중요한 구분)
 
-| 축 | CLI 협업 (#22) | MCP 협업 (#44) |
+| 축 | CLI 협업 (#15) | MCP 협업 (#20) |
 |---|---|---|
 | 통신 단위 | 셸 명령어·표준 출력 | JSON-RPC 메시지 |
 | 상대방 | 다른 CLI(Gemini/Codex/Grok) | 외부 시스템(Notion/Slack/DB/OS) |
@@ -53,7 +53,7 @@ MCP는 이 가운데 단계를 *프로토콜로 자동화*한다. Anthropic이 2
 | **Resources** | AI가 읽을 수 있는 파일·URI | `notion://page/<id>`, `db://query/<sql>` |
 | **Prompts** | 미리 등록된 프롬프트 템플릿 | `/review-pr`, `/triage-issue` |
 
-가장 많이 쓰는 건 Tools. Resources는 RAG 형태의 컨텍스트 주입에 좋고, Prompts는 #21 Slash Commands의 *공유 가능한* 형태다.
+가장 많이 쓰는 건 Tools. Resources는 RAG 형태의 컨텍스트 주입에 좋고, Prompts는 #18 Slash Commands의 *공유 가능한* 형태다.
 
 ### 본인 settings.json 등록 현황 (3개 서버 — 발췌. 그대로 복사 시 최상위 `{ ... }` 로 감싸야 유효 JSON)
 
@@ -83,7 +83,7 @@ MCP는 이 가운데 단계를 *프로토콜로 자동화*한다. Anthropic이 2
 | **stitch** | `npx -y @_davideast/stitch-mcp` | 디자인 시스템·UI 시안 생성 프록시 | 기성 공개 서버 |
 | **cpc-channel** | `bun run dist/cpc-channel.js` | CPC(Claude Platoons Control) 에이전트 간 통신 채널 | **본인 전용 자작 서버** |
 
-cpc-channel은 본인 누적 운용 중 *"다수 인스턴스가 서로 메시지를 주고받아야 하는데 표준 도구가 없다"* 는 한계를 뚫기 위해 직접 작성한 MCP 서버다. CPC 소대장-분대원 사이의 명령·보고·승인 메시지를 주고받는다. 기성 서버로 안 풀리면 직접 만든다 — 이게 본인이 `#44`을 강조하는 이유다.
+cpc-channel은 본인 누적 운용 중 *"다수 인스턴스가 서로 메시지를 주고받아야 하는데 표준 도구가 없다"* 는 한계를 뚫기 위해 직접 작성한 MCP 서버다. CPC 소대장-분대원 사이의 명령·보고·승인 메시지를 주고받는다. 기성 서버로 안 풀리면 직접 만든다 — 이게 본인이 `#20`을 강조하는 이유다.
 
 ### 등록 우선순위 — 기성 → 검증 → 자작
 
@@ -98,7 +98,7 @@ cpc-channel은 본인 누적 운용 중 *"다수 인스턴스가 서로 메시�
 MCP 서버는 보통 *로컬에서 띄우지만* 그 도구가 호출되면 외부 API·파일시스템·DB로 나간다. **AI가 잘못된 인자로 호출 시 데이터 유출·삭제·과금 폭탄 모두 가능**. 검증 원칙을 그대로 적용하면 — *"MCP 도구가 Tool 200 OK라 해서 작동했다고 단정 금지"*. 호출 결과를 사용자가 한 번 더 확인할 수 있는 채널(로그 파일·Slack 알림)을 의무화한다.
 
 본인 운용 규칙:
-- 쓰기·삭제 도구는 #26 Hooks의 PreToolUse로 한 번 더 게이트
+- 쓰기·삭제 도구는 #11 Hooks의 PreToolUse로 한 번 더 게이트
 - DB 도구는 read-only DSN 별도 발급
 - 결제·메일 발송 류 MCP는 *명시 승인 모드*에서만 활성화
 - 자작 서버는 **테스트 모드 환경변수**(`CPC_MCP_DRYRUN=1`)를 기본값으로
@@ -107,7 +107,7 @@ MCP 서버는 보통 *로컬에서 띄우지만* 그 도구가 호출되면 외�
 
 ### 1단계 — 기성 서버 후보 발굴
 
-`#11 외부 스킬·에이전트 발굴`과 동일 절차. 후보 출처:
+`#38 외부 스킬·에이전트 발굴`과 동일 절차. 후보 출처:
 - Anthropic 공식 — `modelcontextprotocol.io/servers`
 - 커뮤니티 — `github.com/modelcontextprotocol/servers`, `mcp.so` 인덱스
 - 본인 사용 도구 SDK가 MCP 서버 자체 제공하는지 (Notion·Linear·GitHub 등)
@@ -159,11 +159,11 @@ Claude Code 안에서 위 명령으로 활성 서버·노출 도구·연결 상�
 
 | 작업 | 사용 패턴 |
 |---|---|
-| 슬라이드 작업 | stitch로 시안 생성 → Pillow(#24)로 마감 |
-| Windows 자동화 | windows-mcp로 창·키보드 → 결과 스크린샷 #49으로 자율 검증 |
-| CPC 30개 운용 | cpc-channel로 소대장↔분대원 메시지 → MBO(#8) Stage Gate |
+| 슬라이드 작업 | stitch로 시안 생성 → Pillow(#22)로 마감 |
+| Windows 자동화 | windows-mcp로 창·키보드 → 결과 스크린샷 #29으로 자율 검증 |
+| CPC 30개 운용 | cpc-channel로 소대장↔분대원 메시지 → MBO(#12) Stage Gate |
 
-→ MCP 서버 한 개씩은 약하다. **#24·#22·#39·#49과 결합될 때** 본인 운용의 진가가 나온다.
+→ MCP 서버 한 개씩은 약하다. **#22·#15·#16·#29과 결합될 때** 본인 운용의 진가가 나온다.
 
 ## 본인 운용 패턴
 
@@ -175,10 +175,10 @@ Claude Code 안에서 위 명령으로 활성 서버·노출 도구·연결 상�
 
 ## 관련 항목
 
-- **#22 오케스트레이터 + 멀티 CLI** — 수평 협업, MCP의 짝
-- **#39 Subagent vs Agent Teams** — 30개 인스턴스 통신 시 cpc-channel과 결합
-- **#26 Hooks** — MCP 쓰기 도구 PreToolUse 가드
-- **#21 Slash Commands** — MCP의 Prompts 자원과 보완 관계
-- **#11 외부 스킬·에이전트 발굴** — 기성 서버 발굴 공통 절차
-- **#24 SVG·스킬 자산화** — stitch MCP 결과의 후처리 자산화
-- **#49 스크린샷 자율 검증** — windows-mcp 결과의 사용자 여정 검증
+- **#15 오케스트레이터 + 멀티 CLI** — 수평 협업, MCP의 짝
+- **#16 Subagent vs Agent Teams** — 30개 인스턴스 통신 시 cpc-channel과 결합
+- **#11 Hooks** — MCP 쓰기 도구 PreToolUse 가드
+- **#18 Slash Commands** — MCP의 Prompts 자원과 보완 관계
+- **#38 외부 스킬·에이전트 발굴** — 기성 서버 발굴 공통 절차
+- **#22 SVG·스킬 자산화** — stitch MCP 결과의 후처리 자산화
+- **#29 스크린샷 자율 검증** — windows-mcp 결과의 사용자 여정 검증

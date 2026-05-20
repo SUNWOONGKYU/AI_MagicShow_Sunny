@@ -44,7 +44,7 @@ SAL Grid는 이 셋을 **식별자 구조 하나로 동시에 해결**한다. ID
 
 ### SAL ID 형식
 
-`S{Stage}{Area}{Level}{Variant?}` — 정규식 `^S(\d{1,2})([A-Z]{2})(\d{1,2})([a-z])?$`
+`S{Stage}{Area}{Level}{Variant?}` — 정규식 `^S(\d{1,2})([A-Z]{1,2})(\d{1,2})([a-z])?$`
 
 예: `S2BI3a` = Stage 2, Area BI(Backend Implementation), Level 3, Variant a.
 
@@ -146,15 +146,15 @@ Claude Code 글로벌 CLAUDE.md(`~/.claude/CLAUDE.md`)의 "SAL Grid 자동 감�
 
 ## 관련 항목
 
-- **#7 SAL 3차원 좌표** — 본 방법론의 개념적 기초 (이 항목과 짝)
-- **#8 MBO** — Stage마다 §6.0에서 짝을 이루는 합의 골격
+- **#3 SAL 3차원 좌표** — 본 방법론의 개념적 기초 (이 항목과 짝)
+- **#12 MBO** — Stage마다 §6.0에서 짝을 이루는 합의 골격
 - **#14 군대 소대 편제** — Task Agent / Verification Agent 분리 운용의 인적 골격
-- **#39 Subagent vs Agent Teams** — Task Agent와 Verification Agent의 메커니즘 분기
+- **#16 Subagent vs Agent Teams** — Task Agent와 Verification Agent의 메커니즘 분기
 - **#31 5컴퓨터 30개 운용** — SAL Grid가 다중 인스턴스를 한 골격으로 묶음
 - **#28 4종 품질관리** — Stage Gate의 검증 리포트가 review-evaluate / pro-persona-debate / 5times-debug-loop / SAL-DA로 채워짐
-- **#32 CLAUDE.md** — SAL Grid 자동 감지 규칙이 본인 글로벌 CLAUDE.md에 헌법으로 박힘
-- **#24 패턴 → SVG → 스킬 자산화** — SAL Grid Viewer가 3D 시각화로 패턴을 그대로 보여줌
-- **#48 Plan Mode** — S0(Project SAL Grid 생성) 전체가 Plan Mode 관점의 거대화
-- **#49 스크린샷 자율 검증 루프** — UI 클릭 검증(§7.1, V3.8)의 Playwright 기반 구현
+- **#33 CLAUDE.md** — SAL Grid 자동 감지 규칙이 본인 글로벌 CLAUDE.md에 헌법으로 박힘
+- **#22 패턴 → SVG → 스킬 자산화** — SAL Grid Viewer가 3D 시각화로 패턴을 그대로 보여줌
+- **#4 Plan Mode** — S0(Project SAL Grid 생성) 전체가 Plan Mode 관점의 거대화
+- **#29 스크린샷 자율 검증 루프** — UI 클릭 검증(§7.1, V3.8)의 Playwright 기반 구현
 - **주작-sal-da** — SAL Grid의 **역방향 적용** (기존 코드를 SAL Grid로 역분해하는 감사 방법론)
 - **claude-code-guide.html (ax-on.net)** — SAL Grid 방법론의 첫 자기 적용 사례 (학습 콘텐츠 18셀 그리드)

@@ -78,7 +78,7 @@ html,body{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','
 <p>이 골격이 있으면 30개 인스턴스의 병렬 작업이 1개 인스턴스의 순차 작업처럼 결정론적으로 흐른다. 이 골격이 없으면 5개만 돌려도 무너진다 — 본인이 5번 무너뜨려본 뒤 만든 방법론이다.</p>
 <h2>핵심 개념</h2>
 <h3>SAL ID 형식</h3>
-<p><code>S{Stage}{Area}{Level}{Variant?}</code> — 정규식 <code>^S(\d{1,2})([A-Z]{2})(\d{1,2})([a-z])?$</code></p>
+<p><code>S{Stage}{Area}{Level}{Variant?}</code> — 정규식 <code>^S(\d{1,2})([A-Z]{1,2})(\d{1,2})([a-z])?$</code></p>
 <p>예: <code>S2BI3a</code> = Stage 2, Area BI(Backend Implementation), Level 3, Variant a.</p>
 <p>ID 하나에 <strong>4가지 정보</strong>가 인코딩된다.
 - <strong>Stage</strong> — 절차적 순서. S1 완료 후 S2, 건너뛸 수 없다.
@@ -179,16 +179,16 @@ html,body{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','
 </blockquote>
 <h2>관련 항목</h2>
 <ul>
-<li><strong>#7 SAL 3차원 좌표</strong> — 본 방법론의 개념적 기초 (이 항목과 짝)</li>
-<li><strong>#8 MBO</strong> — Stage마다 §6.0에서 짝을 이루는 합의 골격</li>
+<li><strong>#3 SAL 3차원 좌표</strong> — 본 방법론의 개념적 기초 (이 항목과 짝)</li>
+<li><strong>#12 MBO</strong> — Stage마다 §6.0에서 짝을 이루는 합의 골격</li>
 <li><strong>#14 군대 소대 편제</strong> — Task Agent / Verification Agent 분리 운용의 인적 골격</li>
-<li><strong>#39 Subagent vs Agent Teams</strong> — Task Agent와 Verification Agent의 메커니즘 분기</li>
+<li><strong>#16 Subagent vs Agent Teams</strong> — Task Agent와 Verification Agent의 메커니즘 분기</li>
 <li><strong>#31 5컴퓨터 30개 운용</strong> — SAL Grid가 다중 인스턴스를 한 골격으로 묶음</li>
 <li><strong>#28 4종 품질관리</strong> — Stage Gate의 검증 리포트가 review-evaluate / pro-persona-debate / 5times-debug-loop / SAL-DA로 채워짐</li>
-<li><strong>#32 CLAUDE.md</strong> — SAL Grid 자동 감지 규칙이 본인 글로벌 CLAUDE.md에 헌법으로 박힘</li>
-<li><strong>#24 패턴 → SVG → 스킬 자산화</strong> — SAL Grid Viewer가 3D 시각화로 패턴을 그대로 보여줌</li>
-<li><strong>#48 Plan Mode</strong> — S0(Project SAL Grid 생성) 전체가 Plan Mode 관점의 거대화</li>
-<li><strong>#49 스크린샷 자율 검증 루프</strong> — UI 클릭 검증(§7.1, V3.8)의 Playwright 기반 구현</li>
+<li><strong>#33 CLAUDE.md</strong> — SAL Grid 자동 감지 규칙이 본인 글로벌 CLAUDE.md에 헌법으로 박힘</li>
+<li><strong>#22 패턴 → SVG → 스킬 자산화</strong> — SAL Grid Viewer가 3D 시각화로 패턴을 그대로 보여줌</li>
+<li><strong>#4 Plan Mode</strong> — S0(Project SAL Grid 생성) 전체가 Plan Mode 관점의 거대화</li>
+<li><strong>#29 스크린샷 자율 검증 루프</strong> — UI 클릭 검증(§7.1, V3.8)의 Playwright 기반 구현</li>
 <li><strong>주작-sal-da</strong> — SAL Grid의 <strong>역방향 적용</strong> (기존 코드를 SAL Grid로 역분해하는 감사 방법론)</li>
 <li><strong>claude-code-guide.html (ax-on.net)</strong> — SAL Grid 방법론의 첫 자기 적용 사례 (학습 콘텐츠 18셀 그리드)</li>
 </ul>
