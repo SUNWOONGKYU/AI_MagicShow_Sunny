@@ -43,7 +43,7 @@ claude -p "..." --model haiku
 | 30개 운용 중 분대원 다수 | **Sonnet/Haiku 혼합** | 비용 통제 |
 | 소대장 1개 | **Opus** | 의사결정 품질 |
 
-가격 차이는 입력 토큰 기준으로 Opus가 Haiku의 약 15~20배다. 30개 중 1개만 Opus로 두고 나머지를 Sonnet/Haiku로 배분하면 같은 throughput에서 비용이 큰 폭으로 떨어진다.
+가격 차이는 입력 토큰 기준으로 Opus 4.7이 Haiku 4.5의 **5배**다($5 vs $1 / MTok, Anthropic 공식 가격표 기준). 30개 중 1개만 Opus로 두고 나머지를 Sonnet/Haiku로 배분하면 같은 throughput에서 비용이 큰 폭으로 떨어진다.
 
 ## 실전 사용법
 

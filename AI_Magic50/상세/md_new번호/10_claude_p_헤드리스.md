@@ -27,7 +27,7 @@ sources:
 ## 핵심 개념
 
 ```bash
-claude -p "프롬프트" [--model sonnet] [--allowed-tools Read,Write,Bash]
+claude -p "프롬프트" [--model sonnet] [--allowedTools Read,Write,Bash]
 echo "프롬프트" | claude -p
 claude -p --output-format json "..."   # JSON 출력
 claude -p --resume <session-id> "..."  # 세션 이어가기
@@ -36,7 +36,7 @@ claude -p --resume <session-id> "..."  # 세션 이어가기
 핵심 옵션:
 - `-p` / `--print` : 헤드리스 호출, 응답만 stdout
 - `--model` : Opus/Sonnet/Haiku 명시 (#34와 짝)
-- `--allowed-tools` : 자동화에서 허용할 도구만 화이트리스트
+- `--allowedTools` : 자동화에서 허용할 도구만 화이트리스트
 - `--dangerously-skip-permissions` : #35와 결합해 무인 실행
 - `--output-format json` : 후속 파이프라인에서 파싱하기 쉬움
 

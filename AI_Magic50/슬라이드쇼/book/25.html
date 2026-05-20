@@ -124,7 +124,7 @@ html,body{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','
 </blockquote>
 <p>이 금지 조항이 핵심이다. 30개 동시 프로젝트에서 GUI 클릭으로 만든 테이블은 추적 불가능하다. 마이그레이션 파일로만 관리해야 다른 환경에 재현된다. 본인은 빈 폴더에서 시작해 30분 안에 5~7개 테이블 + RLS 정책 + 인덱스를 마이그레이션 파일로 떨어뜨린다.</p>
 <h4>결합 2 — <code>api-builder-기본</code> (60~90분)</h4>
-<p><code>api-builder-기본</code>은 RESTful 표준 7동사를 자동 적용한다.</p>
+<p><code>api-builder-기본</code>은 RESTful 표준 7라우트 패턴을 자동 적용한다.</p>
 <pre><code>GET    /api/items        # 목록
 GET    /api/items/[id]   # 단일
 POST   /api/items        # 생성

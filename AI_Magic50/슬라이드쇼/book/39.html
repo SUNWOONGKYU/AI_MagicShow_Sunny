@@ -69,7 +69,7 @@ html,body{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','
 
 <section class="content">
 <h2>한 줄 정의</h2>
-<p>공유할 결과물을 <strong>단일 HTML</strong>로 모아 <code>vercel --prod --yes --name &lt;영문&gt;</code> 한 줄로 띄워, <strong>URL 아는 사람만</strong> 접근 가능하고 검색엔진에는 노출되지 않게 즉시 배포하는 본인 표준 공유 채널.</p>
+<p>공유할 결과물을 <strong>단일 HTML</strong>로 모아 <code>vercel --prod --yes --name &lt;영문&gt;</code> 한 줄로 띄워, <strong>URL 아는 사람만</strong> 접근 가능하고 검색엔진에는 노출되지 않게 즉시 배포하는 본인 표준 공유 채널. (주의: <code>--name</code> 옵션은 Vercel CLI에서 공식 deprecated — 신규 프로젝트는 <code>vercel link</code>로 프로젝트명을 미리 연결하는 방식이 권장되나, 기존 배포 흐름에서는 여전히 동작함)</p>
 <h2>왜 이 노하우가 중요한가</h2>
 <p>GitHub Pages는 공개 인덱싱이 기본이다. 본인 자료(특허 초안·고객 제안서·강의 슬라이드)는 <em>"받을 사람만 본다"</em> 가 원칙인데 검색에 뜨면 곤란하다. Vercel은 noindex 메타 + Disallow robots.txt 조합으로 검색엔진 차단이 깔끔하고, <strong>한글 폴더명 프로젝트도 <code>--name</code> 영문 지정으로 우회</strong>된다. 4,000시간 운용 중 <em>"보내야 할 자료가 즉시 URL 한 줄로 나간다"</em> 가 가장 잦은 요구였고, <strong>#25 미니 풀스택 5시간</strong>·<strong>#24 챗봇</strong>·<strong>#26 유튜브 자동화</strong>의 결과물도 결국 이 채널로 외부에 닿는다. <em>"curl 200 ≠ 동작함"</em> 헌법에 따라 배포 후엔 반드시 브라우저로 주요 버튼·링크를 클릭 검증한다.</p>
 <h2>핵심 개념</h2>

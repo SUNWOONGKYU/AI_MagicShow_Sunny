@@ -87,7 +87,7 @@ claude -p &quot;...&quot; --model haiku
 | 요약, 변환, 분류, 파일 일괄 처리 | <strong>Haiku</strong> | 속도·비용 |
 | 30개 운용 중 분대원 다수 | <strong>Sonnet/Haiku 혼합</strong> | 비용 통제 |
 | 소대장 1개 | <strong>Opus</strong> | 의사결정 품질 |</p>
-<p>가격 차이는 입력 토큰 기준으로 Opus가 Haiku의 약 15~20배다. 30개 중 1개만 Opus로 두고 나머지를 Sonnet/Haiku로 배분하면 같은 throughput에서 비용이 큰 폭으로 떨어진다.</p>
+<p>가격 차이는 입력 토큰 기준으로 Opus 4.7이 Haiku 4.5의 <strong>5배</strong>다($5 vs $1 / MTok, Anthropic 공식 가격표 기준). 30개 중 1개만 Opus로 두고 나머지를 Sonnet/Haiku로 배분하면 같은 throughput에서 비용이 큰 폭으로 떨어진다.</p>
 <h2>실전 사용법</h2>
 <p><strong>1단계</strong> — 작업 시작 전 자문: "이 작업은 깊이 사고가 필요한가, 빠른 변환이 필요한가?" 답이 모델을 정한다.</p>
 <p><strong>2단계</strong> — 30개 인스턴스 시작 시 모델 의식적 분배. 본인 표준은 Opus 1, Sonnet 6~8, Haiku 나머지.</p>

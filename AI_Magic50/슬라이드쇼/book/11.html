@@ -69,14 +69,14 @@ html,body{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','
 
 <section class="content">
 <h2>한 줄 정의</h2>
-<p><strong>Claude Code의 6개 훅 이벤트(UserPromptSubmit · PreToolUse · PostToolUse · Stop · SessionStart · PreCompact) 에 본인 노드 스크립트를 박아 넣어, 사용자 명령 없이 자동으로 발동되는 가드레일·로그·자산화 파이프라인을 깔아두는 것</strong>. 품질관리·보안 가드·세션 백업 같은 <em>"매번 해야 하지만 사람이 깜빡하는 일"</em> 을 하네스(harness)가 강제 실행하게 만드는 자동화의 골격.</p>
+<p><strong>Claude Code의 훅 이벤트(공식 문서 기준 29개 이상, 본인이 활용하는 핵심 6개: UserPromptSubmit · PreToolUse · PostToolUse · Stop · SessionStart · PreCompact) 에 본인 노드 스크립트를 박아 넣어, 사용자 명령 없이 자동으로 발동되는 가드레일·로그·자산화 파이프라인을 깔아두는 것</strong>. 품질관리·보안 가드·세션 백업 같은 <em>"매번 해야 하지만 사람이 깜빡하는 일"</em> 을 하네스(harness)가 강제 실행하게 만드는 자동화의 골격.</p>
 <h2>왜 이 노하우가 중요한가</h2>
 <p>본인 글로벌 CLAUDE.md에 박혀 있는 핵심 원칙 — <em>"자동 행동(automated behaviors)은 LLM이 아닌 하네스(harness)가 settings.json hooks로 실행한다"</em>. 이유는 단순하다. AI에게 <em>"이거 매번 해줘"</em> 라고 부탁하면 절반은 까먹고, 컨텍스트가 차면 잊고, 다른 슬롯으로 넘어가면 사라진다. <strong>AI 자체에 의존하지 않는 강제 실행 레이어</strong>가 필요하다.</p>
 <p>훅이 없으면 어떻게 되는가. (1) 30개 동시 운용에서 어느 슬롯이 무슨 작업을 했는지 추적 불가, (2) 위험 명령(파일 삭제·force push) 이 어느 슬롯에서 들어올지 모름, (3) 컨텍스트 압축 직전 작업 내용이 사라짐. 본인이 수많은 슬롯을 굴리면서 깨달은 사실은 <em>"AI에게 자기 검증을 시키면 안 된다"</em> — 별도 레이어가 필요하다. 훅이 그 레이어다.</p>
 <p>또 하나 — <strong>#35(<code>--dangerously-skip-permissions</code>)와의 짝</strong>. 모든 승인 단계를 건너뛰는 위험한 옵션을 쓰는 이유는 30개 운용에서 매번 승인 클릭이 불가능하기 때문이다. 그 위험은 <strong>PreToolUse 훅이 위험 명령을 사전 차단</strong>해서 상쇄한다. 훅 없이 <code>--dangerously-skip-permissions</code> 만 쓰면 자살, 훅과 함께 쓰면 사실상 안전. 이 짝이 #31(30개 운용)·#14(소대 편제)·#10(헤드리스) 같은 대규모 자동화의 진짜 인프라다.</p>
 <p>훅의 본질은 <strong>"품질관리·보안·기록을 사용자 명령 없이 강제 발동시키는 도구"</strong>. #28 4종 품질관리 스킬을 자동화로 격상시키는 도구이기도 하다.</p>
 <h2>핵심 개념</h2>
-<h3>6개 훅 이벤트와 발동 시점</h3>
+<h3>본인이 활용하는 6개 핵심 훅 이벤트와 발동 시점</h3>
 <table>
 <thead>
 <tr>

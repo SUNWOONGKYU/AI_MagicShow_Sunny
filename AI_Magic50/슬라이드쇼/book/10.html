@@ -74,7 +74,7 @@ html,body{font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','
 <p>대화형 모드는 본인이 키보드 앞에 있어야 한다. #26 1일 1영상을 진짜로 굴리려면 새벽 3시 본인이 자고 있어도 영상이 만들어져야 한다. <code>claude -p</code>는 그것을 가능하게 한다.</p>
 <p>한 번 호출에 한 번 응답하고 종료한다. stdin/stdout이 표준 셸 파이프라인에 그대로 꽂힌다. 즉 Claude Code가 <strong><code>grep</code>·<code>jq</code>·<code>curl</code>과 같은 레벨의 CLI 도구</strong>가 된다. #31(30개 운용), #14(소대 편제), #26(1일 1영상)이 진짜 자동화로 격상되는 분기점이다.</p>
 <h2>핵심 개념</h2>
-<pre><code class="language-bash">claude -p &quot;프롬프트&quot; [--model sonnet] [--allowed-tools Read,Write,Bash]
+<pre><code class="language-bash">claude -p &quot;프롬프트&quot; [--model sonnet] [--allowedTools Read,Write,Bash]
 echo &quot;프롬프트&quot; | claude -p
 claude -p --output-format json &quot;...&quot;   # JSON 출력
 claude -p --resume &lt;session-id&gt; &quot;...&quot;  # 세션 이어가기
@@ -82,7 +82,7 @@ claude -p --resume &lt;session-id&gt; &quot;...&quot;  # 세션 이어가기
 <p>핵심 옵션:
 - <code>-p</code> / <code>--print</code> : 헤드리스 호출, 응답만 stdout
 - <code>--model</code> : Opus/Sonnet/Haiku 명시 (#34와 짝)
-- <code>--allowed-tools</code> : 자동화에서 허용할 도구만 화이트리스트
+- <code>--allowedTools</code> : 자동화에서 허용할 도구만 화이트리스트
 - <code>--dangerously-skip-permissions</code> : #35와 결합해 무인 실행
 - <code>--output-format json</code> : 후속 파이프라인에서 파싱하기 쉬움</p>
 <p>대화형 vs 헤드리스:
